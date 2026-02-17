@@ -1,11 +1,13 @@
 /**
  * Layout Component
- * Main layout wrapper with Header and Footer
+ * Global wrapper — Navbar + Footer around all pages
  * @component
  */
 
-import Header from './Header';
+import Navbar from '../layout/NavBar';
 import Footer from './Footer';
+import { MY_COLORS } from '../../constants/color';
+import { FONTS } from '../../assets/fonts/fonts';
 
 /**
  * @typedef {Object} LayoutProps
@@ -13,24 +15,35 @@ import Footer from './Footer';
  */
 
 /**
- * Main Layout Component
- * Wraps all pages with Header and Footer
- * @param {LayoutProps} props - Component props
+ * Layout Component
+ * @param {LayoutProps} props
  * @returns {JSX.Element}
  */
 const Layout = ({ children }) => {
   return (
-    <div className="flex flex-col min-h-screen bg-white">
-      {/* Header */}
-      <Header />
+    <div style={{
+      display:       'flex',
+      flexDirection: 'column',
+      minHeight:     '100vh',
+      background:    MY_COLORS.dark,
+      color:         MY_COLORS.textPrimary,
+      fontFamily:    FONTS.secondary,
+    }}>
 
-      {/* Main Content */}
-      <main className="flex-grow">
+      {/* ── Global Navbar ── */}
+      <Navbar />
+
+      {/* ── Page content pushed below fixed navbar ── */}
+      <main style={{
+        flexGrow:   1,
+        paddingTop: '72px', // matches navbar height
+      }}>
         {children}
       </main>
 
-      {/* Footer */}
+      {/* ── Global Footer ── */}
       <Footer />
+
     </div>
   );
 };

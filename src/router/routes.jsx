@@ -21,7 +21,7 @@ const ServiceDetail = lazy(() => import('../pages/ServiceDetail'));
 const Portfolio = lazy(() => import('../pages/Portfolio'));
 const ProjectDetail = lazy(() => import('../pages/ProjectDetail'));
 const Contact = lazy(() => import('../pages/Contact'));
-const FAQ = lazy(() => import('../pages/FAQ'));
+const FAQ = lazy(() => import('../pages/FAQPage'));
 const PrivacyPolicy = lazy(() => import('../pages/PrivacyPolicy'));
 const Terms = lazy(() => import('../pages/Terms'));
 const NotFound = lazy(() => import('../pages/NotFound'));
