@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <main className="pt-24">
+      <main style={{margin:0, padding:0, width:"100%"}}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />

@@ -4,13 +4,12 @@
  * @component
  */
 
-import HeroSection from '../components/sections/HeroSection';
 
 const HomePage = () => {
   return (
     <div>
       {/* ── 1. Hero ── */}
-      <HeroSection />
+     
 
       {/* ── 2. Services Overview ── coming next */}
       {/* ── 3. Why AlphaWaves ──── coming next */}
