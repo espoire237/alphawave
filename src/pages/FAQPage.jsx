@@ -54,7 +54,7 @@ const FAQPage = () => {
         eyebrow="FAQ"
         headline="Got Questions? We Have Answers."
         subheadline="Everything you need to know about working with AlphaWaves — from pricing and process to delivery and support."
-        breadcrumb={true}
+        breadcrumb={false}
       >
         <SearchBar
           value={searchQuery}

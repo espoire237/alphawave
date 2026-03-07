@@ -393,7 +393,7 @@ const HeroSection = ({
           data-animate
           style={{
             fontFamily:    FONTS.primary,
-            fontSize:      "clamp(80px, 4.5vw, 54px)",
+            fontSize:      "clamp(28px, 4.5vw, 54px)",
             fontWeight:    FONTS.weight.extrabold,
             letterSpacing: FONTS.tracking.tight,
             lineHeight:    FONTS.leading.tight,
