@@ -18,6 +18,10 @@ import heroContact   from "./images/pic4.jpg";
 // // ── Logo ──────────────────────────────────
 // import logo from "./logo/alphawaves-logo.png";
 
+//---------icon-------------
+
+import map from "./icons/africa_map.png";
+
 
 
 
@@ -38,4 +42,8 @@ export const IMAGES = {
 //     project2,
 //   },
 //   logo,
+};
+
+export const ICONS = {
+  map,
 };

@@ -1,10 +1,6 @@
 /**
  * OurCommitment — About Page Section 9
- * AlphaWaves brand system
- *
- * Usage:
- * import OurCommitment from "../components/sections/OurCommitment";
- * <OurCommitment />
+ * AlphaWaves brand system (Responsive Tailwind Version)
  */
 
 import { useEffect, useRef } from "react";
@@ -23,7 +19,7 @@ const useScrollReveal = (threshold = 0.1) => {
           const items = el.querySelectorAll("[data-reveal]");
           items.forEach((item, i) => {
             setTimeout(() => {
-              item.style.opacity   = "1";
+              item.style.opacity = "1";
               item.style.transform = "translateY(0)";
             }, i * 130);
           });
@@ -38,408 +34,180 @@ const useScrollReveal = (threshold = 0.1) => {
   return ref;
 };
 
-// ── Commitment points ─────────────────────────────────────────
 const COMMITMENTS = [
   {
-    id:      1,
+    id: 1,
     heading: "We Exceed Standards",
-    text:    "Every project proves that African technology companies don't just match international standards — we exceed them where it matters most: delivering solutions that actually work in African market conditions.",
+    text: "Every project proves that African technology companies don't just match international standards — we exceed them where it matters most: real-world market conditions.",
   },
   {
-    id:      2,
+    id: 2,
     heading: "We Measure Your Success",
-    text:    "We measure success by your business outcomes: revenue growth, cost reduction, market expansion, operational efficiency. When our clients dominate their markets, we've delivered the value that matters.",
+    text: "We measure success by your business outcomes: revenue growth, cost reduction, and market expansion. When you dominate, we've delivered.",
   },
   {
-    id:      3,
+    id: 3,
     heading: "We Grow With You",
-    text:    "From Cameroonian startups to pan-African enterprises to international corporations entering African markets — AlphaWaves is your strategic technology partner for digital transformation that drives measurable competitive advantage.",
+    text: "From Cameroonian startups to pan-African enterprises — AlphaWaves is your strategic partner for digital transformation that drives advantage.",
   },
 ];
 
-// ══════════════════════════════════════════════════════════════
-// OurCommitment Component
-// ══════════════════════════════════════════════════════════════
 const OurCommitment = () => {
   const sectionRef = useScrollReveal(0.1);
 
   return (
     <section
       ref={sectionRef}
-      style={{
-        position:   "relative",
-        background: MY_COLORS.bgSection,
-        padding:    "100px 0",
-        overflow:   "hidden",
-      }}
+      className="relative py-16 md:py-24 lg:py-32 overflow-hidden px-4 sm:px-6 lg:px-8"
+      style={{ background: MY_COLORS.bgSection }}
     >
+      {/* ── Background Elements ── */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1000px] aspect-square rounded-full pointer-events-none opacity-20"
+        style={{ background: `radial-gradient(circle, ${MY_COLORS.orange} 0%, transparent 70%)` }}
+      />
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.01]"
+        style={{
+          backgroundImage: `linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)`,
+          backgroundSize: "60px 60px",
+        }}
+      />
 
-      {/* ── Large background glow center ── */}
-      <div style={{
-        position:      "absolute",
-        top:           "50%",
-        left:          "50%",
-        transform:     "translate(-50%, -50%)",
-        width:         1000,
-        height:        600,
-        borderRadius:  "50%",
-        background:    `radial-gradient(ellipse, rgba(232,117,10,0.07) 0%, transparent 65%)`,
-        pointerEvents: "none",
-      }} />
-
-      {/* ── Grid texture ── */}
-      <div style={{
-        position:        "absolute",
-        inset:           0,
-        backgroundImage: `
-          linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px)
-        `,
-        backgroundSize:  "60px 60px",
-        pointerEvents:   "none",
-      }} />
-
-      <div style={{
-        maxWidth: 1280,
-        margin:   "0 auto",
-        padding:  "0 40px",
-        position: "relative",
-      }}>
-
-        {/* ── Top eyebrow + main statement ── */}
-        <div style={{ textAlign: "center", marginBottom: 80 }}>
-
+      <div className="relative z-10 max-w-7xl mx-auto">
+        {/* ── Header ── */}
+        <div className="text-center mb-12 md:mb-20">
           <div
             data-reveal
-            style={{
-              display:        "inline-flex",
-              alignItems:     "center",
-              gap:            10,
-              marginBottom:   24,
-              opacity:        0,
-              transform:      "translateY(20px)",
-              transition:     "opacity 0.6s ease, transform 0.6s ease",
-            }}
+            className="inline-flex items-center gap-3 mb-6 opacity-0 translate-y-5 transition-all duration-700"
           >
-            <span style={{
-              width: 28, height: 2,
-              borderRadius: 9999,
-              background:   MY_COLORS.gradientOrange,
-            }} />
-            <span style={{
-              fontFamily:    FONTS.primary,
-              fontSize:      FONTS.size.xs,
-              fontWeight:    FONTS.weight.bold,
-              letterSpacing: FONTS.tracking.widest,
-              textTransform: "uppercase",
-              color:         MY_COLORS.orange,
-            }}>
+            <span className="w-6 md:w-8 h-0.5 rounded-full" style={{ background: MY_COLORS.gradientOrange }} />
+            <span
+              className="uppercase font-bold tracking-[0.2em] text-[10px] md:text-xs"
+              style={{ fontFamily: FONTS.primary, color: MY_COLORS.orange }}
+            >
               Our Promise
             </span>
-            <span style={{
-              width: 28, height: 2,
-              borderRadius: 9999,
-              background:   MY_COLORS.gradientOrange,
-            }} />
+            <span className="w-6 md:w-8 h-0.5 rounded-full" style={{ background: MY_COLORS.gradientOrange }} />
           </div>
 
           <h2
             data-reveal
-            style={{
-              fontFamily:    FONTS.primary,
-              fontSize:      "clamp(32px, 4vw, 56px)",
-              fontWeight:    FONTS.weight.extrabold,
-              letterSpacing: FONTS.tracking.tight,
-              lineHeight:    FONTS.leading.snug,
-              color:         MY_COLORS.textPrimary,
-              margin:        "0 0 24px 0",
-              opacity:       0,
-              transform:     "translateY(20px)",
-              transition:    "opacity 0.6s ease, transform 0.6s ease",
-              maxWidth:      760,
-              marginLeft:    "auto",
-              marginRight:   "auto",
-            }}
+            className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 opacity-0 translate-y-5 transition-all duration-700 delay-100 mx-auto max-w-3xl"
+            style={{ fontFamily: FONTS.primary, color: MY_COLORS.textPrimary }}
           >
-            Our Commitment{" "}
-            <span style={{
-              color:      MY_COLORS.orange,
-              textShadow: `0 0 40px ${MY_COLORS.orangeGlow}`,
-            }}>
-              To You
-            </span>
+            Our Commitment <span style={{ color: MY_COLORS.orange, textShadow: `0 0 40px ${MY_COLORS.orangeGlow}` }}>To You</span>
           </h2>
 
-          {/* Main statement */}
           <p
             data-reveal
-            style={{
-              fontFamily:    FONTS.primary,
-              fontSize:      "clamp(18px, 2.2vw, 24px)",
-              fontWeight:    FONTS.weight.semibold,
-              letterSpacing: FONTS.tracking.tight,
-              lineHeight:    FONTS.leading.normal,
-              color:         MY_COLORS.textSecondary,
-              margin:        "0 auto",
-              maxWidth:      680,
-              opacity:       0,
-              transform:     "translateY(20px)",
-              transition:    "opacity 0.6s ease, transform 0.6s ease",
-            }}
+            className="text-lg md:text-2xl font-semibold opacity-0 translate-y-5 transition-all duration-700 delay-200 max-w-2xl mx-auto"
+            style={{ fontFamily: FONTS.primary, color: MY_COLORS.textSecondary }}
           >
-            We're building Africa's digital future —{" "}
-            <span style={{ color: MY_COLORS.orange }}>
-              one transformative solution at a time.
-            </span>
+            We're building Africa's digital future — <span style={{ color: MY_COLORS.orange }}>one transformative solution at a time.</span>
           </p>
-
         </div>
 
-        {/* ── 3 commitment cards ── */}
-        <div style={{
-          display:             "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          gap:                 24,
-          marginBottom:        72,
-        }}>
+        {/* ── Commitment Cards Grid ── */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-16 md:mb-24">
           {COMMITMENTS.map((item, index) => (
             <div
               key={item.id}
               data-reveal
+              className="group relative p-8 lg:p-10 rounded-2xl border transition-all duration-500 hover:-translate-y-2 opacity-0 translate-y-8"
               style={{
-                position:     "relative",
-                padding:      "40px 36px",
-                borderRadius: 16,
-                background:   MY_COLORS.bgSurface,
-                border:       `1px solid ${MY_COLORS.border}`,
-                overflow:     "hidden",
-                opacity:      0,
-                transform:    "translateY(30px)",
-                transition:   "opacity 0.6s ease, transform 0.6s ease, border-color 0.3s ease, box-shadow 0.3s ease",
+                background: MY_COLORS.bgSurface,
+                borderColor: MY_COLORS.border,
               }}
-              onMouseEnter={e => {
+              onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = MY_COLORS.orangeBorder;
-                e.currentTarget.style.boxShadow   = `0 20px 48px rgba(0,0,0,0.3)`;
-                e.currentTarget.style.transform   = "translateY(-4px)";
+                e.currentTarget.style.boxShadow = `0 20px 48px rgba(0,0,0,0.3)`;
               }}
-              onMouseLeave={e => {
+              onMouseLeave={(e) => {
                 e.currentTarget.style.borderColor = MY_COLORS.border;
-                e.currentTarget.style.boxShadow   = "none";
-                e.currentTarget.style.transform   = "translateY(0)";
+                e.currentTarget.style.boxShadow = "none";
               }}
             >
+              {/* Card Accent Line */}
+              <div
+                className="absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl transition-opacity duration-300"
+                style={{
+                  background: MY_COLORS.gradientOrange,
+                  opacity: index === 0 ? 1 : 0.3,
+                }}
+              />
 
-              {/* Top accent */}
-              <div style={{
-                position:     "absolute",
-                top: 0, left: 0, right: 0,
-                height:       2,
-                background:   MY_COLORS.gradientOrange,
-                opacity:      index === 0 ? 1 : 0.3,
-                borderRadius: "16px 16px 0 0",
-                transition:   "opacity 0.3s ease",
-              }} />
-
-              {/* Large number */}
-              <div style={{
-                fontFamily:  FONTS.primary,
-                fontSize:    72,
-                fontWeight:  FONTS.weight.extrabold,
-                color:       MY_COLORS.orangeDim,
-                lineHeight:  1,
-                marginBottom: 20,
-                userSelect:  "none",
-              }}>
+              <div
+                className="text-5xl lg:text-7xl font-black mb-6 select-none opacity-40 transition-colors group-hover:text-orange-500"
+                style={{ fontFamily: FONTS.primary, color: MY_COLORS.orangeDim }}
+              >
                 {String(item.id).padStart(2, "0")}
               </div>
 
-              {/* Heading */}
-              <h3 style={{
-                fontFamily:    FONTS.primary,
-                fontSize:      FONTS.size.lg,
-                fontWeight:    FONTS.weight.bold,
-                letterSpacing: FONTS.tracking.tight,
-                color:         MY_COLORS.textPrimary,
-                margin:        "0 0 8px 0",
-                lineHeight:    FONTS.leading.snug,
-              }}>
+              <h3
+                className="text-xl font-bold mb-4"
+                style={{ fontFamily: FONTS.primary, color: MY_COLORS.textPrimary }}
+              >
                 {item.heading}
               </h3>
 
-              {/* Divider */}
-              <div style={{
-                width:        36,
-                height:       2,
-                borderRadius: 9999,
-                background:   MY_COLORS.gradientOrange,
-                marginBottom: 16,
-              }} />
+              <div className="w-10 h-0.5 mb-6 rounded-full" style={{ background: MY_COLORS.gradientOrange }} />
 
-              {/* Text */}
-              <p style={{
-                fontFamily:  FONTS.secondary,
-                fontSize:    FONTS.size.base,
-                fontWeight:  FONTS.weight.regular,
-                lineHeight:  FONTS.leading.relaxed,
-                color:       MY_COLORS.textSecondary,
-                margin:      0,
-              }}>
+              <p
+                className="text-base leading-relaxed"
+                style={{ fontFamily: FONTS.secondary, color: MY_COLORS.textSecondary }}
+              >
                 {item.text}
               </p>
-
             </div>
           ))}
         </div>
 
-        {/* ── Bottom full-width statement banner ── */}
+        {/* ── Bottom Banner ── */}
         <div
           data-reveal
+          className="relative px-6 py-12 md:p-16 lg:p-20 rounded-[2rem] border overflow-hidden text-center opacity-0 translate-y-8 transition-all duration-1000"
           style={{
-            position:     "relative",
-            padding:      "64px 80px",
-            borderRadius: 24,
-            background:   `linear-gradient(105deg,
-              rgba(232,117,10,0.12) 0%,
-              rgba(232,117,10,0.06) 40%,
-              rgba(10,10,10,0.8) 100%
-            )`,
-            border:       `1px solid ${MY_COLORS.orangeBorder}`,
-            overflow:     "hidden",
-            textAlign:    "center",
-            opacity:      0,
-            transform:    "translateY(30px)",
-            transition:   "opacity 0.6s ease, transform 0.6s ease",
+            background: `linear-gradient(105deg, rgba(232,117,10,0.1) 0%, rgba(10,10,10,0.9) 100%)`,
+            borderColor: MY_COLORS.orangeBorder,
           }}
         >
+          {/* Pulsing Orb Animation */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-96 md:h-96 rounded-full blur-[80px] pointer-events-none animate-pulse-slow" 
+               style={{ background: `radial-gradient(circle, ${MY_COLORS.orangeGlow} 0%, transparent 70%)` }} />
 
-          {/* Animated glow orb */}
-          <div style={{
-            position:      "absolute",
-            top:           "50%",
-            left:          "50%",
-            transform:     "translate(-50%, -50%)",
-            width:         400,
-            height:        400,
-            borderRadius:  "50%",
-            background:    `radial-gradient(circle, rgba(232,117,10,0.15) 0%, transparent 65%)`,
-            pointerEvents: "none",
-            animation:     "commitmentPulse 4s ease-in-out infinite",
-          }} />
-
-          {/* Decorative corner lines */}
-          {[
-            { top: 20, left: 20, rotate: 0 },
-            { top: 20, right: 20, rotate: 90 },
-            { bottom: 20, left: 20, rotate: 270 },
-            { bottom: 20, right: 20, rotate: 180 },
-          ].map((pos, i) => (
-            <div
-              key={i}
-              style={{
-                position: "absolute",
-                width:    24,
-                height:   24,
-                ...pos,
-                borderTop:  `2px solid ${MY_COLORS.orangeBorder}`,
-                borderLeft: `2px solid ${MY_COLORS.orangeBorder}`,
-                transform:  `rotate(${pos.rotate}deg)`,
-              }}
-            />
-          ))}
-
-          <div style={{ position: "relative" }}>
-
-            {/* Quote marks */}
-            <div style={{
-              fontFamily:  FONTS.primary,
-              fontSize:    80,
-              fontWeight:  FONTS.weight.extrabold,
-              color:       MY_COLORS.orangeDim,
-              lineHeight:  0.8,
-              marginBottom: 16,
-              userSelect:  "none",
-            }}>
+          {/* Quote */}
+          <div className="relative z-10">
+            <div className="text-6xl md:text-8xl font-black mb-4 select-none" style={{ fontFamily: FONTS.primary, color: MY_COLORS.orangeDim }}>
               "
             </div>
-
-            <p style={{
-              fontFamily:    FONTS.primary,
-              fontSize:      "clamp(18px, 2.5vw, 28px)",
-              fontWeight:    FONTS.weight.bold,
-              letterSpacing: FONTS.tracking.tight,
-              lineHeight:    FONTS.leading.normal,
-              color:         MY_COLORS.textPrimary,
-              margin:        "0 auto 24px",
-              maxWidth:      760,
-            }}>
-              When our clients dominate their markets through superior technology execution,{" "}
-              <span style={{
-                color:      MY_COLORS.orange,
-                textShadow: `0 0 20px ${MY_COLORS.orangeGlow}`,
-              }}>
-                we've delivered the value that matters.
-              </span>
+            <p
+              className="text-xl md:text-3xl font-bold max-w-3xl mx-auto mb-8 leading-snug"
+              style={{ fontFamily: FONTS.primary, color: MY_COLORS.textPrimary }}
+            >
+              When our clients dominate their markets through superior technology execution, <span style={{ color: MY_COLORS.orange }}>we've delivered the value that matters.</span>
             </p>
-
-            <div style={{
-              display:        "flex",
-              alignItems:     "center",
-              justifyContent: "center",
-              gap:            12,
-            }}>
-              {/* Orange dot */}
-              <div style={{
-                width:        8,
-                height:       8,
-                borderRadius: "50%",
-                background:   MY_COLORS.orange,
-                boxShadow:    `0 0 12px ${MY_COLORS.orangeGlow}`,
-              }} />
-              <span style={{
-                fontFamily:    FONTS.secondary,
-                fontSize:      FONTS.size.sm,
-                fontWeight:    FONTS.weight.medium,
-                letterSpacing: FONTS.tracking.wider,
-                textTransform: "uppercase",
-                color:         MY_COLORS.textMuted,
-              }}>
+            
+            <div className="flex items-center justify-center gap-4">
+              <span className="w-2 h-2 rounded-full shadow-[0_0_10px_orange]" style={{ background: MY_COLORS.orange }} />
+              <span className="uppercase text-[10px] md:text-xs font-medium tracking-[0.2em] opacity-60" style={{ fontFamily: FONTS.secondary, color: MY_COLORS.textPrimary }}>
                 AlphaWaves — Our Core Commitment
               </span>
-              <div style={{
-                width:        8,
-                height:       8,
-                borderRadius: "50%",
-                background:   MY_COLORS.orange,
-                boxShadow:    `0 0 12px ${MY_COLORS.orangeGlow}`,
-              }} />
+              <span className="w-2 h-2 rounded-full shadow-[0_0_10px_orange]" style={{ background: MY_COLORS.orange }} />
             </div>
-
           </div>
-
         </div>
-
       </div>
 
-      {/* ── Keyframes + Responsive ── */}
       <style>{`
-        @keyframes commitmentPulse {
-          0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1);    }
-          50%       { opacity: 1;   transform: translate(-50%, -50%) scale(1.15); }
+        @keyframes pulse-slow {
+          0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+          50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.6; }
         }
-        @media (max-width: 900px) {
-          .commitment-grid {
-            grid-template-columns: 1fr !important;
-          }
-          .commitment-banner {
-            padding: 40px 32px !important;
-          }
-        }
-        @media (max-width: 640px) {
-          .commitment-section { padding: 64px 0 !important; }
-          .commitment-banner  { padding: 32px 20px !important; }
+        .animate-pulse-slow {
+          animation: pulse-slow 6s ease-in-out infinite;
         }
       `}</style>
-
     </section>
   );
 };

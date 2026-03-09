@@ -1,562 +1,218 @@
 /**
  * TeamSection — About Page Section 5
- * AlphaWaves brand system
- *
- * Usage:
- * import TeamSection from "../components/sections/TeamSection";
- * <TeamSection />
+ * AlphaWaves brand system (Tailwind + React Version)
  */
-
 import { useEffect, useRef, useState } from "react";
 import { MY_COLORS } from "../../constants/colors.js";
 import { FONTS } from "../../assets/fonts/fonts.js";
 
-// ── Scroll reveal hook ────────────────────────────────────────
-const useScrollReveal = (threshold = 0.05) => {
+const useScrollReveal = (t = 0.05) => {
   const ref = useRef(null);
+  const visible = useRef(false);
+
+  const revealItems = () => {
+    const el = ref.current;
+    if (!el) return;
+    el.querySelectorAll("[data-reveal]").forEach((item, i) => {
+      setTimeout(() => {
+        item.style.opacity = "1";
+        item.style.transform = "translateY(0)";
+      }, i * 80);
+    });
+  };
+
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          const items = el.querySelectorAll("[data-reveal]");
-          items.forEach((item, i) => {
-            setTimeout(() => {
-              item.style.opacity   = "1";
-              item.style.transform = "translateY(0)";
-            }, i * 100);
-          });
-          observer.disconnect();
-        }
-      },
-      { threshold }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [threshold]);
-  return ref;
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) {
+        visible.current = true;
+        revealItems();
+        obs.disconnect();
+      }
+    }, { threshold: t });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [t]);
+
+  return { ref, revealItems };
 };
 
-// ── LinkedIn icon ─────────────────────────────────────────────
 const LinkedInIcon = () => (
   <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24">
     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
   </svg>
 );
 
-// ── Team categories ───────────────────────────────────────────
 const CATEGORIES = ["All", "Engineering", "AI & Data", "Digital Strategy"];
-
-// ── Team members data ─────────────────────────────────────────
-const TEAM_MEMBERS = [
-  {
-    id:         1,
-    name:       "Alex Nguema",
-    role:       "Lead Frontend Developer",
-    category:   "Engineering",
-    bio:        "Specializes in React, Vue.js, and progressive web applications. 5+ years building responsive, user-centric interfaces for African markets.",
-    expertise:  ["React", "Vue.js", "PWA", "TypeScript"],
-    initials:   "AN",
-    color:      "#E8750A",
-  },
-  {
-    id:         2,
-    name:       "Boris Kamga",
-    role:       "Lead Backend Developer",
-    category:   "Engineering",
-    bio:        "Expert in Node.js, Python, and microservices architecture. Focuses on scalable systems for high-traffic applications.",
-    expertise:  ["Node.js", "Python", "Microservices", "PostgreSQL"],
-    initials:   "BK",
-    color:      "#3B82F6",
-  },
-  {
-    id:         3,
-    name:       "Claude Mbarga",
-    role:       "DevOps Engineer",
-    category:   "Engineering",
-    bio:        "Cloud infrastructure specialist with expertise in AWS, Azure, and CI/CD pipelines. Ensures 99.9% uptime for mission-critical systems.",
-    expertise:  ["AWS", "Azure", "Docker", "CI/CD"],
-    initials:   "CM",
-    color:      "#10B981",
-  },
-  {
-    id:         4,
-    name:       "Diane Fopa",
-    role:       "Mobile Developer",
-    category:   "Engineering",
-    bio:        "Native iOS and Android development with focus on offline-first architecture and low-bandwidth optimization.",
-    expertise:  ["React Native", "iOS", "Android", "Flutter"],
-    initials:   "DF",
-    color:      "#8B5CF6",
-  },
-  {
-    id:         5,
-    name:       "Eric Tamba",
-    role:       "Data Analyst & AI Specialist",
-    category:   "AI & Data",
-    bio:        "Transforms business data into actionable insights using predictive analytics, machine learning, and AI-powered automation.",
-    expertise:  ["Python", "TensorFlow", "PowerBI", "ML"],
-    initials:   "ET",
-    color:      "#F59E0B",
-  },
-  {
-    id:         6,
-    name:       "Fatoumata Bah",
-    role:       "AI/ML Engineer",
-    category:   "AI & Data",
-    bio:        "Designs and deploys machine learning models for African business contexts, with deep expertise in NLP and computer vision.",
-    expertise:  ["PyTorch", "NLP", "Computer Vision", "MLOps"],
-    initials:   "FB",
-    color:      "#EC4899",
-  },
-  {
-    id:         7,
-    name:       "Georges Ateba",
-    role:       "SEO Specialist",
-    category:   "Digital Strategy",
-    bio:        "Drives organic growth through technical SEO, content strategy, and search visibility optimization across African and global markets.",
-    expertise:  ["Technical SEO", "Content Strategy", "Analytics", "SEM"],
-    initials:   "GA",
-    color:      "#14B8A6",
-  },
-  {
-    id:         8,
-    name:       "Hortense Nkomo",
-    role:       "UX/UI Designer",
-    category:   "Digital Strategy",
-    bio:        "Creates compelling brand identities and visual experiences that resonate with African audiences while competing globally.",
-    expertise:  ["Figma", "Brand Design", "UX Research", "Motion"],
-    initials:   "HN",
-    color:      "#F97316",
-  },
+const TEAM = [
+  { id: 1, name: "Alex Nguema", role: "Lead Frontend Developer", category: "Engineering", bio: "Specializes in React, Vue.js, and PWAs. 5+ years building user-centric interfaces for African markets.", expertise: ["React","Vue.js","PWA","TypeScript"], initials: "AN", color: "#E8750A" },
+  { id: 2, name: "Boris Kamga", role: "Lead Backend Developer", category: "Engineering", bio: "Expert in Node.js, Python, and microservices architecture. Focused on scalable high-traffic systems.", expertise: ["Node.js","Python","Microservices","PostgreSQL"], initials: "BK", color: "#3B82F6" },
+  { id: 3, name: "Claude Mbarga", role: "DevOps Engineer", category: "Engineering", bio: "Cloud infrastructure specialist — AWS, Azure, CI/CD. Ensures 99.9% uptime for mission-critical systems.", expertise: ["AWS","Azure","Docker","CI/CD"], initials: "CM", color: "#8B5CF6" },
+  { id: 4, name: "Diana Fotso", role: "AI/ML Engineer", category: "AI & Data", bio: "Machine learning researcher specializing in NLP and predictive analytics for African business contexts.", expertise: ["Python","TensorFlow","NLP","Analytics"], initials: "DF", color: "#10B981" },
+  { id: 5, name: "Eric Nkemelu", role: "Data Scientist", category: "AI & Data", bio: "Transforms complex datasets into actionable business intelligence. Expert in financial modeling.", expertise: ["R","Python","SQL","PowerBI"], initials: "EN", color: "#F59E0B" },
+  { id: 6, name: "Fatima Diallo", role: "SEO & Growth Strategist", category: "Digital Strategy", bio: "Drives organic growth for African businesses. Specializes in French and English market SEO.", expertise: ["SEO","Content Strategy","Analytics","SEM"], initials: "FD", color: "#EC4899" },
+  { id: 7, name: "George Tamba", role: "UI/UX Designer", category: "Digital Strategy", bio: "Creates intuitive digital experiences grounded in African user behavior research and accessibility.", expertise: ["Figma","User Research","Design Systems","UX"], initials: "GT", color: "#06B6D4" },
+  { id: 8, name: "Hortense Nkomo", role: "Mobile Developer", category: "Engineering", bio: "Native iOS and Android development with focus on offline-first architecture and low-bandwidth optimization.", expertise: ["React Native","iOS","Android","Flutter"], initials: "HN", color: "#F97316" },
 ];
 
-// ── Team Card ─────────────────────────────────────────────────
-const TeamCard = ({ member }) => {
-  const [hovered, setHovered] = useState(false);
-  const [flipped, setFlipped]  = useState(false);
+const MemberCard = ({ member }) => (
+  <div 
+    data-reveal 
+    className="group relative rounded-2xl border transition-all duration-300 opacity-0 translate-y-6 overflow-hidden hover:-translate-y-1"
+    style={{ 
+      background: MY_COLORS.bgSurface, 
+      borderColor: MY_COLORS.border,
+    }}
+  >
+    {/* Dynamic Glow Shadow on Hover */}
+    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+      style={{ boxShadow: `inset 0 0 20px ${member.color}10, 0 12px 40px ${member.color}15` }} />
 
-  return (
-    <div
-      data-reveal
-      style={{
-        opacity:    0,
-        transform:  "translateY(30px)",
-        transition: "opacity 0.6s ease, transform 0.6s ease",
-      }}
-    >
-      <div
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => { setHovered(false); setFlipped(false); }}
-        style={{
-          position:     "relative",
-          borderRadius: 16,
-          overflow:     "hidden",
-          background:   MY_COLORS.bgSurface,
-          border:       `1px solid ${hovered ? MY_COLORS.orangeBorder : MY_COLORS.border}`,
-          transition:   "all 0.3s ease",
-          transform:    hovered ? "translateY(-4px)" : "translateY(0)",
-          boxShadow:    hovered ? `0 20px 48px rgba(0,0,0,0.4)` : "none",
-          cursor:       "default",
-        }}
-      >
-
-        {/* ── Top accent bar ── */}
-        <div style={{
-          height:     3,
-          background: `linear-gradient(90deg, ${member.color}, transparent)`,
-          opacity:    hovered ? 1 : 0.4,
-          transition: "opacity 0.3s ease",
-        }} />
-
-        {/* ── Card body ── */}
-        <div style={{ padding: "28px 24px 24px" }}>
-
-          {/* Avatar + name row */}
-          <div style={{
-            display:     "flex",
-            alignItems:  "center",
-            gap:         16,
-            marginBottom: 20,
-          }}>
-
-            {/* Avatar */}
-            <div style={{
-              width:          56,
-              height:         56,
-              borderRadius:   "50%",
-              background:     `linear-gradient(135deg, ${member.color}22, ${member.color}44)`,
-              border:         `2px solid ${member.color}44`,
-              display:        "flex",
-              alignItems:     "center",
-              justifyContent: "center",
-              flexShrink:     0,
-              transition:     "all 0.3s ease",
-              boxShadow:      hovered ? `0 0 20px ${member.color}44` : "none",
-            }}>
-              <span style={{
-                fontFamily:  FONTS.primary,
-                fontSize:    FONTS.size.base,
-                fontWeight:  FONTS.weight.bold,
-                color:       member.color,
-                letterSpacing: "-0.02em",
-              }}>
-                {member.initials}
-              </span>
-            </div>
-
-            {/* Name + role */}
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={{
-                fontFamily:    FONTS.primary,
-                fontSize:      FONTS.size.base,
-                fontWeight:    FONTS.weight.bold,
-                letterSpacing: FONTS.tracking.tight,
-                color:         MY_COLORS.textPrimary,
-                marginBottom:  2,
-                whiteSpace:    "nowrap",
-                overflow:      "hidden",
-                textOverflow:  "ellipsis",
-              }}>
-                {member.name}
-              </div>
-              <div style={{
-                fontFamily:  FONTS.secondary,
-                fontSize:    FONTS.size.xs,
-                fontWeight:  FONTS.weight.medium,
-                color:       member.color,
-                whiteSpace:  "nowrap",
-                overflow:    "hidden",
-                textOverflow:"ellipsis",
-              }}>
-                {member.role}
-              </div>
-            </div>
-
-            {/* LinkedIn icon */}
-            <a
-              href="#"
-              style={{
-                width:          30,
-                height:         30,
-                borderRadius:   8,
-                background:     hovered ? MY_COLORS.orangeDim : "transparent",
-                border:         `1px solid ${hovered ? MY_COLORS.orangeBorder : MY_COLORS.border}`,
-                display:        "flex",
-                alignItems:     "center",
-                justifyContent: "center",
-                color:          hovered ? MY_COLORS.orange : MY_COLORS.textMuted,
-                textDecoration: "none",
-                transition:     "all 0.2s ease",
-                flexShrink:     0,
-              }}
-              onClick={e => e.preventDefault()}
-            >
-              <LinkedInIcon />
-            </a>
-          </div>
-
-          {/* Bio */}
-          <p style={{
-            fontFamily:   FONTS.secondary,
-            fontSize:     FONTS.size.sm,
-            fontWeight:   FONTS.weight.regular,
-            lineHeight:   FONTS.leading.relaxed,
-            color:        MY_COLORS.textSecondary,
-            margin:       "0 0 20px 0",
-          }}>
-            {member.bio}
-          </p>
-
-          {/* Expertise tags */}
-          <div style={{
-            display:   "flex",
-            flexWrap:  "wrap",
-            gap:       6,
-          }}>
-            {member.expertise.map((tag) => (
-              <span
-                key={tag}
-                style={{
-                  fontFamily:    FONTS.primary,
-                  fontSize:      10,
-                  fontWeight:    FONTS.weight.bold,
-                  letterSpacing: FONTS.tracking.wider,
-                  textTransform: "uppercase",
-                  color:         hovered ? member.color : MY_COLORS.textMuted,
-                  background:    hovered ? `${member.color}15` : MY_COLORS.bgSurfaceHover,
-                  border:        `1px solid ${hovered ? `${member.color}30` : MY_COLORS.border}`,
-                  padding:       "3px 8px",
-                  borderRadius:  4,
-                  transition:    "all 0.3s ease",
-                }}
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-
-        </div>
-      </div>
-    </div>
-  );
-};
-
-// ══════════════════════════════════════════════════════════════
-// TeamSection Component
-// ══════════════════════════════════════════════════════════════
-const TeamSection = () => {
-  const sectionRef               = useScrollReveal(0.05);
-  const [activeCategory, setActive] = useState("All");
-
-  const filtered = activeCategory === "All"
-    ? TEAM_MEMBERS
-    : TEAM_MEMBERS.filter(m => m.category === activeCategory);
-
-  return (
-    <section
-      ref={sectionRef}
-      style={{
-        position:   "relative",
-        background: MY_COLORS.bgBase,
-        padding:    "100px 0",
-        overflow:   "hidden",
-      }}
-    >
-
-      {/* ── Background glow top right ── */}
-      <div style={{
-        position:      "absolute",
-        top:           -200,
-        right:         -200,
-        width:         700,
-        height:        700,
-        borderRadius:  "50%",
-        background:    `radial-gradient(circle, ${MY_COLORS.orangeSection} 0%, transparent 65%)`,
-        pointerEvents: "none",
-      }} />
-
-      {/* ── Grid texture ── */}
-      <div style={{
-        position:        "absolute",
-        inset:           0,
-        backgroundImage: `
-          linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px)
-        `,
-        backgroundSize:  "60px 60px",
-        pointerEvents:   "none",
-      }} />
-
-      <div style={{
-        maxWidth: 1280,
-        margin:   "0 auto",
-        padding:  "0 40px",
-        position: "relative",
-      }}>
-
-        {/* ── Section header ── */}
-        <div style={{
-          display:        "flex",
-          alignItems:     "flex-end",
-          justifyContent: "space-between",
-          marginBottom:   48,
-          flexWrap:       "wrap",
-          gap:            24,
-        }}>
-
-          <div>
-            {/* Eyebrow */}
-            <div
-              data-reveal
-              style={{
-                display:      "inline-flex",
-                alignItems:   "center",
-                gap:          10,
-                marginBottom: 20,
-                opacity:      0,
-                transform:    "translateY(20px)",
-                transition:   "opacity 0.6s ease, transform 0.6s ease",
-              }}
-            >
-              <span style={{
-                width: 28, height: 2,
-                borderRadius: 9999,
-                background:   MY_COLORS.gradientOrange,
-              }} />
-              <span style={{
-                fontFamily:    FONTS.primary,
-                fontSize:      FONTS.size.xs,
-                fontWeight:    FONTS.weight.bold,
-                letterSpacing: FONTS.tracking.widest,
-                textTransform: "uppercase",
-                color:         MY_COLORS.orange,
-              }}>
-                The People Behind It
-              </span>
-            </div>
-
-            {/* Title */}
-            <h2
-              data-reveal
-              style={{
-                fontFamily:    FONTS.primary,
-                fontSize:      "clamp(32px, 3.5vw, 48px)",
-                fontWeight:    FONTS.weight.extrabold,
-                letterSpacing: FONTS.tracking.tight,
-                lineHeight:    FONTS.leading.snug,
-                color:         MY_COLORS.textPrimary,
-                margin:        "0 0 12px 0",
-                opacity:       0,
-                transform:     "translateY(20px)",
-                transition:    "opacity 0.6s ease, transform 0.6s ease",
-              }}
-            >
-              Meet The{" "}
-              <span style={{
-                color:      MY_COLORS.orange,
-                textShadow: `0 0 30px ${MY_COLORS.orangeGlow}`,
-              }}>
-                Team
-              </span>
-            </h2>
-
-            <p
-              data-reveal
-              style={{
-                fontFamily:  FONTS.secondary,
-                fontSize:    FONTS.size.base,
-                color:       MY_COLORS.textMuted,
-                margin:      0,
-                opacity:     0,
-                transform:   "translateY(20px)",
-                transition:  "opacity 0.6s ease, transform 0.6s ease",
-              }}
-            >
-              Expert specialists driving digital transformation across Africa.
-            </p>
-          </div>
-
-          {/* Category filter pills */}
-          <div
-            data-reveal
-            style={{
-              display:   "flex",
-              gap:       8,
-              flexWrap:  "wrap",
-              opacity:   0,
-              transform: "translateY(20px)",
-              transition:"opacity 0.6s ease, transform 0.6s ease",
-            }}
-          >
-            {CATEGORIES.map((cat) => {
-              const isActive = activeCategory === cat;
-              return (
-                <button
-                  key={cat}
-                  onClick={() => setActive(cat)}
-                  style={{
-                    fontFamily:    FONTS.primary,
-                    fontSize:      FONTS.size.xs,
-                    fontWeight:    FONTS.weight.semibold,
-                    letterSpacing: FONTS.tracking.wide,
-                    padding:       "8px 16px",
-                    borderRadius:  9999,
-                    border:        `1px solid ${isActive ? MY_COLORS.orange : MY_COLORS.border}`,
-                    background:    isActive ? MY_COLORS.orangeDim : "transparent",
-                    color:         isActive ? MY_COLORS.orange : MY_COLORS.textMuted,
-                    cursor:        "pointer",
-                    transition:    "all 0.2s ease",
-                  }}
-                  onMouseEnter={e => {
-                    if (!isActive) {
-                      e.currentTarget.style.borderColor = MY_COLORS.orangeBorder;
-                      e.currentTarget.style.color       = MY_COLORS.textSecondary;
-                    }
-                  }}
-                  onMouseLeave={e => {
-                    if (!isActive) {
-                      e.currentTarget.style.borderColor = MY_COLORS.border;
-                      e.currentTarget.style.color       = MY_COLORS.textMuted;
-                    }
-                  }}
-                >
-                  {cat}
-                </button>
-              );
-            })}
-          </div>
-
-        </div>
-
-        {/* ── Team grid ── */}
-        <div style={{
-          display:             "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gap:                 20,
-        }}>
-          {filtered.map((member) => (
-            <TeamCard key={member.id} member={member} />
-          ))}
-        </div>
-
-        {/* ── Bottom note ── */}
-        <div
-          data-reveal
-          style={{
-            textAlign:   "center",
-            marginTop:   48,
-            opacity:     0,
-            transform:   "translateY(20px)",
-            transition:  "opacity 0.6s ease, transform 0.6s ease",
+    <div className="p-6 pb-4 relative z-10">
+      <div className="flex items-center gap-3.5 mb-4">
+        <div 
+          className="w-12 h-12 rounded-full flex items-center justify-center font-extrabold text-base border-2 shrink-0 transition-transform duration-300 group-hover:scale-110"
+          style={{ 
+            background: `${member.color}15`, 
+            borderColor: `${member.color}30`, 
+            color: member.color,
+            fontFamily: FONTS.primary 
           }}
         >
-          <p style={{
-            fontFamily:  FONTS.secondary,
-            fontSize:    FONTS.size.sm,
-            color:       MY_COLORS.textMuted,
-            margin:      "0 0 16px 0",
-          }}>
-            Our team is growing — we're always looking for exceptional talent.
-          </p>
-          <a
-            href="/contact"
-            style={{
-              fontFamily:    FONTS.primary,
-              fontSize:      FONTS.size.sm,
-              fontWeight:    FONTS.weight.semibold,
-              letterSpacing: FONTS.tracking.wide,
-              color:         MY_COLORS.orange,
-              textDecoration:"none",
-              display:       "inline-flex",
-              alignItems:    "center",
-              gap:           6,
-              transition:    "gap 0.2s ease",
-            }}
-            onMouseEnter={e => e.currentTarget.style.gap = "10px"}
-            onMouseLeave={e => e.currentTarget.style.gap = "6px"}
-          >
-            Join Our Team →
-          </a>
+          {member.initials}
         </div>
-
+        <div>
+          <h4 className="font-bold text-sm md:text-base leading-tight" style={{ fontFamily: FONTS.primary, color: MY_COLORS.textPrimary }}>
+            {member.name}
+          </h4>
+          <p className="text-[10px] md:text-xs mt-0.5" style={{ fontFamily: FONTS.secondary, color: MY_COLORS.textMuted }}>
+            {member.role}
+          </p>
+        </div>
       </div>
 
-      {/* ── Responsive ── */}
-      <style>{`
-        @media (max-width: 1024px) {
-          .team-grid { grid-template-columns: repeat(3, 1fr) !important; }
-        }
-        @media (max-width: 768px) {
-          .team-grid { grid-template-columns: repeat(2, 1fr) !important; }
-          .team-header { flex-direction: column !important; align-items: flex-start !important; }
-        }
-        @media (max-width: 480px) {
-          .team-grid { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
+      <p className="text-[11px] md:text-xs leading-relaxed mb-4 line-clamp-3" style={{ fontFamily: FONTS.secondary, color: MY_COLORS.textMuted }}>
+        {member.bio}
+      </p>
 
+      <div className="flex flex-wrap gap-1.5">
+        {member.expertise.map((tag, i) => (
+          <span key={i} className="px-2 py-0.5 rounded-full border text-[9px] uppercase tracking-wider bg-white/5" 
+            style={{ borderColor: MY_COLORS.border, color: MY_COLORS.textMuted, fontFamily: FONTS.secondary }}>
+            {tag}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <div className="px-6 py-3 border-t flex justify-between items-center relative z-10" style={{ borderColor: MY_COLORS.border }}>
+      <span className="px-2.5 py-0.5 rounded-full border text-[9px] font-bold uppercase tracking-widest transition-colors duration-300 group-hover:bg-opacity-20"
+        style={{ 
+          background: `${member.color}10`, 
+          borderColor: `${member.color}25`, 
+          color: member.color,
+          fontFamily: FONTS.primary 
+        }}>
+        {member.category}
+      </span>
+      
+      <a href="#" className="flex items-center justify-center w-7 h-7 rounded-lg border transition-all duration-200 hover:scale-110 bg-white/5"
+        style={{ borderColor: MY_COLORS.border, color: MY_COLORS.textMuted }}
+        onMouseEnter={e => { 
+          e.currentTarget.style.color = MY_COLORS.orange; 
+          e.currentTarget.style.borderColor = MY_COLORS.orangeBorder;
+          e.currentTarget.style.backgroundColor = MY_COLORS.orangeDim;
+        }}
+        onMouseLeave={e => { 
+          e.currentTarget.style.color = MY_COLORS.textMuted; 
+          e.currentTarget.style.borderColor = MY_COLORS.border;
+          e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.05)";
+        }}>
+        <LinkedInIcon />
+      </a>
+    </div>
+  </div>
+);
+
+const TeamSection = () => {
+  const { ref: sectionRef, revealItems } = useScrollReveal(0.05);
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  const filtered = activeCategory === "All" ? TEAM : TEAM.filter(m => m.category === activeCategory);
+
+  const handleFilter = (cat) => {
+    setActiveCategory(cat);
+    // Short delay to reset opacity before re-revealing filtered results
+    const items = sectionRef.current.querySelectorAll("[data-reveal]");
+    items.forEach(el => { el.style.opacity = "0"; el.style.transform = "translateY(10px)"; });
+    setTimeout(revealItems, 50);
+  };
+
+  return (
+    <section 
+      ref={sectionRef} 
+      className="relative py-16 md:py-24 lg:py-32 px-6 lg:px-10 overflow-hidden"
+      style={{ background: MY_COLORS.bgBase }}
+    >
+      {/* Grid Pattern */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
+        style={{ 
+          backgroundImage: "linear-gradient(rgba(255,255,255,0.5) 1px,transparent 1px), linear-gradient(90deg,rgba(255,255,255,0.5) 1px,transparent 1px)", 
+          backgroundSize: "60px 60px" 
+        }} 
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto">
+        
+        {/* Header & Filter Controls */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-10 md:mb-16">
+          <div className="max-w-xl">
+            <div data-reveal className="inline-flex items-center gap-3 mb-4 opacity-0 translate-y-5 transition-all duration-700">
+              <span className="w-8 h-0.5 rounded-full" style={{ background: MY_COLORS.gradientOrange }} />
+              <span className="uppercase font-bold tracking-[0.2em] text-[10px] md:text-xs" style={{ fontFamily: FONTS.primary, color: MY_COLORS.orange }}>
+                The Team
+              </span>
+              <span className="w-8 h-0.5 rounded-full" style={{ background: MY_COLORS.gradientOrange }} />
+            </div>
+            <h2 data-reveal className="text-3xl md:text-5xl font-extrabold opacity-0 translate-y-5 transition-all duration-700 delay-100"
+              style={{ fontFamily: FONTS.primary, color: MY_COLORS.textPrimary }}>
+              Meet the <span style={{ color: MY_COLORS.orange }}>Builders</span>
+            </h2>
+          </div>
+
+          {/* Filter Pills - Horizontal Scroll on Mobile */}
+          <div data-reveal className="flex gap-2 overflow-x-auto pb-2 md:pb-0 no-scrollbar opacity-0 translate-y-5 transition-all duration-700 delay-200">
+            {CATEGORIES.map(cat => (
+              <button 
+                key={cat} 
+                onClick={() => handleFilter(cat)}
+                className={`px-4 py-2 rounded-full border text-[11px] font-bold whitespace-nowrap transition-all duration-300 hover:scale-105 active:scale-95`}
+                style={{ 
+                  fontFamily: FONTS.primary,
+                  backgroundColor: activeCategory === cat ? MY_COLORS.orangeDim : 'transparent',
+                  color: activeCategory === cat ? MY_COLORS.orange : MY_COLORS.textMuted,
+                  borderColor: activeCategory === cat ? MY_COLORS.orange : MY_COLORS.border
+                }}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Member Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+          {filtered.map(member => (
+            <MemberCard key={member.id} member={member} />
+          ))}
+        </div>
+      </div>
+
+      <style>{`
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      `}</style>
     </section>
   );
 };

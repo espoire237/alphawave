@@ -1,10 +1,6 @@
 /**
  * OurApproach — About Page Section 7
- * AlphaWaves brand system
- *
- * Usage:
- * import OurApproach from "../components/sections/OurApproach";
- * <OurApproach />
+ * AlphaWaves brand system (Responsive Tailwind Version)
  */
 
 import { useEffect, useRef, useState } from "react";
@@ -23,7 +19,7 @@ const useScrollReveal = (threshold = 0.08) => {
           const items = el.querySelectorAll("[data-reveal]");
           items.forEach((item, i) => {
             setTimeout(() => {
-              item.style.opacity   = "1";
+              item.style.opacity = "1";
               item.style.transform = "translateY(0) translateX(0)";
             }, i * 120);
           });
@@ -38,42 +34,40 @@ const useScrollReveal = (threshold = 0.08) => {
   return ref;
 };
 
-// ── Approach steps data ───────────────────────────────────────
 const STEPS = [
   {
-    id:       1,
-    title:    "We Start With Business, Not Technology",
-    content:  "Before writing a single line of code, we understand your business model, market position, competitive landscape, and growth objectives. Technology serves strategy, not the other way around.",
-    tag:      "Strategy First",
+    id: 1,
+    title: "We Start With Business, Not Technology",
+    content: "Before writing a single line of code, we understand your business model and market position. Technology serves strategy, not the other way around.",
+    tag: "Strategy First",
   },
   {
-    id:       2,
-    title:    "We Build For African Realities",
-    content:  "Every solution is architected for African infrastructure conditions: intermittent connectivity, mobile-first users, multiple payment providers, varying device capabilities, and bandwidth constraints.",
-    tag:      "Africa-Ready",
+    id: 2,
+    title: "We Build For African Realities",
+    content: "Architected for local infrastructure: intermittent connectivity, mobile-first users, and multiple payment providers.",
+    tag: "Africa-Ready",
   },
   {
-    id:       3,
-    title:    "We Deliver Complete Solutions",
-    content:  "No coordination headaches. Strategy, design, development, AI integration, deployment, and growth optimization — all under one accountable team with seamless execution.",
-    tag:      "End-to-End",
+    id: 3,
+    title: "We Deliver Complete Solutions",
+    content: "Strategy, design, development, and AI integration. All under one accountable team with seamless execution.",
+    tag: "End-to-End",
   },
   {
-    id:       4,
-    title:    "We Measure What Matters",
-    content:  "Success means business outcomes: increased revenue, reduced costs, operational efficiency, market expansion. We track ROI metrics, not just technical milestones.",
-    tag:      "ROI Focused",
+    id: 4,
+    title: "We Measure What Matters",
+    content: "Success means business outcomes: revenue growth and operational efficiency. We track ROI, not just code.",
+    tag: "ROI Focused",
   },
   {
-    id:       5,
-    title:    "We Scale With You",
-    content:  "Modular architecture means you start with core functionality and expand as your business grows. No massive upfront investment required — just scalable, compounding value.",
-    tag:      "Future-Proof",
+    id: 5,
+    title: "We Scale With You",
+    content: "Modular architecture means you expand as you grow. No massive upfront investment required — just compounding value.",
+    tag: "Future-Proof",
   },
 ];
 
-// ── Step item ─────────────────────────────────────────────────
-const StepItem = ({ step, index, isLast }) => {
+const StepItem = ({ step, isLast }) => {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -81,339 +75,169 @@ const StepItem = ({ step, index, isLast }) => {
       data-reveal
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      style={{
-        display:   "grid",
-        gridTemplateColumns: "80px 1fr",
-        gap:       32,
-        opacity:   0,
-        transform: "translateX(-24px)",
-        transition:"opacity 0.6s ease, transform 0.6s ease",
-        cursor:    "default",
-      }}
+      className="group relative flex gap-6 md:gap-10 opacity-0 -translate-x-6 transition-all duration-700 ease-out cursor-default"
     >
-
-      {/* ── Left — number + connector line ── */}
-      <div style={{
-        display:        "flex",
-        flexDirection:  "column",
-        alignItems:     "center",
-        gap:            0,
-      }}>
-
-        {/* Number circle */}
-        <div style={{
-          width:          56,
-          height:         56,
-          borderRadius:   "50%",
-          background:     hovered
-            ? MY_COLORS.gradientOrange
-            : MY_COLORS.bgSurface,
-          border:         `2px solid ${hovered ? MY_COLORS.orange : MY_COLORS.border}`,
-          display:        "flex",
-          alignItems:     "center",
-          justifyContent: "center",
-          flexShrink:     0,
-          transition:     "all 0.3s ease",
-          boxShadow:      hovered ? `0 0 24px ${MY_COLORS.orangeGlow}` : "none",
-          zIndex:         1,
-        }}>
-          <span style={{
-            fontFamily:  FONTS.primary,
-            fontSize:    FONTS.size.base,
-            fontWeight:  FONTS.weight.extrabold,
-            color:       hovered ? "#fff" : MY_COLORS.orange,
-            transition:  "color 0.3s ease",
-          }}>
+      {/* ── Left Indicator ── */}
+      <div className="flex flex-col items-center shrink-0">
+        <div
+          className="w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center border-2 transition-all duration-300 z-10"
+          style={{
+            background: hovered ? MY_COLORS.gradientOrange : MY_COLORS.bgSurface,
+            borderColor: hovered ? MY_COLORS.orange : MY_COLORS.border,
+            boxShadow: hovered ? `0 0 20px ${MY_COLORS.orangeGlow}` : "none",
+          }}
+        >
+          <span
+            className="text-sm md:text-base font-black transition-colors duration-300"
+            style={{
+              fontFamily: FONTS.primary,
+              color: hovered ? "#fff" : MY_COLORS.orange,
+            }}
+          >
             {String(step.id).padStart(2, "0")}
           </span>
         </div>
 
-        {/* Connector line */}
         {!isLast && (
-          <div style={{
-            width:      2,
-            flex:       1,
-            minHeight:  40,
-            background: `linear-gradient(to bottom, ${MY_COLORS.orangeBorder}, transparent)`,
-            marginTop:  4,
-          }} />
+          <div
+            className="w-0.5 flex-1 mt-2 mb-2 transition-colors duration-300"
+            style={{
+              background: `linear-gradient(to bottom, ${hovered ? MY_COLORS.orange : MY_COLORS.border}, transparent)`,
+            }}
+          />
         )}
-
       </div>
 
-      {/* ── Right — content ── */}
-      <div style={{ paddingBottom: isLast ? 0 : 48 }}>
-
-        {/* Tag pill */}
-        <div style={{
-          display:        "inline-flex",
-          alignItems:     "center",
-          padding:        "4px 12px",
-          borderRadius:   9999,
-          background:     hovered ? MY_COLORS.orangeDim : MY_COLORS.bgSurface,
-          border:         `1px solid ${hovered ? MY_COLORS.orangeBorder : MY_COLORS.border}`,
-          marginBottom:   14,
-          transition:     "all 0.3s ease",
-        }}>
-          <span style={{
-            fontFamily:    FONTS.primary,
-            fontSize:      FONTS.size.xs,
-            fontWeight:    FONTS.weight.bold,
-            letterSpacing: FONTS.tracking.wider,
-            textTransform: "uppercase",
-            color:         hovered ? MY_COLORS.orange : MY_COLORS.textMuted,
-            transition:    "color 0.3s ease",
-          }}>
+      {/* ── Right Content ── */}
+      <div className={`${isLast ? "pb-0" : "pb-12 md:pb-20"} flex-1`}>
+        <div
+          className="inline-flex px-3 py-1 rounded-full border mb-4 transition-all duration-300"
+          style={{
+            background: hovered ? MY_COLORS.orangeDim : "transparent",
+            borderColor: hovered ? MY_COLORS.orangeBorder : MY_COLORS.border,
+          }}
+        >
+          <span
+            className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest"
+            style={{
+              fontFamily: FONTS.primary,
+              color: hovered ? MY_COLORS.orange : MY_COLORS.textMuted,
+            }}
+          >
             {step.tag}
           </span>
         </div>
 
-        {/* Title */}
-        <h3 style={{
-          fontFamily:    FONTS.primary,
-          fontSize:      "clamp(18px, 2vw, 22px)",
-          fontWeight:    FONTS.weight.bold,
-          letterSpacing: FONTS.tracking.tight,
-          color:         hovered ? MY_COLORS.orange : MY_COLORS.textPrimary,
-          margin:        "0 0 12px 0",
-          lineHeight:    FONTS.leading.snug,
-          transition:    "color 0.3s ease",
-        }}>
+        <h3
+          className="text-lg md:text-2xl font-bold mb-3 transition-colors duration-300"
+          style={{
+            fontFamily: FONTS.primary,
+            color: hovered ? MY_COLORS.orange : MY_COLORS.textPrimary,
+          }}
+        >
           {step.title}
         </h3>
 
-        {/* Content */}
-        <p style={{
-          fontFamily:  FONTS.secondary,
-          fontSize:    FONTS.size.base,
-          fontWeight:  FONTS.weight.regular,
-          lineHeight:  FONTS.leading.relaxed,
-          color:       MY_COLORS.textSecondary,
-          margin:      0,
-          maxWidth:    560,
-        }}>
+        <p
+          className="text-sm md:text-base leading-relaxed max-w-lg transition-colors duration-300"
+          style={{
+            fontFamily: FONTS.secondary,
+            color: hovered ? MY_COLORS.textPrimary : MY_COLORS.textSecondary,
+          }}
+        >
           {step.content}
         </p>
-
       </div>
-
     </div>
   );
 };
 
-// ══════════════════════════════════════════════════════════════
-// OurApproach Component
-// ══════════════════════════════════════════════════════════════
 const OurApproach = () => {
   const sectionRef = useScrollReveal(0.08);
 
   return (
     <section
       ref={sectionRef}
-      style={{
-        position:   "relative",
-        background: MY_COLORS.bgBase,
-        padding:    "100px 0",
-        overflow:   "hidden",
-      }}
+      className="relative py-16 md:py-24 lg:py-32 overflow-hidden"
+      style={{ background: MY_COLORS.bgBase }}
     >
+      {/* ── Background Elements ── */}
+      <div
+        className="absolute top-0 right-0 w-[300px] h-[300px] md:w-[600px] md:h-[600px] rounded-full blur-[120px] pointer-events-none opacity-20"
+        style={{ background: `radial-gradient(circle, ${MY_COLORS.orange} 0%, transparent 70%)` }}
+      />
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.02]"
+        style={{
+          backgroundImage: `linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)`,
+          backgroundSize: "50px 50px",
+        }}
+      />
 
-      {/* ── Background glow ── */}
-      <div style={{
-        position:      "absolute",
-        top:           -100,
-        right:         -200,
-        width:         700,
-        height:        700,
-        borderRadius:  "50%",
-        background:    `radial-gradient(circle, ${MY_COLORS.orangeSection} 0%, transparent 65%)`,
-        pointerEvents: "none",
-      }} />
-
-      {/* ── Grid texture ── */}
-      <div style={{
-        position:        "absolute",
-        inset:           0,
-        backgroundImage: `
-          linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px)
-        `,
-        backgroundSize:  "60px 60px",
-        pointerEvents:   "none",
-      }} />
-
-      <div style={{
-        maxWidth: 1280,
-        margin:   "0 auto",
-        padding:  "0 40px",
-        position: "relative",
-      }}>
-
-        {/* ── Two column layout ── */}
-        <div style={{
-          display:             "grid",
-          gridTemplateColumns: "1fr 1.4fr",
-          gap:                 100,
-          alignItems:          "start",
-        }}>
-
-          {/* ── LEFT — sticky header ── */}
-          <div style={{ position: "sticky", top: 120 }}>
-
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
+          
+          {/* ── LEFT: Sticky Header ── */}
+          <div className="lg:sticky lg:top-32 w-full lg:w-2/5">
             <div
               data-reveal
-              style={{
-                display:      "inline-flex",
-                alignItems:   "center",
-                gap:          10,
-                marginBottom: 20,
-                opacity:      0,
-                transform:    "translateY(20px)",
-                transition:   "opacity 0.6s ease, transform 0.6s ease",
-              }}
+              className="inline-flex items-center gap-3 mb-6 opacity-0 translate-y-5 transition-all duration-700"
             >
-              <span style={{
-                width: 28, height: 2,
-                borderRadius: 9999,
-                background:   MY_COLORS.gradientOrange,
-              }} />
-              <span style={{
-                fontFamily:    FONTS.primary,
-                fontSize:      FONTS.size.xs,
-                fontWeight:    FONTS.weight.bold,
-                letterSpacing: FONTS.tracking.widest,
-                textTransform: "uppercase",
-                color:         MY_COLORS.orange,
-              }}>
+              <span className="w-8 h-0.5 rounded-full" style={{ background: MY_COLORS.gradientOrange }} />
+              <span
+                className="uppercase font-bold tracking-[0.2em] text-[10px] md:text-xs"
+                style={{ fontFamily: FONTS.primary, color: MY_COLORS.orange }}
+              >
                 Our Process
               </span>
             </div>
 
             <h2
               data-reveal
-              style={{
-                fontFamily:    FONTS.primary,
-                fontSize:      "clamp(32px, 3.5vw, 48px)",
-                fontWeight:    FONTS.weight.extrabold,
-                letterSpacing: FONTS.tracking.tight,
-                lineHeight:    FONTS.leading.snug,
-                color:         MY_COLORS.textPrimary,
-                margin:        "0 0 20px 0",
-                opacity:       0,
-                transform:     "translateY(20px)",
-                transition:    "opacity 0.6s ease, transform 0.6s ease",
-              }}
+              className="text-3xl md:text-5xl font-extrabold leading-tight mb-6 opacity-0 translate-y-5 transition-all duration-700 delay-100"
+              style={{ fontFamily: FONTS.primary, color: MY_COLORS.textPrimary }}
             >
-              How We're{" "}
-              <span style={{
-                color:      MY_COLORS.orange,
-                textShadow: `0 0 30px ${MY_COLORS.orangeGlow}`,
-              }}>
-                Different
-              </span>
+              How We're <span style={{ color: MY_COLORS.orange }}>Different</span>
             </h2>
-
-            <div
-              data-reveal
-              style={{
-                width:        2,
-                height:       48,
-                background:   MY_COLORS.gradientOrange,
-                borderRadius: 9999,
-                marginBottom: 20,
-                opacity:      0,
-                transform:    "translateY(20px)",
-                transition:   "opacity 0.6s ease, transform 0.6s ease",
-              }}
-            />
 
             <p
               data-reveal
-              style={{
-                fontFamily:  FONTS.secondary,
-                fontSize:    FONTS.size.base,
-                lineHeight:  FONTS.leading.relaxed,
-                color:       MY_COLORS.textMuted,
-                margin:      "0 0 40px 0",
-                opacity:     0,
-                transform:   "translateY(20px)",
-                transition:  "opacity 0.6s ease, transform 0.6s ease",
-              }}
+              className="text-base md:text-lg mb-8 opacity-0 translate-y-5 transition-all duration-700 delay-200"
+              style={{ fontFamily: FONTS.secondary, color: MY_COLORS.textMuted }}
             >
-              More than just developers — we're strategic technology partners who care about your business outcomes as much as you do.
+              More than developers — we're strategic technology partners focused on your business growth.
             </p>
 
-            {/* Summary card */}
+            {/* Difference Card */}
             <div
               data-reveal
-              style={{
-                padding:      "24px",
-                borderRadius: 14,
-                background:   `linear-gradient(135deg, rgba(232,117,10,0.1) 0%, rgba(232,117,10,0.04) 100%)`,
-                border:       `1px solid ${MY_COLORS.orangeBorder}`,
-                opacity:      0,
-                transform:    "translateY(20px)",
-                transition:   "opacity 0.6s ease, transform 0.6s ease",
-              }}
+              className="p-6 rounded-2xl border bg-white/5 opacity-0 translate-y-5 transition-all duration-700 delay-300"
+              style={{ borderColor: MY_COLORS.orangeBorder }}
             >
-              <div style={{
-                fontFamily:    FONTS.primary,
-                fontSize:      FONTS.size.sm,
-                fontWeight:    FONTS.weight.bold,
-                letterSpacing: FONTS.tracking.wide,
-                color:         MY_COLORS.orange,
-                marginBottom:  10,
-                textTransform: "uppercase",
-              }}>
-                The AlphaWaves Difference
-              </div>
-              <p style={{
-                fontFamily:  FONTS.secondary,
-                fontSize:    FONTS.size.sm,
-                lineHeight:  FONTS.leading.relaxed,
-                color:       MY_COLORS.textSecondary,
-                margin:      0,
-              }}>
-                5 proven steps that transform your technology investment into measurable competitive advantage.
+              <h4
+                className="text-xs font-bold uppercase tracking-widest mb-2"
+                style={{ fontFamily: FONTS.primary, color: MY_COLORS.orange }}
+              >
+                The AlphaWaves Advantage
+              </h4>
+              <p className="text-sm leading-relaxed" style={{ color: MY_COLORS.textSecondary }}>
+                Five proven steps that turn technology into your most powerful competitive weapon.
               </p>
             </div>
-
           </div>
 
-          {/* ── RIGHT — timeline steps ── */}
-          <div style={{ paddingTop: 8 }}>
+          {/* ── RIGHT: Step Timeline ── */}
+          <div className="w-full lg:w-3/5 lg:pt-4">
             {STEPS.map((step, index) => (
               <StepItem
                 key={step.id}
                 step={step}
-                index={index}
                 isLast={index === STEPS.length - 1}
               />
             ))}
           </div>
-
         </div>
-
       </div>
-
-      {/* ── Responsive ── */}
-      <style>{`
-        @media (max-width: 1024px) {
-          .approach-grid {
-            grid-template-columns: 1fr !important;
-            gap: 48px !important;
-          }
-          .approach-sticky { position: static !important; }
-        }
-        @media (max-width: 640px) {
-          .approach-section { padding: 64px 0 !important; }
-          .approach-step-grid {
-            grid-template-columns: 60px 1fr !important;
-            gap: 20px !important;
-          }
-        }
-      `}</style>
-
     </section>
   );
 };

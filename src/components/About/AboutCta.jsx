@@ -1,10 +1,6 @@
 /**
  * AboutCTA — About Page Section 10 — Final CTA
- * AlphaWaves brand system
- *
- * Usage:
- * import AboutCTA from "../components/sections/AboutCTA";
- * <AboutCTA />
+ * AlphaWaves brand system (Responsive Tailwind Version)
  */
 
 import { useEffect, useRef, useState } from "react";
@@ -24,7 +20,7 @@ const useScrollReveal = (threshold = 0.15) => {
           const items = el.querySelectorAll("[data-reveal]");
           items.forEach((item, i) => {
             setTimeout(() => {
-              item.style.opacity   = "1";
+              item.style.opacity = "1";
               item.style.transform = "translateY(0) scale(1)";
             }, i * 130);
           });
@@ -39,371 +35,156 @@ const useScrollReveal = (threshold = 0.15) => {
   return ref;
 };
 
-// ── ArrowRight icon ───────────────────────────────────────────
 const ArrowRight = () => (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-    <path d="M3 8H13M13 8L9 4M13 8L9 12"
-      stroke="currentColor" strokeWidth="1.8"
-      strokeLinecap="round" strokeLinejoin="round"/>
+  <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none">
+    <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 
-// ── Trust badges ──────────────────────────────────────────────
 const TRUST_ITEMS = [
-  { icon: "⚡", label: "24hr Response"    },
-  { icon: "🔒", label: "No Lock-in"       },
-  { icon: "📊", label: "ROI Guaranteed"   },
-  { icon: "🌍", label: "Africa-Ready"     },
+  { icon: "⚡", label: "24hr Response" },
+  { icon: "🔒", label: "No Lock-in" },
+  { icon: "📊", label: "ROI Guaranteed" },
+  { icon: "🌍", label: "Africa-Ready" },
 ];
 
-// ══════════════════════════════════════════════════════════════
-// AboutCTA Component
-// ══════════════════════════════════════════════════════════════
 const AboutCTA = () => {
-  const sectionRef                  = useScrollReveal(0.1);
-  const [primaryHover, setPrimary]  = useState(false);
+  const sectionRef = useScrollReveal(0.1);
+  const [primaryHover, setPrimary] = useState(false);
   const [secondaryHover, setSecond] = useState(false);
 
   return (
     <section
       ref={sectionRef}
-      style={{
-        position:   "relative",
-        background: MY_COLORS.bgBase,
-        padding:    "100px 0 120px",
-        overflow:   "hidden",
-      }}
+      className="relative py-20 md:py-28 lg:py-32 overflow-hidden px-4 sm:px-6"
+      style={{ background: MY_COLORS.bgBase }}
     >
+      {/* ── Background Gradients ── */}
+      <div className="absolute inset-0 pointer-events-none opacity-40">
+        <div 
+          className="absolute w-full h-full bottom-[-10%] left-1/2 -translate-x-1/2"
+          style={{ background: `radial-gradient(ellipse 80% 60% at 50% 100%, rgba(232,117,10,0.15) 0%, transparent 70%)` }}
+        />
+      </div>
 
-      {/* ── Background — brand gradient ── */}
-      <div style={{
-        position:   "absolute",
-        inset:      0,
-        background: `
-          radial-gradient(ellipse 80% 60% at 50% 100%, rgba(232,117,10,0.12) 0%, transparent 65%),
-          radial-gradient(ellipse 50% 40% at 20% 50%,  rgba(232,117,10,0.06) 0%, transparent 60%),
-          radial-gradient(ellipse 50% 40% at 80% 50%,  rgba(232,117,10,0.06) 0%, transparent 60%)
-        `,
-        pointerEvents: "none",
-      }} />
+      {/* ── Grid Texture ── */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-[0.02]" 
+        style={{ 
+          backgroundImage: `linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)`,
+          backgroundSize: "60px 60px"
+        }} 
+      />
 
-      {/* ── Grid texture ── */}
-      <div style={{
-        position:        "absolute",
-        inset:           0,
-        backgroundImage: `
-          linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px)
-        `,
-        backgroundSize:  "60px 60px",
-        pointerEvents:   "none",
-      }} />
+      {/* ── Animated Orbs (Hidden on Mobile for performance) ── */}
+      <div className="hidden lg:block absolute top-[20%] left-[8%] w-[300px] h-[300px] rounded-full animate-float-slow"
+           style={{ background: `radial-gradient(circle, rgba(232,117,10,0.08) 0%, transparent 70%)` }} />
+      <div className="hidden lg:block absolute bottom-[10%] right-[8%] w-[250px] h-[250px] rounded-full animate-float-reverse"
+           style={{ background: `radial-gradient(circle, rgba(232,117,10,0.06) 0%, transparent 70%)` }} />
 
-      {/* ── Animated floating orbs ── */}
-      <div style={{
-        position:      "absolute",
-        top:           "20%",
-        left:          "8%",
-        width:         300,
-        height:        300,
-        borderRadius:  "50%",
-        background:    `radial-gradient(circle, rgba(232,117,10,0.08) 0%, transparent 70%)`,
-        animation:     "ctaOrb1 8s ease-in-out infinite",
-        pointerEvents: "none",
-      }} />
-      <div style={{
-        position:      "absolute",
-        bottom:        "10%",
-        right:         "8%",
-        width:         250,
-        height:        250,
-        borderRadius:  "50%",
-        background:    `radial-gradient(circle, rgba(232,117,10,0.06) 0%, transparent 70%)`,
-        animation:     "ctaOrb2 10s ease-in-out infinite",
-        pointerEvents: "none",
-      }} />
-
-      <div style={{
-        maxWidth: 1280,
-        margin:   "0 auto",
-        padding:  "0 40px",
-        position: "relative",
-      }}>
-
-        {/* ── Main CTA card ── */}
+      <div className="relative z-10 max-w-6xl mx-auto">
+        
+        {/* ── Main CTA Card ── */}
         <div
           data-reveal
+          className="relative p-8 md:p-16 lg:p-24 rounded-[2rem] border overflow-hidden text-center opacity-0 translate-y-8 scale-[0.98] transition-all duration-1000"
           style={{
-            position:     "relative",
-            padding:      "80px 80px 72px",
-            borderRadius: 28,
-            background:   `linear-gradient(135deg,
-              rgba(232,117,10,0.12) 0%,
-              rgba(232,117,10,0.06) 35%,
-              rgba(16,16,16,0.95)  70%,
-              rgba(10,10,10,1)     100%
-            )`,
-            border:       `1px solid ${MY_COLORS.orangeBorder}`,
-            overflow:     "hidden",
-            textAlign:    "center",
-            opacity:      0,
-            transform:    "translateY(30px) scale(0.98)",
-            transition:   "opacity 0.7s ease, transform 0.7s ease",
+            background: `linear-gradient(135deg, rgba(232,117,10,0.12) 0%, rgba(10,10,10,1) 100%)`,
+            borderColor: MY_COLORS.orangeBorder,
           }}
         >
-
-          {/* Decorative corner brackets */}
-          {[
-            { top: 20,    left: 20,    borderTop: true,    borderLeft: true  },
-            { top: 20,    right: 20,   borderTop: true,    borderRight: true },
-            { bottom: 20, left: 20,    borderBottom: true, borderLeft: true  },
-            { bottom: 20, right: 20,   borderBottom: true, borderRight: true },
-          ].map((pos, i) => (
-            <div
-              key={i}
-              style={{
-                position:     "absolute",
-                width:        28,
-                height:       28,
-                top:          pos.top,
-                left:         pos.left,
-                right:        pos.right,
-                bottom:       pos.bottom,
-                borderTop:    pos.borderTop    ? `1.5px solid ${MY_COLORS.orangeBorder}` : "none",
-                borderBottom: pos.borderBottom ? `1.5px solid ${MY_COLORS.orangeBorder}` : "none",
-                borderLeft:   pos.borderLeft   ? `1.5px solid ${MY_COLORS.orangeBorder}` : "none",
-                borderRight:  pos.borderRight  ? `1.5px solid ${MY_COLORS.orangeBorder}` : "none",
-                borderRadius: i === 0 ? "4px 0 0 0" : i === 1 ? "0 4px 0 0" : i === 2 ? "0 0 0 4px" : "0 0 4px 0",
-                pointerEvents:"none",
-              }}
-            />
-          ))}
-
-          {/* Top accent line */}
-          <div style={{
-            position:   "absolute",
-            top:        0, left: "20%", right: "20%",
-            height:     2,
-            background: MY_COLORS.gradientOrange,
-            borderRadius: "0 0 9999px 9999px",
-          }} />
+          {/* Decorative Corner Brackets */}
+          <div className="absolute top-6 left-6 w-8 h-8 border-t-2 border-l-2 opacity-50 rounded-tl-md" style={{ borderColor: MY_COLORS.orange }} />
+          <div className="absolute top-6 right-6 w-8 h-8 border-t-2 border-r-2 opacity-50 rounded-tr-md" style={{ borderColor: MY_COLORS.orange }} />
+          <div className="absolute bottom-6 left-6 w-8 h-8 border-b-2 border-l-2 opacity-50 rounded-bl-md" style={{ borderColor: MY_COLORS.orange }} />
+          <div className="absolute bottom-6 right-6 w-8 h-8 border-b-2 border-r-2 opacity-50 rounded-br-md" style={{ borderColor: MY_COLORS.orange }} />
 
           {/* Eyebrow */}
-          <div
-            data-reveal
-            style={{
-              display:        "inline-flex",
-              alignItems:     "center",
-              gap:            10,
-              marginBottom:   28,
-              opacity:        0,
-              transform:      "translateY(16px)",
-              transition:     "opacity 0.6s ease, transform 0.6s ease",
-            }}
-          >
-            <span style={{
-              width: 24, height: 2,
-              borderRadius: 9999,
-              background:   MY_COLORS.gradientOrange,
-            }} />
-            <span style={{
-              fontFamily:    FONTS.primary,
-              fontSize:      FONTS.size.xs,
-              fontWeight:    FONTS.weight.bold,
-              letterSpacing: FONTS.tracking.widest,
-              textTransform: "uppercase",
-              color:         MY_COLORS.orange,
-            }}>
+          <div data-reveal className="inline-flex items-center gap-3 mb-8 opacity-0 translate-y-4 transition-all duration-700 delay-100">
+            <span className="w-6 h-0.5 rounded-full" style={{ background: MY_COLORS.gradientOrange }} />
+            <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.3em]" style={{ fontFamily: FONTS.primary, color: MY_COLORS.orange }}>
               Let's Build Together
             </span>
-            <span style={{
-              width: 24, height: 2,
-              borderRadius: 9999,
-              background:   MY_COLORS.gradientOrange,
-            }} />
+            <span className="w-6 h-0.5 rounded-full" style={{ background: MY_COLORS.gradientOrange }} />
           </div>
 
           {/* Headline */}
-          <h2
-            data-reveal
-            style={{
-              fontFamily:    FONTS.primary,
-              fontSize:      "clamp(32px, 5vw, 60px)",
-              fontWeight:    FONTS.weight.extrabold,
-              letterSpacing: FONTS.tracking.tight,
-              lineHeight:    FONTS.leading.tight,
-              color:         MY_COLORS.textPrimary,
-              margin:        "0 auto 20px",
-              maxWidth:      720,
-              opacity:       0,
-              transform:     "translateY(20px)",
-              transition:    "opacity 0.6s ease, transform 0.6s ease",
-            }}
-          >
-            Ready to Partner{" "}
-            <span style={{
-              color:      MY_COLORS.orange,
-              textShadow: `0 0 40px ${MY_COLORS.orangeGlow}`,
-            }}>
-              With Us?
-            </span>
+          <h2 data-reveal className="text-3xl md:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6 opacity-0 translate-y-4 transition-all duration-700 delay-200"
+              style={{ fontFamily: FONTS.primary, color: MY_COLORS.textPrimary }}>
+            Ready to Partner <br className="hidden md:block" />
+            <span style={{ color: MY_COLORS.orange, textShadow: `0 0 40px ${MY_COLORS.orangeGlow}` }}>With Us?</span>
           </h2>
 
           {/* Subtext */}
-          <p
-            data-reveal
-            style={{
-              fontFamily:  FONTS.secondary,
-              fontSize:    "clamp(15px, 1.8vw, 19px)",
-              fontWeight:  FONTS.weight.regular,
-              lineHeight:  FONTS.leading.relaxed,
-              color:       MY_COLORS.textSecondary,
-              margin:      "0 auto 44px",
-              maxWidth:    540,
-              opacity:     0,
-              transform:   "translateY(20px)",
-              transition:  "opacity 0.6s ease, transform 0.6s ease",
-            }}
-          >
-            Let's discuss how AlphaWaves can accelerate your digital transformation and drive measurable business growth.
+          <p data-reveal className="text-base md:text-lg lg:text-xl max-w-xl mx-auto mb-12 opacity-0 translate-y-4 transition-all duration-700 delay-300"
+             style={{ fontFamily: FONTS.secondary, color: MY_COLORS.textSecondary }}>
+            Discuss how AlphaWaves can accelerate your digital transformation and drive measurable business growth in the African market.
           </p>
 
-          {/* CTA Buttons */}
-          <div
-            data-reveal
-            style={{
-              display:        "flex",
-              alignItems:     "center",
-              justifyContent: "center",
-              gap:            16,
-              flexWrap:       "wrap",
-              marginBottom:   48,
-              opacity:        0,
-              transform:      "translateY(20px)",
-              transition:     "opacity 0.6s ease, transform 0.6s ease",
-            }}
-          >
-            {/* Primary */}
+          {/* Buttons */}
+          <div data-reveal className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 opacity-0 translate-y-4 transition-all duration-700 delay-400">
             <Link
               to="/contact"
               onMouseEnter={() => setPrimary(true)}
               onMouseLeave={() => setPrimary(false)}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-bold transition-all duration-300"
               style={{
-                textDecoration: "none",
-                display:        "inline-flex",
-                alignItems:     "center",
-                gap:            primaryHover ? 12 : 8,
-                padding:        "14px 32px",
-                borderRadius:   10,
-                fontFamily:     FONTS.primary,
-                fontSize:       FONTS.size.base,
-                fontWeight:     FONTS.weight.bold,
-                letterSpacing:  FONTS.tracking.wide,
-                color:          "#ffffff",
-                background:     MY_COLORS.gradientOrange,
-                boxShadow:      primaryHover
-                  ? `0 0 48px rgba(232,117,10,0.6), 0 8px 32px rgba(232,117,10,0.3)`
-                  : `0 0 28px rgba(232,117,10,0.4)`,
-                transform:      primaryHover ? "translateY(-3px)" : "translateY(0)",
-                transition:     "all 0.3s ease",
+                fontFamily: FONTS.primary,
+                color: "#ffffff",
+                background: MY_COLORS.gradientOrange,
+                boxShadow: primaryHover ? `0 15px 40px rgba(232,117,10,0.4)` : `0 10px 25px rgba(232,117,10,0.2)`,
+                transform: primaryHover ? "translateY(-3px)" : "translateY(0)",
               }}
             >
-              Schedule a Consultation
-              <ArrowRight />
+              Schedule Consultation <ArrowRight />
             </Link>
 
-            {/* Secondary */}
             <Link
               to="/services"
               onMouseEnter={() => setSecond(true)}
               onMouseLeave={() => setSecond(false)}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-semibold border transition-all duration-300"
               style={{
-                textDecoration: "none",
-                display:        "inline-flex",
-                alignItems:     "center",
-                gap:            secondaryHover ? 12 : 8,
-                padding:        "14px 32px",
-                borderRadius:   10,
-                fontFamily:     FONTS.primary,
-                fontSize:       FONTS.size.base,
-                fontWeight:     FONTS.weight.semibold,
-                letterSpacing:  FONTS.tracking.wide,
-                color:          secondaryHover ? MY_COLORS.textPrimary : MY_COLORS.textSecondary,
-                background:     secondaryHover ? MY_COLORS.bgSurfaceHover : "transparent",
-                border:         `1px solid ${secondaryHover ? MY_COLORS.borderHover : MY_COLORS.border}`,
-                transform:      secondaryHover ? "translateY(-3px)" : "translateY(0)",
-                transition:     "all 0.3s ease",
+                fontFamily: FONTS.primary,
+                borderColor: secondaryHover ? MY_COLORS.orange : MY_COLORS.border,
+                color: secondaryHover ? MY_COLORS.textPrimary : MY_COLORS.textSecondary,
+                background: secondaryHover ? "rgba(255,255,255,0.05)" : "transparent",
+                transform: secondaryHover ? "translateY(-3px)" : "translateY(0)",
               }}
             >
-              View Our Services
-              <ArrowRight />
+              Our Services <ArrowRight />
             </Link>
           </div>
 
-          {/* Trust badges */}
-          <div
-            data-reveal
-            style={{
-              display:        "flex",
-              alignItems:     "center",
-              justifyContent: "center",
-              gap:            32,
-              flexWrap:       "wrap",
-              paddingTop:     32,
-              borderTop:      `1px solid ${MY_COLORS.border}`,
-              opacity:        0,
-              transform:      "translateY(20px)",
-              transition:     "opacity 0.6s ease, transform 0.6s ease",
-            }}
-          >
+          {/* Trust Badges */}
+          <div data-reveal className="grid grid-cols-2 md:flex items-center justify-center gap-6 md:gap-12 pt-10 border-t opacity-0 translate-y-4 transition-all duration-700 delay-500"
+               style={{ borderColor: MY_COLORS.border }}>
             {TRUST_ITEMS.map((item) => (
-              <div
-                key={item.label}
-                style={{
-                  display:    "flex",
-                  alignItems: "center",
-                  gap:        8,
-                }}
-              >
-                <span style={{ fontSize: 16 }}>{item.icon}</span>
-                <span style={{
-                  fontFamily:    FONTS.primary,
-                  fontSize:      FONTS.size.sm,
-                  fontWeight:    FONTS.weight.semibold,
-                  letterSpacing: FONTS.tracking.wide,
-                  color:         MY_COLORS.textMuted,
-                }}>
+              <div key={item.label} className="flex items-center justify-center gap-2 group">
+                <span className="text-lg grayscale group-hover:grayscale-0 transition-all">{item.icon}</span>
+                <span className="text-[10px] md:text-xs font-semibold uppercase tracking-widest"
+                      style={{ fontFamily: FONTS.primary, color: MY_COLORS.textMuted }}>
                   {item.label}
                 </span>
               </div>
             ))}
           </div>
-
         </div>
 
       </div>
 
-      {/* ── Keyframes + Responsive ── */}
       <style>{`
-        @keyframes ctaOrb1 {
-          0%, 100% { transform: translate(0, 0)    scale(1);    }
-          50%       { transform: translate(20px, -20px) scale(1.1); }
+        @keyframes float-slow {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          50% { transform: translate(30px, -30px) scale(1.1); }
         }
-        @keyframes ctaOrb2 {
-          0%, 100% { transform: translate(0, 0)     scale(1);    }
-          50%       { transform: translate(-20px, 20px) scale(1.1); }
+        @keyframes float-reverse {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          50% { transform: translate(-30px, 30px) scale(1.1); }
         }
-        @media (max-width: 900px) {
-          .about-cta-card { padding: 56px 40px !important; }
-        }
-        @media (max-width: 640px) {
-          .about-cta-section { padding: 64px 0 80px !important; }
-          .about-cta-card    { padding: 40px 24px !important;   }
-          .about-cta-buttons { flex-direction: column !important; }
-          .about-cta-trust   { gap: 20px !important;            }
-        }
+        .animate-float-slow { animation: float-slow 10s ease-in-out infinite; }
+        .animate-float-reverse { animation: float-reverse 12s ease-in-out infinite; }
       `}</style>
-
     </section>
   );
 };

@@ -99,7 +99,7 @@ const AnimatedMetric = ({ result, active, index }) => {
       data-reveal
       style={{
         opacity: 0, transform: "translateY(24px)",
-        transition: `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`,
+        transition: `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s, background 0.3s ease, border-color 0.3s ease`,
         flex: 1, minWidth: 160,
         padding: "28px 24px",
         borderRadius: 16,
@@ -107,7 +107,6 @@ const AnimatedMetric = ({ result, active, index }) => {
         border: `1px solid ${hovered ? MY_COLORS.orange : MY_COLORS.orangeBorder}`,
         textAlign: "center",
         cursor: "default",
-        transition: "all 0.3s ease",
       }}>
       <div style={{ fontFamily: FONTS.primary, fontSize: 42, fontWeight: 900, color: MY_COLORS.orange, lineHeight: 1, marginBottom: 8, letterSpacing: "-1px" }}>{display}</div>
       <div style={{ fontFamily: FONTS.secondary, fontSize: FONTS.size.sm, color: MY_COLORS.textMuted, lineHeight: 1.4 }}>{result.label}</div>

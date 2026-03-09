@@ -1,18 +1,25 @@
 /**
  * OurStory — About Page Section 2
- * AlphaWaves brand system
+ * AlphaWaves brand system — FULLY RESPONSIVE
  *
- * Usage:
- * import OurStory from "../components/sections/OurStory";
- * <OurStory />
+ * Breakpoints: sm (≤480), md (481–768), lg (769–1024), xl (1025+)
+ *
+ * FIXES:
+ * - Replaced dead CSS class media queries with useBreakpoint hook (inline styles)
+ * - Single column on mobile + tablet, two columns on largeTablet+
+ * - Sticky left column disabled on single-column layouts
+ * - Section padding, font sizes, gaps all scale per breakpoint
+ * - Stats grid goes 2-col on all sizes (works fine, just smaller on mobile)
+ * - Paragraph translateX animation reduced on mobile to avoid overflow flash
  */
 
 import { useEffect, useRef } from "react";
 import { MY_COLORS } from "../../constants/colors.js";
 import { FONTS } from "../../assets/fonts/fonts.js";
+import useBreakpoint from "../../hooks/useBreakpoint.js";
 
 // ── Scroll-triggered animation hook ──────────────────────────
-const useScrollReveal = (threshold = 0.15) => {
+const useScrollReveal = (threshold = 0.1) => {
   const ref = useRef(null);
   useEffect(() => {
     const el = ref.current;
@@ -38,7 +45,7 @@ const useScrollReveal = (threshold = 0.15) => {
   return ref;
 };
 
-// ── Story paragraphs ──────────────────────────────────────────
+// ── Data ─────────────────────────────────────────────────────
 const PARAGRAPHS = [
   {
     id:    1,
@@ -62,19 +69,31 @@ const PARAGRAPHS = [
   },
 ];
 
-// ── Stats ─────────────────────────────────────────────────────
 const STATS = [
-  { value: "50+",  label: "Projects Delivered"   },
-  { value: "20+",  label: "Enterprise Clients"   },
-  { value: "8+",   label: "Years of Experience"  },
-  { value: "100%", label: "Client Satisfaction"  },
+  { value: "50+",  label: "Projects Delivered"  },
+  { value: "20+",  label: "Enterprise Clients"  },
+  { value: "8+",   label: "Years of Experience" },
+  { value: "100%", label: "Client Satisfaction" },
 ];
 
 // ══════════════════════════════════════════════════════════════
-// OurStory Component
-// ══════════════════════════════════════════════════════════════
 const OurStory = () => {
+  const { isMobile, isTablet, isLargeTablet, isDesktop } = useBreakpoint();
   const sectionRef = useScrollReveal(0.1);
+
+  // ── Responsive values ────────────────────────────────────────
+  const isSingleCol   = isMobile || isTablet;               // below 1024px → stack
+  const sectionPadY   = isMobile ? "64px" : isTablet ? "80px" : "100px";
+  const outerPadX     = isMobile ? "20px" : isTablet ? "32px" : "40px";
+  const gridCols      = isSingleCol ? "1fr" : isLargeTablet ? "1fr 1.4fr" : "1fr 1.6fr";
+  const gridGap       = isMobile ? 40 : isTablet ? 48 : isLargeTablet ? 60 : 80;
+  const h2Size        = isMobile ? "clamp(26px,7vw,36px)" : isTablet ? "clamp(28px,4vw,40px)" : "clamp(32px,3.5vw,48px)";
+  const paraFontSize  = isMobile ? FONTS.size.sm : FONTS.size.md;
+  const statValueSize = isMobile ? "clamp(20px,5vw,26px)" : "clamp(22px,2.5vw,30px)";
+  const statPad       = isMobile ? "14px 12px" : "20px 16px";
+
+  // Paragraphs slide in from right on desktop, from bottom on mobile (avoids horizontal overflow flash)
+  const paraInitTransform = isSingleCol ? "translateY(24px)" : "translateX(30px)";
 
   return (
     <section
@@ -82,24 +101,24 @@ const OurStory = () => {
       style={{
         position:   "relative",
         background: MY_COLORS.bgSection,
-        padding:    "100px 0",
+        padding:    `${sectionPadY} 0`,
         overflow:   "hidden",
       }}
     >
 
-      {/* ── Background orange glow — top right ── */}
+      {/* ── Background glow ── */}
       <div style={{
-        position:      "absolute",
-        top:           -150,
-        right:         -150,
-        width:         600,
-        height:        600,
-        borderRadius:  "50%",
-        background:    `radial-gradient(circle, ${MY_COLORS.orangeSection} 0%, transparent 65%)`,
+        position:     "absolute",
+        top:          -150,
+        right:        -150,
+        width:        isMobile ? 300 : 600,
+        height:       isMobile ? 300 : 600,
+        borderRadius: "50%",
+        background:   `radial-gradient(circle, ${MY_COLORS.orangeSection} 0%, transparent 65%)`,
         pointerEvents: "none",
       }} />
 
-      {/* ── Subtle grid texture ── */}
+      {/* ── Grid texture ── */}
       <div style={{
         position:        "absolute",
         inset:           0,
@@ -111,35 +130,41 @@ const OurStory = () => {
         pointerEvents:   "none",
       }} />
 
+      {/* ── Content wrapper ── */}
       <div style={{
-        maxWidth: 1280,
-        margin:   "0 auto",
-        padding:  "0 40px",
-        position: "relative",
+        maxWidth:  1280,
+        margin:    "0 auto",
+        padding:   `0 ${outerPadX}`,
+        position:  "relative",
+        boxSizing: "border-box",
       }}>
 
-        {/* ── Two column layout ── */}
+        {/* ── Grid ── */}
         <div style={{
           display:             "grid",
-          gridTemplateColumns: "1fr 1.6fr",
-          gap:                 80,
+          gridTemplateColumns: gridCols,
+          gap:                 gridGap,
           alignItems:          "start",
         }}>
 
-          {/* ── LEFT COLUMN — sticky label ── */}
-          <div style={{ position: "sticky", top: 120 }}>
+          {/* ══ LEFT COLUMN ══ */}
+          {/* sticky only on two-column layouts — on single col it just flows */}
+          <div style={{
+            position: isSingleCol ? "static" : "sticky",
+            top:      120,
+          }}>
 
             {/* Eyebrow */}
             <div
               data-reveal
               style={{
-                display:        "inline-flex",
-                alignItems:     "center",
-                gap:            10,
-                marginBottom:   20,
-                opacity:        0,
-                transform:      "translateY(20px)",
-                transition:     "opacity 0.6s ease, transform 0.6s ease",
+                display:    "inline-flex",
+                alignItems: "center",
+                gap:        10,
+                marginBottom: 20,
+                opacity:    0,
+                transform:  "translateY(20px)",
+                transition: "opacity 0.6s ease, transform 0.6s ease",
               }}
             >
               <span style={{
@@ -166,12 +191,12 @@ const OurStory = () => {
               data-reveal
               style={{
                 fontFamily:    FONTS.primary,
-                fontSize:      "clamp(32px, 3.5vw, 48px)",
+                fontSize:      h2Size,
                 fontWeight:    FONTS.weight.extrabold,
                 letterSpacing: FONTS.tracking.tight,
                 lineHeight:    FONTS.leading.snug,
                 color:         MY_COLORS.textPrimary,
-                margin:        "0 0 24px 0",
+                margin:        `0 0 24px 0`,
                 opacity:       0,
                 transform:     "translateY(20px)",
                 transition:    "opacity 0.6s ease, transform 0.6s ease",
@@ -186,7 +211,7 @@ const OurStory = () => {
               </span>
             </h2>
 
-            {/* Decorative vertical line */}
+            {/* Decorative line */}
             <div
               data-reveal
               style={{
@@ -201,16 +226,17 @@ const OurStory = () => {
               }}
             />
 
-            {/* Short tagline */}
+            {/* Tagline */}
             <p
               data-reveal
               style={{
                 fontFamily:  FONTS.secondary,
-                fontSize:    FONTS.size.base,
+                fontSize:    isMobile ? FONTS.size.sm : FONTS.size.base,
                 fontWeight:  FONTS.weight.regular,
                 lineHeight:  FONTS.leading.relaxed,
                 color:       MY_COLORS.textMuted,
                 margin:      0,
+                maxWidth:    isSingleCol ? "100%" : 340,
                 opacity:     0,
                 transform:   "translateY(20px)",
                 transition:  "opacity 0.6s ease, transform 0.6s ease",
@@ -225,23 +251,26 @@ const OurStory = () => {
               style={{
                 display:             "grid",
                 gridTemplateColumns: "1fr 1fr",
-                gap:                 16,
-                marginTop:           40,
+                gap:                 isMobile ? 10 : 16,
+                marginTop:           isMobile ? 28 : 40,
                 opacity:             0,
                 transform:           "translateY(20px)",
                 transition:          "opacity 0.6s ease, transform 0.6s ease",
+                // On single column, limit stats width so they don't stretch across full screen
+                maxWidth:            isSingleCol ? (isMobile ? "100%" : 480) : "100%",
               }}
             >
               {STATS.map((stat) => (
                 <div
                   key={stat.label}
                   style={{
-                    padding:      "20px 16px",
+                    padding:      statPad,
                     borderRadius: 12,
                     background:   MY_COLORS.bgSurface,
                     border:       `1px solid ${MY_COLORS.border}`,
                     transition:   "border-color 0.25s ease, transform 0.25s ease",
                     cursor:       "default",
+                    boxSizing:    "border-box",
                   }}
                   onMouseEnter={e => {
                     e.currentTarget.style.borderColor = MY_COLORS.orangeBorder;
@@ -254,7 +283,7 @@ const OurStory = () => {
                 >
                   <div style={{
                     fontFamily:    FONTS.primary,
-                    fontSize:      "clamp(22px, 2.5vw, 30px)",
+                    fontSize:      statValueSize,
                     fontWeight:    FONTS.weight.extrabold,
                     letterSpacing: FONTS.tracking.tight,
                     color:         MY_COLORS.orange,
@@ -265,7 +294,7 @@ const OurStory = () => {
                   </div>
                   <div style={{
                     fontFamily: FONTS.secondary,
-                    fontSize:   FONTS.size.xs,
+                    fontSize:   isMobile ? 10 : FONTS.size.xs,
                     fontWeight: FONTS.weight.medium,
                     color:      MY_COLORS.textMuted,
                     lineHeight: 1.4,
@@ -277,8 +306,9 @@ const OurStory = () => {
             </div>
 
           </div>
+          {/* ══ END LEFT ══ */}
 
-          {/* ── RIGHT COLUMN — paragraphs ── */}
+          {/* ══ RIGHT COLUMN — paragraphs ══ */}
           <div style={{
             display:       "flex",
             flexDirection: "column",
@@ -289,57 +319,59 @@ const OurStory = () => {
                 key={para.id}
                 data-reveal
                 style={{
-                  position:     "relative",
-                  paddingBottom: index < PARAGRAPHS.length - 1 ? 48 : 0,
-                  opacity:      0,
-                  transform:    "translateX(30px)",
-                  transition:   "opacity 0.6s ease, transform 0.6s ease",
+                  position:      "relative",
+                  paddingBottom:  index < PARAGRAPHS.length - 1
+                    ? (isMobile ? 32 : 48)
+                    : 0,
+                  opacity:   0,
+                  transform: paraInitTransform,   // ← bottom on mobile, right on desktop
+                  transition: "opacity 0.6s ease, transform 0.6s ease",
                 }}
               >
-                {/* Connector line between paragraphs */}
+                {/* Connector line */}
                 {index < PARAGRAPHS.length - 1 && (
                   <div style={{
                     position:   "absolute",
-                    left:       -1,
-                    top:        28,
+                    left:       isMobile ? 13 : 13,   // aligns with center of 28px badge
+                    top:        30,
                     bottom:     0,
                     width:      1,
                     background: `linear-gradient(to bottom, ${MY_COLORS.orangeBorder}, transparent)`,
                   }} />
                 )}
 
-                {/* Number badge */}
                 <div style={{
-                  display:       "flex",
-                  alignItems:    "flex-start",
-                  gap:           20,
+                  display:    "flex",
+                  alignItems: "flex-start",
+                  gap:        isMobile ? 14 : 20,
                 }}>
-                  {/* Orange number */}
+
+                  {/* Number badge */}
                   <div style={{
-                    width:           28,
-                    height:          28,
-                    borderRadius:    "50%",
-                    background:      MY_COLORS.orangeDim,
-                    border:          `1px solid ${MY_COLORS.orangeBorder}`,
-                    display:         "flex",
-                    alignItems:      "center",
-                    justifyContent:  "center",
-                    flexShrink:      0,
-                    marginTop:       2,
+                    width:          isMobile ? 26 : 28,
+                    height:         isMobile ? 26 : 28,
+                    borderRadius:   "50%",
+                    background:     MY_COLORS.orangeDim,
+                    border:         `1px solid ${MY_COLORS.orangeBorder}`,
+                    display:        "flex",
+                    alignItems:     "center",
+                    justifyContent: "center",
+                    flexShrink:     0,
+                    marginTop:      2,
                   }}>
                     <span style={{
-                      fontFamily:  FONTS.primary,
-                      fontSize:    FONTS.size.xs,
-                      fontWeight:  FONTS.weight.bold,
-                      color:       MY_COLORS.orange,
-                      lineHeight:  1,
+                      fontFamily: FONTS.primary,
+                      fontSize:   FONTS.size.xs,
+                      fontWeight: FONTS.weight.bold,
+                      color:      MY_COLORS.orange,
+                      lineHeight: 1,
                     }}>
                       {String(para.id).padStart(2, "0")}
                     </span>
                   </div>
 
-                  <div style={{ flex: 1 }}>
-                    {/* Paragraph label */}
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    {/* Label */}
                     <span style={{
                       fontFamily:    FONTS.primary,
                       fontSize:      FONTS.size.xs,
@@ -353,10 +385,10 @@ const OurStory = () => {
                       {para.label}
                     </span>
 
-                    {/* Paragraph text */}
+                    {/* Text */}
                     <p style={{
                       fontFamily:  FONTS.secondary,
-                      fontSize:    FONTS.size.md,
+                      fontSize:    paraFontSize,
                       fontWeight:  FONTS.weight.regular,
                       lineHeight:  FONTS.leading.relaxed,
                       color:       MY_COLORS.textSecondary,
@@ -365,33 +397,15 @@ const OurStory = () => {
                       {para.text}
                     </p>
                   </div>
-                </div>
 
+                </div>
               </div>
             ))}
           </div>
+          {/* ══ END RIGHT ══ */}
 
         </div>
-
       </div>
-
-      {/* ── Responsive styles ── */}
-      <style>{`
-        @media (max-width: 1024px) {
-          .our-story-grid {
-            grid-template-columns: 1fr !important;
-            gap: 48px !important;
-          }
-          .our-story-sticky {
-            position: static !important;
-          }
-        }
-        @media (max-width: 640px) {
-          .our-story-section {
-            padding: 64px 0 !important;
-          }
-        }
-      `}</style>
 
     </section>
   );
