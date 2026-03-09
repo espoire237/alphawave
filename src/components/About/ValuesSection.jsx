@@ -8,7 +8,6 @@ import { useEffect, useRef, useState } from "react";
 import { MY_COLORS } from "../../constants/colors.js";
 import { FONTS } from "../../assets/fonts/fonts.js";
 import useBreakpoint from "../../hooks/useBreakpoint.js";
-import map from "../../assets/icons/africa_map.png"
 
 // ── Scroll Reveal ─────────────────────────────────────────────
 const useScrollReveal = (t = 0.08) => {
@@ -292,8 +291,7 @@ const CoreValues = () => {
       {/* Centre ambient glow */}
       <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 800, height: 500, borderRadius: "50%", background: "radial-gradient(ellipse, rgba(232,117,10,0.05) 0%, transparent 65%)", pointerEvents: "none" }} />
 
-      {/* Floating Africa map — desktop only */}
-      {showMap && <AfricaMap mapSrc={map} />}
+     
 
       <div style={{ maxWidth: 1280, margin: "0 auto", position: "relative", zIndex: 1 }}>
 
