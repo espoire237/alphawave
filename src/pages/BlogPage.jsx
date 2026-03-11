@@ -12,11 +12,12 @@
  */
 
 import { useState } from "react";
-import HeroSection      from "../components/sections/HeroSection.jsx";
-import SearchBar        from "../components/common/Searchbar.jsx";
+import HeroSection from "../components/sections/HeroSection.jsx";
+import SearchBar from "../components/common/Searchbar.jsx";
 import BlogFeaturedPost from "../components/Blog/BlogFeaturedPost.jsx";
-import BlogGrid         from "../components/Blog/BlogGrid.jsx";
-import BlogCTA          from "../components/Blog/BlogCTA.jsx";
+import BlogGrid from "../components/Blog/BlogGrid.jsx";
+import BlogCTA from "../components/Blog/BlogCTA.jsx";
+import { IMAGES } from "../assets/assets.js";
 
 const BlogPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -27,7 +28,11 @@ const BlogPage = () => {
       <HeroSection
         eyebrow="Blog"
         headline="Insights for Africa's Digital Leaders"
-        subheadline="Practical guides, case studies, and expert insights on technology, digital transformation, and business growth across African markets."
+        subheadline="Practical guides, case studies,
+         and expert insights on technology,
+          digital transformation, and business growth across African markets."
+        image={IMAGES.hero.blog}
+        imagePosition="center 15%"
         breadcrumb={false}
       >
         <SearchBar

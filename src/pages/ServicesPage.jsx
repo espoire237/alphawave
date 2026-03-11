@@ -6,13 +6,17 @@ import ProblemsSolve    from "../components/Services/ProblemsSolve.jsx";
 import WhoWeServe       from "../components/Services/WhoWeServe.jsx";
 import ServicesStats    from "../components/Services/ServicesStats.jsx";
 import ServicesCTA      from "../components/Services/ServicesCTA.jsx";
+import { IMAGES } from "../assets/assets.js";
 
 const ServicesPage = () => (
   <>
     <HeroSection
       eyebrow="Our Services"
       headline="Complete Digital Solutions for Africa's Digital Future"
-      subheadline="From custom software to AI analytics we deliver integrated technology that drives measurable business outcomes."
+      subheadline="From custom software to AI analytics we
+       deliver integrated technology that drives measurable business outcomes."
+       image={IMAGES.hero.service}
+       imagePosition="center 55%"
       breadcrumb={false}
       cta={{
         primary:   { label: "Get Started",       path: "/contact"  },

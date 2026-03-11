@@ -15,14 +15,15 @@
  * 8. PortfolioCTA        — final CTA banner
  */
 
-import HeroSection           from "../components/sections/HeroSection.jsx";
-import PortfolioStatsBar     from "../components/Portfolio/PortfolioStatsBar.jsx";
-import PortfolioGrid         from "../components/Portfolio/PortfolioGrid.jsx";
-import FeaturedCaseStudy     from "../components/Portfolio/FeaturedCaseStudy.jsx";
-import IndustriesServed      from "../components/Portfolio/IndustriesServed.jsx";
+import HeroSection from "../components/sections/HeroSection.jsx";
+import PortfolioStatsBar from "../components/Portfolio/PortfolioStatsBar.jsx";
+import PortfolioGrid from "../components/Portfolio/PortfolioGrid.jsx";
+import FeaturedCaseStudy from "../components/Portfolio/FeaturedCaseStudy.jsx";
+import IndustriesServed from "../components/Portfolio/IndustriesServed.jsx";
 import PortfolioTestimonials from "../components/Portfolio/PortfolioTestimonials.jsx";
-import PortfolioMetrics      from "../components/Portfolio/PortfolioMetrics.jsx";
-import PortfolioCTA          from "../components/Portfolio/PortfolioCTA.jsx";
+import PortfolioMetrics from "../components/Portfolio/PortfolioMetrics.jsx";
+import PortfolioCTA from "../components/Portfolio/PortfolioCTA.jsx";
+import { IMAGES } from "../assets/assets.js";
 
 const PortfolioPage = () => (
   <>
@@ -30,10 +31,13 @@ const PortfolioPage = () => (
     <HeroSection
       eyebrow="Our Work"
       headline="Proven Results Across African Markets"
-      subheadline="Real projects. Real clients. Real impact. See how we've transformed businesses through technology."
+      subheadline="Real projects. Real clients. Real impact.
+       See how we've transformed businesses through technology."
+      image={IMAGES.hero.portfolio}
+      imagePosition="center 45%"
       breadcrumb={false}
       cta={{
-        primary:   { label: "Start Your Project",    path: "/contact"  },
+        primary: { label: "Start Your Project", path: "/contact" },
         secondary: { label: "View All Case Studies", path: "#portfolio" },
       }}
     />

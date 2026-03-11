@@ -4,8 +4,11 @@
 import heroHome      from "./images/pic5.jpg";
 import heroAbout     from "./images/pic6.jpg";
 import heroServices  from "./images/pic2.jpg";
-import heroPortfolio from "./images/pic3.jpg";
+import heroPortfolio from "./images/hero-portfolio.jpg"; 
 import heroContact   from "./images/pic4.jpg";
+import heroFaq from "./images/hero-faq.jpg";
+import heroBlog from "./images/hero-blog.jpg";
+import heroService from "./images/hero-service.jpg";
 
 // // ── Team Images ───────────────────────────
 // import member1 from "./team/member-1.jpg";
@@ -32,6 +35,10 @@ export const IMAGES = {
     services:  heroServices,
     portfolio: heroPortfolio,
     contact:   heroContact,
+    faq:       heroFaq,
+    blog:      heroBlog,
+    service:   heroService,
+
   },
 //   team: {
 //     member1,

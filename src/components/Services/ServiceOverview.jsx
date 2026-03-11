@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { SERVICES } from "../../data/serviceData.js";
 import { MY_COLORS } from "../../constants/colors.js";
 import { FONTS } from "../../assets/fonts/fonts.js";
+import useBreakpoint from "../../hooks/useBreakpoint.js";
 
 // ── Service icons ─────────────────────────────────────────────
 const ICONS = {
@@ -73,7 +74,7 @@ const useScrollReveal = (threshold = 0.08) => {
   return ref;
 };
 
-const ServiceCard = ({ service, index }) => {
+const ServiceCard = ({ service, index, isMobile }) => {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -82,92 +83,44 @@ const ServiceCard = ({ service, index }) => {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        position:     "relative",
-        padding:      "32px 28px",
-        borderRadius: 16,
-        background:   hovered ? "rgba(232,117,10,0.05)" : MY_COLORS.bgSurface,
-        border:       `1px solid ${hovered ? MY_COLORS.orangeBorder : MY_COLORS.border}`,
-        cursor:       "pointer",
-        transition:   "all 0.3s ease",
-        transform:    hovered ? "translateY(-4px)" : "translateY(0)",
-        opacity:      0,
-        display:      "flex",
-        flexDirection:"column",
-        gap:          0,
+        position:      "relative",
+        padding:       isMobile ? "24px 20px" : "32px 28px",
+        borderRadius:  16,
+        background:    hovered ? "rgba(232,117,10,0.05)" : MY_COLORS.bgSurface,
+        border:        `1px solid ${hovered ? MY_COLORS.orangeBorder : MY_COLORS.border}`,
+        cursor:        "pointer",
+        transition:    "all 0.3s ease",
+        transform:     hovered ? "translateY(-4px)" : "translateY(0)",
+        opacity:       0,
+        display:       "flex",
+        flexDirection: "column",
+        gap:           0,
       }}
     >
       {/* Featured badge */}
       {service.is_featured && (
-        <div style={{
-          position:      "absolute",
-          top:           16,
-          right:         16,
-          padding:       "3px 10px",
-          borderRadius:  9999,
-          background:    MY_COLORS.orangeDim,
-          border:        `1px solid ${MY_COLORS.orangeBorder}`,
-          fontFamily:    FONTS.primary,
-          fontSize:      10,
-          fontWeight:    FONTS.weight.bold,
-          letterSpacing: FONTS.tracking.widest,
-          textTransform: "uppercase",
-          color:         MY_COLORS.orange,
-        }}>
+        <div style={{ position: "absolute", top: 16, right: 16, padding: "3px 10px", borderRadius: 9999, background: MY_COLORS.orangeDim, border: `1px solid ${MY_COLORS.orangeBorder}`, fontFamily: FONTS.primary, fontSize: 10, fontWeight: FONTS.weight.bold, letterSpacing: FONTS.tracking.widest, textTransform: "uppercase", color: MY_COLORS.orange }}>
           Popular
         </div>
       )}
 
       {/* Number */}
-      <div style={{
-        fontFamily:    FONTS.primary,
-        fontSize:      11,
-        fontWeight:    FONTS.weight.bold,
-        letterSpacing: FONTS.tracking.widest,
-        color:         MY_COLORS.textDisabled,
-        marginBottom:  16,
-      }}>
+      <div style={{ fontFamily: FONTS.primary, fontSize: 11, fontWeight: FONTS.weight.bold, letterSpacing: FONTS.tracking.widest, color: MY_COLORS.textDisabled, marginBottom: 16 }}>
         {String(index + 1).padStart(2, "0")}
       </div>
 
       {/* Icon */}
-      <div style={{
-        width:        52,
-        height:       52,
-        borderRadius: 12,
-        background:   hovered ? MY_COLORS.orangeDim : "rgba(255,255,255,0.04)",
-        border:       `1px solid ${hovered ? MY_COLORS.orangeBorder : MY_COLORS.border}`,
-        display:      "flex",
-        alignItems:   "center",
-        justifyContent: "center",
-        color:        hovered ? MY_COLORS.orange : MY_COLORS.textMuted,
-        marginBottom: 20,
-        transition:   "all 0.3s ease",
-      }}>
+      <div style={{ width: 52, height: 52, borderRadius: 12, background: hovered ? MY_COLORS.orangeDim : "rgba(255,255,255,0.04)", border: `1px solid ${hovered ? MY_COLORS.orangeBorder : MY_COLORS.border}`, display: "flex", alignItems: "center", justifyContent: "center", color: hovered ? MY_COLORS.orange : MY_COLORS.textMuted, marginBottom: 20, transition: "all 0.3s ease" }}>
         {ICONS[service.icon]}
       </div>
 
       {/* Title */}
-      <h3 style={{
-        fontFamily:    FONTS.primary,
-        fontSize:      FONTS.size.md,
-        fontWeight:    FONTS.weight.bold,
-        letterSpacing: FONTS.tracking.tight,
-        color:         MY_COLORS.textPrimary,
-        margin:        "0 0 10px",
-        lineHeight:    FONTS.leading.snug,
-      }}>
+      <h3 style={{ fontFamily: FONTS.primary, fontSize: FONTS.size.md, fontWeight: FONTS.weight.bold, letterSpacing: FONTS.tracking.tight, color: MY_COLORS.textPrimary, margin: "0 0 10px", lineHeight: FONTS.leading.snug }}>
         {service.title}
       </h3>
 
       {/* Desc */}
-      <p style={{
-        fontFamily:  FONTS.secondary,
-        fontSize:    FONTS.size.sm,
-        lineHeight:  FONTS.leading.relaxed,
-        color:       MY_COLORS.textMuted,
-        margin:      "0 0 20px",
-        flex:        1,
-      }}>
+      <p style={{ fontFamily: FONTS.secondary, fontSize: FONTS.size.sm, lineHeight: FONTS.leading.relaxed, color: MY_COLORS.textMuted, margin: "0 0 20px", flex: 1 }}>
         {service.shortDesc}
       </p>
 
@@ -176,92 +129,70 @@ const ServiceCard = ({ service, index }) => {
         {service.features.map((f, i) => (
           <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: 8 }}>
             <span style={{ marginTop: 1, flexShrink: 0 }}><CheckIcon /></span>
-            <span style={{ fontFamily: FONTS.secondary, fontSize: FONTS.size.xs, color: MY_COLORS.textSecondary, lineHeight: FONTS.leading.relaxed }}>
-              {f}
-            </span>
+            <span style={{ fontFamily: FONTS.secondary, fontSize: FONTS.size.xs, color: MY_COLORS.textSecondary, lineHeight: FONTS.leading.relaxed }}>{f}</span>
           </li>
         ))}
       </ul>
 
       {/* Link */}
-      <Link
-        to="/contact"
-        style={{
-          textDecoration: "none",
-          display:        "inline-flex",
-          alignItems:     "center",
-          gap:            6,
-          fontFamily:     FONTS.primary,
-          fontSize:       FONTS.size.xs,
-          fontWeight:     FONTS.weight.bold,
-          letterSpacing:  FONTS.tracking.wide,
-          color:          hovered ? MY_COLORS.orange : MY_COLORS.textMuted,
-          transition:     "color 0.3s ease",
-        }}
-      >
+      <Link to="/contact" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6, fontFamily: FONTS.primary, fontSize: FONTS.size.xs, fontWeight: FONTS.weight.bold, letterSpacing: FONTS.tracking.wide, color: hovered ? MY_COLORS.orange : MY_COLORS.textMuted, transition: "color 0.3s ease" }}>
         Get Started <ArrowRight />
       </Link>
 
-      {/* Bottom orange bar on hover */}
-      <div style={{
-        position:     "absolute",
-        bottom:       0, left: "10%", right: "10%",
-        height:       2,
-        borderRadius: "9999px 9999px 0 0",
-        background:   MY_COLORS.gradientOrange,
-        opacity:      hovered ? 1 : 0,
-        transition:   "opacity 0.3s ease",
-      }} />
+      {/* Bottom bar */}
+      <div style={{ position: "absolute", bottom: 0, left: "10%", right: "10%", height: 2, borderRadius: "9999px 9999px 0 0", background: MY_COLORS.gradientOrange, opacity: hovered ? 1 : 0, transition: "opacity 0.3s ease" }} />
     </div>
   );
 };
 
 const ServicesOverview = () => {
   const sectionRef = useScrollReveal();
+  const { isMobile, isTablet, isLargeTablet } = useBreakpoint();
+
+  // FIX 1+2 — responsive padding
+  const sectionPad = isMobile ? "64px 0" : isTablet ? "80px 0" : "100px 0";
+  const innerPad   = isMobile ? "0 20px" : isTablet ? "0 32px" : "0 40px";
+
+  // FIX 3 — responsive grid columns
+  const gridCols = isMobile ? "1fr" : isTablet ? "repeat(2,1fr)" : isLargeTablet ? "repeat(2,1fr)" : "repeat(3,1fr)";
+  const gridGap  = isMobile ? 16 : 24;
 
   return (
-    <section ref={sectionRef} style={{ position: "relative", background: MY_COLORS.bgBase, padding: "100px 0", overflow: "hidden" }}>
+    <section ref={sectionRef} style={{ position: "relative", background: MY_COLORS.bgBase, padding: sectionPad, overflow: "hidden" }}>
 
       {/* Background glow */}
       <div style={{ position: "absolute", top: -200, left: -200, width: 700, height: 700, borderRadius: "50%", background: `radial-gradient(circle, ${MY_COLORS.orangeSection} 0%, transparent 65%)`, pointerEvents: "none" }} />
-      {/* Grid */}
+      {/* Grid texture */}
       <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px)`, backgroundSize: "60px 60px", pointerEvents: "none" }} />
 
-      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 40px", position: "relative" }}>
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: innerPad, position: "relative" }}>
 
         {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: 64 }}>
+        <div style={{ textAlign: "center", marginBottom: isMobile ? 36 : 64 }}>
           <div data-reveal style={{ display: "inline-flex", alignItems: "center", gap: 10, marginBottom: 16, opacity: 0, transform: "translateY(20px)", transition: "all 0.6s ease" }}>
             <span style={{ width: 28, height: 2, borderRadius: 9999, background: MY_COLORS.gradientOrange }} />
-            <span style={{ fontFamily: FONTS.primary, fontSize: FONTS.size.xs, fontWeight: FONTS.weight.bold, letterSpacing: FONTS.tracking.widest, textTransform: "uppercase", color: MY_COLORS.orange }}>
-              What We Build
-            </span>
+            <span style={{ fontFamily: FONTS.primary, fontSize: FONTS.size.xs, fontWeight: FONTS.weight.bold, letterSpacing: FONTS.tracking.widest, textTransform: "uppercase", color: MY_COLORS.orange }}>What We Build</span>
             <span style={{ width: 28, height: 2, borderRadius: 9999, background: MY_COLORS.gradientOrange }} />
           </div>
 
-          <h2 data-reveal style={{ fontFamily: FONTS.primary, fontSize: "clamp(28px, 4vw, 48px)", fontWeight: FONTS.weight.extrabold, letterSpacing: FONTS.tracking.tight, color: MY_COLORS.textPrimary, margin: "0 auto 16px", maxWidth: 700, opacity: 0, transform: "translateY(20px)", transition: "all 0.6s ease" }}>
+          <h2 data-reveal style={{ fontFamily: FONTS.primary, fontSize: isMobile ? "clamp(22px,6vw,32px)" : "clamp(28px,4vw,48px)", fontWeight: FONTS.weight.extrabold, letterSpacing: FONTS.tracking.tight, color: MY_COLORS.textPrimary, margin: "0 auto 16px", maxWidth: 700, opacity: 0, transform: "translateY(20px)", transition: "all 0.6s ease" }}>
             Complete Digital Solutions{" "}
             <span style={{ color: MY_COLORS.orange, textShadow: `0 0 30px ${MY_COLORS.orangeGlow}` }}>Under One Roof</span>
           </h2>
 
-          <p data-reveal style={{ fontFamily: FONTS.secondary, fontSize: FONTS.size.md, lineHeight: FONTS.leading.relaxed, color: MY_COLORS.textSecondary, margin: "0 auto", maxWidth: 560, opacity: 0, transform: "translateY(20px)", transition: "all 0.6s ease" }}>
+          <p data-reveal style={{ fontFamily: FONTS.secondary, fontSize: isMobile ? FONTS.size.sm : FONTS.size.md, lineHeight: FONTS.leading.relaxed, color: MY_COLORS.textSecondary, margin: "0 auto", maxWidth: 560, opacity: 0, transform: "translateY(20px)", transition: "all 0.6s ease" }}>
             From strategy to execution, we deliver integrated technology that drives measurable business outcomes.
           </p>
         </div>
 
-        {/* 6-card grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+        {/* Cards grid — FIX: uses inline responsive cols, dead CSS removed */}
+        <div style={{ display: "grid", gridTemplateColumns: gridCols, gap: gridGap }}>
           {SERVICES.filter(s => s.status === "published").map((service, i) => (
-            <ServiceCard key={service.id} service={service} index={i} />
+            <ServiceCard key={service.id} service={service} index={i} isMobile={isMobile} />
           ))}
         </div>
 
       </div>
-
-      <style>{`
-        @media (max-width: 1024px) { .services-grid { grid-template-columns: repeat(2, 1fr) !important; } }
-        @media (max-width: 640px)  { .services-grid { grid-template-columns: 1fr !important; } }
-      `}</style>
     </section>
   );
 };

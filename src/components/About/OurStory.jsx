@@ -38,10 +38,10 @@ const useScrollReveal = (threshold = 0.1) => {
 
 // ── Data ─────────────────────────────────────────────────────
 const PARAGRAPHS = [
-  { id: 1, label: "Who We Are",    text: "AlphaWaves is a full-service technology company architecting Africa's digital future. We are a team of specialized engineers, AI researchers, data scientists, and digital strategists delivering enterprise-grade solutions that drive measurable business transformation across African and global markets." },
+  { id: 1, label: "Who We Are",    text: "AlphaWaves is a full-service technology company architecting Africa's digital future. We are a team of specialized engineers, AI researchers, data scientists, and digital strategists delivering enterprise grade solutions that drive measurable business transformation across African and global markets." },
   { id: 2, label: "Our Expertise", text: "Our multidisciplinary team combines frontend and backend engineering, mobile application development, DevOps infrastructure, AI-powered analytics, SEO optimization, and strategic design expertise. This integrated capability enables us to solve complex business challenges end-to-end, delivering complete digital ecosystems rather than fragmented point solutions." },
-  { id: 3, label: "Our Position",  text: "Founded in Cameroon—Africa's bilingual technology hub—we possess unmatched expertise in both Francophone and Anglophone African markets. While international agencies import solutions that fail under African infrastructure conditions, payment ecosystems, and connectivity patterns, we engineer systems designed to thrive in these environments from day one." },
-  { id: 4, label: "Our Approach",  text: "We don't just implement technology—we craft scalable digital infrastructures that make businesses operationally excellent, market-visible, and data-driven. As we expand our impact across the continent and beyond, we remain committed to being strategic partners who deliver solutions grounded in African market realities and global technical standards." },
+  { id: 3, label: "Our Position",  text: "Founded in Cameroon Africa's bilingual technology hub we possess unmatched expertise in both Francophone and Anglophone African markets. While international agencies import solutions that fail under African infrastructure conditions, payment ecosystems, and connectivity patterns, we engineer systems designed to thrive in these environments from day one." },
+  { id: 4, label: "Our Approach",  text: "We don't just implement technology we craft scalable digital infrastructures that make businesses operationally excellent, market visible, and data-driven. As we expand our impact across the continent and beyond, we remain committed to being strategic partners who deliver solutions grounded in African market realities and global technical standards." },
 ];
 
 const STATS = [
@@ -71,7 +71,7 @@ const CONNECTIONS = [
 
 const AfricaMapOverlay = () => (
   <div style={{
-    position: "absolute", right: -60, top: "50%",
+    position: "absolute", right: -10, top: "40%",
     transform: "translateY(-50%)",
     width: 520, height: 520,
     pointerEvents: "none", zIndex: 0,
@@ -150,6 +150,7 @@ const AfricaMapOverlay = () => (
 
 // ══════════════════════════════════════════════════════════════
 const OurStory = () => {
+  // eslint-disable-next-line no-unused-vars
   const { isMobile, isTablet, isLargeTablet, isDesktop } = useBreakpoint();
   const sectionRef = useScrollReveal(0.1);
 

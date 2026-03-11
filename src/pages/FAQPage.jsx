@@ -10,25 +10,24 @@
  * 3. FAQBottomCTA — "Didn't Find Your Answer?" banner
  */
 
-import { useState }    from "react";
-import HeroSection     from "../components/sections/HeroSection.jsx";
-import FAQContent      from "../components/FAQ/Faqcontent.jsx";
-import FAQBottomCTA    from "../components/FAQ/Faqbottomcta.jsx";
-import SearchBar       from "../components/common/Searchbar.jsx";
-import { FAQS }        from "../data/faqData.js";
+import { useState } from "react";
+import HeroSection from "../components/sections/HeroSection.jsx";
+import FAQContent from "../components/FAQ/Faqcontent.jsx";
+import FAQBottomCTA from "../components/FAQ/Faqbottomcta.jsx";
+import SearchBar from "../components/common/Searchbar.jsx";
+import { FAQS } from "../data/faqData.js";
+import { IMAGES } from "../assets/assets.js";
 
 // ── FAQPage schema — Google rich snippets ─────────────────────
 const FAQSchema = () => {
   const schema = {
-    "@context":   "https://schema.org",
-    "@type":      "FAQPage",
-    "mainEntity": FAQS
-      .filter(f => f.status === "published")
-      .map(f => ({
-        "@type":          "Question",
-        "name":           f.question,
-        "acceptedAnswer": { "@type": "Answer", "text": f.answer },
-      })),
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQS.filter((f) => f.status === "published").map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
   };
   return (
     <script
@@ -53,7 +52,11 @@ const FAQPage = () => {
       <HeroSection
         eyebrow="FAQ"
         headline="Got Questions? We Have Answers."
-        subheadline="Everything you need to know about working with AlphaWaves — from pricing and process to delivery and support."
+        subheadline="Everything you need to know about
+         working with AlphaWaves — from pricing and process
+          to delivery and support."
+        image={IMAGES.hero.faq}
+        imagePosition="center 25%"
         breadcrumb={false}
       >
         <SearchBar

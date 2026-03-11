@@ -10,6 +10,7 @@ import Footer from "./components/layout/Footer";
 import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
 import PortfolioPostPage from "./pages/PortfolioPostPage";
+import ScrollTop from "./components/features/ScrollTop";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <ScrollTop/>
     </>
   );
 }
