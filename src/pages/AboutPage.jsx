@@ -9,22 +9,24 @@ import WhyCameroon from "../components/About/WhyCameroon.jsx";
 import OurApproach from "../components/About/Ourapproach.jsx";
 import OurCommitment from "../components/About/OurCommitment.jsx";
 import AboutCTA from "../components/About/AboutCta.jsx";
+import { useTranslation } from "react-i18next";
 
 const AboutPage = () => {
+  const { t } = useTranslation();
   return (
     <>
-      <HeroSection
-        eyebrow="About Us"
-        headline="Building Africa's Digital Future"
-        subheadline="A full-service technology company architecting digital transformation from Cameroon to the world"
-        image={IMAGES.hero.about}
-        imagePosition="center 85%"
-        breadcrumb={false}
-        cta={{
-          primary: { label: "Get Started", path: "/contact" },
-          secondary: { label: "Our Services", path: "/services" },
-        }}
-      />
+     <HeroSection
+  eyebrow={t("aboutHero.eyebrow")}
+  headline={t("aboutHero.headline")}
+  subheadline={t("aboutHero.subheadline")}
+  image={IMAGES.hero.about}
+  imagePosition="center 85%"
+  breadcrumb={false}
+  cta={{
+    primary:   { label: t("aboutHero.cta.primary"),   path: "/contact"  },
+    secondary: { label: t("aboutHero.cta.secondary"), path: "/services" },
+  }}
+/>
 
       <OurStory/>
       <OurMissionVision/>

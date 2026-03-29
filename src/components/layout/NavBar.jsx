@@ -1,39 +1,44 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
-// ── Replace with your actual imports ─────────────────────────
-// import { MY_COLORS } from "../../constants/colors.js";
-// import { siteConfig } from "../../config/site.config";
-
+// ── Color System ──────────────────────────────────────────────
 const MY_COLORS = {
-  orange:          "#E8750A",
-  orangeLight:     "#f5a623",
-  orangeGlow:      "rgba(232,117,10,0.45)",
-  orangeDim:       "rgba(232,117,10,0.12)",
-  orangeBorder:    "rgba(232,117,10,0.25)",
-  dark:            "rgba(13,13,13,0.82)",
-  surface:         "#161616",
-  surfaceHover:    "rgba(255,255,255,0.05)",
-  bgGlass:         "rgba(13,13,13,0.82)",
-  bgGlassScrolled: "rgba(10,10,10,0.97)",
-  textPrimary:     "#FFFFFF",
-  textSecondary:   "rgba(240,237,232,0.82)",
-  textMuted:       "rgba(240,237,232,0.38)",
-  border:          "rgba(255,255,255,0.07)",
-  borderScrolled:  "rgba(232,117,10,0.22)",
+  orange:           "#E8750A",
+  orangeLight:      "#f5a623",
+  orangeGlow:       "rgba(232,117,10,0.45)",
+  orangeDim:        "rgba(232,117,10,0.12)",
+  orangeBorder:     "rgba(232,117,10,0.25)",
+  dark:             "rgba(13,13,13,0.82)",
+  surface:          "#161616",
+  surfaceHover:     "rgba(255,255,255,0.05)",
+  bgGlass:          "rgba(13,13,13,0.82)",
+  bgGlassScrolled:  "rgba(10,10,10,0.97)",
+  textPrimary:      "#FFFFFF",
+  textSecondary:    "rgba(240,237,232,0.82)",
+  textMuted:        "rgba(240,237,232,0.38)",
+  border:           "rgba(255,255,255,0.07)",
+  borderScrolled:   "rgba(232,117,10,0.22)",
 };
 
-const NAV_ITEMS = [
-  { label: "Home",      path: "/"          },
-  { label: "About",     path: "/about"     },
-  { label: "Services",  path: "/services"  },
-  { label: "Portfolio", path: "/portfolio" },
-  { label: "Blog",      path: "/blog"      },
-  { label: "FAQ",       path: "/faq"       },
-  { label: "Contact",   path: "/contact"   },
+// ── Supported Languages ───────────────────────────────────────
+const LANGUAGES = [
+  { code: "en", label: "EN", fullLabel: "English",  flag: "🇬🇧" },
+  { code: "fr", label: "FR", fullLabel: "Français", flag: "🇫🇷" },
 ];
 
-// ── Wave icon ─────────────────────────────────────────────────
+// ── Nav items (keys match translation.json) ───────────────────
+const NAV_ITEMS = [
+  { key: "nav.home",      path: "/"          },
+  { key: "nav.about",     path: "/about"     },
+  { key: "nav.services",  path: "/services"  },
+  { key: "nav.portfolio", path: "/portfolio" },
+  { key: "nav.blog",      path: "/blog"      },
+  { key: "nav.faq",       path: "/faq"       },
+  { key: "nav.contact",   path: "/contact"   },
+];
+
+// ── Icons ─────────────────────────────────────────────────────
 const WaveIcon = () => (
   <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
     <path
@@ -44,7 +49,6 @@ const WaveIcon = () => (
   </svg>
 );
 
-// ── Hamburger → X icon ────────────────────────────────────────
 const HamburgerIcon = ({ isOpen }) => (
   <svg width="22" height="22" viewBox="0 0 22 22" fill="none" style={{ display: "block" }}>
     <line
@@ -73,6 +77,18 @@ const HamburgerIcon = ({ isOpen }) => (
   </svg>
 );
 
+const ChevronIcon = ({ open }) => (
+  <svg
+    width="10" height="10" viewBox="0 0 10 10" fill="none"
+    style={{
+      transform:  open ? "rotate(180deg)" : "rotate(0deg)",
+      transition: "transform 0.22s ease",
+    }}
+  >
+    <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
 // ── useWindowWidth hook ───────────────────────────────────────
 const useWindowWidth = () => {
   const [width, setWidth] = useState(
@@ -86,8 +102,222 @@ const useWindowWidth = () => {
   return width;
 };
 
+// ── Language Switcher (Desktop dropdown) ─────────────────────
+const LanguageSwitcher = () => {
+  const { i18n } = useTranslation();
+  const [open, setOpen]         = useState(false);
+  const [hovered, setHovered]   = useState(null);
+  const ref                     = useRef(null);
+  const current                 = LANGUAGES.find(l => l.code === i18n.language) || LANGUAGES[0];
+
+  // Close on outside click
+  useEffect(() => {
+    const handler = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  const changeLanguage = (code) => {
+    i18n.changeLanguage(code);
+    localStorage.setItem("lang", code);
+    setOpen(false);
+  };
+
+  return (
+    <div ref={ref} style={{ position: "relative", flexShrink: 0 }}>
+      {/* Trigger button */}
+      <button
+        onClick={() => setOpen(!open)}
+        aria-label="Switch language"
+        aria-expanded={open}
+        style={{
+          display:        "flex",
+          alignItems:     "center",
+          gap:            6,
+          padding:        "7px 11px",
+          borderRadius:   8,
+          border:         `1px solid ${open ? MY_COLORS.orangeBorder : MY_COLORS.border}`,
+          background:     open ? MY_COLORS.orangeDim : "transparent",
+          cursor:         "pointer",
+          color:          open ? MY_COLORS.orange : MY_COLORS.textSecondary,
+          fontSize:       13,
+          fontWeight:     550,
+          fontFamily:     "system-ui, sans-serif",
+          letterSpacing:  "0.3px",
+          transition:     "all 0.2s ease",
+          whiteSpace:     "nowrap",
+        }}
+        onMouseEnter={e => {
+          if (!open) {
+            e.currentTarget.style.borderColor = MY_COLORS.orangeBorder;
+            e.currentTarget.style.color       = "#fff";
+            e.currentTarget.style.background  = MY_COLORS.surfaceHover;
+          }
+        }}
+        onMouseLeave={e => {
+          if (!open) {
+            e.currentTarget.style.borderColor = MY_COLORS.border;
+            e.currentTarget.style.color       = MY_COLORS.textSecondary;
+            e.currentTarget.style.background  = "transparent";
+          }
+        }}
+      >
+        <span style={{ fontSize: 15, lineHeight: 1 }}>{current.flag}</span>
+        <span>{current.label}</span>
+        <ChevronIcon open={open} />
+      </button>
+
+      {/* Dropdown */}
+      <div style={{
+        position:      "absolute",
+        top:           "calc(100% + 8px)",
+        right:         0,
+        minWidth:      148,
+        background:    "#111111",
+        border:        `1px solid ${MY_COLORS.border}`,
+        borderRadius:  10,
+        boxShadow:     "0 16px 48px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04)",
+        overflow:      "hidden",
+        opacity:       open ? 1 : 0,
+        transform:     open ? "translateY(0) scale(1)" : "translateY(-6px) scale(0.97)",
+        pointerEvents: open ? "auto" : "none",
+        transition:    "opacity 0.2s ease, transform 0.2s cubic-bezier(.4,0,.2,1)",
+        zIndex:        200,
+      }}>
+        {/* Dropdown header label */}
+        <div style={{
+          padding:       "9px 14px 7px",
+          fontSize:      10,
+          fontWeight:    600,
+          letterSpacing: "0.8px",
+          textTransform: "uppercase",
+          color:         MY_COLORS.textMuted,
+          fontFamily:    "system-ui, sans-serif",
+          borderBottom:  `1px solid ${MY_COLORS.border}`,
+        }}>
+          Language
+        </div>
+
+        {LANGUAGES.map(lang => {
+          const isActive = i18n.language === lang.code;
+          const isHov    = hovered === lang.code;
+          return (
+            <button
+              key={lang.code}
+              onClick={() => changeLanguage(lang.code)}
+              onMouseEnter={() => setHovered(lang.code)}
+              onMouseLeave={() => setHovered(null)}
+              style={{
+                display:        "flex",
+                alignItems:     "center",
+                justifyContent: "space-between",
+                width:          "100%",
+                padding:        "10px 14px",
+                background:     isActive
+                  ? MY_COLORS.orangeDim
+                  : isHov
+                  ? MY_COLORS.surfaceHover
+                  : "transparent",
+                border:         "none",
+                borderLeft:     `2px solid ${isActive ? MY_COLORS.orange : "transparent"}`,
+                cursor:         "pointer",
+                textAlign:      "left",
+                transition:     "all 0.15s ease",
+              }}
+            >
+              <div style={{ display: "flex", alignItems: "center", gap: 9 }}>
+                <span style={{ fontSize: 16, lineHeight: 1 }}>{lang.flag}</span>
+                <span style={{
+                  fontSize:   13,
+                  fontWeight: isActive ? 600 : 430,
+                  color:      isActive ? MY_COLORS.orange : isHov ? "#fff" : MY_COLORS.textSecondary,
+                  fontFamily: "system-ui, sans-serif",
+                  transition: "color 0.15s ease",
+                }}>
+                  {lang.fullLabel}
+                </span>
+              </div>
+              {/* Active checkmark */}
+              {isActive && (
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                  <path d="M2 6.5L5.2 9.5L11 3.5"
+                    stroke={MY_COLORS.orange}
+                    strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"
+                  />
+                </svg>
+              )}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+// ── Mobile Language Toggle (inline row) ──────────────────────
+const MobileLangToggle = () => {
+  const { i18n } = useTranslation();
+
+  const changeLanguage = (code) => {
+    i18n.changeLanguage(code);
+    localStorage.setItem("lang", code);
+  };
+
+  return (
+    <div style={{
+      display:       "flex",
+      alignItems:    "center",
+      gap:           6,
+      padding:       "12px 20px",
+      borderTop:     `1px solid ${MY_COLORS.border}`,
+    }}>
+      <span style={{
+        fontSize:      11,
+        fontWeight:    600,
+        letterSpacing: "0.7px",
+        textTransform: "uppercase",
+        color:         MY_COLORS.textMuted,
+        fontFamily:    "system-ui, sans-serif",
+        marginRight:   6,
+      }}>
+        Lang:
+      </span>
+      {LANGUAGES.map(lang => {
+        const isActive = i18n.language === lang.code;
+        return (
+          <button
+            key={lang.code}
+            onClick={() => changeLanguage(lang.code)}
+            style={{
+              display:       "flex",
+              alignItems:    "center",
+              gap:           5,
+              padding:       "6px 12px",
+              borderRadius:  7,
+              border:        `1px solid ${isActive ? MY_COLORS.orangeBorder : MY_COLORS.border}`,
+              background:    isActive ? MY_COLORS.orangeDim : "transparent",
+              cursor:        "pointer",
+              fontSize:      13,
+              fontWeight:    isActive ? 650 : 430,
+              color:         isActive ? MY_COLORS.orange : MY_COLORS.textSecondary,
+              fontFamily:    "system-ui, sans-serif",
+              transition:    "all 0.18s ease",
+            }}
+          >
+            <span style={{ fontSize: 14 }}>{lang.flag}</span>
+            <span>{lang.label}</span>
+          </button>
+        );
+      })}
+    </div>
+  );
+};
+
 // ── Main Navbar ───────────────────────────────────────────────
 const Navbar = () => {
+  const { t }                      = useTranslation();
   const location                   = useLocation();
   const width                      = useWindowWidth();
   const isMobile                   = width < 768;
@@ -101,32 +331,25 @@ const Navbar = () => {
   const navRef   = useRef(null);
   const linkRefs = useRef({});
 
-  // ── Scroll detection ──────────────────────────────────────
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 16);
     window.addEventListener("scroll", fn, { passive: true });
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
-  // ── Close drawer on route change ─────────────────────────
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [location.pathname]);
+  useEffect(() => { setMenuOpen(false); }, [location.pathname]);
 
-  // ── Close drawer if resized to desktop ───────────────────
   useEffect(() => {
     const fn = () => { if (window.innerWidth >= 1024) setMenuOpen(false); };
     window.addEventListener("resize", fn, { passive: true });
     return () => window.removeEventListener("resize", fn);
   }, []);
 
-  // ── Lock body scroll when drawer open ────────────────────
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
-  // ── Desktop sliding indicator (resets on mobile) ─────────
   useEffect(() => {
     if (isMobile || isTablet) {
       setIndicator({ left: 0, width: 0, ready: false });
@@ -141,7 +364,6 @@ const Navbar = () => {
     }
   }, [location.pathname, hovered, isMobile, isTablet]);
 
-  // ── Responsive padding ───────────────────────────────────
   const headerPadding = isMobile ? "0 16px" : isTablet ? "0 24px" : "0 40px";
 
   return (
@@ -214,7 +436,7 @@ const Navbar = () => {
               </span>
             </Link>
 
-            {/* ── DESKTOP NAV LINKS (hidden on mobile/tablet) ── */}
+            {/* ── DESKTOP NAV LINKS ── */}
             {!isMobile && !isTablet && (
               <nav ref={navRef} style={{ display: "flex", alignItems: "center", gap: 4, position: "relative" }}>
                 {indicator.ready && (
@@ -254,7 +476,7 @@ const Navbar = () => {
                         transition:     "color 0.18s ease, background 0.18s ease",
                       }}
                     >
-                      {item.label}
+                      {t(item.key)}
                     </Link>
                   );
                 })}
@@ -263,6 +485,10 @@ const Navbar = () => {
 
             {/* ── RIGHT SIDE ── */}
             <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
+
+              {/* Language switcher — desktop only */}
+              {!isMobile && !isTablet && <LanguageSwitcher />}
+
               {/* Get Started — desktop only */}
               {!isMobile && !isTablet && (
                 <Link
@@ -288,7 +514,7 @@ const Navbar = () => {
                     e.currentTarget.style.transform = "translateY(0)";
                   }}
                 >
-                  Get Started
+                  {t("nav.getStarted")}
                 </Link>
               )}
 
@@ -433,7 +659,7 @@ const Navbar = () => {
               e.currentTarget.style.transform = "translateY(0)";
             }}
           >
-            Get Started →
+            {t("nav.getStarted")} →
           </Link>
         </div>
 
@@ -472,7 +698,7 @@ const Navbar = () => {
                     : `${(NAV_ITEMS.length - 1 - index) * 0.03}s`,
                 }}
               >
-                <span>{item.label}</span>
+                <span>{t(item.key)}</span>
                 <svg
                   width="14" height="14" viewBox="0 0 14 14" fill="none"
                   style={{
@@ -491,8 +717,11 @@ const Navbar = () => {
           })}
         </nav>
 
+        {/* Mobile Language Toggle */}
+        <MobileLangToggle />
+
         {/* Drawer Footer */}
-        <div style={{ padding: "20px", borderTop: `1px solid ${MY_COLORS.border}`, flexShrink: 0 }}>
+        <div style={{ padding: "16px 20px", borderTop: `1px solid ${MY_COLORS.border}`, flexShrink: 0 }}>
           <p style={{
             fontFamily:    "system-ui, sans-serif",
             fontSize:      11,

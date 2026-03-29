@@ -1,0 +1,195 @@
+{
+  "nav": { "home": "Accueil", "about": "À propos", "services": "Services", "portfolio": "Portfolio", "blog": "Blog", "faq": "FAQ", "contact": "Contact", "getStarted": "Commencer" },
+  "footer": {
+    "tagline": "Architecturer l'avenir numérique de l'Afrique — technologie de niveau entreprise pour les marchés africains et mondiaux.",
+    "techAgency": "Agence Tech", "copyright": "© {{year}} AlphaWaves. Tous droits réservés. Conçu au Cameroun 🇨🇲",
+    "sections": { "services": "Services", "company": "Entreprise", "legal": "Légal" },
+    "links": { "customSoftware": "Logiciel sur mesure", "aiAnalytics": "IA & Analytique", "digitalMarketing": "Marketing Digital", "cloudDevops": "Cloud & DevOps", "mobileApps": "Applications Mobiles", "paymentSystems": "Systèmes de paiement", "aboutUs": "À propos", "portfolio": "Portfolio", "blog": "Blog", "faq": "FAQ", "contact": "Contact", "privacyPolicy": "Politique de confidentialité", "terms": "Conditions générales", "cookiePolicy": "Politique des cookies" },
+    "bottom": { "privacy": "Confidentialité", "terms": "Conditions", "sitemap": "Plan du site" }
+  },
+  "aboutHero": { "eyebrow": "À propos", "headline": "Construire l'Avenir Numérique de l'Afrique", "subheadline": "Une entreprise technologique à service complet qui orchestre la transformation numérique du Cameroun vers le monde", "cta": { "primary": "Commencer", "secondary": "Nos Services" } },
+  "ourStory": {
+    "eyebrow": "Notre Histoire", "titlePart1": "Qui", "titlePart2": "Sommes-Nous",
+    "subtitle": "Du Cameroun au monde — construire une technologie qui fonctionne en Afrique et rivalise à l'échelle mondiale.",
+    "stats": { "projects": "Projets Livrés", "clients": "Clients Entreprises", "experience": "Années d'Expérience", "satisfaction": "Satisfaction Client" },
+    "paragraphs": {
+      "whoWeAre":    { "label": "Qui Nous Sommes", "text": "AlphaWaves est une entreprise technologique à service complet qui architecte l'avenir numérique de l'Afrique. Nous sommes une équipe d'ingénieurs spécialisés, de chercheurs en IA, de data scientists et de stratèges numériques délivrant des solutions de niveau entreprise qui génèrent une transformation commerciale mesurable sur les marchés africains et mondiaux." },
+      "ourExpertise":{ "label": "Notre Expertise",  "text": "Notre équipe multidisciplinaire combine l'ingénierie frontend et backend, le développement d'applications mobiles, l'infrastructure DevOps, l'analytique propulsée par l'IA, l'optimisation SEO et l'expertise en conception stratégique. Cette capacité intégrée nous permet de résoudre des défis commerciaux complexes de bout en bout, en livrant des écosystèmes numériques complets plutôt que des solutions fragmentées." },
+      "ourPosition": { "label": "Notre Position",   "text": "Fondée au Cameroun, hub technologique bilingue de l'Afrique, nous possédons une expertise inégalée sur les marchés africains francophones et anglophones. Tandis que les agences internationales importent des solutions qui échouent face aux conditions infrastructurelles africaines, nous concevons des systèmes conçus pour prospérer dans ces environnements dès le premier jour." },
+      "ourApproach": { "label": "Notre Approche",   "text": "Nous ne nous contentons pas d'implémenter la technologie — nous concevons des infrastructures numériques évolutives qui rendent les entreprises opérationnellement excellentes, visibles sur le marché et orientées données. En élargissant notre impact sur le continent et au-delà, nous restons engagés à être des partenaires stratégiques qui livrent des solutions ancrées dans les réalités du marché africain." }
+    }
+  },
+  "missionVision": {
+    "eyebrow": "Objectif & Direction", "title": "Notre Mission &", "titleAccent": "Vision",
+    "subtitle": "L'objectif qui guide chaque solution que nous construisons et chaque partenariat que nous forgeons.",
+    "mission": { "label": "Mission", "title": "Notre Mission", "content": "Autonomiser les entreprises africaines avec des solutions technologiques de classe mondiale qui génèrent une croissance mesurable, l'excellence opérationnelle et un avantage concurrentiel dans l'économie numérique mondiale." },
+    "vision":  { "label": "Vision",  "title": "Notre Vision",  "content": "Être le partenaire technologique de référence en Afrique, en prouvant que les entreprises tech africaines ne se contentent pas d'égaler les standards internationaux — nous les dépassons là où cela compte le plus." },
+    "quote": "Les entreprises tech africaines ne se contentent pas d'égaler les standards internationaux — nous les", "quoteAccent": "dépassons", "quoteEnd": "là où cela compte le plus.", "quoteAuthor": "AlphaWaves — Conviction Fondamentale"
+  },
+  "coreValues": {
+    "eyebrow": "Notre Fondation", "title": "Valeurs", "titleAccent": "Fondamentales",
+    "subtitle": "Six principes qui guident chaque décision, chaque projet, chaque relation client.",
+    "values": {
+      "excellence":   { "title": "Excellence Africaine",           "desc": "Nous prouvons que les entreprises technologiques africaines peuvent livrer des solutions de classe mondiale tout en comprenant les réalités locales mieux que toute agence internationale." },
+      "results":      { "title": "Résultats avant les Tendances",  "desc": "Nous mesurons le succès par les résultats commerciaux — croissance des revenus, réduction des coûts, expansion du marché — et non par la modernité de la technologie." },
+      "partnership":  { "title": "Vrai Partenariat",               "desc": "Nous agissons en tant que partenaire technologique stratégique, pas seulement un fournisseur. Votre succès est notre succès, et nous sommes responsables de résultats mesurables." },
+      "technical":    { "title": "Excellence Technique",           "desc": "Solutions de niveau entreprise architecturées selon les standards mondiaux et optimisées pour les infrastructures, la connectivité et les écosystèmes de paiement africains." },
+      "transparency": { "title": "Transparence Toujours",          "desc": "Communication claire, calendriers honnêtes, tarification transparente. Pas de coûts cachés, pas de verrouillage fournisseur, pas de jargon technique — juste du partenariat." },
+      "innovation":   { "title": "Innovation & Apprentissage",     "desc": "Nous restons à la pointe de l'IA, des technologies cloud et des tendances de transformation numérique pour garantir à nos clients un avantage concurrentiel permanent." }
+    }
+  },
+  "teamSection": {
+    "eyebrow": "L'Équipe", "title": "Rencontrez les", "titleAccent": "Bâtisseurs",
+    "categories": { "all": "Tous", "engineering": "Ingénierie", "aiData": "IA & Données", "digitalStrategy": "Stratégie Digitale" },
+    "members": {
+      "alex":     { "bio": "Spécialisé en React, Vue.js et PWA. Plus de 5 ans à créer des interfaces centrées sur l'utilisateur pour les marchés africains." },
+      "boris":    { "bio": "Expert en Node.js, Python et architecture microservices. Axé sur les systèmes évolutifs à fort trafic." },
+      "claude":   { "bio": "Spécialiste des infrastructures cloud — AWS, Azure, CI/CD. Garantit 99,9% de disponibilité pour les systèmes critiques." },
+      "diana":    { "bio": "Chercheure en apprentissage automatique spécialisée dans le NLP et l'analytique prédictive pour le contexte commercial africain." },
+      "eric":     { "bio": "Transforme des jeux de données complexes en intelligence commerciale actionnable. Expert en modélisation financière." },
+      "fatima":   { "bio": "Stimule la croissance organique des entreprises africaines. Spécialisée en SEO pour les marchés français et anglais." },
+      "george":   { "bio": "Crée des expériences numériques intuitives fondées sur la recherche sur les comportements des utilisateurs africains et l'accessibilité." },
+      "hortense": { "bio": "Développement natif iOS et Android avec focus sur l'architecture offline-first et l'optimisation faible bande passante." }
+    }
+  },
+  "whyCameroon": {
+    "eyebrow": "Fabriqué au Cameroun 🇨🇲", "title": "Pourquoi le", "titleAccent": "Cameroun ?",
+    "subtitle": "Stratégiquement positionné au cœur de l'Afrique francophone et anglophone — notre origine est notre avantage.",
+    "columns": {
+      "bilingual": { "headline": "Bilingue par Nature",          "content": "Opérer en français et en anglais nous donne un accès unique aux marchés d'Afrique centrale/occidentale francophone et anglophone — couvrant plus de 500 millions de personnes.", "stat": "500M+", "statLabel": "Portée Potentielle" },
+      "hub":       { "headline": "Hub Régional",                 "content": "La position stratégique du Cameroun nous connecte aux grands marchés africains : Nigeria, Gabon, Tchad, RCA, et les régions CEMAC/CEDEAO.", "stat": "10+", "statLabel": "Marchés Voisins" },
+      "testing":   { "headline": "Tests en Conditions Réelles",  "content": "Construire ici signifie que nos solutions sont testées face aux vrais défis d'infrastructure — garantissant leur fonctionnement partout sur le continent.", "stat": "100%", "statLabel": "Prêt pour l'Afrique" }
+    },
+    "banner": { "eyebrow": "Hub Tech Bilingue d'Afrique", "title": "Deux langues. Un continent.", "titleAccent": "Une portée illimitée.", "subtitle": "Notre maîtrise du français et de l'anglais ouvre des portes sur tout le continent africain.", "english": "English", "englishSub": "Anglophone Africa", "french": "Français", "frenchSub": "Afrique Francophone" }
+  },
+  "ourApproach": {
+    "eyebrow": "Notre Processus", "title": "Ce qui Nous", "titleAccent": "Différencie",
+    "subtitle": "Plus que des développeurs — nous sommes des partenaires technologiques stratégiques focalisés sur votre croissance.",
+    "advantage": { "title": "L'Avantage AlphaWaves", "content": "Cinq étapes éprouvées qui transforment la technologie en votre arme concurrentielle la plus puissante." },
+    "steps": {
+      "1": { "title": "Nous Commençons par le Business, pas la Technologie", "content": "Avant d'écrire une seule ligne de code, nous comprenons votre modèle commercial et votre position sur le marché. La technologie sert la stratégie, et non l'inverse.", "tag": "Stratégie d'Abord" },
+      "2": { "title": "Nous Construisons pour les Réalités Africaines", "content": "Architecturé pour les infrastructures locales : connectivité intermittente, utilisateurs mobiles en priorité et multiples fournisseurs de paiement.", "tag": "Prêt pour l'Afrique" },
+      "3": { "title": "Nous Livrons des Solutions Complètes", "content": "Stratégie, design, développement et intégration IA. Tout sous une équipe responsable avec une exécution sans faille.", "tag": "De Bout en Bout" },
+      "4": { "title": "Nous Mesurons ce qui Compte", "content": "Le succès signifie des résultats commerciaux : croissance des revenus et efficacité opérationnelle. Nous suivons le ROI, pas seulement le code.", "tag": "Orienté ROI" },
+      "5": { "title": "Nous Évoluons avec Vous", "content": "Une architecture modulaire vous permet de vous développer à mesure que vous grandissez. Pas d'investissement initial massif requis — juste une valeur croissante.", "tag": "Pérenne" }
+    }
+  },
+  "ourCommitment": {
+    "eyebrow": "Notre Promesse", "title": "Notre Engagement", "titleAccent": "Envers Vous",
+    "subtitle": "Nous construisons l'avenir numérique de l'Afrique —", "subtitleAccent": "une solution transformatrice à la fois.",
+    "items": {
+      "1": { "heading": "Nous Dépassons les Standards",     "text": "Chaque projet prouve que les entreprises technologiques africaines ne se contentent pas d'égaler les standards internationaux — nous les dépassons là où cela compte le plus." },
+      "2": { "heading": "Nous Mesurons Votre Succès",       "text": "Nous mesurons le succès par vos résultats commerciaux : croissance des revenus, réduction des coûts et expansion du marché. Quand vous dominez, nous avons livré." },
+      "3": { "heading": "Nous Grandissons avec Vous",        "text": "Des startups camerounaises aux entreprises panafricaines — AlphaWaves est votre partenaire stratégique pour une transformation numérique qui génère un avantage." }
+    },
+    "quote": "Quand nos clients dominent leurs marchés grâce à une exécution technologique supérieure,", "quoteAccent": "nous avons livré la valeur qui compte.", "quoteAuthor": "AlphaWaves — Notre Engagement Fondamental"
+  },
+  "aboutCTA": {
+    "eyebrow": "Construisons Ensemble", "title": "Prêt à Collaborer", "titleAccent": "Avec Nous ?",
+    "subtitle": "Discutez de la manière dont AlphaWaves peut accélérer votre transformation numérique et générer une croissance commerciale mesurable sur le marché africain.",
+    "primaryBtn": "Planifier une Consultation", "secondaryBtn": "Nos Services",
+    "trust": { "response": "Réponse 24h", "noLockIn": "Sans Engagement", "roi": "ROI Garanti", "africa": "Prêt pour l'Afrique" }
+  },
+  "homeHero": {
+    "eyebrow":      "Partenaire de Transformation Numérique de l'Afrique",
+    "headline":     "Nous Créons des Solutions Numériques",
+    "headlineFor":  "pour",
+    "subheadline":  "Du logiciel sur mesure à l'analytique IA — AlphaWaves livre une technologie de niveau entreprise conçue pour les infrastructures africaines, les écosystèmes de paiement et les réalités du marché.",
+    "primaryBtn":   "Commencer",
+    "secondaryBtn": "Voir Nos Réalisations",
+    "scroll": "Défiler",
+    "trust": { "clients": "Clients Satisfaits", "countries": "Pays", "projects": "Projets" },
+    "slides": {
+      "1": { "category": "E-commerce",  "title": "Boutique Mode, Douala",    "metaLabel": "Augmentation du CA"    },
+      "2": { "category": "Agriculture", "title": "Marché des Agriculteurs",  "metaLabel": "Agriculteurs Aidés"    },
+      "3": { "category": "Fintech",     "title": "Plateforme de Crédit IA",  "metaLabel": "Approbations plus rapides" }
+    },
+    "slideStats": {
+      "transactions": "Transactions", "uptime": "Disponibilité", "roi": "ROI",
+      "buyers": "Acheteurs", "incomeBoost": "Hausse Revenu", "countries": "Pays",
+      "loans": "Prêts", "defaultDown": "Défauts ↓", "accuracy": "Précision"
+    }
+  },
+  "trustedBy": { "label": "Nos Clients" },
+  "homeServices": {
+    "eyebrow":     "Ce que Nous Faisons",
+    "title":       "Tout ce dont Vous Avez Besoin,",
+    "titleAccent": "Sous un Même Toit",
+    "viewAll":     "Voir Tous les Services",
+    "learnMore":   "En Savoir Plus",
+    "services": {
+      "software":  { "title": "Logiciel Sur Mesure",       "desc": "Applications web et mobiles conçues pour les infrastructures africaines avec des standards techniques mondiaux." },
+      "ai":        { "title": "IA & Analytique de Données","desc": "Transformez les données en avantage concurrentiel grâce à l'intelligence prédictive et à l'automatisation." },
+      "marketing": { "title": "Marketing Digital",          "desc": "Optimisez votre visibilité avec des stratégies SEO et de marque qui convertissent les visiteurs en clients." },
+      "cloud":     { "title": "Cloud & DevOps",             "desc": "Infrastructure évolutive et sécurisée avec 99,9% de disponibilité et une fiabilité de niveau entreprise." },
+      "mobile":    { "title": "Développement Mobile",       "desc": "Applications iOS et Android offline-first optimisées pour la connectivité africaine." },
+      "payment":   { "title": "Infrastructure de Paiement", "desc": "MTN MoMo, Orange Money, Airtel Money et passerelles internationales — unifiés en un seul système." }
+    }
+  },
+  "homeWhyUs": {
+    "eyebrow":     "Pourquoi AlphaWaves",
+    "title":       "Pourquoi les Entreprises",
+    "titleAccent": "Nous Choisissent",
+    "subtitle":    "L'expertise du marché africain rencontre l'excellence technique mondiale — livrée par une équipe unifiée.",
+    "aboutBtn":    "À propos",
+    "points": {
+      "1": { "title": "Conçu pour les Réalités Africaines", "desc": "Chaque solution est architecturée pour les infrastructures africaines — connectivité intermittente, utilisateurs mobiles, multiples fournisseurs de paiement et capacités d'appareils variées." },
+      "2": { "title": "Une Équipe, Exécution Complète",     "desc": "Stratégie, design, développement, intégration IA, déploiement et optimisation — tout sous une équipe responsable. Pas de chaos de prestataires. Exécution fluide, livraison rapide." },
+      "3": { "title": "Résultats, pas Juste la Tech",       "desc": "Nous mesurons le succès par les résultats commerciaux — croissance des revenus, réduction des coûts, expansion du marché. Nos clients voient un ROI moyen de 300%+ en 12 mois." }
+    }
+  },
+  "homeStats": {
+    "projects":     "Projets Livrés",
+    "clients":      "Clients Satisfaits",
+    "countries":    "Pays Servis",
+    "roi":          "ROI Moyen Client",
+    "satisfaction": "Satisfaction Client",
+    "transactions": "Transactions Traitées"
+  },
+  "homePortfolio": {
+    "eyebrow":     "Nos Réalisations",
+    "title":       "Projets Réels.",
+    "titleAccent": "Résultats Réels.",
+    "viewAll":     "Voir Tous les Projets",
+    "viewCase":    "Voir l'Étude de Cas",
+    "seeAll":      "Voir Tous les Projets",
+    "projects": {
+      "ecommerce":   { "category": "E-commerce",  "title": "Plateforme E-commerce Mode",  "metricLabel": "Augmentation du CA"   },
+      "fintech":     { "category": "Fintech",     "title": "Plateforme de Crédit IA",     "metricLabel": "Approbations Rapides" },
+      "agriculture": { "category": "Agriculture", "title": "App Marché Agriculteurs",     "metricLabel": "Agriculteurs Aidés"   }
+    }
+  },
+  "homeProcess": {
+    "eyebrow":     "Comment Ça Marche",
+    "title":       "De l'Idée à",
+    "titleAccent": "l'Impact",
+    "titleEnd":    "en 3 Étapes",
+    "steps": {
+      "1": { "title": "Découvrir & Stratégiser", "desc": "Nous analysons en profondeur vos objectifs commerciaux, votre position sur le marché et vos défis techniques. Nous définissons à quoi ressemble le succès — en chiffres." },
+      "2": { "title": "Construire & Intégrer",   "desc": "Nos ingénieurs construisent votre solution avec une livraison par sprints, des démonstrations régulières et une assurance qualité intégrée à chaque étape." },
+      "3": { "title": "Lancer & Croître",        "desc": "Nous déployons, surveillons et optimisons en continu. Support post-lancement, améliorations basées sur les données et mise à l'échelle à mesure que vous grandissez." }
+    }
+  },
+  "homeTestimonial": {
+    "eyebrow": "Témoignage Client",
+    "quote":   "AlphaWaves a complètement transformé notre commerce de détail. L'intégration mobile money seule a augmenté nos ventes en ligne de 250% en seulement trois mois. Leur équipe a compris nos défis de marché et a livré une solution qui fonctionne vraiment.",
+    "author":  "Jean-Paul Kamga",
+    "role":    "PDG",
+    "company": "Fashion Boutique Douala",
+    "project": "Plateforme E-commerce"
+  },
+  "homeCTA": {
+    "eyebrow":      "Construisons Ensemble",
+    "title":        "Votre Avenir Numérique",
+    "titleAccent":  "Commence Aujourd'hui",
+    "subtitle":     "Des startups camerounaises aux entreprises panafricaines — AlphaWaves est votre partenaire technologique stratégique pour une transformation numérique qui génère un avantage concurrentiel mesurable.",
+    "primaryBtn":   "Planifier une Consultation Gratuite",
+    "secondaryBtn": "Explorer Nos Services",
+    "perks": {
+      "1": "Consultation gratuite — sans engagement",
+      "2": "Réponse sous 24 heures",
+      "3": "Tarification transparente dès le départ",
+      "4": "Équipe dédiée dès le premier jour"
+    }
+  }
+}
