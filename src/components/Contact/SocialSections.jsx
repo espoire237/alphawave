@@ -2,12 +2,18 @@ import { MY_COLORS } from "../../constants/colors.js";
 import { FONTS } from "../../assets/fonts/fonts.js";
 import { SOCIALS } from "../../constants/contactData.jsx";
 import useScrollReveal from "../../hooks/useScrollReveal.js";
+import useBreakpoint from "../../hooks/useBreakpoint.js";
 
 const SocialSection = () => {
   const ref = useScrollReveal(0.1);
+  const { isMobile, isTablet } = useBreakpoint();
+
+  const px = isMobile ? "20px" : isTablet ? "32px" : "40px";
+  const py = isMobile ? "48px" : "72px";
+
   return (
-    <section ref={ref} style={{ background: MY_COLORS.bgSection, padding: "72px 0" }}>
-      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 40px", textAlign: "center" }}>
+    <section ref={ref} style={{ background: MY_COLORS.bgSection, padding: `${py} 0` }}>
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: `0 ${px}`, textAlign: "center" }}>
         <div data-reveal style={{ opacity: 0, transform: "translateY(20px)", transition: "opacity 0.6s ease, transform 0.6s ease" }}>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
             <span style={{ width: 28, height: 2, borderRadius: 9999, background: MY_COLORS.gradientOrange }} />

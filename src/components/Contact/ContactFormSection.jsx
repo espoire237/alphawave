@@ -6,16 +6,24 @@ import { SERVICES, BUDGETS, SOURCES } from "../../constants/contactData.jsx";
 import { ArrowRight } from "../icons/ContactIcons.jsx";
 import FormInput from "../ui/FormInput.jsx";
 import useScrollReveal from "../../hooks/useScrollReveal.js";
+import useBreakpoint from "../../hooks/useBreakpoint.js";
 
 const ContactFormSection = () => {
   const ref = useScrollReveal(0.05);
+  const { isMobile, isTablet } = useBreakpoint();
+
   const [form, setForm] = useState({
     full_name: "", email: "", phone: "", company_name: "",
     service_interested: "", budget_range: "", project_description: "",
     referral_source: "",
   });
   const [errors, setErrors] = useState({});
-  const [status, setStatus] = useState("idle"); // idle | loading | success | error
+  const [status, setStatus] = useState("idle");
+
+  const px      = isMobile ? "20px" : isTablet ? "32px" : "40px";
+  const py      = isMobile ? "64px" : isTablet ? "80px" : "100px";
+  const cardPad = isMobile ? "28px 20px" : isTablet ? "36px 32px" : "48px 52px";
+  const cols2   = isMobile ? "1fr" : "1fr 1fr";
 
   const validate = () => {
     const e = {};
@@ -41,12 +49,6 @@ const ContactFormSection = () => {
     setStatus("loading");
     try {
       // ── TODO: Connect to Directus Leads collection ──────────
-      // const res = await fetch("https://your-directus.com/items/leads", {
-      //   method:  "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body:    JSON.stringify({ ...form, status: "New", submitted_at: new Date().toISOString() }),
-      // });
-      // if (!res.ok) throw new Error("Failed");
       await new Promise(r => setTimeout(r, 1500));
       setStatus("success");
       setForm({ full_name: "", email: "", phone: "", company_name: "", service_interested: "", budget_range: "", project_description: "", referral_source: "" });
@@ -56,22 +58,23 @@ const ContactFormSection = () => {
   };
 
   return (
-    <section ref={ref} style={{ position: "relative", background: MY_COLORS.bgSection, padding: "100px 0", overflow: "hidden" }}>
+    <section ref={ref} style={{ position: "relative", background: MY_COLORS.bgSection, padding: `${py} 0`, overflow: "hidden" }}>
       {/* Glow */}
-      <div style={{ position: "absolute", top: -100, right: -100, width: 600, height: 600, borderRadius: "50%", background: `radial-gradient(circle, ${MY_COLORS.orangeSection} 0%, transparent 65%)`, pointerEvents: "none" }} />
-      {/* Grid */}
+      <div style={{ position: "absolute", top: -100, right: -100, width: isMobile ? 300 : 600, height: isMobile ? 300 : 600, borderRadius: "50%", background: `radial-gradient(circle, ${MY_COLORS.orangeSection} 0%, transparent 65%)`, pointerEvents: "none" }} />
+      {/* Grid texture */}
       <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px)`, backgroundSize: "60px 60px", pointerEvents: "none" }} />
 
-      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 40px", position: "relative" }}>
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: `0 ${px}`, position: "relative" }}>
+
         {/* Header */}
-        <div style={{ marginBottom: 56 }}>
+        <div style={{ marginBottom: isMobile ? 36 : 56 }}>
           <div data-reveal style={{ display: "inline-flex", alignItems: "center", gap: 10, marginBottom: 20, opacity: 0, transform: "translateY(20px)", transition: "opacity 0.6s ease, transform 0.6s ease" }}>
             <span style={{ width: 28, height: 2, borderRadius: 9999, background: MY_COLORS.gradientOrange }} />
             <span style={{ fontFamily: FONTS.primary, fontSize: FONTS.size.xs, fontWeight: FONTS.weight.bold, letterSpacing: FONTS.tracking.widest, textTransform: "uppercase", color: MY_COLORS.orange }}>
               Start The Conversation
             </span>
           </div>
-          <h2 data-reveal style={{ fontFamily: FONTS.primary, fontSize: "clamp(28px, 3.5vw, 44px)", fontWeight: FONTS.weight.extrabold, letterSpacing: FONTS.tracking.tight, color: MY_COLORS.textPrimary, margin: "0 0 12px 0", opacity: 0, transform: "translateY(20px)", transition: "opacity 0.6s ease, transform 0.6s ease" }}>
+          <h2 data-reveal style={{ fontFamily: FONTS.primary, fontSize: "clamp(24px, 3.5vw, 44px)", fontWeight: FONTS.weight.extrabold, letterSpacing: FONTS.tracking.tight, color: MY_COLORS.textPrimary, margin: "0 0 12px 0", opacity: 0, transform: "translateY(20px)", transition: "opacity 0.6s ease, transform 0.6s ease" }}>
             Tell Us About Your{" "}
             <span style={{ color: MY_COLORS.orange, textShadow: `0 0 30px ${MY_COLORS.orangeGlow}` }}>Project</span>
           </h2>
@@ -81,10 +84,10 @@ const ContactFormSection = () => {
         </div>
 
         {/* Form card */}
-        <div data-reveal style={{ padding: "48px 52px", borderRadius: 20, background: MY_COLORS.bgSurface, border: `1px solid ${MY_COLORS.border}`, opacity: 0, transform: "translateY(30px)", transition: "opacity 0.7s ease, transform 0.7s ease" }}>
+        <div data-reveal style={{ padding: cardPad, borderRadius: 20, background: MY_COLORS.bgSurface, border: `1px solid ${MY_COLORS.border}`, opacity: 0, transform: "translateY(30px)", transition: "opacity 0.7s ease, transform 0.7s ease" }}>
 
           {status === "success" && (
-            <div style={{ textAlign: "center", padding: "60px 0" }}>
+            <div style={{ textAlign: "center", padding: isMobile ? "40px 0" : "60px 0" }}>
               <div style={{ fontSize: 56, marginBottom: 20 }}>✅</div>
               <h3 style={{ fontFamily: FONTS.primary, fontSize: FONTS.size.xl, fontWeight: FONTS.weight.extrabold, color: MY_COLORS.textPrimary, marginBottom: 12 }}>Message Received!</h3>
               <p style={{ fontFamily: FONTS.secondary, fontSize: FONTS.size.base, color: MY_COLORS.textSecondary, marginBottom: 28, maxWidth: 400, margin: "0 auto 28px" }}>
@@ -105,15 +108,15 @@ const ContactFormSection = () => {
 
           {status !== "success" && (
             <>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginBottom: 20 }}>
-                <FormInput label="Full Name"     name="full_name" value={form.full_name} onChange={handleChange} required placeholder="Jean Dupont"      error={errors.full_name} />
+              <div style={{ display: "grid", gridTemplateColumns: cols2, gap: 20, marginBottom: 20 }}>
+                <FormInput label="Full Name"     name="full_name" value={form.full_name} onChange={handleChange} required placeholder="Jean Dupont"         error={errors.full_name} />
                 <FormInput label="Email Address" name="email"     value={form.email}     onChange={handleChange} required type="email" placeholder="you@company.com" error={errors.email} />
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginBottom: 20 }}>
+              <div style={{ display: "grid", gridTemplateColumns: cols2, gap: 20, marginBottom: 20 }}>
                 <FormInput label="Phone Number" name="phone"        value={form.phone}        onChange={handleChange} type="tel"  placeholder="+237 XXX XXX XXX" />
                 <FormInput label="Company Name" name="company_name" value={form.company_name} onChange={handleChange} placeholder="Your Company" />
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginBottom: 20 }}>
+              <div style={{ display: "grid", gridTemplateColumns: cols2, gap: 20, marginBottom: 20 }}>
                 <FormInput label="Service Interested In" name="service_interested" value={form.service_interested} onChange={handleChange} required as="select" placeholder="Select a service..."    options={SERVICES} error={errors.service_interested} />
                 <FormInput label="Budget Range"          name="budget_range"       value={form.budget_range}       onChange={handleChange} as="select" placeholder="Select budget range..." options={BUDGETS} />
               </div>
@@ -124,14 +127,15 @@ const ContactFormSection = () => {
                 <FormInput label="How Did You Find Us?" name="referral_source" value={form.referral_source} onChange={handleChange} as="select" placeholder="Select source..." options={SOURCES} />
               </div>
 
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }}>
-                <p style={{ fontFamily: FONTS.secondary, fontSize: FONTS.size.xs, color: MY_COLORS.textMuted, margin: 0 }}>
+              {/* Submit row */}
+              <div style={{ display: "flex", flexDirection: isMobile ? "column" : "row", alignItems: isMobile ? "stretch" : "center", justifyContent: "space-between", gap: 16 }}>
+                <p style={{ fontFamily: FONTS.secondary, fontSize: FONTS.size.xs, color: MY_COLORS.textMuted, margin: 0, textAlign: isMobile ? "center" : "left" }}>
                   🔒 Your information is 100% confidential. No spam, ever.
                 </p>
                 <button
                   onClick={handleSubmit}
                   disabled={status === "loading"}
-                  style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "14px 36px", borderRadius: 10, background: status === "loading" ? MY_COLORS.bgSurfaceHover : MY_COLORS.gradientOrange, color: "#fff", border: "none", fontFamily: FONTS.primary, fontSize: FONTS.size.base, fontWeight: FONTS.weight.bold, letterSpacing: FONTS.tracking.wide, cursor: status === "loading" ? "not-allowed" : "pointer", boxShadow: status === "loading" ? "none" : `0 0 24px ${MY_COLORS.orangeGlow}`, transition: "all 0.3s ease", opacity: status === "loading" ? 0.7 : 1 }}
+                  style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 10, padding: "14px 36px", borderRadius: 10, background: status === "loading" ? MY_COLORS.bgSurfaceHover : MY_COLORS.gradientOrange, color: "#fff", border: "none", fontFamily: FONTS.primary, fontSize: FONTS.size.base, fontWeight: FONTS.weight.bold, letterSpacing: FONTS.tracking.wide, cursor: status === "loading" ? "not-allowed" : "pointer", boxShadow: status === "loading" ? "none" : `0 0 24px ${MY_COLORS.orangeGlow}`, transition: "all 0.3s ease", opacity: status === "loading" ? 0.7 : 1, width: isMobile ? "100%" : "auto" }}
                   onMouseEnter={e => { if (status !== "loading") { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = `0 0 36px ${MY_COLORS.orangeGlow}`; } }}
                   onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = `0 0 24px ${MY_COLORS.orangeGlow}`; }}
                 >
@@ -146,14 +150,7 @@ const ContactFormSection = () => {
           )}
         </div>
       </div>
-
-      <style>{`
-        @keyframes spin { to { transform: rotate(360deg); } }
-        @media (max-width: 768px) {
-          .form-grid-2 { grid-template-columns: 1fr !important; }
-          .form-card    { padding: 28px 20px !important; }
-        }
-      `}</style>
+      <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
     </section>
   );
 };
