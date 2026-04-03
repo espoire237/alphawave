@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { MY_COLORS } from "../../constants/colors.js";
 import { FONTS } from "../../assets/fonts/fonts.js";
+import { useTranslation } from "react-i18next";
 
 const ArrowRight = () => (
   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -41,6 +42,7 @@ const useScrollReveal = (threshold = 0.1) => {
 };
 
 const ServicesCTA = () => {
+  const { t } = useTranslation();
   const sectionRef = useScrollReveal();
   const [primaryHover, setPrimary] = useState(false);
   const [secondaryHover, setSecond] = useState(false);
@@ -176,7 +178,7 @@ const ServicesCTA = () => {
                 color: MY_COLORS.orange,
               }}
             >
-              Ready To Start?
+             {t("servicesPage.cta.eyebrow")}
             </span>
             <span
               style={{
@@ -203,15 +205,15 @@ const ServicesCTA = () => {
               transform: "translateY(20px)",
               transition: "all 0.6s ease",
             }}
-          >
+           >
             Ready to Transform Your{" "}
             <span
               style={{
                 color: MY_COLORS.orange,
                 textShadow: `0 0 30px ${MY_COLORS.orangeGlow}`,
               }}
-            >
-              Business?
+             >
+               {t("servicesPage.cta.titleAccent")}
             </span>
           </h2>
 
@@ -229,9 +231,7 @@ const ServicesCTA = () => {
               transition: "all 0.6s ease",
             }}
           >
-            From Cameroonian startups to pan-African enterprises — AlphaWaves is
-            your strategic technology partner for digital transformation that
-            drives measurable competitive advantage.
+            {t("servicesPage.cta.subtitle")}
           </p>
 
           <div
@@ -271,7 +271,7 @@ const ServicesCTA = () => {
                 transition: "all 0.3s ease",
               }}
             >
-              Schedule Free Consultation <ArrowRight />
+             {t("servicesPage.cta.primaryBtn")} <ArrowRight />
             </Link>
             <Link
               to="/portfolio"
@@ -299,7 +299,7 @@ const ServicesCTA = () => {
                 transition: "all 0.3s ease",
               }}
             >
-              View Our Work <ArrowRight />
+             {t("servicesPage.cta.secondaryBtn")} <ArrowRight />
             </Link>
           </div>
         </div>
