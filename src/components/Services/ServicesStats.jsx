@@ -25,7 +25,9 @@ const useCounter = (target, duration = 2000, started = false) => {
 
 const StatItem = ({ stat, started }) => {
   const { t } = useTranslation();
-  const stat_t = t(`servicesPage.data.stats.${stat.id}`, { returnObjects: true });
+  const stat_t = t(`servicesPage.data.stats.${stat.id}`, {
+    returnObjects: true,
+  });
 
   const count = useCounter(stat.value, 2000, started);
   const display =
@@ -56,7 +58,8 @@ const StatItem = ({ stat, started }) => {
           marginBottom: 8,
         }}
       >
-        {display}{stat.suffix}
+        {display}
+        {stat.suffix}
       </div>
       <div
         style={{
@@ -100,9 +103,13 @@ const ServicesStats = () => {
   }, []);
 
   // Get the published testimonial id from static data, then fetch its text from t()
-  const testimonialMeta = TESTIMONIALS.find((item) => item.status === "published");
+  const testimonialMeta = TESTIMONIALS.find(
+    (item) => item.status === "published",
+  );
   const testimonial_t = testimonialMeta
-    ? t(`servicesPage.data.testimonials.${testimonialMeta.id}`, { returnObjects: true })
+    ? t(`servicesPage.data.testimonials.${testimonialMeta.id}`, {
+        returnObjects: true,
+      })
     : null;
 
   return (
@@ -160,7 +167,14 @@ const ServicesStats = () => {
               transition: "all 0.6s ease",
             }}
           >
-            <span style={{ width: 28, height: 2, borderRadius: 9999, background: MY_COLORS.gradientOrange }} />
+            <span
+              style={{
+                width: 28,
+                height: 2,
+                borderRadius: 9999,
+                background: MY_COLORS.gradientOrange,
+              }}
+            />
             <span
               style={{
                 fontFamily: FONTS.primary,
@@ -173,7 +187,14 @@ const ServicesStats = () => {
             >
               {t("servicesPage.stats.eyebrow")}
             </span>
-            <span style={{ width: 28, height: 2, borderRadius: 9999, background: MY_COLORS.gradientOrange }} />
+            <span
+              style={{
+                width: 28,
+                height: 2,
+                borderRadius: 9999,
+                background: MY_COLORS.gradientOrange,
+              }}
+            />
           </div>
 
           <h2

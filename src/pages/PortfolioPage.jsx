@@ -24,15 +24,19 @@ import PortfolioTestimonials from "../components/Portfolio/PortfolioTestimonials
 import PortfolioMetrics from "../components/Portfolio/PortfolioMetrics.jsx";
 import PortfolioCTA from "../components/Portfolio/PortfolioCTA.jsx";
 import { IMAGES } from "../assets/assets.js";
+import { useTranslation } from "react-i18next";
 
-const PortfolioPage = () => (
+const PortfolioPage = () => {
+  const {t} = useTranslation();
+
+return (
   <>
     {/* Section 1 — Hero */}
     <HeroSection
       eyebrow="Our Work"
       headline="Proven Results Across African Markets"
       subheadline="Real projects. Real clients. Real impact.
-       See how we've transformed businesses through technology."
+      See how we've transformed businesses through technology."
       image={IMAGES.hero.portfolio}
       imagePosition="center 45%"
       breadcrumb={false}
@@ -40,7 +44,7 @@ const PortfolioPage = () => (
         primary: { label: "Start Your Project", path: "/contact" },
         secondary: { label: "View All Case Studies", path: "#portfolio" },
       }}
-    />
+      />
 
     {/* Section 2 — Stats bar */}
     <PortfolioStatsBar />
@@ -64,5 +68,6 @@ const PortfolioPage = () => (
     <PortfolioCTA />
   </>
 );
+}
 
 export default PortfolioPage;

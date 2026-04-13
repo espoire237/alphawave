@@ -683,5 +683,306 @@
         }
       }
     }
+  },
+  "portfolioPage": {
+    "hero": {
+      "eyebrow": "Our Work",
+      "headline": "Proven Results Across African Markets",
+      "subheadline": "Real projects. Real clients. Real impact. See how we've transformed businesses through technology.",
+      "primaryBtn": "Start Your Project",
+      "secondaryBtn": "View All Case Studies"
+    },
+    "statsBar": {
+      "1": { "label": "Projects Delivered" },
+      "2": { "label": "Industries Served" },
+      "3": { "label": "Countries" },
+      "4": { "label": "Client Satisfaction" }
+    },
+    "grid": {
+      "eyebrow": "Our Work",
+      "title": "Explore Our",
+      "titleAccent": "Work",
+      "projectSuffix": "project",
+      "projectSuffixPlural": "projects",
+      "resultsCopy": "real results for real clients.",
+      "industryLabel": "Industry",
+      "serviceLabel": "Service",
+      "viewCaseStudy": "View Case Study",
+      "featured": "Featured",
+      "confidential": "Confidential Client",
+      "emptyTitle": "No projects found",
+      "emptyDesc": "Try a different category or service filter."
+    },
+    "categories": {
+      "all": "All Projects",
+      "ecommerce": "E-commerce & Retail",
+      "finance": "Financial Services",
+      "agriculture": "Agriculture",
+      "healthcare": "Healthcare",
+      "education": "Education",
+      "hospitality": "Hospitality & Tourism"
+    },
+    "serviceFilters": {
+      "all": "All Services",
+      "web": "Web Applications",
+      "mobile": "Mobile Apps",
+      "ai": "AI & Data Analytics"
+    },
+    "featured": {
+      "eyebrow": "Featured Project",
+      "title": "Featured",
+      "titleAccent": "Success Story",
+      "keyResults": "Key Results",
+      "challenge": "Challenge",
+      "solution": "Solution",
+      "confidential": "Confidential Client",
+      "readCase": "Read Full Case Study"
+    },
+    "industries": {
+      "eyebrow": "Sectors",
+      "title": "Industries We've",
+      "titleAccent": "Transformed",
+      "projectsLabel": "Projects",
+      "items": {
+        "1": {
+          "name": "E-commerce & Retail",
+          "metric": "$2M+ in sales enabled"
+        },
+        "2": {
+          "name": "Financial Services",
+          "metric": "50,000+ transactions processed"
+        },
+        "3": { "name": "Agriculture", "metric": "1,500+ farmers empowered" },
+        "4": { "name": "Healthcare", "metric": "100,000+ patients served" },
+        "5": { "name": "Education", "metric": "10,000+ students enrolled" },
+        "6": {
+          "name": "Hospitality & Tourism",
+          "metric": "95% avg occupancy boost"
+        },
+        "7": {
+          "name": "Professional Services",
+          "metric": "200+ businesses digitized"
+        },
+        "8": { "name": "Logistics", "metric": "40% efficiency improvement" }
+      }
+    },
+    "testimonials": {
+      "eyebrow": "Client Voices",
+      "title": "What Our",
+      "titleAccent": "Clients Say"
+    },
+    "metrics": {
+      "eyebrow": "By The Numbers",
+      "title": "Measurable Impact",
+      "titleAccent": "We've Delivered",
+      "items": {
+        "1": { "label": "Revenue Generated for Clients" },
+        "2": { "label": "Users Served Across Platforms" },
+        "3": { "label": "Transactions Processed" },
+        "4": { "label": "Projects Delivered" },
+        "5": { "label": "Client Satisfaction Rate" },
+        "6": { "label": "Average Client ROI" }
+      }
+    },
+    "cta": {
+      "eyebrow": "Start Your Project",
+      "title": "Ready to Become Our Next",
+      "titleAccent": "Success Story?",
+      "subtitle": "Join leading businesses across Africa who have transformed their operations with AlphaWaves.",
+      "primaryBtn": "Start Your Project",
+      "secondaryBtn": "Schedule Consultation",
+      "trustPoints": [
+        "Free consultation and project assessment",
+        "Transparent pricing with no hidden costs",
+        "Proven track record across 8+ industries",
+        "Dedicated team committed to your success"
+      ]
+    },
+    "projects": {
+      "ecommerce-fashion-retailer": {
+        "project_name": "E-Commerce Platform",
+        "client_name": "Leading Fashion Retailer, Douala",
+        "short_description": "Complete e-commerce platform with seamless mobile money integration, inventory management, and customer analytics.",
+        "challenge_description": "A growing fashion retailer had zero online presence and was losing sales to competitors. Accepting only cash payments was limiting their customer base.",
+        "solution_description": "Built a full e-commerce platform with MTN MoMo and Orange Money integration, real-time inventory management, and an analytics dashboard.",
+        "technologies": [
+          "React.js",
+          "Node.js",
+          "MongoDB",
+          "MTN MoMo",
+          "Orange Money"
+        ],
+        "results": [
+          { "label": "Revenue Increase", "value": "250%" },
+          { "label": "Transactions Processed", "value": "15,000+" },
+          { "label": "Inventory Cost Reduction", "value": "40%" }
+        ],
+        "testimonial": {
+          "quote": "AlphaWaves transformed our retail business completely. The mobile money integration alone increased our online sales by 250% in just three months.",
+          "author": "Jean-Paul Kamga",
+          "title": "CEO",
+          "company": "Fashion Boutique Douala",
+          "rating": 5
+        }
+      },
+      "agricultural-marketplace": {
+        "project_name": "Agricultural Marketplace",
+        "client_name": "Regional Farmer Cooperative",
+        "short_description": "Mobile-first marketplace connecting farmers directly to buyers, eliminating middlemen and increasing farmer profits.",
+        "challenge_description": "Farmers were losing 60% of potential profits to middlemen with no direct access to buyers or market pricing information.",
+        "solution_description": "Built a React Native marketplace app with real-time pricing, GPS-based buyer/seller matching, and mobile money payments.",
+        "technologies": [
+          "React Native",
+          "Python",
+          "PostgreSQL",
+          "Google Maps API"
+        ],
+        "results": [
+          { "label": "Farmers Onboarded", "value": "500+" },
+          { "label": "Buyers Registered", "value": "2,000+" },
+          { "label": "Farmer Income Boost", "value": "35%" }
+        ],
+        "testimonial": {
+          "quote": "Working with AlphaWaves was seamless. The platform now connects over 500 farmers to buyers, increasing farmer income by 35%.",
+          "author": "Marie Nkolo",
+          "title": "Director",
+          "company": "Agricultural Cooperative",
+          "rating": 5
+        }
+      },
+      "healthcare-appointment-system": {
+        "project_name": "Healthcare Appointment System",
+        "client_name": "Private Medical Clinic Network",
+        "short_description": "Patient management and appointment scheduling system with SMS reminders, reducing no-shows and improving clinic efficiency.",
+        "challenge_description": "A clinic network had 40% no-show rates and was managing appointments manually via phone — losing hours daily to admin work.",
+        "solution_description": "Built a web-based patient management system with automated SMS reminders, online booking, and doctor schedule management.",
+        "technologies": ["Vue.js", "Node.js", "MySQL", "SMS Integration"],
+        "results": [
+          { "label": "Reduction in No-Shows", "value": "60%" },
+          { "label": "Daily Appointments", "value": "200+" },
+          { "label": "Patient Satisfaction", "value": "4.8/5" }
+        ],
+        "testimonial": null
+      },
+      "fintech-lending-platform": {
+        "project_name": "AI Lending Platform",
+        "client_name": "Microfinance Institution",
+        "short_description": "AI-powered credit scoring and loan management platform enabling faster approval and lower default rates.",
+        "challenge_description": "Manual loan processing took 2 weeks and had a 30% default rate due to poor credit assessment methods.",
+        "solution_description": "Built an AI credit scoring engine using alternative data points, reducing approval time and default rates dramatically.",
+        "technologies": [
+          "React.js",
+          "Python",
+          "FastAPI",
+          "AI/ML",
+          "PostgreSQL"
+        ],
+        "results": [
+          { "label": "Faster Loan Approval", "value": "70%" },
+          { "label": "Default Rate Reduction", "value": "25%" },
+          { "label": "Loans Processed", "value": "10,000+" }
+        ],
+        "testimonial": {
+          "quote": "The AI-powered credit scoring system reduced our loan approval time by 70% while lowering default rates. AlphaWaves didn't just build software — they transformed our entire lending operation.",
+          "author": "Dr. Emmanuel Fon",
+          "title": "Managing Director",
+          "company": "Microfinance Institution",
+          "rating": 5
+        }
+      },
+      "hotel-booking-system": {
+        "project_name": "Hotel Booking & Management",
+        "client_name": "Boutique Hotel Chain",
+        "short_description": "Complete hotel management system with online booking, payment processing, and operational analytics dashboard.",
+        "challenge_description": "A hotel chain was losing bookings to OTA platforms and paying 20% commissions. No direct booking capability existed.",
+        "solution_description": "Built a direct booking engine with Stripe integration, room management dashboard, and revenue analytics.",
+        "technologies": ["Next.js", "Node.js", "Stripe", "Booking Engine API"],
+        "results": [
+          { "label": "Online Bookings Increase", "value": "180%" },
+          { "label": "Operational Cost Reduction", "value": "45%" },
+          { "label": "Uptime Maintained", "value": "99.9%" }
+        ],
+        "testimonial": null
+      },
+      "education-lms-platform": {
+        "project_name": "University LMS Platform",
+        "client_name": "Private University",
+        "short_description": "Learning management system enabling online courses, student portals, and progress tracking for 5,000+ students.",
+        "challenge_description": "A university needed to move to hybrid learning post-pandemic with no digital infrastructure in place.",
+        "solution_description": "Built a full LMS with course management, video streaming, student progress tracking, and mobile-responsive design.",
+        "technologies": ["React.js", "Node.js", "MongoDB", "Video Streaming"],
+        "results": [
+          { "label": "Students Enrolled", "value": "5,000+" },
+          { "label": "Course Completion Rate", "value": "95%" },
+          { "label": "Cost Reduction", "value": "40%" }
+        ],
+        "testimonial": null
+      }
+    },
+    "postPage": {
+      "home": "Home",
+      "portfolio": "Portfolio",
+      "confidential": "Confidential Client",
+      "client": "Client",
+      "type": "Type",
+      "industry": "Industry",
+      "status": "Status",
+      "delivered": "Delivered",
+      "caseStudy": "Case Study",
+      "projectOverview": "Project Overview",
+      "aboutProject": "About This Project",
+      "keyHighlights": "Key Highlights",
+      "highlights": [
+        "Built for African market conditions",
+        "Mobile-first, low-bandwidth ready",
+        "Mobile money payments integrated",
+        "Real-time analytics dashboard",
+        "Live in production"
+      ],
+      "impactSummary": "Impact Summary",
+      "theProblem": "The Problem",
+      "challengeTitle": "The Challenge We Faced",
+      "painPoints": "Pain Points",
+      "pains": [
+        "No existing digital infrastructure",
+        "Manual processes causing costly errors",
+        "Restricted to cash-only transactions",
+        "Unable to scale without automation"
+      ],
+      "ourApproach": "Our Approach",
+      "whatWeBuilt": "What We Built",
+      "keyDeliverables": "Key Deliverables",
+      "deliverables": [
+        "Custom-built for African market conditions",
+        "Mobile-first, offline-capable architecture",
+        "Full mobile money payment integration",
+        "Real-time analytics and reporting dashboard",
+        "Comprehensive admin management panel"
+      ],
+      "impactResults": "Impact & Results",
+      "numbersTitle": "The Numbers Don't Lie",
+      "stack": "Stack",
+      "techUsed": "Technologies Used",
+      "moreWork": "More Work",
+      "relatedProjects": "Related Projects",
+      "viewAll": "View All",
+      "viewCaseStudy": "View Case Study",
+      "readyBuild": "Ready to Build?",
+      "ctaTitle": "Let's Build Your",
+      "ctaTitleAccent": "Success Story",
+      "ctaSubtitle": "This project is one example of what we achieve together. Tell us about your challenge — let's create something extraordinary for your market.",
+      "startProject": "Start Your Project",
+      "viewAllProjects": "View All Projects",
+      "notFound": "Project Not Found",
+      "notFoundDesc": "This project doesn't exist or has been removed.",
+      "backPortfolio": "Back to Portfolio",
+      "typeLabels": {
+        "web": "Web Application",
+        "mobile": "Mobile App",
+        "ai": "AI Platform"
+      },
+      "featured": "★ Featured",
+      "backBtn": "Back to Portfolio"
+    }
   }
 }
