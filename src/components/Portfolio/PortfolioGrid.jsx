@@ -6,6 +6,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
   PROJECTS,
   CATEGORIES,
@@ -13,8 +14,6 @@ import {
 } from "../../data/portfolioData.js";
 import { MY_COLORS } from "../../constants/colors.js";
 import { FONTS } from "../../assets/fonts/fonts.js";
-import { useTranslation } from "react-i18next";
-import { t } from "i18next";
 
 const ArrowRight = () => (
   <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
@@ -28,7 +27,6 @@ const ArrowRight = () => (
   </svg>
 );
 
-// ── Tech badge ────────────────────────────────────────────────
 const TechBadge = ({ label }) => (
   <span
     style={{
@@ -47,7 +45,6 @@ const TechBadge = ({ label }) => (
   </span>
 );
 
-// ── Result metric ─────────────────────────────────────────────
 const ResultBadge = ({ result }) => (
   <div
     style={{
@@ -88,16 +85,26 @@ const ResultBadge = ({ result }) => (
   </div>
 );
 
-// ── Project card ──────────────────────────────────────────────
 const ProjectCard = ({ project, t }) => {
   const proj_t = t(`portfolioPage.projects.${project.slug}`, {
     returnObjects: true,
-  });
+  }) || {};
 
   const [hovered, setHovered] = useState(false);
-
-  // Category label
   const catLabel = t(`portfolioPage.categories.${project.industry_category}`);
+
+  const projectName = proj_t.project_name || "";
+  const clientName = proj_t.client_name || "";
+  const shortDescription = proj_t.short_description || "";
+  const results = Array.isArray(proj_t.results) ? proj_t.results : [];
+  const technologies = Array.isArray(proj_t.technologies) ? proj_t.technologies : [];
+
+  const initials = projectName
+    .split(" ")
+    .filter(Boolean)
+    .map((w) => w[0])
+    .join("")
+    .slice(0, 2);
 
   return (
     <div
@@ -115,7 +122,6 @@ const ProjectCard = ({ project, t }) => {
         position: "relative",
       }}
     >
-      {/* Image placeholder — swap with real project image */}
       <div
         style={{
           height: 200,
@@ -128,7 +134,6 @@ const ProjectCard = ({ project, t }) => {
           justifyContent: "center",
         }}
       >
-        {/* Project initials placeholder */}
         <div
           style={{
             fontFamily: FONTS.primary,
@@ -139,14 +144,9 @@ const ProjectCard = ({ project, t }) => {
             userSelect: "none",
           }}
         >
-          {proj_t.project_name
-            .split(" ")
-            .map((w) => w[0])
-            .join("")
-            .slice(0, 2)}
+          {initials}
         </div>
 
-        {/* Category badge */}
         <div
           style={{
             position: "absolute",
@@ -168,7 +168,6 @@ const ProjectCard = ({ project, t }) => {
           {catLabel}
         </div>
 
-        {/* Featured badge */}
         {proj_t.featured && (
           <div
             style={{
@@ -186,12 +185,11 @@ const ProjectCard = ({ project, t }) => {
               color: "#fff",
             }}
           >
-            t("portfolioPage.grid.featured")
+            {t("portfolioPage.grid.featured")}
           </div>
         )}
       </div>
 
-      {/* Content */}
       <div
         style={{
           padding: "24px 24px 20px",
@@ -201,7 +199,6 @@ const ProjectCard = ({ project, t }) => {
           gap: 0,
         }}
       >
-        {/* Client */}
         <div
           style={{
             fontFamily: FONTS.secondary,
@@ -214,10 +211,9 @@ const ProjectCard = ({ project, t }) => {
         >
           {proj_t.client_confidential
             ? t("portfolioPage.grid.confidential")
-            : proj_t.client_name}
+            : clientName}
         </div>
 
-        {/* Title */}
         <h3
           style={{
             fontFamily: FONTS.primary,
@@ -229,10 +225,9 @@ const ProjectCard = ({ project, t }) => {
             lineHeight: FONTS.leading.snug,
           }}
         >
-          {proj_t.project_name}
+          {projectName}
         </h3>
 
-        {/* Description */}
         <p
           style={{
             fontFamily: FONTS.secondary,
@@ -243,17 +238,15 @@ const ProjectCard = ({ project, t }) => {
             flex: 1,
           }}
         >
-          {proj_t.short_description}
+          {shortDescription}
         </p>
 
-        {/* Results */}
         <div style={{ display: "flex", gap: 8, marginBottom: 16 }}>
-          {proj_t.results.slice(0, 3).map((r, i) => (
+          {results.slice(0, 3).map((r, i) => (
             <ResultBadge key={i} result={r} />
           ))}
         </div>
 
-        {/* Tech badges */}
         <div
           style={{
             display: "flex",
@@ -262,12 +255,11 @@ const ProjectCard = ({ project, t }) => {
             marginBottom: 20,
           }}
         >
-          {proj_t.technologies.map((t, i) => (
-            <TechBadge key={i} label={t} />
+          {technologies.map((tech, i) => (
+            <TechBadge key={i} label={tech} />
           ))}
         </div>
 
-        {/* CTA */}
         <Link
           to={`/portfolio/${project.slug}`}
           style={{
@@ -285,14 +277,13 @@ const ProjectCard = ({ project, t }) => {
             borderTop: `1px solid ${MY_COLORS.border}`,
           }}
         >
-          t("portfolioPage.grid.viewCaseStudy") <ArrowRight />
+          {t("portfolioPage.grid.viewCaseStudy")} <ArrowRight />
         </Link>
       </div>
     </div>
   );
 };
 
-// ── Filter pill ───────────────────────────────────────────────
 const FilterPill = ({ label, active, onClick }) => (
   <button
     onClick={onClick}
@@ -329,8 +320,7 @@ const FilterPill = ({ label, active, onClick }) => (
   </button>
 );
 
-// ── Empty state ───────────────────────────────────────────────
-const EmptyState = () => (
+const EmptyState = ({ t }) => (
   <div style={{ gridColumn: "1 / -1", textAlign: "center", padding: "80px 0" }}>
     <div style={{ fontSize: 48, marginBottom: 16 }}>🔍</div>
     <h3
@@ -342,7 +332,7 @@ const EmptyState = () => (
         marginBottom: 10,
       }}
     >
-      No projects found
+      {t("portfolioPage.grid.emptyTitle")}
     </h3>
     <p
       style={{
@@ -351,15 +341,13 @@ const EmptyState = () => (
         color: MY_COLORS.textMuted,
       }}
     >
-      Try a different category or service filter.
+      {t("portfolioPage.grid.emptyDesc")}
     </p>
   </div>
 );
 
-// ══════════════════════════════════════════════════════════════
-// PortfolioGrid
-// ══════════════════════════════════════════════════════════════
 const PortfolioGrid = () => {
+  const { t } = useTranslation();
   const [activeCategory, setActiveCategory] = useState("all");
   const [activeService, setActiveService] = useState("all");
   const sectionRef = useRef(null);
@@ -372,7 +360,6 @@ const PortfolioGrid = () => {
     return matchCat && matchService && p.status === "published";
   });
 
-  // Scroll reveal
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
@@ -434,7 +421,6 @@ const PortfolioGrid = () => {
           position: "relative",
         }}
       >
-        {/* Header */}
         <div style={{ marginBottom: 40 }}>
           <div
             data-reveal
@@ -499,7 +485,7 @@ const PortfolioGrid = () => {
                 textShadow: `0 0 30px ${MY_COLORS.orangeGlow}`,
               }}
             >
-              Work
+              {t("portfolioPage.grid.titleAccent")}
             </span>
           </h2>
 
@@ -516,7 +502,6 @@ const PortfolioGrid = () => {
               transition: "all 0.6s ease",
             }}
           >
-             {/* project count line: */}
             {filtered.length}{" "}
             {filtered.length !== 1
               ? t("portfolioPage.grid.projectSuffixPlural")
@@ -525,7 +510,6 @@ const PortfolioGrid = () => {
           </p>
         </div>
 
-        {/* Filters */}
         <div
           data-reveal
           style={{
@@ -535,7 +519,6 @@ const PortfolioGrid = () => {
             transition: "all 0.6s ease",
           }}
         >
-          {/* Category filters */}
           <div style={{ marginBottom: 12 }}>
             <span
               style={{
@@ -548,13 +531,13 @@ const PortfolioGrid = () => {
                 marginRight: 12,
               }}
             >
-             {t("portfolioPage.grid.industryLabel")}
+              {t("portfolioPage.grid.industryLabel")}
             </span>
             <div style={{ display: "inline-flex", flexWrap: "wrap", gap: 8 }}>
               {CATEGORIES.map((cat) => (
                 <FilterPill
                   key={cat.id}
-                  label={cat.label}
+                  label={t(`portfolioPage.categories.${cat.id}`)}
                   active={activeCategory === cat.id}
                   onClick={() => setActiveCategory(cat.id)}
                 />
@@ -562,7 +545,6 @@ const PortfolioGrid = () => {
             </div>
           </div>
 
-          {/* Service type filters */}
           <div>
             <span
               style={{
@@ -575,13 +557,13 @@ const PortfolioGrid = () => {
                 marginRight: 12,
               }}
             >
-             {t("portfolioPage.grid.serviceLabel")}
+              {t("portfolioPage.grid.serviceLabel")}
             </span>
             <div style={{ display: "inline-flex", flexWrap: "wrap", gap: 8 }}>
               {SERVICE_FILTERS.map((svc) => (
                 <FilterPill
                   key={svc.id}
-                  label={svc.label}
+                  label={t(`portfolioPage.serviceFilters.${svc.id}`)}
                   active={activeService === svc.id}
                   onClick={() => setActiveService(svc.id)}
                 />
@@ -590,8 +572,8 @@ const PortfolioGrid = () => {
           </div>
         </div>
 
-        {/* Project grid */}
         <div
+          className="portfolio-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(3, 1fr)",
@@ -599,7 +581,7 @@ const PortfolioGrid = () => {
           }}
         >
           {filtered.length === 0 ? (
-            <EmptyState />
+            <EmptyState t={t} />
           ) : (
             filtered.map((project) => (
               <ProjectCard key={project.id} project={project} t={t} />

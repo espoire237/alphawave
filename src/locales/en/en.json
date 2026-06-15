@@ -444,7 +444,6 @@
       "4": "Dedicated team from day one"
     }
   },
-
   "servicesPage": {
     "hero": {
       "eyebrow": "Our Services",
@@ -684,6 +683,17 @@
       }
     }
   },
+  "portfolio": {
+    "hero": {
+      "eyebrow": "Our Work",
+      "headline": "Proven Results Across African Markets",
+      "subheadline": "Real projects. Real clients. Real impact. See how we've transformed businesses through technology.",
+      "cta": {
+        "primary": "Start Your Project",
+        "secondary": "View All Case Studies"
+      }
+    }
+  },
   "portfolioPage": {
     "hero": {
       "eyebrow": "Our Work",
@@ -918,71 +928,345 @@
         ],
         "testimonial": null
       }
+    }
+  },
+  "postPage": {
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "confidential": "Confidential Client",
+    "client": "Client",
+    "type": "Type",
+    "industry": "Industry",
+    "status": "Status",
+    "delivered": "Delivered",
+    "caseStudy": "Case Study",
+    "projectOverview": "Project Overview",
+    "aboutProject": "About This Project",
+    "keyHighlights": "Key Highlights",
+    "highlights": [
+      "Built for African market conditions",
+      "Mobile-first, low-bandwidth ready",
+      "Mobile money payments integrated",
+      "Real-time analytics dashboard",
+      "Live in production"
+    ],
+    "impactSummary": "Impact Summary",
+    "theProblem": "The Problem",
+    "challengeTitle": "The Challenge We Faced",
+    "painPoints": "Pain Points",
+    "pains": [
+      "No existing digital infrastructure",
+      "Manual processes causing costly errors",
+      "Restricted to cash-only transactions",
+      "Unable to scale without automation"
+    ],
+    "ourApproach": "Our Approach",
+    "whatWeBuilt": "What We Built",
+    "keyDeliverables": "Key Deliverables",
+    "deliverables": [
+      "Custom-built for African market conditions",
+      "Mobile-first, offline-capable architecture",
+      "Full mobile money payment integration",
+      "Real-time analytics and reporting dashboard",
+      "Comprehensive admin management panel"
+    ],
+    "impactResults": "Impact & Results",
+    "numbersTitle": "The Numbers Don't Lie",
+    "stack": "Stack",
+    "techUsed": "Technologies Used",
+    "moreWork": "More Work",
+    "relatedProjects": "Related Projects",
+    "viewAll": "View All",
+    "viewCaseStudy": "View Case Study",
+    "readyBuild": "Ready to Build?",
+    "ctaTitle": "Let's Build Your",
+    "ctaTitleAccent": "Success Story",
+    "ctaSubtitle": "This project is one example of what we achieve together. Tell us about your challenge — let's create something extraordinary for your market.",
+    "startProject": "Start Your Project",
+    "viewAllProjects": "View All Projects",
+    "notFound": "Project Not Found",
+    "notFoundDesc": "This project doesn't exist or has been removed.",
+    "backPortfolio": "Back to Portfolio",
+    "typeLabels": {
+      "web": "Web Application",
+      "mobile": "Mobile App",
+      "ai": "AI Platform"
     },
-    "postPage": {
-      "home": "Home",
-      "portfolio": "Portfolio",
-      "confidential": "Confidential Client",
-      "client": "Client",
-      "type": "Type",
-      "industry": "Industry",
-      "status": "Status",
-      "delivered": "Delivered",
-      "caseStudy": "Case Study",
-      "projectOverview": "Project Overview",
-      "aboutProject": "About This Project",
-      "keyHighlights": "Key Highlights",
-      "highlights": [
-        "Built for African market conditions",
-        "Mobile-first, low-bandwidth ready",
-        "Mobile money payments integrated",
-        "Real-time analytics dashboard",
-        "Live in production"
-      ],
-      "impactSummary": "Impact Summary",
-      "theProblem": "The Problem",
-      "challengeTitle": "The Challenge We Faced",
-      "painPoints": "Pain Points",
-      "pains": [
-        "No existing digital infrastructure",
-        "Manual processes causing costly errors",
-        "Restricted to cash-only transactions",
-        "Unable to scale without automation"
-      ],
-      "ourApproach": "Our Approach",
-      "whatWeBuilt": "What We Built",
-      "keyDeliverables": "Key Deliverables",
-      "deliverables": [
-        "Custom-built for African market conditions",
-        "Mobile-first, offline-capable architecture",
-        "Full mobile money payment integration",
-        "Real-time analytics and reporting dashboard",
-        "Comprehensive admin management panel"
-      ],
-      "impactResults": "Impact & Results",
-      "numbersTitle": "The Numbers Don't Lie",
-      "stack": "Stack",
-      "techUsed": "Technologies Used",
-      "moreWork": "More Work",
-      "relatedProjects": "Related Projects",
-      "viewAll": "View All",
-      "viewCaseStudy": "View Case Study",
-      "readyBuild": "Ready to Build?",
-      "ctaTitle": "Let's Build Your",
-      "ctaTitleAccent": "Success Story",
-      "ctaSubtitle": "This project is one example of what we achieve together. Tell us about your challenge — let's create something extraordinary for your market.",
-      "startProject": "Start Your Project",
-      "viewAllProjects": "View All Projects",
-      "notFound": "Project Not Found",
-      "notFoundDesc": "This project doesn't exist or has been removed.",
-      "backPortfolio": "Back to Portfolio",
-      "typeLabels": {
-        "web": "Web Application",
-        "mobile": "Mobile App",
-        "ai": "AI Platform"
+    "featured": "★ Featured",
+    "backBtn": "Back to Portfolio",
+    "descPara1Intro": "This project",
+
+    "descPara1Suffix": "is a comprehensive",
+    "descPara1Built": "built for",
+    "descPara1Operating": "operating in the",
+    "descPara1Sector": "sector.",
+    "descPara2Intro": "The project was conceived to address a real, measurable gap in the market.",
+    "descPara2Suffix": "This created an urgent need for a robust, scalable digital solution that could function reliably under the unique conditions of the African technology landscape — including variable connectivity, diverse payment preferences, and mobile-first user behaviour.",
+    "descPara3Prefix": "The result is a platform that genuinely serves the people who use it every day — from the business operators managing their workflow to the end-users interacting with the product on their phones.",
+    "descPara4Prefix": "Every decision made throughout development — from technology selection to UX flows — was guided by real-world constraints and the goal of maximising impact. The technologies chosen",
+    "descPara4Suffix": "were selected specifically for their performance in the target deployment environment.",
+    "industryLabels": {
+      "ecommerce": "e-commerce and retail",
+      "agriculture": "agricultural technology",
+      "healthcare": "healthcare management",
+      "finance": "financial technology",
+      "hospitality": "hospitality management",
+      "education": "education technology"
+    }
+  },
+  "featuredCaseStudy": {
+    "sectionLabel": "Featured Project",
+    "heading": "Featured",
+    "headingHighlight": "Success Story",
+    "badges": {
+      "featured": "Featured",
+      "confidentialClient": "Confidential Client"
+    },
+    "keyResults": {
+      "label": "Key Results"
+    },
+    "projectDetails": {
+      "challenge": "Challenge",
+      "solution": "Solution"
+    },
+    "testimonial": {
+      "authorFormat": "— {{author}}, {{title}}"
+    },
+    "cta": "Read Full Case Study"
+  },
+
+  "industriesServed": {
+    "sectorLabel": "Sectors",
+    "heading": "Industries We've ",
+    "headingHighlight": "Transformed",
+    "projectsCount": "{{count}} Projects",
+    "industries": {
+      "1": {
+        "name": "E-Commerce",
+        "metric": "Avg. 3× revenue growth post-launch"
       },
-      "featured": "★ Featured",
-      "backBtn": "Back to Portfolio"
+      "2": {
+        "name": "Finance",
+        "metric": "Secure, compliant platforms at scale"
+      },
+      "3": {
+        "name": "Sustainability",
+        "metric": "Digital tools driving green impact"
+      },
+      "4": {
+        "name": "Healthcare",
+        "metric": "Patient-first digital experiences"
+      },
+      "5": {
+        "name": "Education",
+        "metric": "Engaging platforms for modern learners"
+      },
+      "6": {
+        "name": "Hospitality",
+        "metric": "Seamless booking & guest experiences"
+      },
+      "7": {
+        "name": "Corporate",
+        "metric": "Streamlined ops and internal tools"
+      },
+      "8": {
+        "name": "Logistics",
+        "metric": "Real-time tracking and fleet solutions"
+      }
+    }
+  },
+  "testimonials": {
+    "sectorLabel": "Client Voices",
+    "heading": "What Our ",
+    "headingHighlight": "Clients Say",
+    "prev": "Previous testimonial",
+    "next": "Next testimonial",
+    "goTo": "Go to testimonial {{index}}"
+  },
+  "portfolioMetrics": {
+    "sectorLabel": "By The Numbers",
+    "heading": "Measurable Impact ",
+    "headingHighlight": "We've Delivered",
+    "metrics": {
+      "1": { "label": "Total client revenue generated" },
+      "2": { "label": "Users served across all platforms" },
+      "3": { "label": "Transactions processed" },
+      "4": { "label": "Projects delivered" },
+      "5": { "label": "Client satisfaction rate" },
+      "6": { "label": "Average revenue growth for clients" }
+    }
+  },
+  "cta": {
+    "eyebrow": "Start Your Project",
+    "title": "Ready to Become Our Next",
+    "titleAccent": "Success Story?",
+    "subtitle": "Join leading businesses across Africa who have transformed their operations with AlphaWaves.",
+    "primaryBtn": "Start Your Project",
+    "secondaryBtn": "Schedule Consultation",
+    "trustPoints": [
+      "Free consultation and project assessment",
+      "Transparent pricing with no hidden costs",
+      "Proven track record across 8+ industries",
+      "Dedicated team committed to your success"
+    ]
+  },
+  
+  "contactPage": {
+    "hero": {
+      "eyebrow": "Contact",
+      "headline": {
+        "main": "Let's Build Something Great",
+        "accent": "Together"
+      },
+      "subheadline": "We'd love to hear from you. We respond within 24 hours."
+    },
+    "contactInfo": {
+      "sectionLabel": "Contact Information",
+      "location": {
+        "label": "Location",
+        "value": "Yaoundé, Cameroon",
+        "note": "Local team with global reach"
+      },
+      "email": {
+        "label": "Email",
+        "value": "contact@alphawaves.com",
+        "note": "Fast response guaranteed"
+      },
+      "phone": {
+        "label": "Phone",
+        "value": "+237 6XX XXX XXX",
+        "note": "Calls and WhatsApp available"
+      },
+      "responseTime": {
+        "label": "Response Time",
+        "value": "Within 24 hours",
+        "note": "Business days only"
+      },
+      "languages": {
+        "label": "Languages",
+        "value": "English & Français",
+        "note": "Bilingual support"
+      }
+    },
+    "socialSection": {
+      "eyebrow": "Follow Our Journey",
+      "subtitle": "Stay connected — we share insights, projects, and updates."
+    },
+    "bottomCta": {
+      "eyebrow": "Explore Our Work",
+      "headline": "Not Ready to Contact",
+      "headlineAccent": "Us Yet?",
+      "subtitle": "See our work first — explore real projects we've delivered across Africa.",
+      "cta": "View Our Portfolio"
+    },
+    "faqMini": {
+      "eyebrow": "Quick Answers",
+      "subtitle": "Have questions before reaching out? Here are the most common ones.",
+      "seeAll": "See All FAQs"
+    },
+    "services": {
+      "customSoftware": "Custom Software",
+      "mobileApp": "Mobile App",
+      "aiBusinessIntelligence": "AI & Business Intelligence",
+      "digitalMarketingSeo": "Digital Marketing & SEO",
+      "cloudDevops": "Cloud & DevOps",
+      "ecommerce": "E-commerce",
+      "paymentIntegration": "Payment Integration",
+      "digitalTransformation": "Digital Transformation",
+      "notSure": "Not sure yet"
+    },
+    "budgets": {
+      "under500": "Under $500",
+      "range500to2000": "$500 - $2,000",
+      "range2000to10000": "$2,000 - $10,000",
+      "range10000to50000": "$10,000 - $50,000",
+      "over50000": "Over $50,000",
+      "letsDiscuss": "Let's discuss"
+    },
+    "sources": {
+      "googleSearch": "Google Search",
+      "socialMedia": "Social Media",
+      "referral": "Referral",
+      "linkedin": "LinkedIn",
+      "whatsapp": "WhatsApp",
+      "other": "Other"
+    },
+    "trust": {
+      "responseGuarantee": "Fast, responsive communication for every request.",
+      "confidential": "Your project details remain secure and confidential.",
+      "bilingual": "English and French support across African markets.",
+      "freeConsultation": "Free consultation to clarify project scope and budget."
+    },
+    "faqs": {
+      "cost": {
+        "question": "How much does a project cost?",
+        "answer": "Costs vary by scope and complexity. We provide transparent proposals tailored to your budget and goals."
+      },
+      "timeline": {
+        "question": "How long does it take?",
+        "answer": "Timeline depends on the chosen solution and scope. Most projects begin with a rapid discovery phase and delivery plan."
+      },
+      "international": {
+        "question": "Do you work with non-local clients?",
+        "answer": "Yes. We serve clients across Africa and internationally with bilingual support and remote collaboration."
+      }
+    },
+    "socials": {
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "twitter": "Twitter",
+      "whatsapp": "WhatsApp",
+      "facebook": "Facebook"
+    },
+    "form": {
+      "eyebrow": "Start The Conversation",
+      "headline": {
+        "main": "Tell Us About Your",
+        "accent": "Project"
+      },
+      "subheadline": "We'll get back to you with a tailored plan within 24 hours.",
+      "labels": {
+        "fullName": "Full Name",
+        "email": "Email Address",
+        "phone": "Phone Number",
+        "company": "Company Name",
+        "service": "Service Interested In",
+        "budget": "Budget Range",
+        "description": "Project Description",
+        "source": "How Did You Find Us?"
+      },
+      "placeholders": {
+        "selectService": "Select a service...",
+        "selectBudget": "Select budget range...",
+        "description": "Tell us about your project, goals, challenges, and what success looks like for you...",
+        "selectSource": "Select source..."
+      },
+      "examples": {
+        "fullName": "Jean Dupont",
+        "email": "you@company.com",
+        "phone": "+237 XXX XXX XXX",
+        "company": "Your Company"
+      },
+      "errors": {
+        "fullNameRequired": "Full name is required",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Enter a valid email",
+        "serviceRequired": "Please select a service",
+        "descriptionRequired": "Please describe your project",
+        "descriptionTooShort": "Please provide more detail (at least a few sentences)"
+      },
+      "success": {
+        "title": "Message Received!",
+        "message": "Our team will reach out within 24 hours. In the meantime, explore our work.",
+        "cta": "View Our Portfolio"
+      },
+      "error": {
+        "message": "Something went wrong. Please try again or email us at"
+      },
+      "privacy": "🔒 Your information is 100% confidential. No spam, ever.",
+      "sendBtn": "Send Message",
+      "sending": "Sending..."
     }
   }
 }
+

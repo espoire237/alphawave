@@ -1,10 +1,13 @@
 import { MY_COLORS } from "../../constants/colors.js";
 import { FONTS } from "../../assets/fonts/fonts.js";
-import { SOCIALS } from "../../constants/contactData.jsx";
+import { useTranslation } from "react-i18next";
+import { getSocials } from "../../constants/contactData.jsx";
 import useScrollReveal from "../../hooks/useScrollReveal.js";
 import useBreakpoint from "../../hooks/useBreakpoint.js";
 
 const SocialSection = () => {
+  const { t } = useTranslation();
+  const SOCIALS = getSocials(t);
   const ref = useScrollReveal(0.1);
   const { isMobile, isTablet } = useBreakpoint();
 
@@ -17,11 +20,11 @@ const SocialSection = () => {
         <div data-reveal style={{ opacity: 0, transform: "translateY(20px)", transition: "opacity 0.6s ease, transform 0.6s ease" }}>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
             <span style={{ width: 28, height: 2, borderRadius: 9999, background: MY_COLORS.gradientOrange }} />
-            <span style={{ fontFamily: FONTS.primary, fontSize: FONTS.size.xs, fontWeight: FONTS.weight.bold, letterSpacing: FONTS.tracking.widest, textTransform: "uppercase", color: MY_COLORS.orange }}>Follow Our Journey</span>
+            <span style={{ fontFamily: FONTS.primary, fontSize: FONTS.size.xs, fontWeight: FONTS.weight.bold, letterSpacing: FONTS.tracking.widest, textTransform: "uppercase", color: MY_COLORS.orange }}>{t("contactPage.socialSection.eyebrow")}</span>
             <span style={{ width: 28, height: 2, borderRadius: 9999, background: MY_COLORS.gradientOrange }} />
           </div>
           <p style={{ fontFamily: FONTS.secondary, fontSize: FONTS.size.base, color: MY_COLORS.textMuted, margin: "0 0 32px" }}>
-            Stay connected — we share insights, projects, and updates.
+            {t("contactPage.socialSection.subtitle")}
           </p>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12, flexWrap: "wrap" }}>
             {SOCIALS.map((s) => (

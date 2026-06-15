@@ -1,9 +1,12 @@
 import { MY_COLORS } from "../../constants/colors.js";
 import { FONTS } from "../../assets/fonts/fonts.js";
-import { TRUST } from "../../constants/contactData.jsx";
+import { useTranslation } from "react-i18next";
+import { getTrust } from "../../constants/contactData.jsx";
 import useBreakpoint from "../../hooks/useBreakpoint.js";
 
 const TrustBar = () => {
+  const { t } = useTranslation();
+  const TRUST = getTrust(t);
   const { isMobile, isTablet } = useBreakpoint();
   const px  = isMobile ? "20px" : isTablet ? "32px" : "40px";
   const gap = isMobile ? 20 : isTablet ? 28 : 48;

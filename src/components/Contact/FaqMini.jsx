@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { MY_COLORS } from "../../constants/colors.js";
 import { FONTS } from "../../assets/fonts/fonts.js";
-import { FAQS } from "../../constants/contactData.jsx";
+import { getFaqs } from "../../constants/contactData.jsx";
 import { ChevronDown, ArrowRight } from "../icons/ContactIcons.jsx";
 import useScrollReveal from "../../hooks/useScrollReveal.js";
 import useBreakpoint from "../../hooks/useBreakpoint.js";
 
 const FaqMini = () => {
+  const { t } = useTranslation();
+  const FAQS = getFaqs(t);
   const ref = useScrollReveal(0.1);
   const { isMobile, isTablet } = useBreakpoint();
   const [open, setOpen] = useState(null);
@@ -22,11 +25,11 @@ const FaqMini = () => {
         <div style={{ textAlign: "center", marginBottom: isMobile ? 28 : 40 }}>
           <div data-reveal style={{ display: "inline-flex", alignItems: "center", gap: 10, marginBottom: 16, opacity: 0, transform: "translateY(20px)", transition: "opacity 0.6s ease, transform 0.6s ease" }}>
             <span style={{ width: 28, height: 2, borderRadius: 9999, background: MY_COLORS.gradientOrange }} />
-            <span style={{ fontFamily: FONTS.primary, fontSize: FONTS.size.xs, fontWeight: FONTS.weight.bold, letterSpacing: FONTS.tracking.widest, textTransform: "uppercase", color: MY_COLORS.orange }}>Quick Answers</span>
+            <span style={{ fontFamily: FONTS.primary, fontSize: FONTS.size.xs, fontWeight: FONTS.weight.bold, letterSpacing: FONTS.tracking.widest, textTransform: "uppercase", color: MY_COLORS.orange }}>{t("contactPage.faqMini.eyebrow")}</span>
             <span style={{ width: 28, height: 2, borderRadius: 9999, background: MY_COLORS.gradientOrange }} />
           </div>
           <p data-reveal style={{ fontFamily: FONTS.secondary, fontSize: FONTS.size.base, color: MY_COLORS.textMuted, margin: 0, opacity: 0, transform: "translateY(20px)", transition: "opacity 0.6s ease, transform 0.6s ease" }}>
-            Have questions before reaching out? Here are the most common ones.
+            {t("contactPage.faqMini.subtitle")}
           </p>
         </div>
 
@@ -52,7 +55,7 @@ const FaqMini = () => {
             style={{ fontFamily: FONTS.primary, fontSize: FONTS.size.sm, fontWeight: FONTS.weight.semibold, color: MY_COLORS.orange, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6, transition: "gap 0.2s ease" }}
             onMouseEnter={e => e.currentTarget.style.gap = "10px"}
             onMouseLeave={e => e.currentTarget.style.gap = "6px"}>
-            See All FAQs <ArrowRight />
+            {t("contactPage.faqMini.seeAll")} <ArrowRight />
           </Link>
         </div>
       </div>
