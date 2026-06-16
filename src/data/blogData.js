@@ -413,3 +413,24 @@ export const POSTS = [
 ];
 
 export const POSTS_PER_PAGE = 6;
+
+// eslint-disable-next-line no-unused-vars
+const normalizeTagKey = (tag) => tag.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+
+export const getLocalizedPostData = (post, t) => {
+  const content = t(`blogPosts.posts.${post.slug}`, { returnObjects: true });
+  const hasTranslation = content && typeof content === "object" && !Array.isArray(content);
+  return {
+    ...post,
+    title: hasTranslation && content.title ? content.title : post.title,
+    excerpt: hasTranslation && content.excerpt ? content.excerpt : post.excerpt,
+    tags: hasTranslation && Array.isArray(content.tags) ? content.tags : post.tags,
+    body: hasTranslation && Array.isArray(content.body) ? content.body : post.body,
+  };
+};
+
+export const getLocalizedAuthor = (author, t) => ({
+  ...author,
+  role: t(`blogAuthors.${author.id}.role`, { defaultValue: author.role }),
+  bio: t(`blogAuthors.${author.id}.bio`, { defaultValue: author.bio }),
+});

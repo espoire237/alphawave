@@ -12,6 +12,7 @@
  */
 
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import HeroSection from "../components/sections/HeroSection.jsx";
 import SearchBar from "../components/common/Searchbar.jsx";
 import BlogFeaturedPost from "../components/Blog/BlogFeaturedPost.jsx";
@@ -20,17 +21,16 @@ import BlogCTA from "../components/Blog/BlogCTA.jsx";
 import { IMAGES } from "../assets/assets.js";
 
 const BlogPage = () => {
+  const { t } = useTranslation();
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
     <>
       {/* Section 1 — Hero with SearchBar */}
       <HeroSection
-        eyebrow="Blog"
-        headline="Insights for Africa's Digital Leaders"
-        subheadline="Practical guides, case studies,
-         and expert insights on technology,
-          digital transformation, and business growth across African markets."
+        eyebrow={t("blogPage.hero.eyebrow")}
+        headline={t("blogPage.hero.headline")}
+        subheadline={t("blogPage.hero.subheadline")}
         image={IMAGES.hero.blog}
         imagePosition="center 15%"
         breadcrumb={false}
@@ -38,7 +38,7 @@ const BlogPage = () => {
         <SearchBar
           value={searchQuery}
           onChange={setSearchQuery}
-          placeholder="Search articles — e.g. mobile money, AI, SEO..."
+          placeholder={t("blogPage.hero.searchPlaceholder")}
         />
       </HeroSection>
 

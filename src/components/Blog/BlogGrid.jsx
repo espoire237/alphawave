@@ -6,7 +6,8 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { POSTS, AUTHORS, CATEGORIES, POSTS_PER_PAGE } from "../../data/blogData.js";
+import { useTranslation } from "react-i18next";
+import { POSTS, AUTHORS, CATEGORIES, POSTS_PER_PAGE, getLocalizedPostData } from "../../data/blogData.js";
 import { MY_COLORS } from "../../constants/colors.js";
 import { FONTS } from "../../assets/fonts/fonts.js";
 import useBreakpoint from "../../hooks/useBreakpoint.js";
@@ -68,10 +69,12 @@ const FilterPill = ({ label, active, onClick }) => (
 );
 
 // ── Blog post card ────────────────────────────────────────────
-const PostCard = ({ post }) => {
+const PostCard = ({ post, localized }) => {
+  const { t } = useTranslation();
   const [hovered, setHover]  = useState(false);
+  const localPost            = localized || getLocalizedPostData(post, t);
   const author               = AUTHORS.find(a => a.id === post.author_id);
-  const catLabel             = CATEGORIES.find(c => c.id === post.category)?.label || post.category;
+  const catLabel             = t(`blogPage.categories.${post.category}`) || CATEGORIES.find(c => c.id === post.category)?.label || post.category;
   const formattedDate        = new Date(post.published_at).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
 
   return (
@@ -123,17 +126,17 @@ const PostCard = ({ post }) => {
 
         {/* Title */}
         <h3 style={{ fontFamily: FONTS.primary, fontSize: FONTS.size.base, fontWeight: FONTS.weight.bold, letterSpacing: FONTS.tracking.tight, lineHeight: FONTS.leading.snug, color: hovered ? MY_COLORS.orange : MY_COLORS.textPrimary, margin: "0 0 10px", transition: "color 0.3s ease" }}>
-          {post.title}
+          {localPost.title}
         </h3>
 
         {/* Excerpt */}
         <p style={{ fontFamily: FONTS.secondary, fontSize: FONTS.size.sm, lineHeight: FONTS.leading.relaxed, color: MY_COLORS.textMuted, margin: "0 0 16px", flex: 1 }}>
-          {post.excerpt}
+          {localPost.excerpt}
         </p>
 
         {/* Tags */}
         <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 16 }}>
-          {post.tags.slice(0, 2).map((tag, i) => (
+          {localPost.tags.slice(0, 2).map((tag, i) => (
             <span key={i} style={{ padding: "2px 8px", borderRadius: 9999, background: "rgba(255,255,255,0.04)", border: `1px solid ${MY_COLORS.border}`, fontFamily: FONTS.secondary, fontSize: 10, color: MY_COLORS.textMuted }}>
               {tag}
             </span>
@@ -158,7 +161,7 @@ const PostCard = ({ post }) => {
             to={`/blog/${post.slug}`}
             style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 4, fontFamily: FONTS.primary, fontSize: FONTS.size.xs, fontWeight: FONTS.weight.bold, color: hovered ? MY_COLORS.orange : MY_COLORS.textMuted, transition: "color 0.3s ease", flexShrink: 0 }}
           >
-            Read <ArrowRight />
+            {t("blogPage.grid.read") } <ArrowRight />
           </Link>
         </div>
       </div>
@@ -167,15 +170,18 @@ const PostCard = ({ post }) => {
 };
 
 // ── Empty state ───────────────────────────────────────────────
-const EmptyState = ({ query }) => (
-  <div style={{ gridColumn: "1 / -1", textAlign: "center", padding: "80px 0" }}>
-    <div style={{ fontSize: 48, marginBottom: 16 }}>📝</div>
-    <h3 style={{ fontFamily: FONTS.primary, fontSize: FONTS.size.lg, fontWeight: FONTS.weight.bold, color: MY_COLORS.textPrimary, marginBottom: 10 }}>No articles found</h3>
-    <p style={{ fontFamily: FONTS.secondary, fontSize: FONTS.size.base, color: MY_COLORS.textMuted }}>
-      {query ? `No results for "${query}" — try different keywords.` : "No posts in this category yet."}
-    </p>
-  </div>
-);
+const EmptyState = ({ query }) => {
+  const { t } = useTranslation();
+  return (
+    <div style={{ gridColumn: "1 / -1", textAlign: "center", padding: "80px 0" }}>
+      <div style={{ fontSize: 48, marginBottom: 16 }}>📝</div>
+      <h3 style={{ fontFamily: FONTS.primary, fontSize: FONTS.size.lg, fontWeight: FONTS.weight.bold, color: MY_COLORS.textPrimary, marginBottom: 10 }}>{t("blogPage.grid.noArticlesFound")}</h3>
+      <p style={{ fontFamily: FONTS.secondary, fontSize: FONTS.size.base, color: MY_COLORS.textMuted }}>
+        {query ? t("blogPage.grid.noResults", { query }) : t("blogPage.grid.noPostsInCategory")}
+      </p>
+    </div>
+  );
+};
 
 // ── Pagination ────────────────────────────────────────────────
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
@@ -220,6 +226,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
 // BlogGrid
 // ══════════════════════════════════════════════════════════════
 const BlogGrid = ({ searchQuery = "" }) => {
+  const { t } = useTranslation();
   const { isMobile, isTablet, isLargeTablet } = useBreakpoint();
   const [activeCategory, setCategory] = useState("all");
   const [sortBy,         setSort]     = useState("recent");
@@ -227,17 +234,19 @@ const BlogGrid = ({ searchQuery = "" }) => {
   const sectionRef                    = useRef(null);
 
   // Reset to page 1 on filter/search change
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { setPage(1); }, [activeCategory, sortBy, searchQuery]);
 
   // Filter
   const filtered = POSTS
     .filter(p => p.status === "published")
     .filter(p => activeCategory === "all" || p.category === activeCategory)
-    .filter(p => {
+    .map(post => ({ post, localized: getLocalizedPostData(post, t) }))
+    .filter(({ localized }) => {
       const q = searchQuery.toLowerCase();
-      return !q || p.title.toLowerCase().includes(q) || p.excerpt.toLowerCase().includes(q) || p.tags.some(t => t.toLowerCase().includes(q));
+      return !q || localized.title.toLowerCase().includes(q) || localized.excerpt.toLowerCase().includes(q) || localized.tags.some(tag => tag.toLowerCase().includes(q));
     })
-    .sort((a, b) => {
+    .sort(({ post: a }, { post: b }) => {
       if (sortBy === "recent")  return new Date(b.published_at) - new Date(a.published_at);
       if (sortBy === "oldest")  return new Date(a.published_at) - new Date(b.published_at);
       if (sortBy === "popular") return b.read_time_minutes - a.read_time_minutes;
@@ -280,7 +289,7 @@ const BlogGrid = ({ searchQuery = "" }) => {
             {/* Category pills */}
             <div style={{ display: "flex", flexWrap: isMobile ? "nowrap" : "wrap", gap: 8, overflowX: isMobile ? "auto" : "visible", WebkitOverflowScrolling: "touch", paddingBottom: isMobile ? 4 : 0 }}>
               {CATEGORIES.map(cat => (
-                <FilterPill key={cat.id} label={cat.label} active={activeCategory === cat.id} onClick={() => setCategory(cat.id)} />
+                <FilterPill key={cat.id} label={t(`blogPage.categories.${cat.id}`) || cat.label} active={activeCategory === cat.id} onClick={() => setCategory(cat.id)} />
               ))}
             </div>
 
@@ -290,17 +299,19 @@ const BlogGrid = ({ searchQuery = "" }) => {
               onChange={e => setSort(e.target.value)}
               style={{ padding: "8px 16px", borderRadius: 9999, background: MY_COLORS.bgSurface, border: `1px solid ${MY_COLORS.border}`, color: MY_COLORS.textSecondary, fontFamily: FONTS.primary, fontSize: FONTS.size.xs, fontWeight: FONTS.weight.semibold, cursor: "pointer", outline: "none", appearance: "none", paddingRight: 32 }}
             >
-              <option value="recent">Most Recent</option>
-              <option value="popular">Most Popular</option>
-              <option value="oldest">Oldest First</option>
+              <option value="recent">{t("blogPage.grid.sort.recent")}</option>
+              <option value="popular">{t("blogPage.grid.sort.popular")}</option>
+              <option value="oldest">{t("blogPage.grid.sort.oldest")}</option>
             </select>
           </div>
 
           {/* Results count */}
           <div style={{ marginTop: 16, fontFamily: FONTS.secondary, fontSize: FONTS.size.xs, color: MY_COLORS.textMuted }}>
-            {filtered.length} article{filtered.length !== 1 ? "s" : ""}
-            {searchQuery ? ` for "${searchQuery}"` : ""}
-            {activeCategory !== "all" ? ` in ${CATEGORIES.find(c => c.id === activeCategory)?.label}` : ""}
+            {t("blogPage.grid.articleCount", {
+              count: filtered.length,
+              query: searchQuery ? ` ${t("blogPage.grid.forQuery", { query: searchQuery })}` : "",
+              category: activeCategory !== "all" ? ` ${t("blogPage.grid.inCategory", { category: t(`blogPage.categories.${activeCategory}`) || CATEGORIES.find(c => c.id === activeCategory)?.label })}` : "",
+            })}
           </div>
         </div>
 
@@ -308,7 +319,7 @@ const BlogGrid = ({ searchQuery = "" }) => {
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : isTablet ? "repeat(2,1fr)" : isLargeTablet ? "repeat(2,1fr)" : "repeat(3,1fr)", gap: isMobile ? 14 : 24 }}>
           {paginated.length === 0
             ? <EmptyState query={searchQuery} />
-            : paginated.map(post => <PostCard key={post.id} post={post} />)
+            : paginated.map(({ post, localized }) => <PostCard key={post.id} post={post} localized={localized} />)
           }
         </div>
 

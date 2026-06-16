@@ -14,19 +14,20 @@
  *   heading, paragraph, list, callout, code, divider
  */
 
-import { useEffect, useRef, useState, useCallback } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
-import { POSTS, AUTHORS, CATEGORIES } from "../data/blogData.js";
+import { useEffect, useRef, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { POSTS, AUTHORS, CATEGORIES, getLocalizedPostData, getLocalizedAuthor } from "../data/blogData.js";
 import { MY_COLORS } from "../constants/colors.js";
 import { FONTS } from "../assets/fonts/fonts.js";
 import useBreakpoint from "../hooks/useBreakpoint.js";
 
 // ─── Callout colours ──────────────────────────────────────────
 const CALLOUT_STYLES = {
-  info:    { bg: "rgba(59,130,246,0.08)",  border: "rgba(59,130,246,0.3)",  icon: "ℹ",  label: "Note",    color: "#60A5FA" },
-  warning: { bg: "rgba(245,158,11,0.08)",  border: "rgba(245,158,11,0.3)",  icon: "⚠",  label: "Warning", color: "#FBBF24" },
-  success: { bg: "rgba(16,185,129,0.08)",  border: "rgba(16,185,129,0.3)",  icon: "✓",  label: "Result",  color: "#34D399" },
-  tip:     { bg: "rgba(232,117,10,0.08)",  border: "rgba(232,117,10,0.3)",  icon: "💡", label: "Tip",     color: "#E8750A" },
+  info:    { bg: "rgba(59,130,246,0.08)",  border: "rgba(59,130,246,0.3)",  icon: "ℹ",  labelKey: "note",    color: "#60A5FA" },
+  warning: { bg: "rgba(245,158,11,0.08)",  border: "rgba(245,158,11,0.3)",  icon: "⚠",  labelKey: "warning", color: "#FBBF24" },
+  success: { bg: "rgba(16,185,129,0.08)",  border: "rgba(16,185,129,0.3)",  icon: "✓",  labelKey: "result",  color: "#34D399" },
+  tip:     { bg: "rgba(232,117,10,0.08)",  border: "rgba(232,117,10,0.3)",  icon: "💡", labelKey: "tip",     color: "#E8750A" },
 };
 
 // ─── Icons ────────────────────────────────────────────────────
@@ -63,11 +64,12 @@ const ReadingProgress = () => {
 
 // ─── Table of Contents ────────────────────────────────────────
 const TableOfContents = ({ body, activeId }) => {
+  const { t } = useTranslation();
   const headings = body.filter(b => b.type === "heading");
   if (headings.length < 2) return null;
   return (
     <div style={{ padding: "24px 20px", borderRadius: 12, background: MY_COLORS.bgSurface, border: `1px solid ${MY_COLORS.border}` }}>
-      <div style={{ fontFamily: FONTS.primary, fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: MY_COLORS.orange, marginBottom: 14 }}>Contents</div>
+      <div style={{ fontFamily: FONTS.primary, fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: MY_COLORS.orange, marginBottom: 14 }}>{t("blogPostPage.toc.title")}</div>
       <nav>
         {headings.map((h, i) => {
           const id = `heading-${i}`;
@@ -89,6 +91,7 @@ const TableOfContents = ({ body, activeId }) => {
 
 // ─── Share Buttons ────────────────────────────────────────────
 const ShareButtons = ({ title }) => {
+  const { t } = useTranslation();
   const [copied, setCopied] = useState(false);
   const url = typeof window !== "undefined" ? window.location.href : "";
 
@@ -112,19 +115,19 @@ const ShareButtons = ({ title }) => {
   return (
     <div style={{ padding: "20px", borderRadius: 12, background: MY_COLORS.bgSurface, border: `1px solid ${MY_COLORS.border}` }}>
       <div style={{ fontFamily: FONTS.primary, fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: MY_COLORS.orange, marginBottom: 12, display: "flex", alignItems: "center", gap: 6 }}>
-        <ShareIcon /> Share
+        <ShareIcon /> {t("blogPostPage.share.title")}
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
         {[
-          { label: "Copy link", icon: copied ? <CheckIcon /> : <CopyIcon />, action: copyLink, active: copied },
-          { label: "LinkedIn",  icon: <LinkedInIcon />, action: () => openShare("linkedin") },
-          { label: "Twitter/X", icon: <TwitterIcon />,  action: () => openShare("twitter")  },
-        ].map((btn, i) => (
-          <button key={i} onClick={btn.action}
+          { label: t("blogPostPage.share.copyLink"), icon: copied ? <CheckIcon /> : <CopyIcon />, action: copyLink, active: copied },
+          { label: t("blogPostPage.share.linkedin"),  icon: <LinkedInIcon />, action: () => openShare("linkedin") },
+          { label: t("blogPostPage.share.twitter"), icon: <TwitterIcon />,  action: () => openShare("twitter")  },
+        ].map(btn => (
+          <button key={btn.label} onClick={btn.action}
             style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 12px", borderRadius: 8, background: btn.active ? MY_COLORS.orangeDim : "transparent", border: `1px solid ${btn.active ? MY_COLORS.orangeBorder : MY_COLORS.border}`, color: btn.active ? MY_COLORS.orange : MY_COLORS.textMuted, fontFamily: FONTS.primary, fontSize: 12, fontWeight: 600, cursor: "pointer", transition: "all 0.2s ease", textAlign: "left" }}
             onMouseEnter={e => { if (!btn.active) { e.currentTarget.style.borderColor = MY_COLORS.orangeBorder; e.currentTarget.style.color = MY_COLORS.textSecondary; }}}
             onMouseLeave={e => { if (!btn.active) { e.currentTarget.style.borderColor = MY_COLORS.border; e.currentTarget.style.color = MY_COLORS.textMuted; }}}>
-            {btn.icon} {btn.active ? "Copied!" : btn.label}
+            {btn.icon} {btn.active ? t("blogPostPage.share.copied") : btn.label}
           </button>
         ))}
       </div>
@@ -135,6 +138,7 @@ const ShareButtons = ({ title }) => {
 // ─── Body Block Renderer ──────────────────────────────────────
 const BodyBlock = ({ block, index, isMobile }) => {
   const baseText = { fontFamily: FONTS.secondary, fontSize: isMobile ? 15 : 16, lineHeight: "1.85", color: MY_COLORS.textSecondary };
+  const { t } = useTranslation();
 
   switch (block.type) {
 
@@ -177,7 +181,7 @@ const BodyBlock = ({ block, index, isMobile }) => {
         <div style={{ margin: "24px 0", padding: isMobile ? "16px 16px" : "20px 24px", borderRadius: 12, background: cs.bg, border: `1px solid ${cs.border}`, borderLeft: `4px solid ${cs.color}` }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
             <span style={{ fontSize: 16 }}>{cs.icon}</span>
-            <span style={{ fontFamily: FONTS.primary, fontSize: 12, fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: cs.color }}>{block.title || cs.label}</span>
+            <span style={{ fontFamily: FONTS.primary, fontSize: 12, fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: cs.color }}>{block.title || t(`blogPostPage.callout.${cs.labelKey}`)}</span>
           </div>
           <p style={{ ...baseText, margin: 0, fontSize: isMobile ? 14 : 15 }}>{block.text}</p>
         </div>
@@ -208,8 +212,10 @@ const BodyBlock = ({ block, index, isMobile }) => {
 };
 
 // ─── Author Bio Card ──────────────────────────────────────────
-const AuthorCard = ({ author, isMobile }) => (
-  <div style={{ margin: "56px 0 0", padding: isMobile ? "24px 20px" : "36px 40px", borderRadius: 16, background: MY_COLORS.bgSurface, border: `1px solid ${MY_COLORS.border}`, display: "flex", gap: isMobile ? 16 : 24, alignItems: "flex-start", flexDirection: isMobile ? "column" : "row" }}>
+const AuthorCard = ({ author, isMobile }) => {
+  const { t } = useTranslation();
+  return (
+    <div style={{ margin: "56px 0 0", padding: isMobile ? "24px 20px" : "36px 40px", borderRadius: 16, background: MY_COLORS.bgSurface, border: `1px solid ${MY_COLORS.border}`, display: "flex", gap: isMobile ? 16 : 24, alignItems: "flex-start", flexDirection: isMobile ? "column" : "row" }}>
     <div style={{ flexShrink: 0, width: isMobile ? 52 : 64, height: isMobile ? 52 : 64, borderRadius: "50%", background: MY_COLORS.orangeDim, border: `2px solid ${MY_COLORS.orangeBorder}`, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: FONTS.primary, fontSize: isMobile ? 20 : 24, fontWeight: 800, color: MY_COLORS.orange }}>
       {author.name[0]}
     </div>
@@ -223,16 +229,19 @@ const AuthorCard = ({ author, isMobile }) => (
         style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "7px 14px", borderRadius: 8, background: "transparent", border: `1px solid ${MY_COLORS.border}`, color: MY_COLORS.textMuted, fontFamily: FONTS.primary, fontSize: 12, fontWeight: 600, textDecoration: "none", transition: "all 0.2s ease" }}
         onMouseEnter={e => { e.currentTarget.style.borderColor = MY_COLORS.orangeBorder; e.currentTarget.style.color = MY_COLORS.orange; }}
         onMouseLeave={e => { e.currentTarget.style.borderColor = MY_COLORS.border; e.currentTarget.style.color = MY_COLORS.textMuted; }}>
-        <LinkedInIcon /> View on LinkedIn
+        <LinkedInIcon /> {t("blogPostPage.author.viewOnLinkedIn")}
       </a>
     </div>
   </div>
 );
+}
 
 // ─── Related Post Card ────────────────────────────────────────
 const RelatedCard = ({ post }) => {
+  const { t } = useTranslation();
   const [hovered, setHover] = useState(false);
-  const catLabel = CATEGORIES.find(c => c.id === post.category)?.label || post.category;
+  const localizedPost = getLocalizedPostData(post, t);
+  const catLabel = t(`blogPage.categories.${post.category}`) || CATEGORIES.find(c => c.id === post.category)?.label || post.category;
   return (
     <Link to={`/blog/${post.slug}`} style={{ textDecoration: "none", display: "block" }}
       onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
@@ -242,12 +251,12 @@ const RelatedCard = ({ post }) => {
           <div style={{ position: "absolute", top: 10, left: 10, padding: "3px 8px", borderRadius: 9999, background: "rgba(10,10,10,0.75)", border: `1px solid ${MY_COLORS.orangeBorder}`, fontFamily: FONTS.primary, fontSize: 9, fontWeight: 700, textTransform: "uppercase", color: MY_COLORS.orange, backdropFilter: "blur(6px)" }}>{catLabel}</div>
         </div>
         <div style={{ padding: "16px 16px 18px" }}>
-          <h4 style={{ fontFamily: FONTS.primary, fontSize: FONTS.size.sm, fontWeight: 700, lineHeight: "1.4", color: hovered ? MY_COLORS.orange : MY_COLORS.textPrimary, margin: "0 0 8px", transition: "color 0.3s ease" }}>{post.title}</h4>
+          <h4 style={{ fontFamily: FONTS.primary, fontSize: FONTS.size.sm, fontWeight: 700, lineHeight: "1.4", color: hovered ? MY_COLORS.orange : MY_COLORS.textPrimary, margin: "0 0 8px", transition: "color 0.3s ease" }}>{localizedPost?.title || post.title}</h4>
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 4, color: MY_COLORS.textDisabled }}>
-              <ClockIcon /><span style={{ fontFamily: FONTS.secondary, fontSize: 11, color: MY_COLORS.textDisabled }}>{post.read_time_minutes} min read</span>
+              <ClockIcon /><span style={{ fontFamily: FONTS.secondary, fontSize: 11, color: MY_COLORS.textDisabled }}>{t("blogPostPage.meta.readTime", { minutes: post.read_time_minutes })}</span>
             </div>
-            <span style={{ fontFamily: FONTS.primary, fontSize: 11, fontWeight: 600, color: hovered ? MY_COLORS.orange : MY_COLORS.textDisabled, display: "flex", alignItems: "center", gap: 4, marginLeft: "auto", transition: "color 0.3s ease" }}>Read <ArrowRight /></span>
+            <span style={{ fontFamily: FONTS.primary, fontSize: 11, fontWeight: 600, color: hovered ? MY_COLORS.orange : MY_COLORS.textDisabled, display: "flex", alignItems: "center", gap: 4, marginLeft: "auto", transition: "color 0.3s ease" }}>{t("blogPostPage.related.read") } <ArrowRight /></span>
           </div>
         </div>
       </div>
@@ -259,8 +268,8 @@ const RelatedCard = ({ post }) => {
 // BlogPostPage
 // ══════════════════════════════════════════════════════════════
 const BlogPostPage = () => {
+  const { t, i18n } = useTranslation();
   const { slug }      = useParams();
-  const navigate      = useNavigate();
   const { isMobile, isTablet, isLargeTablet } = useBreakpoint();
   const isSmall       = isMobile || isTablet;
   const articleRef    = useRef(null);
@@ -268,18 +277,20 @@ const BlogPostPage = () => {
 
   const post    = POSTS.find(p => p.slug === slug && p.status === "published");
   const author  = post ? AUTHORS.find(a => a.id === post.author_id) : null;
-  const catLabel = post ? CATEGORIES.find(c => c.id === post.category)?.label : "";
+  const localizedPost = post ? getLocalizedPostData(post, t) : null;
+  const localizedAuthor = author ? getLocalizedAuthor(author, t) : null;
+  const catLabel = post ? t(`blogPage.categories.${post.category}`) || CATEGORIES.find(c => c.id === post.category)?.label : "";
   const related  = post ? POSTS.filter(p => p.id !== post.id && p.status === "published" && p.category === post.category).slice(0, 3) : [];
   const moreRelated = related.length < 3 ? POSTS.filter(p => p.id !== post.id && p.status === "published" && !related.find(r => r.id === p.id)).slice(0, 3 - related.length) : [];
   const relatedPosts = [...related, ...moreRelated].slice(0, 3);
-
-  // Collect heading indices from body for TOC active tracking
-  const headingIndices = post ? post.body.reduce((acc, b, i) => { if (b.type === "heading") acc.push(i); return acc; }, []) : [];
+  const postBody = localizedPost?.body || post.body;
+  const formattedDate = post ? new Date(post.published_at).toLocaleDateString(i18n.language === "fr" ? "fr-FR" : "en-GB", { day: "numeric", month: "long", year: "numeric" }) : "";
 
   // Active heading tracking via IntersectionObserver
   useEffect(() => {
     if (!post || isSmall) return;
     const observers = [];
+    const headingIndices = postBody.reduce((acc, b, i) => { if (b.type === "heading") acc.push(i); return acc; }, []);
     headingIndices.forEach(i => {
       const el = document.getElementById(`heading-${i}`);
       if (!el) return;
@@ -290,7 +301,7 @@ const BlogPostPage = () => {
       observers.push(obs);
     });
     return () => observers.forEach(o => o.disconnect());
-  }, [post, isSmall, headingIndices]);
+  }, [post, isSmall, postBody]);
 
   // Scroll to top on slug change
   useEffect(() => { window.scrollTo({ top: 0, behavior: "instant" }); }, [slug]);
@@ -300,17 +311,14 @@ const BlogPostPage = () => {
     return (
       <div style={{ minHeight: "60vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", background: MY_COLORS.bgBase, padding: "80px 20px", textAlign: "center" }}>
         <div style={{ fontSize: 64, marginBottom: 24 }}>📄</div>
-        <h1 style={{ fontFamily: FONTS.primary, fontSize: "clamp(24px,4vw,36px)", fontWeight: 800, color: MY_COLORS.textPrimary, marginBottom: 12 }}>Article Not Found</h1>
-        <p style={{ fontFamily: FONTS.secondary, fontSize: FONTS.size.base, color: MY_COLORS.textMuted, marginBottom: 32 }}>The article you're looking for doesn't exist or has been moved.</p>
+        <h1 style={{ fontFamily: FONTS.primary, fontSize: "clamp(24px,4vw,36px)", fontWeight: 800, color: MY_COLORS.textPrimary, marginBottom: 12 }}>{t("blogPostPage.notFound.title")}</h1>
+        <p style={{ fontFamily: FONTS.secondary, fontSize: FONTS.size.base, color: MY_COLORS.textMuted, marginBottom: 32 }}>{t("blogPostPage.notFound.message")}</p>
         <Link to="/blog" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8, padding: "12px 24px", borderRadius: 10, background: MY_COLORS.gradientOrange, color: "#fff", fontFamily: FONTS.primary, fontSize: FONTS.size.sm, fontWeight: 700 }}>
-          <ArrowLeft /> Back to Blog
+          <ArrowLeft /> {t("blogPostPage.notFound.backToBlog")}
         </Link>
       </div>
     );
   }
-
-  const formattedDate = new Date(post.published_at).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
-  const sectionPad    = isMobile ? "0 20px" : isTablet ? "0 32px" : "0 40px";
 
   return (
     <>
@@ -328,24 +336,24 @@ const BlogPostPage = () => {
           <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: isMobile ? 20 : 28 }}>
             <Link to="/" style={{ fontFamily: FONTS.primary, fontSize: FONTS.size.xs, color: MY_COLORS.textMuted, textDecoration: "none" }}
               onMouseEnter={e => e.currentTarget.style.color = MY_COLORS.textSecondary}
-              onMouseLeave={e => e.currentTarget.style.color = MY_COLORS.textMuted}>Home</Link>
+              onMouseLeave={e => e.currentTarget.style.color = MY_COLORS.textMuted}>{t("nav.home")}</Link>
             <ChevronRight />
             <Link to="/blog" style={{ fontFamily: FONTS.primary, fontSize: FONTS.size.xs, color: MY_COLORS.textMuted, textDecoration: "none" }}
               onMouseEnter={e => e.currentTarget.style.color = MY_COLORS.textSecondary}
-              onMouseLeave={e => e.currentTarget.style.color = MY_COLORS.textMuted}>Blog</Link>
+              onMouseLeave={e => e.currentTarget.style.color = MY_COLORS.textMuted}>{t("nav.blog")}</Link>
             <ChevronRight />
-            <span style={{ fontFamily: FONTS.primary, fontSize: FONTS.size.xs, color: MY_COLORS.orange, maxWidth: isMobile ? 160 : 320, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{post.title}</span>
+            <span style={{ fontFamily: FONTS.primary, fontSize: FONTS.size.xs, color: MY_COLORS.orange, maxWidth: isMobile ? 160 : 320, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{localizedPost?.title || post.title}</span>
           </div>
 
           {/* Category + featured badge */}
           <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: isMobile ? 16 : 20 }}>
             <span style={{ padding: "4px 14px", borderRadius: 9999, background: MY_COLORS.orangeDim, border: `1px solid ${MY_COLORS.orangeBorder}`, fontFamily: FONTS.primary, fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: MY_COLORS.orange }}>{catLabel}</span>
-            {post.is_featured && <span style={{ padding: "4px 14px", borderRadius: 9999, background: MY_COLORS.gradientOrange, fontFamily: FONTS.primary, fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: "#fff" }}>Featured</span>}
+            {post.is_featured && <span style={{ padding: "4px 14px", borderRadius: 9999, background: MY_COLORS.gradientOrange, fontFamily: FONTS.primary, fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: "#fff" }}>{t("blogPostPage.featuredBadge")}</span>}
           </div>
 
           {/* Title */}
           <h1 style={{ fontFamily: FONTS.primary, fontSize: isMobile ? "clamp(22px,6vw,30px)" : isTablet ? "clamp(26px,4.5vw,38px)" : "clamp(28px,3.5vw,48px)", fontWeight: 800, lineHeight: "1.2", letterSpacing: "-0.02em", color: MY_COLORS.textPrimary, margin: `0 0 ${isMobile ? 16 : 24}px`, maxWidth: 900 }}>
-            {post.title}
+            {localizedPost?.title || post.title}
           </h1>
 
           {/* Meta row */}
@@ -366,13 +374,13 @@ const BlogPostPage = () => {
             </div>
             {/* Read time */}
             <div style={{ display: "flex", alignItems: "center", gap: 5, color: MY_COLORS.textMuted }}>
-              <ClockIcon /><span style={{ fontFamily: FONTS.secondary, fontSize: 13, color: MY_COLORS.textMuted }}>{post.read_time_minutes} min read</span>
+              <ClockIcon /><span style={{ fontFamily: FONTS.secondary, fontSize: 13, color: MY_COLORS.textMuted }}>{t("blogPostPage.meta.readTime", { minutes: post.read_time_minutes })}</span>
             </div>
           </div>
 
           {/* Tags */}
           <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginTop: isMobile ? 16 : 20 }}>
-            {post.tags.map((tag, i) => (
+            {(localizedPost?.tags || post.tags).map((tag, i) => (
               <span key={i} style={{ padding: "3px 10px", borderRadius: 9999, background: "rgba(255,255,255,0.04)", border: `1px solid ${MY_COLORS.border}`, fontFamily: FONTS.secondary, fontSize: 11, color: MY_COLORS.textMuted }}>{tag}</span>
             ))}
           </div>
@@ -395,7 +403,7 @@ const BlogPostPage = () => {
             }}>
               <img
                 src={post.coverImage}
-                alt={post.title}
+                alt={localizedPost?.title || post.title}
                 style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
               />
               {/* Subtle bottom fade into content */}
@@ -415,29 +423,29 @@ const BlogPostPage = () => {
 
               {/* Excerpt lead */}
               <p style={{ fontFamily: FONTS.secondary, fontSize: isMobile ? 15 : 17, lineHeight: "1.8", color: MY_COLORS.textSecondary, margin: "0 0 32px", padding: isMobile ? "16px 16px" : "20px 24px", borderRadius: 12, background: MY_COLORS.bgSurface, border: `1px solid ${MY_COLORS.border}`, borderLeft: `4px solid ${MY_COLORS.orange}`, fontStyle: "italic" }}>
-                {post.excerpt}
+                {localizedPost?.excerpt || post.excerpt}
               </p>
 
               {/* Body blocks */}
-              {post.body.map((block, i) => (
+              {(localizedPost?.body || post.body).map((block, i) => (
                 <BodyBlock key={i} block={block} index={i} isMobile={isMobile} />
               ))}
 
               {/* Author card */}
-              {author && <AuthorCard author={author} isMobile={isMobile} />}
+              {localizedAuthor && <AuthorCard author={localizedAuthor} isMobile={isMobile} />}
             </article>
 
             {/* ── Right: Sticky sidebar ──────────────────── */}
             {!isSmall && (
               <aside style={{ position: "sticky", top: 80, display: "flex", flexDirection: "column", gap: 16 }}>
-                <TableOfContents body={post.body} activeId={activeId} />
-                <ShareButtons title={post.title} />
+                <TableOfContents body={localizedPost?.body || post.body} activeId={activeId} />
+                <ShareButtons title={localizedPost?.title || post.title} />
                 {/* Back to blog */}
                 <Link to="/blog"
                   style={{ display: "flex", alignItems: "center", gap: 8, padding: "12px 16px", borderRadius: 12, background: MY_COLORS.bgSurface, border: `1px solid ${MY_COLORS.border}`, color: MY_COLORS.textMuted, fontFamily: FONTS.primary, fontSize: 13, fontWeight: 600, textDecoration: "none", transition: "all 0.2s ease" }}
                   onMouseEnter={e => { e.currentTarget.style.borderColor = MY_COLORS.orangeBorder; e.currentTarget.style.color = MY_COLORS.orange; }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor = MY_COLORS.border; e.currentTarget.style.color = MY_COLORS.textMuted; }}>
-                  <ArrowLeft /> Back to Blog
+                  <ArrowLeft /> {t("blogPostPage.buttons.backToBlog")}
                 </Link>
               </aside>
             )}
@@ -445,12 +453,12 @@ const BlogPostPage = () => {
             {/* Mobile: share + back inline after article */}
             {isSmall && (
               <div style={{ marginTop: 40, display: "flex", flexDirection: "column", gap: 14 }}>
-                <ShareButtons title={post.title} />
+                <ShareButtons title={localizedPost?.title || post.title} />
                 <Link to="/blog"
                   style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: "13px 20px", borderRadius: 12, background: MY_COLORS.bgSurface, border: `1px solid ${MY_COLORS.border}`, color: MY_COLORS.textMuted, fontFamily: FONTS.primary, fontSize: 13, fontWeight: 600, textDecoration: "none" }}
                   onMouseEnter={e => { e.currentTarget.style.borderColor = MY_COLORS.orangeBorder; e.currentTarget.style.color = MY_COLORS.orange; }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor = MY_COLORS.border; e.currentTarget.style.color = MY_COLORS.textMuted; }}>
-                  <ArrowLeft /> Back to Blog
+                  <ArrowLeft /> {t("blogPostPage.buttons.backToBlog")}
                 </Link>
               </div>
             )}
@@ -467,17 +475,17 @@ const BlogPostPage = () => {
               <div>
                 <div style={{ display: "inline-flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
                   <span style={{ width: 24, height: 2, borderRadius: 9999, background: MY_COLORS.gradientOrange }} />
-                  <span style={{ fontFamily: FONTS.primary, fontSize: FONTS.size.xs, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: MY_COLORS.orange }}>Continue Reading</span>
+                  <span style={{ fontFamily: FONTS.primary, fontSize: FONTS.size.xs, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: MY_COLORS.orange }}>{t("blogPostPage.related.headingLabel")}</span>
                 </div>
                 <h2 style={{ fontFamily: FONTS.primary, fontSize: isMobile ? "clamp(20px,5vw,28px)" : "clamp(22px,3vw,32px)", fontWeight: 800, color: MY_COLORS.textPrimary, margin: 0 }}>
-                  Related <span style={{ color: MY_COLORS.orange }}>Articles</span>
+                  {t("blogPostPage.related.titlePrefix")} <span style={{ color: MY_COLORS.orange }}>{t("blogPostPage.related.titleAccent")}</span>
                 </h2>
               </div>
               <Link to="/blog"
                 style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "9px 18px", borderRadius: 8, background: "transparent", border: `1px solid ${MY_COLORS.border}`, color: MY_COLORS.textMuted, fontFamily: FONTS.primary, fontSize: 12, fontWeight: 600, textDecoration: "none", transition: "all 0.2s ease", whiteSpace: "nowrap" }}
                 onMouseEnter={e => { e.currentTarget.style.borderColor = MY_COLORS.orange; e.currentTarget.style.color = MY_COLORS.orange; }}
                 onMouseLeave={e => { e.currentTarget.style.borderColor = MY_COLORS.border; e.currentTarget.style.color = MY_COLORS.textMuted; }}>
-                View All Posts <ArrowRight />
+                {t("blogPostPage.related.viewAllPosts")} <ArrowRight />
               </Link>
             </div>
 
