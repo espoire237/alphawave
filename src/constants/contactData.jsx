@@ -89,7 +89,7 @@ export const getFaqs = (t) => [
   },
 ];
 
-// Socials are not user-facing text (icons + hrefs only) — labels are used for
+// Socials are not user-facing text (icons + hrefs only) labels are used for
 // aria-label/accessibility, so they're still translated.
 export const getSocials = (t) => [
   {

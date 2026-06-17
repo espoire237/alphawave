@@ -322,11 +322,11 @@ const ServicesOverview = () => {
   const sectionRef = useScrollReveal();
   const { isMobile, isTablet, isLargeTablet } = useBreakpoint();
 
-  // FIX 1+2 — responsive padding
+  // FIX 1+2 responsive padding
   const sectionPad = isMobile ? "64px 0" : isTablet ? "80px 0" : "100px 0";
   const innerPad = isMobile ? "0 20px" : isTablet ? "0 32px" : "0 40px";
 
-  // FIX 3 — responsive grid columns
+  // FIX 3 responsive grid columns
   const gridCols = isMobile
     ? "1fr"
     : isTablet
@@ -470,7 +470,7 @@ const ServicesOverview = () => {
           </p>
         </div>
 
-        {/* Cards grid — FIX: uses inline responsive cols, dead CSS removed */}
+        {/* Cards grid FIX: uses inline responsive cols, dead CSS removed */}
         <div
           style={{
             display: "grid",

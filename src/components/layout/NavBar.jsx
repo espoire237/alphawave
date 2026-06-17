@@ -486,10 +486,10 @@ const Navbar = () => {
             {/* ── RIGHT SIDE ── */}
             <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
 
-              {/* Language switcher — desktop only */}
+              {/* Language switcher desktop only */}
               {!isMobile && !isTablet && <LanguageSwitcher />}
 
-              {/* Get Started — desktop only */}
+              {/* Get Started desktop only */}
               {!isMobile && !isTablet && (
                 <Link
                   to="/contact"
@@ -518,7 +518,7 @@ const Navbar = () => {
                 </Link>
               )}
 
-              {/* Hamburger — mobile + tablet */}
+              {/* Hamburger mobile + tablet */}
               {(isMobile || isTablet) && (
                 <button
                   onClick={() => setMenuOpen(!menuOpen)}

@@ -1,5 +1,5 @@
 /**
- * useBreakpoint — Shared responsive hook
+ * useBreakpoint Shared responsive hook
  * AlphaWaves brand system
  *
  * Breakpoints:

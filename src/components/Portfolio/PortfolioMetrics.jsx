@@ -1,5 +1,5 @@
 /**
- * PortfolioMetrics — Portfolio Page Section 6 — FULLY RESPONSIVE
+ * PortfolioMetrics Portfolio Page Section 6 FULLY RESPONSIVE
  */
 import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";

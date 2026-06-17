@@ -1,5 +1,5 @@
 /**
- * BlogFeaturedPost — Blog Page Section 2 — FULLY RESPONSIVE
+ * BlogFeaturedPost Blog Page Section 2 FULLY RESPONSIVE
  */
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";

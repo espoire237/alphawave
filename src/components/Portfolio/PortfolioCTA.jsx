@@ -1,5 +1,5 @@
 /**
- * PortfolioCTA — Portfolio Page Section 7 — FULLY RESPONSIVE + i18n READY
+ * PortfolioCTA Portfolio Page Section 7 FULLY RESPONSIVE + i18n READY
  */
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";

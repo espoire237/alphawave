@@ -1,6 +1,6 @@
 /**
- * MissionVision — About Page Section 3
- * AlphaWaves brand system — FULLY RESPONSIVE
+ * MissionVision About Page Section 3
+ * AlphaWaves brand system FULLY RESPONSIVE
  */
 
 import { useEffect, useRef } from "react";

@@ -1,5 +1,5 @@
 /**
- * WhyCameroon — About Page Section 6
+ * WhyCameroon About Page Section 6
  * AlphaWaves brand system
  */
 

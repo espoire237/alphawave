@@ -1,5 +1,5 @@
 /**
- * BlogCTA — Blog Page Section 5 — FULLY RESPONSIVE
+ * BlogCTA Blog Page Section 5 FULLY RESPONSIVE
  */
 import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";

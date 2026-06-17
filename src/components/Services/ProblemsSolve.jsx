@@ -375,7 +375,7 @@ const ProblemsSolve = () => {
           </p>
         </div>
 
-        {/* Cards grid — 3 + 2 layout */}
+        {/* Cards grid 3 + 2 layout */}
         <div
           style={{
             display: "grid",

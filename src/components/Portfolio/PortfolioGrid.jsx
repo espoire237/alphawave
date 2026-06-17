@@ -1,5 +1,5 @@
 /**
- * PortfolioGrid — Portfolio Page Section 2
+ * PortfolioGrid Portfolio Page Section 2
  * Real-time filter by category + service type + project cards
  * AlphaWaves brand system
  */
@@ -506,7 +506,7 @@ const PortfolioGrid = () => {
             {filtered.length !== 1
               ? t("portfolioPage.grid.projectSuffixPlural")
               : t("portfolioPage.grid.projectSuffix")}{" "}
-            — {t("portfolioPage.grid.resultsCopy")}
+            {t("portfolioPage.grid.resultsCopy")}
           </p>
         </div>
 

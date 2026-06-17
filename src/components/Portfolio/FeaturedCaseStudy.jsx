@@ -1,5 +1,5 @@
 /**
- * FeaturedCaseStudy — Portfolio Page Section 3 — FULLY RESPONSIVE
+ * FeaturedCaseStudy Portfolio Page Section 3 FULLY RESPONSIVE
  */
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
@@ -185,7 +185,7 @@ const FeaturedCaseStudy = () => {
             transition: "all 0.7s ease",
           }}
         >
-          {/* Left — visual */}
+          {/* Left visual */}
           <div
             style={{
               background:
@@ -310,7 +310,7 @@ const FeaturedCaseStudy = () => {
             </div>
           </div>
 
-          {/* Right — content */}
+          {/* Right content */}
           <div
             style={{
               background: MY_COLORS.bgSurface,

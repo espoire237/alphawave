@@ -1,5 +1,5 @@
 /**
- * CoreValues — About Page Section 4 — FULLY RESPONSIVE
+ * CoreValues About Page Section 4 FULLY RESPONSIVE
  */
 
 import { useEffect, useRef, useState } from "react";

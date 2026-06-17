@@ -1,15 +1,12 @@
 /**
- * FAQBottomCTA — FAQ Page Section 3
+ * FAQBottomCTA FAQ Page Section 3
  * "Didn't Find Your Answer?" banner
  * AlphaWaves brand system
- *
- * Usage:
- * import FAQBottomCTA from "../components/FAQ/FAQBottomCTA.jsx";
- * <FAQBottomCTA />
  */
 
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { MY_COLORS } from "../../constants/colors.js";
 import { FONTS }     from "../../assets/fonts/fonts.js";
 
@@ -42,6 +39,7 @@ const ArrowRight = () => (
 );
 
 const FAQBottomCTA = () => {
+  const { t } = useTranslation(); // no namespace uses default "translation"
   const sectionRef                  = useScrollReveal(0.1);
   const [primaryHover, setPrimary]  = useState(false);
   const [secondaryHover, setSecond] = useState(false);
@@ -66,30 +64,34 @@ const FAQBottomCTA = () => {
           {/* Eyebrow */}
           <div data-reveal style={{ display: "inline-flex", alignItems: "center", gap: 10, marginBottom: 20, opacity: 0, transform: "translateY(16px)", transition: "opacity 0.6s ease, transform 0.6s ease" }}>
             <span style={{ width: 24, height: 2, borderRadius: 9999, background: MY_COLORS.gradientOrange }} />
-            <span style={{ fontFamily: FONTS.primary, fontSize: FONTS.size.xs, fontWeight: FONTS.weight.bold, letterSpacing: FONTS.tracking.widest, textTransform: "uppercase", color: MY_COLORS.orange }}>We're Here To Help</span>
+            <span style={{ fontFamily: FONTS.primary, fontSize: FONTS.size.xs, fontWeight: FONTS.weight.bold, letterSpacing: FONTS.tracking.widest, textTransform: "uppercase", color: MY_COLORS.orange }}>
+              {t("FAQPage.cta.eyebrow")}
+            </span>
             <span style={{ width: 24, height: 2, borderRadius: 9999, background: MY_COLORS.gradientOrange }} />
           </div>
 
           {/* Headline */}
           <h2 data-reveal style={{ fontFamily: FONTS.primary, fontSize: "clamp(28px, 4vw, 52px)", fontWeight: FONTS.weight.extrabold, letterSpacing: FONTS.tracking.tight, lineHeight: FONTS.leading.snug, color: MY_COLORS.textPrimary, margin: "0 auto 16px", maxWidth: 600, opacity: 0, transform: "translateY(20px)", transition: "opacity 0.6s ease, transform 0.6s ease" }}>
-            Didn't Find Your{" "}
-            <span style={{ color: MY_COLORS.orange, textShadow: `0 0 30px ${MY_COLORS.orangeGlow}` }}>Answer?</span>
+            {t("FAQPage.cta.headlinePre")}{" "}
+            <span style={{ color: MY_COLORS.orange, textShadow: `0 0 30px ${MY_COLORS.orangeGlow}` }}>
+              {t("FAQPage.cta.headlineHighlight")}
+            </span>
           </h2>
 
           {/* Subtext */}
           <p data-reveal style={{ fontFamily: FONTS.secondary, fontSize: FONTS.size.md, lineHeight: FONTS.leading.relaxed, color: MY_COLORS.textSecondary, margin: "0 auto 40px", maxWidth: 480, opacity: 0, transform: "translateY(20px)", transition: "opacity 0.6s ease, transform 0.6s ease" }}>
-            Our team is ready to answer any question — no matter how technical or specific.
+            {t("FAQPage.cta.subtext")}
           </p>
 
           {/* Buttons */}
           <div data-reveal style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 16, flexWrap: "wrap", opacity: 0, transform: "translateY(20px)", transition: "opacity 0.6s ease, transform 0.6s ease" }}>
             <Link to="/contact" onMouseEnter={() => setPrimary(true)} onMouseLeave={() => setPrimary(false)}
               style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: primaryHover ? 12 : 8, padding: "14px 32px", borderRadius: 10, background: MY_COLORS.gradientOrange, color: "#fff", fontFamily: FONTS.primary, fontSize: FONTS.size.base, fontWeight: FONTS.weight.bold, letterSpacing: FONTS.tracking.wide, boxShadow: primaryHover ? `0 0 40px rgba(232,117,10,0.55)` : `0 0 24px rgba(232,117,10,0.35)`, transform: primaryHover ? "translateY(-3px)" : "translateY(0)", transition: "all 0.3s ease" }}>
-              Contact Us Directly <ArrowRight />
+              {t("FAQPage.cta.primaryButton")} <ArrowRight />
             </Link>
             <Link to="/contact" onMouseEnter={() => setSecond(true)} onMouseLeave={() => setSecond(false)}
               style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: secondaryHover ? 12 : 8, padding: "14px 32px", borderRadius: 10, background: "transparent", color: secondaryHover ? MY_COLORS.textPrimary : MY_COLORS.textSecondary, border: `1px solid ${secondaryHover ? MY_COLORS.borderHover : MY_COLORS.border}`, fontFamily: FONTS.primary, fontSize: FONTS.size.base, fontWeight: FONTS.weight.semibold, letterSpacing: FONTS.tracking.wide, transform: secondaryHover ? "translateY(-3px)" : "translateY(0)", transition: "all 0.3s ease" }}>
-              Book a Free Consultation <ArrowRight />
+              {t("FAQPage.cta.secondaryButton")} <ArrowRight />
             </Link>
           </div>
         </div>

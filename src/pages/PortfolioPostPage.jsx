@@ -1,21 +1,21 @@
 /**
- * PortfolioPostPage — Project Detail Page (Redesigned)
+ * PortfolioPostPage Project Detail Page (Redesigned)
  * AlphaWaves brand system
  *
  * Route: /portfolio/:slug
  *
  * Sections:
- * 1.  Hero            — title, category, client, back button, reading progress
- * 2.  Cover Visual    — cinematic project banner
- * 3.  Project Brief   — quick meta strip (type, industry, status, client)
- * 4.  Description     — rich detailed project overview  ← NEW
- * 5.  Challenge       — the problem statement
- * 6.  Solution        — what was built + key deliverables
- * 7.  Results         — animated metric cards  ← FIXED
- * 8.  Tech Stack      — technologies used
- * 9.  Testimonial     — client quote (if available)
- * 10. Related         — 3 other projects
- * 11. CTA             — start your project
+ * 1.  Hero            title, category, client, back button, reading progress
+ * 2.  Cover Visual    cinematic project banner
+ * 3.  Project Brief   quick meta strip (type, industry, status, client)
+ * 4.  Description     rich detailed project overview  ← NEW
+ * 5.  Challenge       the problem statement
+ * 6.  Solution        what was built + key deliverables
+ * 7.  Results         animated metric cards  ← FIXED
+ * 8.  Tech Stack      technologies used
+ * 9.  Testimonial     client quote (if available)
+ * 10. Related         3 other projects
+ * 11. CTA             start your project
  */
 
 import { useState, useEffect, useRef } from "react";
@@ -25,6 +25,7 @@ import { MY_COLORS } from "../constants/colors.js";
 import { FONTS } from "../assets/fonts/fonts.js";
 import useBreakpoint from "../hooks/useBreakpoint.js";
 import { useTranslation } from "react-i18next";
+import i18n from "../i18n.js";
 
 /* ─────────────────────────── Icons ─────────────────────────────── */
 const ArrowLeft = () => (
@@ -170,7 +171,11 @@ const TECH_COLORS = {
   "Google Maps API": "#4285F4",
 };
 
-const buildDescription = (post, t) => {
+const buildDescription = (post, t, lang) => {
+  // Fetch descriptions from i18n based on language
+  const descriptions =
+    t(`projectDescriptions.${post.slug}`, { returnObjects: true }) || {};
+
   const catMap = {
     ecommerce: t("postPage.industryLabels.ecommerce"),
     agriculture: t("postPage.industryLabels.agriculture"),
@@ -193,12 +198,17 @@ const buildDescription = (post, t) => {
     : post.client_name || t("postPage.client");
   const techs = Array.isArray(post.technologies) ? post.technologies : [];
 
+  // Use translated descriptions from i18n
+  const shortDesc = descriptions.short_description || "";
+  const challengeDesc = descriptions.challenge_description || "";
+  const solutionDesc = descriptions.solution_description || "";
+
   return [
-    `${post.project_name || "This project"} ${t("postPage.descPara1Suffix")} ${type} ${t("postPage.descPara1Built")} ${client} ${t("postPage.descPara1Operating")} ${cat}${t("postPage.descPara1Sector")} ${post.short_description || ""}`,
+    `${post.project_name || "This project"} ${t("postPage.descPara1Suffix")} ${type} ${t("postPage.descPara1Built")} ${client} ${t("postPage.descPara1Operating")} ${cat}${t("postPage.descPara1Sector")} ${shortDesc}`,
 
-    `${t("postPage.descPara2Intro")} ${post.challenge_description || ""} ${t("postPage.descPara2Suffix")}`,
+    `${t("postPage.descPara2Intro")} ${challengeDesc} ${t("postPage.descPara2Suffix")}`,
 
-    `${post.solution_description || ""} ${t("postPage.descPara3Prefix")}`,
+    `${solutionDesc} ${t("postPage.descPara3Prefix")}`,
 
     `${t("postPage.descPara4Prefix")} (${techs.slice(0, 3).join(", ")}) ${t("postPage.descPara4Suffix")}`,
   ];
@@ -548,7 +558,7 @@ const PortfolioPostPage = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const { isMobile, isTablet } = useBreakpoint();
-  const { t } = useTranslation();
+  const { t , i18n} = useTranslation();
 
   const post = PROJECTS.find((p) => p.slug === slug);
   const related = post
@@ -566,7 +576,7 @@ const PortfolioPostPage = () => {
       post.industry_category
     : "";
 
-  const descParagraphs = post ? buildDescription(post, t) : [];
+  const descParagraphs = post ? buildDescription(post, t, i18n.language) : [];
   const isNarrow = isMobile || isTablet;
   const px = isMobile ? "20px" : isTablet ? "32px" : "48px";
   const py = isMobile ? "40px" : "64px";
@@ -707,7 +717,9 @@ const PortfolioPostPage = () => {
                   textDecoration: "none",
                 }}
                 onMouseEnter={(e) => (e.target.style.color = MY_COLORS.orange)}
-                onMouseLeave={(e) => (e.target.style.color = MY_COLORS.textMuted)}
+                onMouseLeave={(e) =>
+                  (e.target.style.color = MY_COLORS.textMuted)
+                }
               >
                 {t("postPage.home")}
               </Link>
@@ -721,7 +733,9 @@ const PortfolioPostPage = () => {
                   textDecoration: "none",
                 }}
                 onMouseEnter={(e) => (e.target.style.color = MY_COLORS.orange)}
-                onMouseLeave={(e) => (e.target.style.color = MY_COLORS.textMuted)}
+                onMouseLeave={(e) =>
+                  (e.target.style.color = MY_COLORS.textMuted)
+                }
               >
                 {t("postPage.portfolio")}
               </Link>
@@ -1033,9 +1047,21 @@ const PortfolioPostPage = () => {
                   ? t("postPage.confidential")
                   : post.client_name.split(",")[0],
               },
-              { icon: <LayersIcon />, label: t("postPage.type"), value: typeLabel },
-              { icon: <GlobeIcon />, label: t("postPage.industry"), value: catLabel },
-              { icon: <CalendarIcon />, label: t("postPage.status"), value: t("postPage.delivered") },
+              {
+                icon: <LayersIcon />,
+                label: t("postPage.type"),
+                value: typeLabel,
+              },
+              {
+                icon: <GlobeIcon />,
+                label: t("postPage.industry"),
+                value: catLabel,
+              },
+              {
+                icon: <CalendarIcon />,
+                label: t("postPage.status"),
+                value: t("postPage.delivered"),
+              },
             ].map((item, i) => (
               <Reveal key={i} delay={i * 0.08}>
                 <div
@@ -1086,7 +1112,9 @@ const PortfolioPostPage = () => {
         </div>
       </section>
 
-      <section style={{ padding: `0 ${px} ${py}`, background: MY_COLORS.bgBase }}>
+      <section
+        style={{ padding: `0 ${px} ${py}`, background: MY_COLORS.bgBase }}
+      >
         <div style={{ maxWidth: maxW, margin: "0 auto" }}>
           <Reveal>
             <div
@@ -1165,7 +1193,9 @@ const PortfolioPostPage = () => {
             </div>
 
             <Reveal delay={0.15}>
-              <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+              <div
+                style={{ display: "flex", flexDirection: "column", gap: 14 }}
+              >
                 <div
                   style={{
                     padding: "24px",
@@ -1381,7 +1411,7 @@ const PortfolioPostPage = () => {
                     margin: 0,
                   }}
                 >
-                  {post.challenge_description}
+                  {t(`projectDescriptions.${post.slug}`, { returnObjects: true })?.challenge_description || ""}
                 </p>
               </div>
 
@@ -1406,38 +1436,42 @@ const PortfolioPostPage = () => {
                 >
                   {t("postPage.painPoints")}
                 </div>
-                <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                  {t("postPage.pains", { returnObjects: true }).map((pain, i) => (
-                    <div
-                      key={i}
-                      style={{
-                        display: "flex",
-                        alignItems: "flex-start",
-                        gap: 10,
-                      }}
-                    >
+                <div
+                  style={{ display: "flex", flexDirection: "column", gap: 12 }}
+                >
+                  {t("postPage.pains", { returnObjects: true }).map(
+                    (pain, i) => (
                       <div
+                        key={i}
                         style={{
-                          width: 6,
-                          height: 6,
-                          borderRadius: "50%",
-                          background: "#ef4444",
-                          flexShrink: 0,
-                          marginTop: 6,
-                        }}
-                      />
-                      <span
-                        style={{
-                          fontFamily: FONTS.secondary,
-                          fontSize: 13,
-                          color: MY_COLORS.textMuted,
-                          lineHeight: 1.5,
+                          display: "flex",
+                          alignItems: "flex-start",
+                          gap: 10,
                         }}
                       >
-                        {pain}
-                      </span>
-                    </div>
-                  ))}
+                        <div
+                          style={{
+                            width: 6,
+                            height: 6,
+                            borderRadius: "50%",
+                            background: "#ef4444",
+                            flexShrink: 0,
+                            marginTop: 6,
+                          }}
+                        />
+                        <span
+                          style={{
+                            fontFamily: FONTS.secondary,
+                            fontSize: 13,
+                            color: MY_COLORS.textMuted,
+                            lineHeight: 1.5,
+                          }}
+                        >
+                          {pain}
+                        </span>
+                      </div>
+                    ),
+                  )}
                 </div>
               </div>
             </div>
@@ -1520,7 +1554,7 @@ const PortfolioPostPage = () => {
                     margin: 0,
                   }}
                 >
-                  {post.solution_description}
+                 {t(`projectDescriptions.${post.slug}`, { returnObjects: true })?.solution_description || ""}
                 </p>
               </div>
             </Reveal>
@@ -1548,7 +1582,9 @@ const PortfolioPostPage = () => {
                 >
                   {t("postPage.keyDeliverables")}
                 </div>
-                <div style={{ display: "flex", flexDirection: "column", gap: 13 }}>
+                <div
+                  style={{ display: "flex", flexDirection: "column", gap: 13 }}
+                >
                   {t("postPage.deliverables", { returnObjects: true }).map(
                     (item, i) => (
                       <div
@@ -1781,9 +1817,11 @@ const PortfolioPostPage = () => {
                     paddingTop: isMobile ? 24 : 16,
                   }}
                 >
-                  {Array.from({ length: post.testimonial.rating }).map((_, i) => (
-                    <StarIcon key={i} />
-                  ))}
+                  {Array.from({ length: post.testimonial.rating }).map(
+                    (_, i) => (
+                      <StarIcon key={i} />
+                    ),
+                  )}
                 </div>
                 <blockquote
                   style={{
@@ -1932,7 +1970,7 @@ const PortfolioPostPage = () => {
                     : "repeat(3,1fr)",
                 gap: 20,
               }}
-             >
+            >
               {related.map((p, i) => (
                 <Reveal key={p.id} delay={i * 0.08}>
                   <RelatedCard project={p} t={t} />

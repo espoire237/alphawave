@@ -1,5 +1,5 @@
 /**
- * IndustriesServed — Portfolio Page Section 4 — FULLY RESPONSIVE
+ * IndustriesServed Portfolio Page Section 4 FULLY RESPONSIVE
  */
 import { useEffect, useRef } from "react";
 import { INDUSTRIES } from "../../data/portfolioData.js";

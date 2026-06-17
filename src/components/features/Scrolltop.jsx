@@ -1,6 +1,6 @@
 /**
- * ScrollToTop — Global Floating Back-to-Top Button
- * AlphaWaves brand — Pyramid shape, orange glow, animated
+ * ScrollToTop Global Floating Back-to-Top Button
+ * AlphaWaves brand Pyramid shape, orange glow, animated
  * Add once in App.jsx, works on every page automatically
  */
 
@@ -33,7 +33,7 @@ const ScrollToTop = () => {
         onMouseLeave={() => setHovered(false)}
         aria-label="Back to top"
         style={{
-          // Position — fixed bottom-right
+          // Position fixed bottom-right
           position:   "fixed",
           bottom:     32,
           right:      32,
@@ -43,7 +43,7 @@ const ScrollToTop = () => {
           width:  52,
           height: 52,
 
-          // Visibility — fade in/out + slide up
+          // Visibility fade in/out + slide up
           opacity:   visible ? 1 : 0,
           transform: visible
             ? (clicked ? "translateY(-6px) scale(0.92)" : hovered ? "translateY(-4px) scale(1.08)" : "translateY(0) scale(1)")
@@ -51,7 +51,7 @@ const ScrollToTop = () => {
           pointerEvents: visible ? "auto" : "none",
           transition: "opacity 0.4s ease, transform 0.3s cubic-bezier(0.34,1.56,0.64,1)",
 
-          // Shape — circle container
+          // Shape circle container
           borderRadius: "50%",
           background:   "transparent",
           border:       "none",
@@ -76,7 +76,7 @@ const ScrollToTop = () => {
           transition:   "border-color 0.3s ease",
         }} />
 
-        {/* Spinning glow ring — only on hover */}
+        {/* Spinning glow ring only on hover */}
         <div style={{
           position:     "absolute",
           inset:        -2,
@@ -136,13 +136,13 @@ const ScrollToTop = () => {
             filter="url(#pyramidGlow)"
           />
 
-          {/* Left face shade — gives 3D depth */}
+          {/* Left face shade gives 3D depth */}
           <polygon
             points="20,4 6,34 20,34"
             fill="url(#pyramidShade)"
           />
 
-          {/* Horizontal tier lines — classic pyramid look */}
+          {/* Horizontal tier lines classic pyramid look */}
           <line x1="11.5" y1="24" x2="28.5" y2="24"
             stroke="rgba(255,255,255,0.15)" strokeWidth="0.7"/>
           <line x1="15"   y1="14" x2="25"   y2="14"
@@ -158,7 +158,7 @@ const ScrollToTop = () => {
           </circle>
         </svg>
 
-        {/* Pulse ring — always animating when visible */}
+        {/* Pulse ring always animating when visible */}
         <div style={{
           position:     "absolute",
           inset:        -6,

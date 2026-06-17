@@ -24,22 +24,22 @@ const ContactPage = () => {
         image={IMAGES.hero.contact}
       />
 
-      {/* Section 2 — Contact Form */}
+      {/* Section 2 Contact Form */}
       <ContactFormSection />
 
-      {/* Section 3 — Contact Info */}
+      {/* Section 3 Contact Info */}
       <ContactInfoSection />
 
-      {/* Section 4 — Trust Bar */}
+      {/* Section 4 Trust Bar */}
       <TrustBar />
 
-      {/* Section 5 — Social Links */}
+      {/* Section 5 Social Links */}
       <SocialSection />
 
-      {/* Section 6 — FAQ Mini */}
+      {/* Section 6 FAQ Mini */}
       <FaqMini />
 
-      {/* Section 8 — Bottom CTA */}
+      {/* Section 8 Bottom CTA */}
       <BottomCTA />
     </div>
   );

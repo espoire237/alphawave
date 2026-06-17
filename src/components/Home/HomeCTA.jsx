@@ -1,5 +1,5 @@
 /**
- * HomeCTA — Homepage Section 9 — FULLY RESPONSIVE
+ * HomeCTA Homepage Section 9 FULLY RESPONSIVE
  */
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";

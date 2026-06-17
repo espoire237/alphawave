@@ -1,5 +1,5 @@
 /**
- * PortfolioStatsBar — Portfolio Page Section 1 addon — FULLY RESPONSIVE
+ * PortfolioStatsBar Portfolio Page Section 1 addon FULLY RESPONSIVE
  */
 import { useEffect, useRef, useState } from "react";
 import { PORTFOLIO_STATS } from "../../data/portfolioData.js";

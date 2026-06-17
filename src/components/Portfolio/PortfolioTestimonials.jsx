@@ -1,5 +1,5 @@
 /**
- * PortfolioTestimonials — Portfolio Page Section 5 — FULLY RESPONSIVE
+ * PortfolioTestimonials Portfolio Page Section 5 FULLY RESPONSIVE
  */
 import { useState, useEffect, useRef } from "react";
 import { PROJECTS } from "../../data/portfolioData.js";
@@ -243,7 +243,7 @@ const PortfolioTestimonials = () => {
                 borderRadius: "0 0 9999px 9999px",
               }}
             />
-            {/* Quote mark — hidden on smallest mobile */}
+            {/* Quote mark hidden on smallest mobile */}
             {!isMobile && (
               <div
                 style={{

@@ -1,10 +1,10 @@
 /**
- * BlogPostPage — Full Article Detail Page
+ * BlogPostPage Full Article Detail Page
  * Route: /blog/:slug
  *
  * Layout:
  *   1. Reading progress bar (fixed top)
- *   2. Post Hero — title, meta, breadcrumb
+ *   2. Post Hero title, meta, breadcrumb
  *   3. Magazine layout: sidebar (TOC + share) | article body
  *   4. Author bio card
  *   5. Related posts grid
@@ -306,7 +306,7 @@ const BlogPostPage = () => {
   // Scroll to top on slug change
   useEffect(() => { window.scrollTo({ top: 0, behavior: "instant" }); }, [slug]);
 
-  // 404 — post not found
+  // 404 post not found
   if (!post) {
     return (
       <div style={{ minHeight: "60vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", background: MY_COLORS.bgBase, padding: "80px 20px", textAlign: "center" }}>

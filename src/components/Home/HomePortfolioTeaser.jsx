@@ -1,5 +1,5 @@
 /**
- * HomePortfolioTeaser — Homepage Section 6 — FULLY RESPONSIVE
+ * HomePortfolioTeaser Homepage Section 6 FULLY RESPONSIVE
  */
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";

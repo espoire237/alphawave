@@ -20,7 +20,7 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // ✅ No more useEffect for closing menu — Navigation's onClose handles it
+  // ✅ No more useEffect for closing menu Navigation's onClose handles it
 
   return (
     <header

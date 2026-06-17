@@ -1,6 +1,6 @@
 /**
- * OurStory — About Page Section 2
- * AlphaWaves brand system — FULLY RESPONSIVE
+ * OurStory About Page Section 2
+ * AlphaWaves brand system FULLY RESPONSIVE
  */
 
 import { useEffect, useRef } from "react";
@@ -220,7 +220,7 @@ const OurStory = () => {
             </div>
           </div>
 
-          {/* ══ RIGHT COLUMN — paragraphs ══ */}
+          {/* ══ RIGHT COLUMN paragraphs ══ */}
           <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
             {PARAGRAPHS.map((para, index) => (
               <div key={para.id} data-reveal style={{ position: "relative", paddingBottom: index < PARAGRAPHS.length - 1 ? (isMobile ? 32 : 48) : 0, opacity: 0, transform: paraInitTransform, transition: "opacity 0.6s ease, transform 0.6s ease" }}>

@@ -1,6 +1,10 @@
 /**
- * portfolioData.js — Single source of truth for Portfolio page
+ * portfolioData.js Single source of truth for Portfolio page
  * AlphaWaves brand system
+ *
+ * NOTE: Project descriptions have been moved to i18n translation files:
+ * - en.json: projectDescriptions
+ * - fr.json: projectDescriptions
  *
  * When Directus is ready, replace each array with:
  * fetch("https://your-directus.com/items/portfolio?filter[status]=published&sort=display_order")
@@ -18,12 +22,7 @@ export const PROJECTS = [
     client_confidential: false,
     client_name: "StyleHub Cameroon",
     project_name: "StyleHub E-Commerce Platform",
-    short_description:
-      "A full-featured online fashion retail platform built for the Central African market, with mobile money payments and real-time inventory management.",
-    challenge_description:
-      "StyleHub was operating entirely through WhatsApp and cash on delivery, losing customers due to no online presence, no payment automation, and zero inventory visibility.",
-    solution_description:
-      "We built a complete e-commerce platform with product catalogue, cart, checkout, MTN MoMo and Orange Money integration, an admin dashboard, and automated order notifications via SMS.",
+    // Descriptions moved to: en.json/projectDescriptions/ecommerce-fashion-retailer
     technologies: ["React.js", "Node.js", "MongoDB", "MTN MoMo", "Orange Money", "SMS Integration"],
     results: [
       { label: "Increase in monthly orders", value: "340%" },
@@ -54,12 +53,7 @@ export const PROJECTS = [
     client_confidential: false,
     client_name: "AgroConnect Africa",
     project_name: "AgroConnect Marketplace",
-    short_description:
-      "A mobile marketplace connecting farmers directly to buyers across Cameroon, eliminating middlemen and increasing farmer income.",
-    challenge_description:
-      "Smallholder farmers had no way to reach buyers directly, were forced to sell through exploitative middlemen, and had no visibility into market prices.",
-    solution_description:
-      "We developed a React Native mobile app with real-time price listings, direct farmer-to-buyer messaging, mobile money payments, and GPS-based delivery coordination.",
+    // Descriptions moved to: en.json/projectDescriptions/agricultural-marketplace
     technologies: ["React Native", "Node.js", "PostgreSQL", "MTN MoMo", "Google Maps API"],
     results: [
       { label: "Farmers onboarded", value: "1,200+" },
@@ -80,12 +74,7 @@ export const PROJECTS = [
     client_confidential: false,
     client_name: "MediCare Clinics",
     project_name: "MediCare Appointment System",
-    short_description:
-      "A digital appointment and patient management system for a network of private clinics, replacing paper-based records and phone bookings.",
-    challenge_description:
-      "MediCare was managing all appointments by phone and paper, leading to double bookings, lost patient records, and long wait times that were driving patients away.",
-    solution_description:
-      "We built a web-based platform allowing patients to book online, doctors to manage schedules, and administrators to track patient history, billing, and clinic performance in real time.",
+    // Descriptions moved to: en.json/projectDescriptions/healthcare-appointment-system
     technologies: ["React.js", "Node.js", "PostgreSQL", "SMS Integration"],
     results: [
       { label: "Reduction in no-shows", value: "65%" },
@@ -116,12 +105,7 @@ export const PROJECTS = [
     client_confidential: false,
     client_name: "QuickCredit Cameroon",
     project_name: "QuickCredit AI Lending Platform",
-    short_description:
-      "An AI-powered micro-lending platform that assesses creditworthiness without a credit history, using alternative data to serve the unbanked population.",
-    challenge_description:
-      "Millions of Cameroonians are excluded from formal credit because they have no credit history, no collateral, and no bank account — making traditional lending models completely unworkable.",
-    solution_description:
-      "We built an AI scoring engine that analyses mobile money transaction history, airtime usage, and behavioural patterns to assess credit risk, approve loans in minutes, and disburse directly via mobile money.",
+    // Descriptions moved to: en.json/projectDescriptions/fintech-lending-platform
     technologies: ["Python", "FastAPI", "React.js", "PostgreSQL", "MTN MoMo", "Orange Money", "AI/ML"],
     results: [
       { label: "Loans disbursed", value: "5,000+" },
@@ -152,12 +136,7 @@ export const PROJECTS = [
     client_confidential: false,
     client_name: "Résidence Les Palmiers",
     project_name: "Les Palmiers Booking System",
-    short_description:
-      "A complete hotel management and online booking system for a boutique hotel group, with room management, guest profiles, and integrated payments.",
-    challenge_description:
-      "The hotel was taking all reservations by phone and WhatsApp, had no way to manage room availability in real time, and was losing bookings to hotels with online presence.",
-    solution_description:
-      "We delivered a full booking engine with real-time availability, automated confirmation emails and SMS, a front-desk management dashboard, and mobile money plus card payment support.",
+    // Descriptions moved to: en.json/projectDescriptions/hotel-booking-system
     technologies: ["React.js", "Node.js", "MySQL", "Booking Engine API", "MTN MoMo", "Stripe"],
     results: [
       { label: "Online bookings in year 1", value: "1,800+" },
@@ -178,12 +157,7 @@ export const PROJECTS = [
     client_confidential: false,
     client_name: "AcademiaPro",
     project_name: "AcademiaPro Learning Platform",
-    short_description:
-      "A full learning management system for a Cameroonian ed-tech startup, enabling instructors to sell courses and students to learn on any device.",
-    challenge_description:
-      "AcademiaPro had course content but no platform to deliver it — they were sharing PDFs over WhatsApp and collecting payments manually via mobile money with no receipts or tracking.",
-    solution_description:
-      "We built a complete LMS with course creation tools, video streaming, student progress tracking, certificate generation, mobile money payment integration, and an instructor revenue dashboard.",
+    // Descriptions moved to: en.json/projectDescriptions/education-lms-platform
     technologies: ["React.js", "Node.js", "PostgreSQL", "Video Streaming", "MTN MoMo", "Orange Money"],
     results: [
       { label: "Students enrolled", value: "3,200+" },

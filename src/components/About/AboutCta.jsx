@@ -1,5 +1,5 @@
 /**
- * AboutCTA — About Page Section 10 — Final CTA
+ * AboutCTA About Page Section 10 Final CTA
  * AlphaWaves brand system
  */
 
@@ -32,7 +32,7 @@ const ArrowRight = () => (
   </svg>
 );
 
-// Trust item icons don't need translation — only labels do
+// Trust item icons don't need translation only labels do
 const TRUST_ICONS = ["⚡", "🔒", "📊", "🌍"];
 const TRUST_KEYS  = ["response", "noLockIn", "roi", "africa"];
 

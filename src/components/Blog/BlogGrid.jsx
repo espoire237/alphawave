@@ -1,5 +1,5 @@
 /**
- * BlogGrid — Blog Page Section 3 + 4
+ * BlogGrid Blog Page Section 3 + 4
  * Category filters + sort + paginated posts grid
  * AlphaWaves brand system
  */
@@ -283,7 +283,7 @@ const BlogGrid = ({ searchQuery = "" }) => {
         {/* Filter bar */}
         <div data-reveal style={{ opacity: 0, transform: "translateY(16px)", transition: "all 0.6s ease", marginBottom: 48 }}>
 
-          {/* Top row — categories + sort */}
+          {/* Top row categories + sort */}
           <div style={{ display: "flex", alignItems: isMobile ? "flex-start" : "center", justifyContent: "space-between", gap: 12, flexDirection: isMobile ? "column" : "row", flexWrap: "wrap", marginBottom: 0 }}>
 
             {/* Category pills */}

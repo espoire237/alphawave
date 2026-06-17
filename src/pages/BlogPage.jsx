@@ -1,14 +1,14 @@
 /**
- * BlogPage — Full Blog Page Assembly
+ * BlogPage Full Blog Page Assembly
  * AlphaWaves brand system
  *
  * Route: /blog
  *
  * Sections:
- * 1. HeroSection       — with SearchBar child
- * 2. BlogFeaturedPost  — featured article spotlight
- * 3. BlogGrid          — category filters + paginated posts
- * 4. BlogCTA           — "Ready to Transform?" banner
+ * 1. HeroSection       with SearchBar child
+ * 2. BlogFeaturedPost  featured article spotlight
+ * 3. BlogGrid          category filters + paginated posts
+ * 4. BlogCTA           "Ready to Transform?" banner
  */
 
 import { useState } from "react";
@@ -26,7 +26,7 @@ const BlogPage = () => {
 
   return (
     <>
-      {/* Section 1 — Hero with SearchBar */}
+      {/* Section 1 Hero with SearchBar */}
       <HeroSection
         eyebrow={t("blogPage.hero.eyebrow")}
         headline={t("blogPage.hero.headline")}
@@ -42,13 +42,13 @@ const BlogPage = () => {
         />
       </HeroSection>
 
-      {/* Section 2 — Featured post */}
+      {/* Section 2 Featured post */}
       <BlogFeaturedPost />
 
-      {/* Section 3 — Filters + grid (receives live search query) */}
+      {/* Section 3 Filters + grid (receives live search query) */}
       <BlogGrid searchQuery={searchQuery} />
 
-      {/* Section 4 — Bottom CTA */}
+      {/* Section 4 Bottom CTA */}
       <BlogCTA />
     </>
   );
