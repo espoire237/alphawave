@@ -1,9 +1,10 @@
 /**
- * BlogFeaturedPost — Blog Page Section 2 — FULLY RESPONSIVE
+ * BlogFeaturedPost Blog Page Section 2 FULLY RESPONSIVE
  */
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { POSTS, AUTHORS, CATEGORIES } from "../../data/blogData.js";
+import { useTranslation } from "react-i18next";
+import { POSTS, AUTHORS, CATEGORIES, getLocalizedPostData } from "../../data/blogData.js";
 import { MY_COLORS } from "../../constants/colors.js";
 import { FONTS } from "../../assets/fonts/fonts.js";
 import useBreakpoint from "../../hooks/useBreakpoint.js";
@@ -25,13 +26,15 @@ const useScrollReveal = (t = 0.08) => {
 };
 
 const BlogFeaturedPost = () => {
+  const { t } = useTranslation();
   const sectionRef = useScrollReveal();
   const { isMobile, isTablet, isLargeTablet } = useBreakpoint();
   const [hovered, setHover] = useState(false);
 
   const post     = POSTS.find(p => p.is_featured && p.status === "published") || POSTS[0];
+  const localizedPost = getLocalizedPostData(post, t);
   const author   = AUTHORS.find(a => a.id === post.author_id);
-  const catLabel = CATEGORIES.find(c => c.id === post.category)?.label || post.category;
+  const catLabel = t(`blogPage.categories.${post.category}`) || CATEGORIES.find(c => c.id === post.category)?.label || post.category;
   const formattedDate = new Date(post.published_at).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
 
   const padding    = isMobile ? "56px 20px 0" : isTablet ? "72px 32px 0" : "80px 40px 0";
@@ -62,7 +65,7 @@ const BlogFeaturedPost = () => {
             </div>
             <div style={{ position: "absolute", bottom: 14, left: 14, display: "flex", alignItems: "center", gap: 6, color: MY_COLORS.textMuted }}>
               <ClockIcon />
-              <span style={{ fontFamily: FONTS.secondary, fontSize: FONTS.size.xs, color: MY_COLORS.textMuted }}>{post.read_time_minutes} min read</span>
+              <span style={{ fontFamily: FONTS.secondary, fontSize: FONTS.size.xs, color: MY_COLORS.textMuted }}>{t("blogPage.featured.readTime", { minutes: post.read_time_minutes })}</span>
             </div>
           </div>
 
@@ -70,10 +73,10 @@ const BlogFeaturedPost = () => {
           <div style={{ padding: contentPad, display: "flex", flexDirection: "column", justifyContent: "space-between", gap: isSmall ? 20 : 0 }}>
             <div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: isMobile ? 14 : 20 }}>
-                {post.tags.slice(0, 3).map((tag, i) => <span key={i} style={{ padding: "3px 10px", borderRadius: 9999, background: "rgba(255,255,255,0.04)", border: `1px solid ${MY_COLORS.border}`, fontFamily: FONTS.secondary, fontSize: 11, color: MY_COLORS.textMuted }}>{tag}</span>)}
+                {localizedPost.tags.slice(0, 3).map((tag, i) => <span key={i} style={{ padding: "3px 10px", borderRadius: 9999, background: "rgba(255,255,255,0.04)", border: `1px solid ${MY_COLORS.border}`, fontFamily: FONTS.secondary, fontSize: 11, color: MY_COLORS.textMuted }}>{tag}</span>)}
               </div>
-              <h2 style={{ fontFamily: FONTS.primary, fontSize: isMobile ? "clamp(16px,4.5vw,22px)" : "clamp(20px,2.2vw,28px)", fontWeight: 800, lineHeight: "1.3", color: MY_COLORS.textPrimary, margin: "0 0 12px" }}>{post.title}</h2>
-              <p style={{ fontFamily: FONTS.secondary, fontSize: isMobile ? 13 : FONTS.size.base, lineHeight: "1.7", color: MY_COLORS.textMuted, margin: "0 0 20px" }}>{post.excerpt}</p>
+              <h2 style={{ fontFamily: FONTS.primary, fontSize: isMobile ? "clamp(16px,4.5vw,22px)" : "clamp(20px,2.2vw,28px)", fontWeight: 800, lineHeight: "1.3", color: MY_COLORS.textPrimary, margin: "0 0 12px" }}>{localizedPost.title}</h2>
+              <p style={{ fontFamily: FONTS.secondary, fontSize: isMobile ? 13 : FONTS.size.base, lineHeight: "1.7", color: MY_COLORS.textMuted, margin: "0 0 20px" }}>{localizedPost.excerpt}</p>
             </div>
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20, paddingBottom: 18, borderBottom: `1px solid ${MY_COLORS.border}`, flexWrap: "wrap" }}>
@@ -88,7 +91,7 @@ const BlogFeaturedPost = () => {
               </div>
               <Link to={`/blog/${post.slug}`}
                 style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: hovered ? 12 : 8, padding: isMobile ? "12px 22px" : "13px 28px", borderRadius: 10, background: MY_COLORS.gradientOrange, color: "#fff", fontFamily: FONTS.primary, fontSize: FONTS.size.sm, fontWeight: 700, boxShadow: hovered ? "0 0 32px rgba(232,117,10,0.5)" : "0 0 16px rgba(232,117,10,0.3)", transform: hovered ? "translateY(-2px)" : "translateY(0)", transition: "all 0.3s ease", width: isMobile ? "100%" : "auto", justifyContent: isMobile ? "center" : "flex-start" }}>
-                Read Article <ArrowRight />
+                {t("blogPage.featured.cta.readArticle")} <ArrowRight />
               </Link>
             </div>
           </div>

@@ -1,6 +1,6 @@
 /**
  * Layout Component
- * Global wrapper — Navbar + Footer around all pages
+ * Global wrapper Navbar + Footer around all pages
  * @component
  */
 

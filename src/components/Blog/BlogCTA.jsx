@@ -1,7 +1,8 @@
 /**
- * BlogCTA — Blog Page Section 5 — FULLY RESPONSIVE
+ * BlogCTA Blog Page Section 5 FULLY RESPONSIVE
  */
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { MY_COLORS } from "../../constants/colors.js";
 import { FONTS } from "../../assets/fonts/fonts.js";
@@ -22,6 +23,7 @@ const useScrollReveal = (t = 0.1) => {
 };
 
 const BlogCTA = () => {
+  const { t } = useTranslation();
   const sectionRef = useScrollReveal();
   const { isMobile, isTablet } = useBreakpoint();
   const [p1, setP1] = useState(false);
@@ -39,23 +41,23 @@ const BlogCTA = () => {
           <div style={{ position: "absolute", top: 0, left: isMobile ? "10%" : "25%", right: isMobile ? "10%" : "25%", height: 2, background: MY_COLORS.gradientOrange, borderRadius: "0 0 9999px 9999px" }} />
           <div data-reveal style={{ display: "inline-flex", alignItems: "center", gap: 10, marginBottom: isMobile ? 14 : 20, opacity: 0, transform: "translateY(16px)", transition: "all 0.6s ease" }}>
             <span style={{ width: 24, height: 2, borderRadius: 9999, background: MY_COLORS.gradientOrange }} />
-            <span style={{ fontFamily: FONTS.primary, fontSize: FONTS.size.xs, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: MY_COLORS.orange }}>Take The Next Step</span>
+            <span style={{ fontFamily: FONTS.primary, fontSize: FONTS.size.xs, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: MY_COLORS.orange }}>{t("blogPage.cta.eyebrow")}</span>
             <span style={{ width: 24, height: 2, borderRadius: 9999, background: MY_COLORS.gradientOrange }} />
           </div>
           <h2 data-reveal style={{ fontFamily: FONTS.primary, fontSize: isMobile ? "clamp(22px,6vw,32px)" : "clamp(28px,4vw,52px)", fontWeight: 800, color: MY_COLORS.textPrimary, margin: `0 auto ${isMobile ? 12 : 16}px`, maxWidth: 600, lineHeight: "1.15", opacity: 0, transform: "translateY(20px)", transition: "all 0.6s ease" }}>
-            Ready to Transform Your <span style={{ color: MY_COLORS.orange }}>Business?</span>
+            {t("blogPage.cta.headlinePart1")} <span style={{ color: MY_COLORS.orange }}>{t("blogPage.cta.headlineAccent")}</span>
           </h2>
           <p data-reveal style={{ fontFamily: FONTS.secondary, fontSize: isMobile ? FONTS.size.sm : FONTS.size.md, lineHeight: "1.7", color: MY_COLORS.textSecondary, margin: `0 auto ${isMobile ? 24 : 40}px`, maxWidth: 520, opacity: 0, transform: "translateY(20px)", transition: "all 0.6s ease" }}>
-            You've read the insights. Now let's apply them to your business. Book a free consultation with our team.
+            {t("blogPage.cta.description")}
           </p>
           <div data-reveal style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: isMobile ? 12 : 16, flexDirection: isMobile ? "column" : "row", flexWrap: "wrap", opacity: 0, transform: "translateY(20px)", transition: "all 0.6s ease" }}>
             <Link to="/contact" onMouseEnter={() => setP1(true)} onMouseLeave={() => setP1(false)}
               style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: p1 ? 12 : 8, padding: isMobile ? "13px 24px" : "14px 32px", borderRadius: 10, background: MY_COLORS.gradientOrange, color: "#fff", fontFamily: FONTS.primary, fontSize: isMobile ? FONTS.size.sm : FONTS.size.base, fontWeight: 700, boxShadow: p1 ? "0 0 40px rgba(232,117,10,0.55)" : "0 0 24px rgba(232,117,10,0.35)", transform: p1 ? "translateY(-3px)" : "translateY(0)", transition: "all 0.3s ease", width: isMobile ? "100%" : "auto" }}>
-              Book a Free Consultation <ArrowRight />
+              {t("blogPage.cta.primaryBtn")} <ArrowRight />
             </Link>
             <Link to="/services" onMouseEnter={() => setP2(true)} onMouseLeave={() => setP2(false)}
               style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: p2 ? 12 : 8, padding: isMobile ? "13px 24px" : "14px 32px", borderRadius: 10, background: "transparent", color: p2 ? MY_COLORS.textPrimary : MY_COLORS.textSecondary, border: `1px solid ${p2 ? MY_COLORS.borderHover : MY_COLORS.border}`, fontFamily: FONTS.primary, fontSize: isMobile ? FONTS.size.sm : FONTS.size.base, fontWeight: 600, transform: p2 ? "translateY(-3px)" : "translateY(0)", transition: "all 0.3s ease", width: isMobile ? "100%" : "auto" }}>
-              Explore Our Services <ArrowRight />
+              {t("blogPage.cta.secondaryBtn")} <ArrowRight />
             </Link>
           </div>
         </div>

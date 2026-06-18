@@ -2,7 +2,7 @@
 
 /**
  * AlphaWaves Typography System
- * Corporate-grade type scale — authoritative, clean, trustworthy
+ * Corporate-grade type scale authoritative, clean, trustworthy
  *
  * Manrope  → Headings, logo, navbar, buttons (geometric, sharp, corporate)
  * Inter    → Body text, descriptions, paragraphs (clean, readable, standard)
@@ -13,12 +13,12 @@
 
 export const FONTS = {
 
-  // ── Primary Font — Manrope ───────────────────────────────────
+  // ── Primary Font Manrope ───────────────────────────────────
   // Geometric, authoritative, modern corporate
   // Used for: headings, logo, navbar, buttons, section titles
   primary: "'Manrope', sans-serif",
 
-  // ── Secondary Font — Inter ───────────────────────────────────
+  // ── Secondary Font Inter ───────────────────────────────────
   // Clean, highly readable, universally trusted
   // Used for: body text, descriptions, paragraphs, captions
   secondary: "'Inter', sans-serif",
@@ -41,7 +41,7 @@ export const FONTS = {
     lg:   "22px",   // section subtitles
     xl:   "28px",   // card titles, sub-headings
     xxl:  "40px",   // section titles
-    hero: "64px",   // hero display text — desktop
+    hero: "64px",   // hero display text desktop
   },
 
   // ── Letter Spacing ───────────────────────────────────────────

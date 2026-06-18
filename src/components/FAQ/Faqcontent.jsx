@@ -1,15 +1,12 @@
 /**
- * FAQContent — FAQ Page Section 2
+ * FAQContent FAQ Page Section 2
  * Category navigation + accordion Q&As
  * AlphaWaves brand system
- *
- * Usage:
- * import FAQContent from "../components/FAQ/FAQContent.jsx";
- * <FAQContent searchQuery={query} />
  */
 
 import { useState, useEffect, useRef } from "react";
-import { FAQS }      from "../../data/faqData.js";
+import { useTranslation } from "react-i18next";
+import { useTranslatedFAQs } from "../../data/faqData.js";
 import { MY_COLORS } from "../../constants/colors.js";
 import { FONTS }     from "../../assets/fonts/fonts.js";
 
@@ -20,17 +17,6 @@ const ChevronDown = ({ open }) => (
     <path d="M3 6L8 11L13 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
-
-// ── Categories ────────────────────────────────────────────────
-const CATEGORIES = [
-  { id: "all",      label: "All Questions"            },
-  { id: "services", label: "Services & Solutions"     },
-  { id: "pricing",  label: "Pricing & Budgets"        },
-  { id: "process",  label: "Process & Timeline"       },
-  { id: "tech",     label: "Technology & Technical"   },
-  { id: "africa",   label: "African Market & Payments"},
-  { id: "support",  label: "Support & After Launch"   },
-];
 
 // ── Highlight matching search text ────────────────────────────
 const highlightText = (text, query) => {
@@ -86,12 +72,7 @@ const FAQItem = ({ faq, isOpen, onToggle, highlight }) => (
       </span>
     </button>
 
-    {/* Answer */}
-    <div style={{
-      maxHeight:  isOpen ? "600px" : "0px",
-      overflow:   "hidden",
-      transition: "max-height 0.4s ease",
-    }}>
+    <div style={{ maxHeight: isOpen ? "600px" : "0px", overflow: "hidden", transition: "max-height 0.4s ease" }}>
       <div style={{ padding: "0 24px 22px", borderTop: `1px solid ${MY_COLORS.border}`, paddingTop: 16 }}>
         <div style={{ display: "flex", gap: 14 }}>
           <div style={{ width: 2, borderRadius: 9999, background: MY_COLORS.gradientOrange, flexShrink: 0 }} />
@@ -112,25 +93,41 @@ const FAQItem = ({ faq, isOpen, onToggle, highlight }) => (
 );
 
 // ── Empty state ───────────────────────────────────────────────
-const EmptyState = ({ query }) => (
-  <div style={{ textAlign: "center", padding: "60px 0" }}>
-    <div style={{ fontSize: 48, marginBottom: 16 }}>🔍</div>
-    <h3 style={{ fontFamily: FONTS.primary, fontSize: FONTS.size.lg, fontWeight: FONTS.weight.bold, color: MY_COLORS.textPrimary, marginBottom: 10 }}>
-      No results for "{query}"
-    </h3>
-    <p style={{ fontFamily: FONTS.secondary, fontSize: FONTS.size.base, color: MY_COLORS.textMuted }}>
-      Try different keywords or browse by category.
-    </p>
-  </div>
-);
+const EmptyState = ({ query }) => {
+  const { t } = useTranslation(); // no namespace uses default "translation"
+  return (
+    <div style={{ textAlign: "center", padding: "60px 0" }}>
+      <div style={{ fontSize: 48, marginBottom: 16 }}>🔍</div>
+      <h3 style={{ fontFamily: FONTS.primary, fontSize: FONTS.size.lg, fontWeight: FONTS.weight.bold, color: MY_COLORS.textPrimary, marginBottom: 10 }}>
+        {t("FAQPage.content.emptyState.title", { query })}
+      </h3>
+      <p style={{ fontFamily: FONTS.secondary, fontSize: FONTS.size.base, color: MY_COLORS.textMuted }}>
+        {t("FAQPage.content.emptyState.subtitle")}
+      </p>
+    </div>
+  );
+};
 
 // ══════════════════════════════════════════════════════════════
 // FAQContent Component
 // ══════════════════════════════════════════════════════════════
 const FAQContent = ({ searchQuery = "" }) => {
+  const FAQS = useTranslatedFAQs();
+  const { t } = useTranslation(); // no namespace uses default "translation"
   const [activeCategory, setActiveCategory] = useState("all");
   const [openItems,      setOpenItems]       = useState({});
   const categoryRefs = useRef({});
+
+  // Categories built from translation keys so labels switch with language
+  const CATEGORIES = [
+    { id: "all",      label: t("FAQPage.content.categories.all")      },
+    { id: "services", label: t("FAQPage.content.categories.services") },
+    { id: "pricing",  label: t("FAQPage.content.categories.pricing")  },
+    { id: "process",  label: t("FAQPage.content.categories.process")  },
+    { id: "tech",     label: t("FAQPage.content.categories.tech")     },
+    { id: "africa",   label: t("FAQPage.content.categories.africa")   },
+    { id: "support",  label: t("FAQPage.content.categories.support")  },
+  ];
 
   const filtered = FAQS.filter(faq => {
     const matchesCategory = activeCategory === "all" || faq.category === activeCategory;
@@ -202,7 +199,9 @@ const FAQContent = ({ searchQuery = "" }) => {
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24, paddingBottom: 16, borderBottom: `1px solid ${MY_COLORS.border}` }}>
               <span style={{ width: 4, height: 20, borderRadius: 9999, background: MY_COLORS.gradientOrange, flexShrink: 0 }} />
               <h3 style={{ fontFamily: FONTS.primary, fontSize: FONTS.size.lg, fontWeight: FONTS.weight.extrabold, letterSpacing: FONTS.tracking.tight, color: MY_COLORS.textPrimary, margin: 0 }}>{group.label}</h3>
-              <span style={{ fontFamily: FONTS.secondary, fontSize: FONTS.size.xs, color: MY_COLORS.textMuted, marginLeft: "auto" }}>{group.items.length} question{group.items.length !== 1 ? "s" : ""}</span>
+              <span style={{ fontFamily: FONTS.secondary, fontSize: FONTS.size.xs, color: MY_COLORS.textMuted, marginLeft: "auto" }}>
+                {t("FAQPage.content.questionCount", { count: group.items.length })}
+              </span>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               {group.items.map(faq => (

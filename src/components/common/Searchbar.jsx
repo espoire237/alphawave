@@ -1,5 +1,5 @@
 /**
- * SearchBar — Reusable Search Component
+ * SearchBar Reusable Search Component
  * AlphaWaves brand system
  *
  * Designed to sit inside HeroSection as a child OR standalone.
@@ -8,11 +8,11 @@
  * import SearchBar from "../components/ui/SearchBar.jsx";
  *
  * Props:
- * - value       {string}    required  — controlled input value
- * - onChange    {function}  required  — called on every keystroke
- * - placeholder {string}    optional  — input placeholder
- * - onSubmit    {function}  optional  — called on Enter key press
- * - maxWidth    {number}    optional  — max width in px (default: 480)
+ * - value       {string}    required  controlled input value
+ * - onChange    {function}  required  called on every keystroke
+ * - placeholder {string}    optional  input placeholder
+ * - onSubmit    {function}  optional  called on Enter key press
+ * - maxWidth    {number}    optional  max width in px (default: 480)
  */
 
 import { useState } from "react";

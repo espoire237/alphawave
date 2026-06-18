@@ -1,5 +1,5 @@
 /**
- * HeroSection — Universal Page Hero Component
+ * HeroSection Universal Page Hero Component
  * AlphaWaves brand system
  *
  * Usage:
@@ -47,7 +47,7 @@ const ChevronRight = () => (
   </svg>
 );
 
-// ── AnimatedWave — used for Contact page ─────────────────────
+// ── AnimatedWave used for Contact page ─────────────────────
 const AnimatedWave = () => (
   <div
     style={{
@@ -149,15 +149,15 @@ const AnimatedWave = () => (
 // HeroSection Component
 // ══════════════════════════════════════════════════════════════
 const HeroSection = ({
-  eyebrow,                          // string  — small label e.g. "About Us"
-  headline,                         // string  — REQUIRED — main bold title
-  subheadline,                      // string  — REQUIRED — paragraph below headline
-  image        = null,              // string  — path to bg image (null = no image)
-  imagePosition = "center center",  // FIX #2  — prop to control focal point per page
-  breadcrumb   = true,              // bool    — show breadcrumb
-  cta          = null,              // object  — { primary, secondary } — each { label, path }
-  children     = null,              // node    — optional slot: search bar, pills, stats
-  animated     = false,             // bool    — true = animated wave bg (Contact page)
+  eyebrow,                          // string  small label e.g. "About Us"
+  headline,                         // string  REQUIRED main bold title
+  subheadline,                      // string  REQUIRED paragraph below headline
+  image        = null,              // string  path to bg image (null = no image)
+  imagePosition = "center center",  // FIX #2  prop to control focal point per page
+  breadcrumb   = true,              // bool    show breadcrumb
+  cta          = null,              // object  { primary, secondary } each { label, path }
+  children     = null,              // node    optional slot: search bar, pills, stats
+  animated     = false,             // bool    true = animated wave bg (Contact page)
 }) => {
   const location   = useLocation();
   const contentRef = useRef(null);
@@ -204,7 +204,7 @@ const HeroSection = ({
         position: "relative",
         width:    "100%",
         maxWidth: "100vw",
-        // FIX #6 — proper clamp: min / preferred / max
+        // FIX #6 proper clamp: min / preferred / max
         height:   "clamp(380px, 50vh, 620px)",
         overflow: "hidden",
         background: MY_COLORS.bgBase,
@@ -218,14 +218,14 @@ const HeroSection = ({
         <div
           style={{
             position:           "absolute",
-            inset:              "-6px",               // FIX #3 — prevents edge-flash during zoom
+            inset:              "-6px",               // FIX #3 prevents edge-flash during zoom
             backgroundImage:    `url(${image})`,
             backgroundSize:     "cover",
-            backgroundPosition: imagePosition,         // FIX #2 — controlled per page
+            backgroundPosition: imagePosition,         // FIX #2 controlled per page
             backgroundRepeat:   "no-repeat",
-            backgroundColor:    MY_COLORS.bgSurface,  // FIX #4 — fallback while image loads
+            backgroundColor:    MY_COLORS.bgSurface,  // FIX #4 fallback while image loads
             animation:          "heroZoom 8s ease-out forwards",
-            zIndex:             0,                    // FIX #1 — explicit stacking
+            zIndex:             0,                    // FIX #1 explicit stacking
           }}
         />
       )}
@@ -234,7 +234,7 @@ const HeroSection = ({
       {animated && !image && <AnimatedWave />}
 
       {/* ── 3. Gradient Overlay ── */}
-      {/* FIX #5 — className added so mobile CSS override works */}
+      {/* FIX #5 className added so mobile CSS override works */}
       <div
         className={image ? "hero-overlay hero-overlay--image" : "hero-overlay"}
         style={{
@@ -261,7 +261,7 @@ const HeroSection = ({
         }}
       />
 
-      {/* ── 4. Orange glow — bottom left ── */}
+      {/* ── 4. Orange glow bottom left ── */}
       <div
         style={{
           position:     "absolute",
@@ -485,7 +485,7 @@ const HeroSection = ({
           </div>
         )}
 
-        {/* Children slot — search bar, pills, stats */}
+        {/* Children slot search bar, pills, stats */}
         {children && (
           <div data-animate style={{ marginTop: 30 }}>
             {children}
@@ -515,7 +515,7 @@ const HeroSection = ({
         }
 
         @media (max-width: 768px) {
-          /* Lighten overlay on mobile — image shows through, text stays readable */
+          /* Lighten overlay on mobile image shows through, text stays readable */
           .hero-overlay--image {
             background: linear-gradient(
               to bottom,

@@ -1,5 +1,5 @@
 /**
- * HomeTestimonial — Homepage Section 8 — FULLY RESPONSIVE
+ * HomeTestimonial Homepage Section 8 FULLY RESPONSIVE
  */
 import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";

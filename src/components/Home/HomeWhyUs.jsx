@@ -1,5 +1,5 @@
 /**
- * HomeWhyUs — Homepage Section 4 — FULLY RESPONSIVE
+ * HomeWhyUs Homepage Section 4 FULLY RESPONSIVE
  */
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";

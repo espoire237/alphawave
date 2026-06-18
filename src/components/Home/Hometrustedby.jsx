@@ -1,12 +1,12 @@
 /**
- * HomeTrustedBy — Homepage Section 2 — FULLY RESPONSIVE
+ * HomeTrustedBy Homepage Section 2 FULLY RESPONSIVE
  */
 import { useTranslation } from "react-i18next";
 import { MY_COLORS } from "../../constants/colors.js";
 import { FONTS } from "../../assets/fonts/fonts.js";
 import useBreakpoint from "../../hooks/useBreakpoint.js";
 
-// Client names are brand names — kept as-is, not translated
+// Client names are brand names kept as-is, not translated
 const CLIENTS = ["Fashion Boutique Douala","Regional Farmer Co-op","Microfinance Institution","Private Medical Clinic","Boutique Hotel Chain","Private University","Logistics Company","Fintech Startup"];
 
 const HomeTrustedBy = () => {

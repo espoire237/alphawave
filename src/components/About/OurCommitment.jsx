@@ -1,5 +1,5 @@
 /**
- * OurCommitment — About Page Section 9
+ * OurCommitment About Page Section 9
  * AlphaWaves brand system
  */
 

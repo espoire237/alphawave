@@ -1,5 +1,5 @@
 /**
- * HomeHero — Homepage Section 1 — FULLY RESPONSIVE
+ * HomeHero Homepage Section 1 FULLY RESPONSIVE
  */
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
@@ -191,7 +191,7 @@ const HomeHero = () => {
             )}
           </div>
 
-          {/* RIGHT — Carousel */}
+          {/* RIGHT Carousel */}
           {showCarousel && (
             <div style={{ opacity:mounted?1:0, transform:mounted?"translateX(0)":"translateX(40px)", transition:"all 0.8s ease 0.4s" }}>
               <div style={{ position:"relative", height:carouselHeight }} onMouseEnter={()=>clearInterval(slideIntervalRef.current)} onMouseLeave={()=>{ slideIntervalRef.current = setInterval(()=>setActiveSlide(i=>(i+1)%SLIDES.length),4000); }}>

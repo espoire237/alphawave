@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#E8750A",       // Orange — hover, active, accents
+        primary: "#E8750A",       // Orange hover, active, accents
         secondary: "#1A6B3C",     
         dark: "#0D0D0D",          
         light: "#FAF7F2",         
@@ -12,9 +12,9 @@ export default {
         text: "#F0EDE8",          
 
         // ✅ New additions
-        background: "#1E1E1E",    // Dark grey — main background
-        surface: "#2A2A2A",       // Slightly lighter grey — cards, navbars
-        foreground: "#FFFFFF",    // White — main text
+        background: "#1E1E1E",    // Dark grey main background
+        surface: "#2A2A2A",       // Slightly lighter grey cards, navbars
+        foreground: "#FFFFFF",    // White main text
       },
     },
   },

@@ -1,5 +1,5 @@
 /**
- * OurApproach — About Page Section 7
+ * OurApproach About Page Section 7
  * AlphaWaves brand system
  */
 

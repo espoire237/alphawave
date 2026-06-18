@@ -107,13 +107,13 @@ export const DIFFERENTIATORS = [
   {
     id: 2,
     title: "Complete Integrated Team",
-    desc: "Strategy, design, development, AI integration, deployment, and optimization — all under one accountable team. No vendor coordination chaos. Seamless execution, faster delivery.",
+    desc: "Strategy, design, development, AI integration, deployment, and optimization all under one accountable team. No vendor coordination chaos. Seamless execution, faster delivery.",
     icon: "network",
   },
   {
     id: 3,
     title: "AI-First Approach",
-    desc: "We don't retrofit AI — we architect with intelligence from the ground up. Production AI systems that drive business outcomes, not just technological novelty.",
+    desc: "We don't retrofit AI we architect with intelligence from the ground up. Production AI systems that drive business outcomes, not just technological novelty.",
     icon: "ai",
   },
   {

@@ -1,5 +1,5 @@
 /**
- * HomeStats — Homepage Section 5 — FULLY RESPONSIVE
+ * HomeStats Homepage Section 5 FULLY RESPONSIVE
  */
 import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
@@ -7,7 +7,7 @@ import { MY_COLORS } from "../../constants/colors.js";
 import { FONTS } from "../../assets/fonts/fonts.js";
 import useBreakpoint from "../../hooks/useBreakpoint.js";
 
-// Values and suffixes don't change — only labels are translated
+// Values and suffixes don't change only labels are translated
 const STATS_BASE = [
   { id:1, value:50,  suffix:"+",  labelKey:"projects"     },
   { id:2, value:30,  suffix:"+",  labelKey:"clients"      },

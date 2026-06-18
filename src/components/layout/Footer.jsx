@@ -1,5 +1,5 @@
 /**
- * Footer Component — Fully Responsive
+ * Footer Component Fully Responsive
  * AlphaWaves brand system
  */
 
@@ -59,7 +59,7 @@ const WhatsAppIcon = () => (
   </svg>
 );
 
-// socialLinks has no translatable text — stays outside ✅
+// socialLinks has no translatable text stays outside ✅
 const socialLinks = [
   { label: "LinkedIn", icon: <LinkedInIcon />, href: "#" },
   { label: "Twitter",  icon: <TwitterIcon />,  href: "#" },

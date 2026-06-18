@@ -1,5 +1,5 @@
 /**
- * TeamSection — About Page Section 5
+ * TeamSection About Page Section 5
  * AlphaWaves brand system
  */
 

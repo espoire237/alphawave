@@ -161,7 +161,7 @@ const HowWeWork = () => {
           </p>
         </div>
 
-        {/* Steps — horizontal timeline */}
+        {/* Steps horizontal timeline */}
         <div style={{ position: "relative" }}>
           {/* Connecting line */}
           <div

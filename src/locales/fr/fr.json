@@ -10,7 +10,7 @@
     "getStarted": "Commencer"
   },
   "footer": {
-    "tagline": "Architecturer l'avenir numérique de l'Afrique — technologie de niveau entreprise pour les marchés africains et mondiaux.",
+    "tagline": "Architecturer l'avenir numérique de l'Afrique technologie de niveau entreprise pour les marchés africains et mondiaux.",
     "techAgency": "Agence Tech",
     "copyright": "© {{year}} AlphaWaves. Tous droits réservés. Conçu au Cameroun 🇨🇲",
     "sections": {
@@ -40,6 +40,895 @@
       "sitemap": "Plan du site"
     }
   },
+  "blogPage": {
+    "hero": {
+      "eyebrow": "Blog",
+      "headline": "Des idées pour les leaders numériques africains",
+      "subheadline": "Guides pratiques, études de cas et analyses d'experts sur la technologie, la transformation numérique et la croissance des entreprises en Afrique.",
+      "searchPlaceholder": "Rechercher des articles ex. mobile money, IA, SEO..."
+    },
+    "featured": {
+      "sectionLabel": "Article en vedette",
+      "badge": "En vedette",
+      "readTime": "{{minutes}} min de lecture",
+      "cta": {
+        "readArticle": "Lire l'article"
+      }
+    },
+    "grid": {
+      "sort": {
+        "recent": "Les plus récents",
+        "popular": "Les plus populaires",
+        "oldest": "Les plus anciens"
+      },
+      "articleCount": "{{count}} article",
+      "articleCount_plural": "{{count}} articles",
+      "forQuery": "pour \"{{query}}\"",
+      "inCategory": "dans {{category}}",
+      "noArticlesFound": "Aucun article trouvé",
+      "noResults": "Aucun résultat pour \"{{query}}\" essayez d'autres mots-clés.",
+      "noPostsInCategory": "Aucun article dans cette catégorie pour le moment.",
+      "read": "Lire",
+      "readMinutes": "{{minutes}} min"
+    },
+    "cta": {
+      "eyebrow": "Passez à l'étape suivante",
+      "headlinePart1": "Prêt à transformer votre",
+      "headlineAccent": "entreprise ?",
+      "description": "Vous avez lu les idées. Maintenant, appliquons-les à votre entreprise. Réservez une consultation gratuite avec notre équipe.",
+      "primaryBtn": "Réserver une consultation gratuite",
+      "secondaryBtn": "Découvrez nos services"
+    },
+    "categories": {
+      "all": "Tous les articles",
+      "digital-transform": "Transformation numérique",
+      "custom-software": "Logiciel sur mesure",
+      "ai-data": "IA & Intelligence des données",
+      "mobile-payments": "Mobile & Paiements",
+      "cloud-devops": "Cloud & DevOps",
+      "marketing-seo": "Marketing & SEO",
+      "success-stories": "Histoires à succès"
+    }
+  },
+  "blogPostPage": {
+    "featuredBadge": "En vedette",
+    "toc": {
+      "title": "Contenu"
+    },
+    "share": {
+      "title": "Partager",
+      "copyLink": "Copier le lien",
+      "linkedin": "LinkedIn",
+      "twitter": "Twitter/X",
+      "copied": "Copié !"
+    },
+    "author": {
+      "viewOnLinkedIn": "Voir sur LinkedIn"
+    },
+    "buttons": {
+      "backToBlog": "Retour au blog"
+    },
+    "related": {
+      "headingLabel": "Continuez la lecture",
+      "titlePrefix": "Articles",
+      "titleAccent": "associés",
+      "viewAllPosts": "Voir tous les articles",
+      "read": "Lire"
+    },
+    "meta": {
+      "readTime": "{{minutes}} min de lecture"
+    },
+    "notFound": {
+      "title": "Article introuvable",
+      "message": "L'article que vous recherchez n'existe pas ou a peut-être été déplacé.",
+      "backToBlog": "Retour au blog"
+    }
+  },
+  "blogPosts": {
+    "posts": {
+      "why-african-businesses-need-local-tech-partners": {
+        "title": "Pourquoi les entreprises africaines ont besoin de partenaires technologiques qui comprennent l'infrastructure locale",
+        "excerpt": "Les agences internationales livrent souvent des solutions qui échouent sous les conditions d'infrastructure africaines. Voici pourquoi l'expertise locale n'est pas facultative elle est essentielle.",
+        "tags": ["Afrique", "Transformation numérique", "Infrastructure"],
+        "body": [
+          {
+            "type": "paragraph",
+            "text": "Chaque semaine, une nouvelle start-up ou PME africaine raconte la même histoire douloureuse : elle a embauché une agence internationale, payé des tarifs premium, et reçu un produit qui avait fière allure dans une salle de réunion londonienne mais s'effondrait sous les conditions 3G camerounaises. Le site web se bloquait. La passerelle de paiement ne prenait pas en charge le Mobile Money. L'application supposait que les utilisateurs avaient des forfaits data illimités."
+          },
+          {
+            "type": "callout",
+            "variant": "warning",
+            "title": "Le problème central",
+            "text": "La plupart des fournisseurs technologiques internationaux construisent pour leurs propres conditions d'infrastructure haut débit, électricité fiable et utilisateurs avec des smartphones haut de gamme. L'Afrique est un environnement opérationnel fondamentalement différent."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "La réalité de l'infrastructure en Afrique"
+          },
+          {
+            "type": "paragraph",
+            "text": "Soyons précis sur ce que signifient réellement les conditions d'infrastructure africaines, car l'expression est souvent utilisée sans contexte."
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "La vitesse moyenne d'internet mobile au Cameroun est de 12 à 18 Mbps moins d'un quart des moyennes européennes",
+              "Les délestages et l'instabilité électrique affectent 60 % ou plus des entreprises urbaines hors des grandes villes",
+              "70 % des transactions se font encore via Mobile Money pas par carte ou virement bancaire",
+              "Une partie importante des utilisateurs accèdent à votre produit sur des Android milieu de gamme de 2019 à 2022",
+              "Les utilisateurs basculent régulièrement entre le WiFi, la 4G et la 3G en cours de session"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Une solution construite sans tenir compte de ces réalités n'est pas seulement sous-optimale elle est activement nuisible à votre entreprise. Les utilisateurs qui rencontrent une expérience lente et cassée ne donnent pas de seconde chance. Ils passent à autre chose."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Ce que l'expertise locale apporte réellement"
+          },
+          {
+            "type": "paragraph",
+            "text": "Travailler avec un partenaire technologique basé au Cameroun n'est pas une préférence nationaliste. Cela apporte des avantages techniques concrets et mesurables."
+          },
+          {
+            "type": "heading",
+            "level": 3,
+            "text": "1. Architecture pensée pour l'infrastructure"
+          },
+          {
+            "type": "paragraph",
+            "text": "Les ingénieurs locaux conçoivent des systèmes avec l'infrastructure africaine comme base, pas comme une réflexion après coup. Cela signifie des applications mobiles en mode hors ligne, des stratégies de cache agressives, des pipelines d'optimisation d'images et des API conçues pour fonctionner avec des connexions dégradées."
+          },
+          {
+            "type": "heading",
+            "level": 3,
+            "text": "2. Intégration native des paiements"
+          },
+          {
+            "type": "paragraph",
+            "text": "L'intégration correcte des API MTN MoMo et Orange Money gestion des webhooks, des délais d'attente de rappel, mise en place de logique de réessai pour les pannes réseau exige une expérience qui n'existe tout simplement pas dans les agences qui n'ont jamais construit pour ces systèmes."
+          },
+          {
+            "type": "callout",
+            "variant": "tip",
+            "title": "Note technique sur Mobile Money",
+            "text": "L'API MTN MoMo a une fenêtre de rappel de 60 secondes. Les réseaux retardent fréquemment les callbacks de 2 à 5 minutes. Toute implémentation de paiement doit gérer cela avec une interface utilisateur en état d'attente et une réconciliation côté serveur sinon les utilisateurs penseront que leur paiement a échoué et paieront deux fois."
+          },
+          {
+            "type": "heading",
+            "level": 3,
+            "text": "3. Connaissance réglementaire et marché"
+          },
+          {
+            "type": "paragraph",
+            "text": "Les réglementations CEMAC, les exigences de l'ANTIC, les cadres camerounais de protection des données ce ne sont pas des détails obscurs. Ce sont des obligations légales qui peuvent fermer votre produit. Les partenaires locaux les naviguent comme une pratique standard, pas comme un coûteux projet de recherche."
+          },
+          { "type": "heading", "level": 2, "text": "Le coût de se tromper" },
+          {
+            "type": "paragraph",
+            "text": "Nous avons audité plusieurs systèmes construits par des fournisseurs internationaux. Les modèles sont cohérents : aucune capacité hors ligne, paiements uniquement Stripe, aucune localisation française et une infrastructure serveur en Europe ajoutant 200 à 400 ms de latence à chaque appel API. Ce ne sont pas de petits problèmes. Ils s'accumulent en produits qui frustrent les utilisateurs, échouent à convertir et finissent par être abandonnés."
+          },
+          {
+            "type": "callout",
+            "variant": "success",
+            "title": "L'alternative",
+            "text": "Quand vous construisez avec une équipe qui opère sur le même marché que vous servez, vous obtenez un produit qui fonctionne dès le premier jour pas après six mois de correctifs coûteux."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Questions à poser à tout partenaire technologique"
+          },
+          {
+            "type": "list",
+            "ordered": true,
+            "items": [
+              "Avez-vous intégré MTN MoMo ou Orange Money en production ?",
+              "Comment vos applications gèrent-elles la connectivité intermittente ?",
+              "Où sont hébergés vos serveurs et quelle est la latence attendue pour les utilisateurs camerounais ?",
+              "Avez-vous de l'expérience dans la construction pour des environnements à faible bande passante ?",
+              "Pouvez-vous me montrer un produit en direct construit pour le marché camerounais ?"
+            ]
+          }
+        ]
+      },
+      "mtn-momo-vs-orange-money-vs-stripe": {
+        "title": "MTN MoMo vs Orange Money vs Stripe : quel est le meilleur pour votre e-commerce camerounais ?",
+        "excerpt": "Une analyse pratique des trois options de paiement dominantes pour les entreprises en ligne camerounaises frais, complexité d'intégration et choix selon votre cas d'usage.",
+        "tags": ["MTN MoMo", "Orange Money", "Stripe", "Paiements"],
+        "body": [
+          {
+            "type": "paragraph",
+            "text": "Choisir le mauvais fournisseur de paiement pour votre plateforme e-commerce camerounaise est l'une des erreurs les plus coûteuses que vous pouvez commettre pas en coûts d'intégration, mais en taux de conversion. La méthode de paiement que vous proposez détermine si un client finalise son achat ou abandonne son panier."
+          },
+          {
+            "type": "callout",
+            "variant": "info",
+            "title": "Contexte du marché",
+            "text": "En 2026, plus de 72 % des transactions numériques au Cameroun sont effectuées via Mobile Money. Proposer uniquement des paiements par carte signifie exclure la majorité de vos clients potentiels dès le premier jour."
+          },
+          { "type": "heading", "level": 2, "text": "MTN Mobile Money (MoMo)" },
+          {
+            "type": "paragraph",
+            "text": "MTN MoMo est le fournisseur Mobile Money dominant au Cameroun avec environ 65 % de part de marché. Il sert à la fois les utilisateurs urbains et ruraux, ce qui en fait le moyen de paiement le plus proche d'une solution universelle sur le marché."
+          },
+          { "type": "heading", "level": 3, "text": "Frais et tarification" },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "Frais de collecte marchand : 0,5 % à 1 % par transaction (négociable selon le volume)",
+              "Pas de frais mensuels forfaitaires pour l'accès API de base",
+              "Des frais de décaissement s'appliquent aux remboursements (typiquement 2 %)"
+            ]
+          },
+          { "type": "heading", "level": 3, "text": "Complexité d'intégration" },
+          {
+            "type": "paragraph",
+            "text": "MTN MoMo fournit une API REST via son portail développeur. L'intégration est de complexité modérée le principal défi est de gérer correctement les rappels asynchrones."
+          },
+          {
+            "type": "code",
+            "language": "javascript",
+            "code": "// MTN MoMo - Initier une demande de collecte\nconst response = await fetch(\n  'https://sandbox.momodeveloper.mtn.com/collection/v1_0/requesttopay',\n  {\n    method: 'POST',\n    headers: {\n      'Authorization': `Bearer ${accessToken}` ,\n      'X-Reference-Id': uuid(),\n      'X-Target-Environment': 'sandbox',\n      'Content-Type': 'application/json',\n    },\n    body: JSON.stringify({\n      amount: '5000',\n      currency: 'XAF',\n      externalId: orderId,\n      payer: { partyIdType: 'MSISDN', partyId: '237671234567' },\n      payerMessage: 'Paiement pour la commande #' + orderId,\n    }),\n  }\n);\n// Statut 202 = accepté. Interrogez /requesttopay/{referenceId} pour le résultat."
+          },
+          {
+            "type": "callout",
+            "variant": "warning",
+            "title": "Note d'implémentation critique",
+            "text": "Ne vous fiez jamais uniquement au webhook de rappel. Mettez toujours en place un fallback de sondage qui vérifie le statut du paiement toutes les 30 secondes pendant jusqu'à 5 minutes. Les retards réseau peuvent entraîner des webhooks tardifs ou absents."
+          },
+          { "type": "heading", "level": 2, "text": "Orange Money" },
+          {
+            "type": "paragraph",
+            "text": "Orange Money détient environ 30 % du marché Mobile Money au Cameroun. C'est un segment critique particulièrement dans certaines régions et parmi les utilisateurs qui conservent les deux portefeuilles."
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "Structure de frais similaire à MTN MoMo (0,5 % à 1 %)",
+              "La documentation de l'API est moins complète que celle de MTN",
+              "L'intégration est souvent gérée via des agrégateurs comme CinetPay ou Monetbil",
+              "Nécessaire pour atteindre une couverture de marché complète"
+            ]
+          },
+          { "type": "heading", "level": 2, "text": "Stripe" },
+          {
+            "type": "paragraph",
+            "text": "Stripe est la référence pour les paiements par carte internationaux et est disponible au Cameroun via leur infrastructure Global Payments. Cependant, son rôle dans une pile e-commerce camerounaise est spécifique et limité."
+          },
+          { "type": "heading", "level": 3, "text": "Quand Stripe a du sens" },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "Vos clients sont des diasporas ou des acheteurs internationaux payant en EUR ou USD",
+              "Paiements B2B où les clients utilisent des cartes d'entreprise",
+              "Facturation par abonnement pour des produits SaaS ciblant des entreprises multinationales",
+              "Comme solution de secours pour les clients qui n'utilisent pas Mobile Money"
+            ]
+          },
+          {
+            "type": "callout",
+            "variant": "warning",
+            "title": "Limite de Stripe",
+            "text": "La pénétration des cartes chez les consommateurs camerounais reste inférieure à 15 %. Proposer Stripe comme méthode de paiement principale détruit la conversion. Utilisez-le comme option secondaire."
+          },
+          { "type": "heading", "level": 2, "text": "Notre recommandation" },
+          {
+            "type": "paragraph",
+            "text": "Pour la plupart des entreprises e-commerce camerounaises, la pile optimale est : MTN MoMo en primaire, Orange Money en secondaire, et Stripe pour les paiements internationaux ou par carte. Si vous utilisez un agrégateur, CinetPay gère les trois via une API unique ce qui réduit considérablement la complexité d'intégration."
+          },
+          {
+            "type": "list",
+            "ordered": true,
+            "items": [
+              "Commencez par MTN MoMo il couvre la majorité de vos clients",
+              "Ajoutez Orange Money en phase 2 soit directement, soit via un agrégateur",
+              "Ajoutez Stripe uniquement si vous avez des preuves de clients payant par carte",
+              "Affichez toujours toutes les méthodes de paiement disponibles à la caisse laissez les utilisateurs choisir"
+            ]
+          }
+        ]
+      },
+      "ai-analytics-transform-sme-decisions": {
+        "title": "De l'aveuglement des données à des décisions pilotées par l'IA : comment l'analytique transforme les PME",
+        "excerpt": "La plupart des PME africaines prennent des décisions à plusieurs millions de francs sur la base de l'instinct. Les tableaux de bord analytiques propulsés par l'IA changent la donne voici ce qui est désormais possible avec un budget PME.",
+        "tags": ["IA", "Analytique", "PME", "Données"],
+        "body": [
+          {
+            "type": "paragraph",
+            "text": "Un commerçant de Douala nous a récemment raconté qu'il commandait les mêmes quantités de stock depuis trois ans non parce que les chiffres le justifiaient, mais parce que c'était ce qu'il avait toujours fait. Lorsque nous lui avons construit un tableau de bord analytique de ventes simple, il a découvert que 40 % de son inventaire était presque jamais vendu, tandis que deux catégories de produits étaient constamment en rupture de stock et entraînaient des ventes perdues."
+          },
+          {
+            "type": "callout",
+            "variant": "success",
+            "title": "Le résultat",
+            "text": "En réaffectant leur budget d'achat sur la base de données réelles, ce client a augmenté son chiffre d'affaires de 28 % au premier trimestre sans acquérir un seul nouveau client."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Le problème de l'aveuglement des données"
+          },
+          {
+            "type": "paragraph",
+            "text": "L'aveuglement des données ne signifie pas manquer de données. La plupart des entreprises génèrent d'énormes volumes historiques de ventes, interactions clients, mouvements d'inventaire, performances du personnel. Le problème est que ces données vivent dans des silos : conversations WhatsApp, reçus papier, feuilles de calcul et logiciels de comptabilité que personne ne sait interroger correctement."
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "Données de ventes verrouillées dans des systèmes POS sans fonctionnalités de reporting",
+              "Historique client dispersé dans des discussions WhatsApp et des contacts téléphoniques",
+              "Inventaire suivi dans des feuilles Excel jamais vraiment analysées",
+              "Aucune visibilité sur les produits, lieux ou équipes qui génèrent le plus de valeur",
+              "Décisions prises à partir de la mémoire et de l'instinct plutôt que de preuves"
+            ]
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Ce que l'analytique IA signifie réellement pour les PME"
+          },
+          {
+            "type": "paragraph",
+            "text": "Quand nous parlons d'analytique IA, nous ne parlons pas d'entrepôts de données d'entreprise ou d'équipes de data scientists. Les outils d'IA modernes ont rendu l'analyse sophistiquée accessible à une fraction du coût traditionnel."
+          },
+          {
+            "type": "heading",
+            "level": 3,
+            "text": "1. Reconnaissance de motifs automatisée"
+          },
+          {
+            "type": "paragraph",
+            "text": "L'IA peut identifier des motifs dans vos données de ventes qui prendraient des semaines à un analyste humain. Quels produits se vendent ensemble ? À quel moment de la journée le chiffre d'affaires est-il le plus élevé ? Quels segments de clients sont les plus rentables ? Ces insights apparaissent automatiquement."
+          },
+          {
+            "type": "heading",
+            "level": 3,
+            "text": "2. Gestion prédictive des stocks"
+          },
+          {
+            "type": "paragraph",
+            "text": "Au lieu de deviner ce que vous devez stocker le mois prochain, des modèles d'IA entraînés sur vos données historiques peuvent prédire la demande avec 80 à 90 % de précision. Cela réduit à la fois le surstock et les ruptures."
+          },
+          {
+            "type": "heading",
+            "level": 3,
+            "text": "3. Analyse du comportement client"
+          },
+          {
+            "type": "paragraph",
+            "text": "Comprendre quels clients risquent de se désengager, lesquels sont susceptibles d'acheter à nouveau et ce qu'ils sont susceptibles d'acheter ensuite c'est la base de la rétention et des stratégies de vente croisée."
+          },
+          {
+            "type": "callout",
+            "variant": "tip",
+            "title": "Commencez petit",
+            "text": "Vous n'avez pas besoin de transformer toute votre opération du jour au lendemain. Commencez par une source de données vos enregistrements de ventes et construisez un tableau de bord simple. Les insights issus de ce seul flux sont souvent suffisants pour justifier l'investissement."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Feuille de route pour les PME africaines"
+          },
+          {
+            "type": "list",
+            "ordered": true,
+            "items": [
+              "Auditez vos données existantes que collecte-t-on et où elles se trouvent",
+              "Identifiez les trois décisions que vous prenez le plus souvent sur la base de suppositions",
+              "Construisez un pipeline de données unifié qui récupère vos systèmes clés",
+              "Créez des tableaux de bord qui répondent à vos questions commerciales spécifiques",
+              "Formez votre équipe à agir sur les insights, pas seulement à les consulter"
+            ]
+          }
+        ]
+      },
+      "real-cost-of-manual-processes": {
+        "title": "Le vrai coût des processus manuels et comment l'automatisation le corrige",
+        "excerpt": "La saisie manuelle des données, la gestion des commandes sur WhatsApp et la facturation papier coûtent aux entreprises africaines bien plus qu'elles ne le réalisent. Voici le calcul et la solution.",
+        "tags": ["Automatisation", "Productivité", "Logiciel"],
+        "body": [
+          {
+            "type": "paragraph",
+            "text": "Faisons un vrai calcul. Si un employé passe deux heures par jour à saisir des données manuellement à un coût de 150 000 XAF par mois, cela représente 37 500 XAF par mois en coût de main-d'œuvre pur pour cette seule tâche. Multipliez cela par une équipe de cinq, et vous dépensez 187 500 XAF chaque mois pour un travail que le logiciel peut faire en quelques secondes sans aucune erreur."
+          },
+          {
+            "type": "callout",
+            "variant": "info",
+            "title": "Le multiplicateur de coût caché",
+            "text": "Les processus manuels ne coûtent pas seulement le temps passé à les accomplir. Ils coûtent les erreurs commises, le temps passé à corriger ces erreurs, les délais causés par l'attente d'information et les décisions prises sur des données incomplètes. Le coût réel est 3 à 5 fois supérieur au coût visible."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Les processus manuels les plus coûteux dans les PME africaines"
+          },
+          {
+            "type": "heading",
+            "level": 3,
+            "text": "1. Gestion des commandes sur WhatsApp"
+          },
+          {
+            "type": "paragraph",
+            "text": "WhatsApp est un outil de communication remarquable. C'est un terrible système de gestion des commandes. Les commandes se perdent dans les historiques de chat, les quantités sont mal lues, les confirmations sont manquées, et il n'existe aucun moyen systématique de suivre l'état d'exécution. Chaque commande manquée est une vente perdue."
+          },
+          {
+            "type": "heading",
+            "level": 3,
+            "text": "2. Génération manuelle de factures"
+          },
+          {
+            "type": "paragraph",
+            "text": "Générer des factures manuellement dans Word ou Excel prend 15 à 30 minutes par facture. Pour une entreprise émettant 20 factures par mois, cela représente 5 à 10 heures du temps du personnel senior. La facturation automatisée réduit cela à moins de 30 secondes par facture et élimine les erreurs de calcul."
+          },
+          {
+            "type": "heading",
+            "level": 3,
+            "text": "3. Suivi des stocks sur papier"
+          },
+          {
+            "type": "paragraph",
+            "text": "Les entreprises qui utilisent le papier ou de simples tableurs pour gérer leur inventaire déclarent systématiquement des taux de rupture de stock de 15 à 25 %. Chaque rupture de stock est une vente directe perdue."
+          },
+          {
+            "type": "code",
+            "language": "text",
+            "code": "CALCULATEUR DU COÛT DES PROCESSUS MANUELS\n\nMembres du personnel faisant de la saisie : 3\nHeures par jour par personne : 2\nSalaire mensuel par personne : 150 000 XAF\n──────────────────────────────────────\nCoût mensuel : 112 500 XAF\nCoût annuel : 1 350 000 XAF\n\nCorrection des erreurs (est. 20 % du montant ci-dessus) : 270 000 XAF/an\n\nCOÛT ANNUEL VISIBLE TOTAL : 1 620 000 XAF"
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "À quoi ressemble l'automatisation"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "Système de gestion des commandes : les commandes arrivent automatiquement de WhatsApp ou du site web vers un tableau de bord central",
+              "Automatisation des factures : générer, envoyer et suivre les paiements en un clic",
+              "Synchronisation des stocks : les niveaux se mettent à jour en temps réel à mesure que les ventes sont réalisées sur tous les canaux",
+              "Reporting automatisé : résumés quotidiens et hebdomadaires livrés sans qu'il soit nécessaire de les compiler",
+              "Workflow d'approbation : bons de commande, notes de frais et demandes de congé gérés numériquement"
+            ]
+          },
+          {
+            "type": "callout",
+            "variant": "success",
+            "title": "Résultats typiques",
+            "text": "Les entreprises qui automatisent leurs processus essentiels voient généralement une réduction de 60 à 80 % du temps administratif, une quasi-disparition des erreurs de saisie et un personnel déclarant être beaucoup plus satisfait de faire un travail à plus forte valeur ajoutée."
+          }
+        ]
+      },
+      "bilingual-tech-francophone-anglophone-africa": {
+        "title": "Tech bilingue : construire des logiciels pour l'Afrique francophone et anglophone",
+        "excerpt": "L'identité bilingue unique du Cameroun crée à la fois des défis et des opportunités pour les constructeurs de logiciels. Voici comment nous concevons des produits vraiment bilingues.",
+        "tags": ["Bilingue", "Cameroun", "Localisation"],
+        "body": [
+          {
+            "type": "paragraph",
+            "text": "Le Cameroun est l'un des rares pays au monde où le français et l'anglais sont des langues officielles ayant un statut constitutionnel égal. Pour les concepteurs de logiciels, cela crée un défi de conception et d'ingénierie qui va bien au-delà de la simple traduction des libellés de boutons."
+          },
+          {
+            "type": "callout",
+            "variant": "info",
+            "title": "Opportunité de marché",
+            "text": "Un produit logiciel qui fonctionne parfaitement dans les deux langues ne sert pas seulement le Cameroun il sert toute la région CEMAC et l'Afrique de l'Ouest anglophone. Cela représente un marché adressable combiné de plus de 80 millions de personnes."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "La différence entre traduction et localisation"
+          },
+          {
+            "type": "paragraph",
+            "text": "La plupart des développeurs traitent le logiciel bilingue comme un problème de traduction. La véritable localisation va plus loin. Elle signifie comprendre que les utilisateurs camerounais francophones ont des attentes différentes en matière de niveau de formalité, de conventions de formatage des nombres et de références culturelles par rapport à leurs homologues anglophones."
+          },
+          {
+            "type": "heading",
+            "level": 3,
+            "text": "Format de date et de nombre"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "Français (Cameroun) : 15 janvier 2026 espace comme séparateur de milliers",
+              "Anglais (Cameroun) : 15 January 2026 comma as thousands separator",
+              "Affichage des devises : FCFA préféré dans les contextes francophones ; XAF dans les contextes anglophones et internationaux"
+            ]
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Architecture technique pour des produits bilingues"
+          },
+          {
+            "type": "code",
+            "language": "javascript",
+            "code": "// configuration i18n avec react-i18next\nimport i18n from 'i18next';\nimport { initReactI18next } from 'react-i18next';\n\ni18n.use(initReactI18next).init({\n  resources: {\n    fr: { translation: require('./locales/fr.json') },\n    en: { translation: require('./locales/en.json') },\n  },\n  lng: detectUserLanguage(),\n  fallbackLng: 'fr',\n  interpolation: { escapeValue: false },\n});\n\n// Utilisation dans un composant\nconst { t, i18n } = useTranslation();\nconst changeLang = (lang) => i18n.changeLanguage(lang);"
+          },
+          {
+            "type": "callout",
+            "variant": "tip",
+            "title": "Stratégie de détection de langue",
+            "text": "Pour les produits camerounais, par défaut utilisez le français mais détectez la langue du navigateur de l'utilisateur. Stockez la préférence dans son profil. Fournissez toujours un sélecteur de langue accessible ne le cachez jamais dans les paramètres."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Stratégie de contenu pour des plateformes bilingues"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "Traduction complète : chaque contenu existe dans les deux langues meilleure qualité, coût le plus élevé",
+              "Contenu étiqueté par langue : les articles sont marqués par langue, les utilisateurs voient le contenu de leur langue choisie",
+              "Hybride : le contenu produit principal est entièrement traduit ; le contenu éditorial reste dans la langue d'origine avec un résumé traduit",
+              "Traduction assistée par IA : utilisez des API de traduction pour la vitesse, avec révision humaine pour le ton"
+            ]
+          }
+        ]
+      },
+      "agricultural-marketplace-500-farmers": {
+        "title": "Comment nous avons construit une marketplace agricole qui a permis à plus de 500 agriculteurs de gagner",
+        "excerpt": "Dans les coulisses de la conception, du développement et du lancement d'une marketplace mobile qui a éliminé les intermédiaires et augmenté les revenus des agriculteurs de 35 %.",
+        "tags": ["Étude de cas", "Agriculture", "Application mobile"],
+        "body": [
+          {
+            "type": "paragraph",
+            "text": "Début 2025, nous avons reçu un brief à la fois simple et extraordinairement complexe : construire une marketplace mobile qui connecte directement les petits agriculteurs de la région de l'Ouest du Cameroun avec les acheteurs urbains de Douala et Yaoundé, en supprimant la chaîne d'intermédiaires qui consommait généralement 40 à 60 % de la valeur au prix producteur."
+          },
+          {
+            "type": "callout",
+            "variant": "info",
+            "title": "Le problème en chiffres",
+            "text": "Un agriculteur qui vend des tomates à 500 XAF le kilogramme à un intermédiaire verrait ces mêmes tomates se vendre à 1 800 à 2 200 XAF sur les marchés de Douala. L'agriculteur recevait moins de 30 % du prix final."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Comprendre d'abord les utilisateurs"
+          },
+          {
+            "type": "paragraph",
+            "text": "Avant d'écrire une seule ligne de code, nous avons passé trois semaines dans la région de l'Ouest à mener des recherches utilisateur. C'est non négociable pour les produits qui servent des populations ayant des relations technologiques différentes de celles des travailleurs urbains du secteur tech."
+          },
+          {
+            "type": "heading",
+            "level": 3,
+            "text": "Ce que nous avons constaté"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "85 % des agriculteurs possédaient des smartphones, mais 60 % utilisaient des appareils Android d'entrée de gamme de 2018 à 2021",
+              "Presque tous se sentaient à l'aise avec MTN MoMo pour recevoir de l'argent",
+              "Un confort limité avec la saisie les interfaces vocales et basées sur des photos étaient préférées",
+              "La connectivité était intermittente la plupart des agriculteurs avaient une connexion fiable seulement près du marché hebdomadaire",
+              "La confiance était une barrière critique les agriculteurs étaient sceptiques vis-à-vis des acheteurs numériques qu'ils ne pouvaient pas voir ou vérifier"
+            ]
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Les décisions d'architecture"
+          },
+          {
+            "type": "heading",
+            "level": 3,
+            "text": "Application mobile en mode hors ligne"
+          },
+          {
+            "type": "paragraph",
+            "text": "Nous avons construit l'application destinée aux agriculteurs avec une capacité hors ligne complète en utilisant React Native. Les agriculteurs pouvaient photographier leurs produits, ajouter des annonces, fixer des prix et consulter les commandes entièrement hors ligne. L'application se synchronisait automatiquement lorsque la connectivité était disponible."
+          },
+          {
+            "type": "code",
+            "language": "javascript",
+            "code": "// Implémentation de la file de synchronisation hors ligne\nconst SyncQueue = {\n  queue: [],\n  \n  add(action) {\n    this.queue.push({ ...action, timestamp: Date.now() });\n    AsyncStorage.setItem('syncQueue', JSON.stringify(this.queue));\n  },\n  \n  async flush() {\n    if (!NetInfo.isConnected) return;\n    const pending = [...this.queue];\n    for (const action of pending) {\n      try {\n        await api.execute(action);\n        this.queue = this.queue.filter(a => a.timestamp !== action.timestamp);\n      } catch (err) {\n        console.log('La synchronisation a échoué, réessai prévu :', action.type);\n      }\n    }\n    AsyncStorage.setItem('syncQueue', JSON.stringify(this.queue));\n  }\n};"
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Les résultats après 6 mois"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "547 comptes d'agriculteurs actifs dans 12 villages",
+              "Revenu moyen des agriculteurs via la plateforme : +35 % par rapport aux prix des intermédiaires traditionnels",
+              "Taux de réussite des paiements MTN MoMo : 98,3 %",
+              "Délai moyen entre annonce et vente confirmée : 2,1 jours",
+              "Aucun cas de fraude de paiement ou de litige non résolu au cours des six premiers mois"
+            ]
+          },
+          {
+            "type": "callout",
+            "variant": "success",
+            "title": "Retour client",
+            "text": "Pour la première fois, je connais le vrai prix de mes produits à Douala. Avant, je devinais. Maintenant, je décide. Agriculteur participant, région de l'Ouest"
+          }
+        ]
+      },
+      "5-signs-ready-for-custom-software": {
+        "title": "5 signes que votre entreprise est prête pour une solution logicielle sur mesure",
+        "excerpt": "Les solutions prêtes à l'emploi sont excellentes jusqu'à ce qu'elles ne le soient plus. Voici cinq signes clairs que votre entreprise a dépassé le logiciel générique et a besoin d'une solution personnalisée.",
+        "tags": ["Logiciel sur mesure", "Croissance", "PME"],
+        "body": [
+          {
+            "type": "paragraph",
+            "text": "Le logiciel prêt à l'emploi est un point de départ parfaitement raisonnable. Shopify, QuickBooks, Zoho et leurs équivalents ont aidé des millions d'entreprises à se lancer rapidement et à faible coût. Mais il y a un moment dans le cycle de vie de chaque entreprise en croissance où les outils génériques deviennent un plafond plutôt qu'une fondation."
+          },
+          {
+            "type": "callout",
+            "variant": "tip",
+            "title": "La question clé",
+            "text": "Adaptez-vous vos processus métiers pour entrer dans votre logiciel, ou votre logiciel est-il construit pour s'adapter à votre entreprise ? Si c'est la première option, vous avez peut-être franchi le seuil."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Signe 1 : vous utilisez trop d'outils déconnectés"
+          },
+          {
+            "type": "paragraph",
+            "text": "Vous utilisez un outil pour les ventes, un autre pour l'inventaire, un autre pour la comptabilité, un autre pour la communication client, et une feuille de calcul pour tout relier. La feuille de calcul est mise à jour manuellement par quelqu'un dont le travail entier consiste à la maintenir. Lorsque cette personne est absente, rien ne fonctionne."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Signe 2 : votre logiciel ne parle pas la langue de votre marché"
+          },
+          {
+            "type": "paragraph",
+            "text": "Si vous opérez au Cameroun et que votre logiciel de comptabilité ne prend pas correctement en charge le FCFA, ne génère pas de factures en français et ne comprend pas les structures fiscales CEMAC ce n'est pas un problème de configuration. C'est un décalage fondamental entre un produit générique et votre marché spécifique."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Signe 3 : vous payez pour des fonctionnalités que vous n'utilisez jamais"
+          },
+          {
+            "type": "paragraph",
+            "text": "Le logiciel générique est tarifié pour le marché le plus large possible. Si vous payez pour un niveau entreprise pour accéder à deux fonctionnalités spécifiques dont vous avez besoin, tout en ignorant 90 % des fonctionnalités de la plateforme, vous financez essentiellement le développement logiciel pour d'autres entreprises."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Signe 4 : votre avantage concurrentiel vit dans vos processus"
+          },
+          {
+            "type": "paragraph",
+            "text": "Si votre modèle d'entreprise dépend de faire quelque chose d'une manière unique un algorithme de tarification propriétaire, un modèle de service distinctif, une expérience client unique le logiciel générique ne le capturera jamais. Vos concurrents peuvent accéder au même logiciel que vous."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Signe 5 : vous atteignez des limites de données ou d'échelle"
+          },
+          {
+            "type": "paragraph",
+            "text": "Les outils génériques sont conçus pour l'entreprise moyenne. Lorsque vous dépassez certains volumes de transactions, le nombre de clients ou la complexité des données, les performances se dégradent et les prix augmentent rapidement. Les systèmes sur mesure sont architecturés pour vos besoins d'échelle spécifiques."
+          },
+          {
+            "type": "callout",
+            "variant": "info",
+            "title": "Pas sûr encore ?",
+            "text": "Si vous observez deux de ces signes ou plus, il vaut la peine d'avoir une conversation. Un bon partenaire technologique vous donnera une évaluation honnête de savoir si le logiciel sur mesure est vraiment la bonne solution, ou si une meilleure configuration des outils existants peut résoudre le problème de manière plus rentable."
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "Utiliser 4 outils ou plus qui nécessitent une synchronisation manuelle",
+              "Du temps de personnel significatif consacré à la saisie de données entre les systèmes",
+              "Les concurrents pourraient reproduire votre activité en achetant les mêmes abonnements logiciels",
+              "Les besoins spécifiques au marché langue, paiements, réglementations ne sont pas couverts par les outils disponibles",
+              "Le prix du logiciel augmente plus vite que la valeur qu'il apporte"
+            ]
+          }
+        ]
+      },
+      "state-of-fintech-cameroon-2026": {
+        "title": "L'état de la fintech au Cameroun en 2026",
+        "excerpt": "L'adoption du mobile money, le crédit numérique et l'infrastructure de paiement façonnent le paysage financier du Cameroun. Voici où nous en sommes et où nous allons.",
+        "tags": ["Fintech", "Cameroun", "Mobile Money", "2026"],
+        "body": [
+          {
+            "type": "paragraph",
+            "text": "Le paysage de la technologie financière du Cameroun a évolué plus radicalement au cours des trois dernières années que pendant les deux décennies précédentes. La combinaison d'une pénétration massive des smartphones, d'une expansion agressive du Mobile Money par MTN et Orange et d'une nouvelle génération d'applications fintech locales a créé un écosystème qui est, à plusieurs égards, plus sophistiqué que de nombreux marchés européens."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Mobile Money : la fondation"
+          },
+          {
+            "type": "paragraph",
+            "text": "Le Mobile Money n'est plus une alternative à la banque au Cameroun pour la majorité de la population, c'est la banque. Début 2026, MTN Mobile Money et Orange Money ensemble desservaient environ 11 millions de comptes actifs, représentant plus de 40 % de la population adulte."
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "MTN MoMo : environ 7,2 millions de comptes actifs avec 65 % de part de marché",
+              "Orange Money : environ 3,8 millions de comptes actifs avec 35 % de part de marché",
+              "Volume mensuel de transactions combinées : estimé à 850 milliards XAF",
+              "Taille moyenne des transactions : en hausse, atteignant désormais 45 000 XAF par transaction",
+              "Les paiements marchands via Mobile Money augmentent de 34 % d'une année sur l'autre"
+            ]
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "La montée du crédit numérique"
+          },
+          {
+            "type": "paragraph",
+            "text": "Peut-être que l'évolution la plus significative de 2025 à 2026 est l'apparition de produits de micro-crédit propulsés par l'IA intégrés directement aux portefeuilles Mobile Money. Le produit XtraTime de MTN et son équivalent chez Orange offrent un crédit instantané basé sur les habitudes d'utilisation sans paperasse, sans garantie et avec une approbation en moins de 60 secondes."
+          },
+          {
+            "type": "callout",
+            "variant": "info",
+            "title": "Opportunité de marché",
+            "text": "La pénétration du crédit bancaire traditionnel au Cameroun reste inférieure à 8 % des adultes. Le micro-crédit numérique sert une population que la finance formelle a historiquement exclue représentant l'une des plus grandes opportunités d'inclusion financière du continent."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Infrastructure émergente : API et agrégateurs"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "CinetPay : prend en charge MTN MoMo, Orange Money et les paiements par carte via une seule API",
+              "Monetbil : solide support Mobile Money avec une documentation claire",
+              "Notchpay : nouvel entrant avec une tarification compétitive et une bonne expérience développeur",
+              "MTN Direct API : meilleurs tarifs mais plus grande complexité d'intégration",
+              "Orange Direct API : compromis similaire meilleure économie à coût d'ingénierie plus élevé"
+            ]
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Où va la fintech en 2026-2027"
+          },
+          { "type": "heading", "level": 3, "text": "Normes open banking" },
+          {
+            "type": "paragraph",
+            "text": "La BEAC (Banque des États de l'Afrique Centrale) développe des normes d'open banking pour la zone CEMAC. Une fois mises en œuvre, elles permettront aux applications fintech d'accéder aux données bancaires via des API standardisées débloquant une vague de produits de finance personnelle, de comptabilité et d'investissement."
+          },
+          {
+            "type": "callout",
+            "variant": "warning",
+            "title": "Veille réglementaire",
+            "text": "La COBAC (le régulateur bancaire de la zone CEMAC) élabore activement de nouvelles règles pour les fournisseurs de services de paiement numériques et le crédit mobile. Tout produit fintech doit faire l'objet d'une revue juridique de conformité COBAC dans sa planification d'architecture."
+          }
+        ]
+      },
+      "seo-strategies-cameroonian-smes-2026": {
+        "title": "5 stratégies digitales pour les PME camerounaises en 2026",
+        "excerpt": "De l'optimisation de Google Business Profile à l'automatisation marketing WhatsApp les cinq actions digitales à plus fort ROI pour les entreprises camerounaises cette année.",
+        "tags": ["SEO", "Marketing Digital", "Cameroun", "PME"],
+        "body": [
+          {
+            "type": "paragraph",
+            "text": "Le marketing digital au Cameroun est à la fois en retard par rapport à la courbe mondiale et en avance. En retard, parce que de nombreuses entreprises établissent encore leur présence numérique de base. En avance, parce que le comportement mobile-first et natif de WhatsApp des consommateurs camerounais a produit des modèles marketing que le reste du monde commence seulement à rattraper."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Stratégie 1 : Google Business Profile l'actif le plus sous-utilisé"
+          },
+          {
+            "type": "paragraph",
+            "text": "Pour toute entreprise servant des clients locaux, un Google Business Profile complet et optimisé est l'investissement digital à ROI le plus élevé. Il est gratuit, il apparaît en haut des résultats de recherche locale et c'est là que se produit la majorité de la découverte locale."
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "Complétez tous les champs horaires, téléphone, site web, adresse, catégories",
+              "Téléversez 15 à 20 photos de haute qualité de vos locaux, de votre équipe et de vos produits",
+              "Publiez des mises à jour hebdomadaires via la fonctionnalité Posts",
+              "Répondez à chaque avis dans les 24 heures",
+              "Activez la messagerie pour que les clients puissent vous contacter directement depuis la recherche"
+            ]
+          },
+          {
+            "type": "callout",
+            "variant": "success",
+            "title": "Action rapide",
+            "text": "Les entreprises avec des profils Google Business complets et actifs reçoivent 7 fois plus de clics que celles aux profils incomplets. Cela peut doubler les demandes entrantes en 30 à 60 jours d'une optimisation appropriée."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Stratégie 2 : automatisation WhatsApp Business"
+          },
+          {
+            "type": "paragraph",
+            "text": "WhatsApp est l'endroit où vivent les clients camerounais. L'API WhatsApp Business vous permet d'envoyer des confirmations de commande automatisées, des mises à jour de livraison, des rappels de rendez-vous et des messages promotionnels à grande échelle. Associé à une intégration CRM, vous pouvez segmenter les clients et envoyer des messages ciblés en fonction de leur historique d'achat."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Stratégie 3 : contenu SEO bilingue"
+          },
+          {
+            "type": "paragraph",
+            "text": "La plupart des entreprises camerounaises ignorent complètement le SEO en français ou produisent un contenu mince traduit par machine. Créer un contenu réellement utile et bien écrit en français et en anglais cible un public de recherche que presque personne sur votre marché ne concurrence efficacement."
+          },
+          {
+            "type": "code",
+            "language": "text",
+            "code": "OPPORTUNITÉ DE CONTENU BILINGUE\n\nRecherche : 'developpeur web Cameroun' (Français)\nRecherches mensuelles : ~1 200 | Concurrence : FAIBLE\n\nRecherche : 'web developer Cameroon' (Anglais)\nRecherches mensuelles : ~880 | Concurrence : FAIBLE\n\nCombiné : ~2 080 recherches mensuelles\nPotentiel top résultat : 300-600 visites/mois\nConversion à 3 % : 9-18 nouveaux leads/mois pour UN article"
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Stratégie 4 : contenu social vidéo"
+          },
+          {
+            "type": "paragraph",
+            "text": "Le contenu vidéo surpasse tous les autres formats sur toutes les plateformes sociales camerounaises. La vidéo courte de 60 à 90 secondes sur TikTok et Instagram Reels génère une portée organique que le texte et les images ne peuvent pas égaler, à coût de distribution quasi nul."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Stratégie 5 : email marketing le canal sous-estimé"
+          },
+          {
+            "type": "paragraph",
+            "text": "L'email marketing est systématiquement sous-utilisé par les PME camerounaises, ce qui signifie qu'il est systématiquement sous-concurrentiel. Une liste d'e-mails bien entretenue de clients ayant opté reçoit un canal de communication direct qu'aucun algorithme ne peut déprioriser."
+          },
+          {
+            "type": "callout",
+            "variant": "tip",
+            "title": "Pour commencer",
+            "text": "Commencez à collecter des e-mails à chaque point de contact client en magasin, sur le site web, via WhatsApp. Même 500 abonnés réellement engagés peuvent générer un chiffre d'affaires significatif grâce à un e-mail bien ciblé."
+          },
+          {
+            "type": "list",
+            "ordered": true,
+            "items": [
+              "Créez un profil Google Business et optimisez-le complètement cette semaine",
+              "Passez à WhatsApp Business et configurez des réponses automatisées",
+              "Identifiez 3 mots-clés pour lesquels vous voulez vous classer et écrivez un article par mot-clé",
+              "Créez une vidéo courte par semaine présentant votre produit ou service",
+              "Ajoutez un formulaire de capture d'e-mails à votre site et commencez à construire votre liste"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "blogAuthors": {
+    "1": {
+      "role": "Editorial",
+      "bio": "L'équipe éditoriale d'AlphaWaves couvre la transformation digitale, l'IA et les tendances technologiques sur les marchés africains. Nous combinons expérience terrain et profondeur technique pour livrer des insights exploitables."
+    },
+    "2": {
+      "role": "Lead Developer",
+      "bio": "Des analyses approfondies sur l'architecture logicielle, le développement mobile et l'infrastructure cloud pour les entreprises africaines. Nos ingénieurs écrivent à partir d'une expérience réelle en production à travers le continent."
+    },
+    "3": {
+      "role": "Digital Strategy",
+      "bio": "Insights d'experts sur le SEO, le marketing digital et les stratégies de croissance adaptées aux marchés africains. Nous avons généré une croissance organique pour plus de 20 entreprises africaines francophones et anglophones."
+    }
+  },
   "aboutHero": {
     "eyebrow": "À propos",
     "headline": "Construire l'Avenir Numérique de l'Afrique",
@@ -50,7 +939,7 @@
     "eyebrow": "Notre Histoire",
     "titlePart1": "Qui",
     "titlePart2": "Sommes-Nous",
-    "subtitle": "Du Cameroun au monde — construire une technologie qui fonctionne en Afrique et rivalise à l'échelle mondiale.",
+    "subtitle": "Du Cameroun au monde construire une technologie qui fonctionne en Afrique et rivalise à l'échelle mondiale.",
     "stats": {
       "projects": "Projets Livrés",
       "clients": "Clients Entreprises",
@@ -72,7 +961,7 @@
       },
       "ourApproach": {
         "label": "Notre Approche",
-        "text": "Nous ne nous contentons pas d'implémenter la technologie — nous concevons des infrastructures numériques évolutives qui rendent les entreprises opérationnellement excellentes, visibles sur le marché et orientées données. En élargissant notre impact sur le continent et au-delà, nous restons engagés à être des partenaires stratégiques qui livrent des solutions ancrées dans les réalités du marché africain."
+        "text": "Nous ne nous contentons pas d'implémenter la technologie nous concevons des infrastructures numériques évolutives qui rendent les entreprises opérationnellement excellentes, visibles sur le marché et orientées données. En élargissant notre impact sur le continent et au-delà, nous restons engagés à être des partenaires stratégiques qui livrent des solutions ancrées dans les réalités du marché africain."
       }
     }
   },
@@ -89,12 +978,12 @@
     "vision": {
       "label": "Vision",
       "title": "Notre Vision",
-      "content": "Être le partenaire technologique de référence en Afrique, en prouvant que les entreprises tech africaines ne se contentent pas d'égaler les standards internationaux — nous les dépassons là où cela compte le plus."
+      "content": "Être le partenaire technologique de référence en Afrique, en prouvant que les entreprises tech africaines ne se contentent pas d'égaler les standards internationaux nous les dépassons là où cela compte le plus."
     },
-    "quote": "Les entreprises tech africaines ne se contentent pas d'égaler les standards internationaux — nous les",
+    "quote": "Les entreprises tech africaines ne se contentent pas d'égaler les standards internationaux nous les",
     "quoteAccent": "dépassons",
     "quoteEnd": "là où cela compte le plus.",
-    "quoteAuthor": "AlphaWaves — Conviction Fondamentale"
+    "quoteAuthor": "AlphaWaves Conviction Fondamentale"
   },
   "coreValues": {
     "eyebrow": "Notre Fondation",
@@ -108,7 +997,7 @@
       },
       "results": {
         "title": "Résultats avant les Tendances",
-        "desc": "Nous mesurons le succès par les résultats commerciaux — croissance des revenus, réduction des coûts, expansion du marché — et non par la modernité de la technologie."
+        "desc": "Nous mesurons le succès par les résultats commerciaux croissance des revenus, réduction des coûts, expansion du marché et non par la modernité de la technologie."
       },
       "partnership": {
         "title": "Vrai Partenariat",
@@ -120,7 +1009,7 @@
       },
       "transparency": {
         "title": "Transparence Toujours",
-        "desc": "Communication claire, calendriers honnêtes, tarification transparente. Pas de coûts cachés, pas de verrouillage fournisseur, pas de jargon technique — juste du partenariat."
+        "desc": "Communication claire, calendriers honnêtes, tarification transparente. Pas de coûts cachés, pas de verrouillage fournisseur, pas de jargon technique juste du partenariat."
       },
       "innovation": {
         "title": "Innovation & Apprentissage",
@@ -146,7 +1035,7 @@
         "bio": "Expert en Node.js, Python et architecture microservices. Axé sur les systèmes évolutifs à fort trafic."
       },
       "claude": {
-        "bio": "Spécialiste des infrastructures cloud — AWS, Azure, CI/CD. Garantit 99,9% de disponibilité pour les systèmes critiques."
+        "bio": "Spécialiste des infrastructures cloud AWS, Azure, CI/CD. Garantit 99,9% de disponibilité pour les systèmes critiques."
       },
       "diana": {
         "bio": "Chercheure en apprentissage automatique spécialisée dans le NLP et l'analytique prédictive pour le contexte commercial africain."
@@ -169,11 +1058,11 @@
     "eyebrow": "Fabriqué au Cameroun 🇨🇲",
     "title": "Pourquoi le",
     "titleAccent": "Cameroun ?",
-    "subtitle": "Stratégiquement positionné au cœur de l'Afrique francophone et anglophone — notre origine est notre avantage.",
+    "subtitle": "Stratégiquement positionné au cœur de l'Afrique francophone et anglophone notre origine est notre avantage.",
     "columns": {
       "bilingual": {
         "headline": "Bilingue par Nature",
-        "content": "Opérer en français et en anglais nous donne un accès unique aux marchés d'Afrique centrale/occidentale francophone et anglophone — couvrant plus de 500 millions de personnes.",
+        "content": "Opérer en français et en anglais nous donne un accès unique aux marchés d'Afrique centrale/occidentale francophone et anglophone couvrant plus de 500 millions de personnes.",
         "stat": "500M+",
         "statLabel": "Portée Potentielle"
       },
@@ -185,7 +1074,7 @@
       },
       "testing": {
         "headline": "Tests en Conditions Réelles",
-        "content": "Construire ici signifie que nos solutions sont testées face aux vrais défis d'infrastructure — garantissant leur fonctionnement partout sur le continent.",
+        "content": "Construire ici signifie que nos solutions sont testées face aux vrais défis d'infrastructure garantissant leur fonctionnement partout sur le continent.",
         "stat": "100%",
         "statLabel": "Prêt pour l'Afrique"
       }
@@ -205,7 +1094,7 @@
     "eyebrow": "Notre Processus",
     "title": "Ce qui Nous",
     "titleAccent": "Différencie",
-    "subtitle": "Plus que des développeurs — nous sommes des partenaires technologiques stratégiques focalisés sur votre croissance.",
+    "subtitle": "Plus que des développeurs nous sommes des partenaires technologiques stratégiques focalisés sur votre croissance.",
     "advantage": {
       "title": "L'Avantage AlphaWaves",
       "content": "Cinq étapes éprouvées qui transforment la technologie en votre arme concurrentielle la plus puissante."
@@ -233,7 +1122,7 @@
       },
       "5": {
         "title": "Nous Évoluons avec Vous",
-        "content": "Une architecture modulaire vous permet de vous développer à mesure que vous grandissez. Pas d'investissement initial massif requis — juste une valeur croissante.",
+        "content": "Une architecture modulaire vous permet de vous développer à mesure que vous grandissez. Pas d'investissement initial massif requis juste une valeur croissante.",
         "tag": "Pérenne"
       }
     }
@@ -247,7 +1136,7 @@
     "items": {
       "1": {
         "heading": "Nous Dépassons les Standards",
-        "text": "Chaque projet prouve que les entreprises technologiques africaines ne se contentent pas d'égaler les standards internationaux — nous les dépassons là où cela compte le plus."
+        "text": "Chaque projet prouve que les entreprises technologiques africaines ne se contentent pas d'égaler les standards internationaux nous les dépassons là où cela compte le plus."
       },
       "2": {
         "heading": "Nous Mesurons Votre Succès",
@@ -255,12 +1144,12 @@
       },
       "3": {
         "heading": "Nous Grandissons avec Vous",
-        "text": "Des startups camerounaises aux entreprises panafricaines — AlphaWaves est votre partenaire stratégique pour une transformation numérique qui génère un avantage."
+        "text": "Des startups camerounaises aux entreprises panafricaines AlphaWaves est votre partenaire stratégique pour une transformation numérique qui génère un avantage."
       }
     },
     "quote": "Quand nos clients dominent leurs marchés grâce à une exécution technologique supérieure,",
     "quoteAccent": "nous avons livré la valeur qui compte.",
-    "quoteAuthor": "AlphaWaves — Notre Engagement Fondamental"
+    "quoteAuthor": "AlphaWaves Notre Engagement Fondamental"
   },
   "aboutCTA": {
     "eyebrow": "Construisons Ensemble",
@@ -280,7 +1169,7 @@
     "eyebrow": "Partenaire de Transformation Numérique de l'Afrique",
     "headline": "Nous Créons des Solutions Numériques",
     "headlineFor": "pour",
-    "subheadline": "Du logiciel sur mesure à l'analytique IA — AlphaWaves livre une technologie de niveau entreprise conçue pour les infrastructures africaines, les écosystèmes de paiement et les réalités du marché.",
+    "subheadline": "Du logiciel sur mesure à l'analytique IA AlphaWaves livre une technologie de niveau entreprise conçue pour les infrastructures africaines, les écosystèmes de paiement et les réalités du marché.",
     "primaryBtn": "Commencer",
     "secondaryBtn": "Voir Nos Réalisations",
     "scroll": "Défiler",
@@ -348,7 +1237,7 @@
       },
       "payment": {
         "title": "Infrastructure de Paiement",
-        "desc": "MTN MoMo, Orange Money, Airtel Money et passerelles internationales — unifiés en un seul système."
+        "desc": "MTN MoMo, Orange Money, Airtel Money et passerelles internationales unifiés en un seul système."
       }
     }
   },
@@ -356,20 +1245,20 @@
     "eyebrow": "Pourquoi AlphaWaves",
     "title": "Pourquoi les Entreprises",
     "titleAccent": "Nous Choisissent",
-    "subtitle": "L'expertise du marché africain rencontre l'excellence technique mondiale — livrée par une équipe unifiée.",
+    "subtitle": "L'expertise du marché africain rencontre l'excellence technique mondiale livrée par une équipe unifiée.",
     "aboutBtn": "À propos",
     "points": {
       "1": {
         "title": "Conçu pour les Réalités Africaines",
-        "desc": "Chaque solution est architecturée pour les infrastructures africaines — connectivité intermittente, utilisateurs mobiles, multiples fournisseurs de paiement et capacités d'appareils variées."
+        "desc": "Chaque solution est architecturée pour les infrastructures africaines connectivité intermittente, utilisateurs mobiles, multiples fournisseurs de paiement et capacités d'appareils variées."
       },
       "2": {
         "title": "Une Équipe, Exécution Complète",
-        "desc": "Stratégie, design, développement, intégration IA, déploiement et optimisation — tout sous une équipe responsable. Pas de chaos de prestataires. Exécution fluide, livraison rapide."
+        "desc": "Stratégie, design, développement, intégration IA, déploiement et optimisation tout sous une équipe responsable. Pas de chaos de prestataires. Exécution fluide, livraison rapide."
       },
       "3": {
         "title": "Résultats, pas Juste la Tech",
-        "desc": "Nous mesurons le succès par les résultats commerciaux — croissance des revenus, réduction des coûts, expansion du marché. Nos clients voient un ROI moyen de 300%+ en 12 mois."
+        "desc": "Nous mesurons le succès par les résultats commerciaux croissance des revenus, réduction des coûts, expansion du marché. Nos clients voient un ROI moyen de 300%+ en 12 mois."
       }
     }
   },
@@ -414,7 +1303,7 @@
     "steps": {
       "1": {
         "title": "Découvrir & Stratégiser",
-        "desc": "Nous analysons en profondeur vos objectifs commerciaux, votre position sur le marché et vos défis techniques. Nous définissons à quoi ressemble le succès — en chiffres."
+        "desc": "Nous analysons en profondeur vos objectifs commerciaux, votre position sur le marché et vos défis techniques. Nous définissons à quoi ressemble le succès en chiffres."
       },
       "2": {
         "title": "Construire & Intégrer",
@@ -438,22 +1327,21 @@
     "eyebrow": "Construisons Ensemble",
     "title": "Votre Avenir Numérique",
     "titleAccent": "Commence Aujourd'hui",
-    "subtitle": "Des startups camerounaises aux entreprises panafricaines — AlphaWaves est votre partenaire technologique stratégique pour une transformation numérique qui génère un avantage concurrentiel mesurable.",
+    "subtitle": "Des startups camerounaises aux entreprises panafricaines AlphaWaves est votre partenaire technologique stratégique pour une transformation numérique qui génère un avantage concurrentiel mesurable.",
     "primaryBtn": "Planifier une Consultation Gratuite",
     "secondaryBtn": "Explorer Nos Services",
     "perks": {
-      "1": "Consultation gratuite — sans engagement",
+      "1": "Consultation gratuite sans engagement",
       "2": "Réponse sous 24 heures",
       "3": "Tarification transparente dès le départ",
       "4": "Équipe dédiée dès le premier jour"
     }
   },
-
   "servicesPage": {
     "hero": {
       "eyebrow": "Nos Services",
       "headline": "Solutions Numériques Complètes pour l'Avenir Numérique de l'Afrique",
-      "subheadline": "Du logiciel sur mesure à l'analytique IA — nous livrons une technologie intégrée qui génère des résultats commerciaux mesurables.",
+      "subheadline": "Du logiciel sur mesure à l'analytique IA nous livrons une technologie intégrée qui génère des résultats commerciaux mesurables.",
       "primaryBtn": "Commencer",
       "secondaryBtn": "Explorer les Solutions"
     },
@@ -499,7 +1387,7 @@
       "eyebrow": "Prêt à Commencer ?",
       "title": "Prêt à Transformer Votre",
       "titleAccent": "Entreprise ?",
-      "subtitle": "Des startups camerounaises aux entreprises panafricaines — AlphaWaves est votre partenaire technologique stratégique pour une transformation numérique qui génère un avantage concurrentiel mesurable.",
+      "subtitle": "Des startups camerounaises aux entreprises panafricaines AlphaWaves est votre partenaire technologique stratégique pour une transformation numérique qui génère un avantage concurrentiel mesurable.",
       "primaryBtn": "Planifier une Consultation Gratuite",
       "secondaryBtn": "Voir Nos Réalisations"
     },
@@ -567,11 +1455,11 @@
         },
         "2": {
           "title": "Équipe Intégrée Complète",
-          "desc": "Stratégie, design, développement, intégration IA, déploiement et optimisation — tout sous une équipe responsable. Pas de chaos de coordination. Exécution fluide, livraison rapide."
+          "desc": "Stratégie, design, développement, intégration IA, déploiement et optimisation tout sous une équipe responsable. Pas de chaos de coordination. Exécution fluide, livraison rapide."
         },
         "3": {
           "title": "Approche IA-First",
-          "desc": "Nous n'ajoutons pas l'IA après coup — nous architecturons avec l'intelligence dès le départ. Des systèmes IA en production qui génèrent des résultats commerciaux, pas une simple nouveauté technologique."
+          "desc": "Nous n'ajoutons pas l'IA après coup nous architecturons avec l'intelligence dès le départ. Des systèmes IA en production qui génèrent des résultats commerciaux, pas une simple nouveauté technologique."
         },
         "4": {
           "title": "Bilan Africain Éprouvé",
@@ -688,220 +1576,766 @@
       }
     }
   },
-
+  "portfolio": {
+    "hero": {
+      "eyebrow": "Nos Réalisations",
+      "headline": "Des Résultats Concrets à Travers les Marchés Africains",
+      "subheadline": "Des projets réels. Des clients réels. Un impact réel. Découvrez comment nous transformons les entreprises grâce à la technologie.",
+      "cta": {
+        "primary": "Démarrer votre projet",
+        "secondary": "Voir toutes les études de cas"
+      }
+    }
+  },
   "portfolioPage": {
     "hero": {
       "eyebrow": "Nos Réalisations",
-      "headline": "Des Résultats Prouvés à Travers les Marchés Africains",
-      "subheadline": "De vrais projets. De vrais clients. Un impact réel.",
-      "primaryBtn": "Démarrer Votre Projet",
-      "secondaryBtn": "Voir Toutes les Études de Cas"
+      "headline": "Des Résultats Concrets à Travers les Marchés Africains",
+      "subheadline": "Des projets réels. Des clients réels. Un impact réel. Découvrez comment nous transformons les entreprises grâce à la technologie.",
+      "primaryBtn": "Démarrer votre projet",
+      "secondaryBtn": "Voir toutes les études de cas"
     },
-
     "statsBar": {
-      "stats": [
-        {
-          "id": 1,
-          "value": 50,
-          "suffix": "+",
-          "label": "Projets Livrés"
-        },
-        {
-          "id": 2,
-          "value": 8,
-          "suffix": "+",
-          "label": "Secteurs Desservis"
-        },
-        {
-          "id": 3,
-          "value": 10,
-          "suffix": "+",
-          "label": "Pays"
-        },
-        {
-          "id": 4,
-          "value": 98,
-          "suffix": "%",
-          "label": "Satisfaction Client"
-        }
-      ]
+      "1": { "label": "Projets Livrés", "suffix": "+" },
+      "2": { "label": "Secteurs Servis", "suffix": "+" },
+      "3": { "label": "Pays", "suffix": "+" },
+      "4": { "label": "Satisfaction Client", "suffix": "%" }
     },
-
-    "portfolioGrid": {
+    "grid": {
       "eyebrow": "Nos Réalisations",
-      "headline": "Découvrez Nos Projets",
-      "subheadline": "De vrais résultats pour de vrais clients",
-      "filterLabel": {
-        "industry": "Secteur",
-        "service": "Service"
-      },
-      "filters": {
-        "all": "Tous les Projets",
-        "ecommerce": "E-commerce & Commerce",
-        "finance": "Services Financiers",
-        "agriculture": "Agriculture",
-        "healthcare": "Santé",
-        "education": "Éducation",
-        "hospitality": "Hôtellerie & Tourisme",
-        "web": "Applications Web",
-        "mobile": "Applications Mobiles",
-        "ai": "IA & Analyse de Données"
-      },
-      "noResults": "Aucun projet trouvé. Essayez une autre catégorie ou un autre filtre de service.",
+      "title": "Explorer Nos",
+      "titleAccent": "Réalisations",
+      "projectSuffix": "projet",
+      "projectSuffixPlural": "projets",
+      "resultsCopy": "de vrais résultats pour de vrais clients.",
+      "industryLabel": "Secteur",
+      "serviceLabel": "Service",
       "viewCaseStudy": "Voir l'Étude de Cas",
-
-      "projects": [
-        {
-          "id": 1,
-          "slug": "ecommerce-fashion-retailer",
-          "name": "Plateforme E-commerce",
-          "client": "Grand Détaillant de Mode, Douala",
-          "clientConfidential": false,
-          "industry": "ecommerce",
-          "serviceType": "web",
-          "description": "Plateforme e-commerce complète avec intégration fluide du mobile money, gestion des stocks et analyses clients.",
-          "challenge": "Un détaillant de mode en pleine croissance n'avait aucune présence en ligne et perdait des ventes face à la concurrence. Les paiements uniquement en espèces limitaient sa clientèle.",
-          "solution": "Création d'une plateforme e-commerce complète avec intégration MTN MoMo et Orange Money, gestion des stocks en temps réel et tableau de bord analytique.",
-          "technologies": [
-            "React.js",
-            "Node.js",
-            "MongoDB",
-            "MTN MoMo",
-            "Orange Money"
-          ],
-          "results": [
-            { "label": "Augmentation des Revenus", "value": "250%" },
-            { "label": "Transactions Traitées", "value": "15,000+" },
-            { "label": "Réduction des Coûts de Stock", "value": "40%" }
-          ],
-          "featured": true,
-          "testimonial": {
-            "quote": "AlphaWaves a complètement transformé notre activité de vente au détail. L'intégration du mobile money à elle seule a augmenté nos ventes en ligne de 250% en seulement trois mois.",
-            "author": "Jean-Paul Kamga",
-            "title": "PDG",
-            "company": "Fashion Boutique Douala",
-            "rating": 5
-          }
-        },
-
-        {
-          "id": 2,
-          "slug": "agricultural-marketplace",
-          "name": "Marketplace Agricole",
-          "client": "Coopérative Agricole Régionale",
-          "clientConfidential": false,
-          "industry": "agriculture",
-          "serviceType": "mobile",
-          "description": "Marketplace mobile-first connectant directement les agriculteurs aux acheteurs, éliminant les intermédiaires et augmentant les profits.",
-          "challenge": "Les agriculteurs perdaient 60% de leurs profits potentiels à cause des intermédiaires et n'avaient aucun accès direct aux acheteurs ni aux prix du marché.",
-          "solution": "Développement d'une application marketplace React Native avec prix en temps réel, mise en relation géolocalisée et paiements mobile money.",
-          "technologies": [
-            "React Native",
-            "Python",
-            "PostgreSQL",
-            "Google Maps API"
-          ],
-          "results": [
-            { "label": "Agriculteurs Inscrits", "value": "500+" },
-            { "label": "Acheteurs Enregistrés", "value": "2,000+" },
-            { "label": "Augmentation des Revenus Agricoles", "value": "35%" }
-          ],
-          "featured": false,
-          "testimonial": {
-            "quote": "Travailler avec AlphaWaves a été fluide. La plateforme connecte maintenant plus de 500 agriculteurs aux acheteurs, augmentant leurs revenus de 35%.",
-            "author": "Marie Nkolo",
-            "title": "Directrice",
-            "company": "Coopérative Agricole",
-            "rating": 5
-          }
-        },
-
-        {
-          "id": 3,
-          "slug": "healthcare-appointment-system",
-          "name": "Système de Gestion Médicale",
-          "client": "Réseau de Cliniques Privées",
-          "clientConfidential": false,
-          "industry": "healthcare",
-          "serviceType": "web",
-          "description": "Système de gestion des patients et de prise de rendez-vous avec rappels SMS pour réduire les absences.",
-          "challenge": "Un réseau de cliniques avait un taux d'absence de 40% et gérait les rendez-vous manuellement par téléphone.",
-          "solution": "Création d'un système web avec rappels SMS automatiques, réservation en ligne et gestion des plannings médicaux.",
-          "technologies": ["Vue.js", "Node.js", "MySQL", "Intégration SMS"],
-          "results": [
-            { "label": "Réduction des Absences", "value": "60%" },
-            { "label": "Rendez-vous Quotidiens", "value": "200+" },
-            { "label": "Satisfaction des Patients", "value": "4.8/5" }
-          ],
-          "featured": false,
-          "testimonial": null
-        }
-      ]
+      "featured": "En Vedette",
+      "confidential": "Client Confidentiel",
+      "emptyTitle": "Aucun projet trouvé",
+      "emptyDesc": "Essayez un autre filtre de catégorie ou de service."
     },
-
-    "featuredCaseStudy": {
-      "eyebrow": "Projet Vedette",
-      "headline": "Histoire de Réussite Mise en Avant",
+    "categories": {
+      "all": "Tous les Projets",
+      "ecommerce": "E-commerce & Distribution",
+      "finance": "Services Financiers",
+      "agriculture": "Agriculture",
+      "healthcare": "Santé",
+      "education": "Éducation",
+      "hospitality": "Hôtellerie & Tourisme"
+    },
+    "serviceFilters": {
+      "all": "Tous les Services",
+      "web": "Applications Web",
+      "mobile": "Applications Mobiles",
+      "ai": "IA & Analytique de Données"
+    },
+    "featured": {
+      "eyebrow": "Projet en Vedette",
+      "title": "Histoire de",
+      "titleAccent": "Succès en Vedette",
       "keyResults": "Résultats Clés",
       "challenge": "Défi",
       "solution": "Solution",
-      "readFullCaseStudy": "Lire l'Étude de Cas Complète"
+      "confidential": "Client Confidentiel",
+      "readCase": "Lire l'Étude de Cas Complète"
     },
-
-    "industriesServed": {
+    "industries": {
       "eyebrow": "Secteurs",
-      "headline": "Les Industries Que Nous Transformons"
-    },
-
-    "portfolioTestimonials": {
-      "eyebrow": "Témoignages Clients",
-      "headline": "Ce Que Disent Nos Clients",
-      "navigationPrev": "Témoignage précédent",
-      "navigationNext": "Témoignage suivant"
-    },
-
-    "portfolioMetrics": {
-      "eyebrow": "En Chiffres",
-      "headline": "Un Impact Mesurable",
-      "metrics": [
-        {
-          "id": 1,
-          "value": 10,
-          "suffix": "M+",
-          "prefix": "$",
-          "label": "Revenus Générés Pour Nos Clients"
+      "title": "Secteurs que Nous Avons",
+      "titleAccent": "Transformés",
+      "projectsLabel": "Projets",
+      "items": {
+        "1": {
+          "name": "E-commerce & Distribution",
+          "metric": "2M$+ de ventes générées"
         },
-        {
-          "id": 2,
-          "value": 200,
-          "suffix": "K+",
-          "prefix": "",
-          "label": "Utilisateurs Desservis"
+        "2": {
+          "name": "Services Financiers",
+          "metric": "50 000+ transactions traitées"
         },
-        {
-          "id": 3,
-          "value": 500,
-          "suffix": "K+",
-          "prefix": "",
-          "label": "Transactions Traitées"
+        "3": {
+          "name": "Agriculture",
+          "metric": "1 500+ agriculteurs autonomisés"
+        },
+        "4": { "name": "Santé", "metric": "100 000+ patients servis" },
+        "5": { "name": "Éducation", "metric": "10 000+ étudiants inscrits" },
+        "6": {
+          "name": "Hôtellerie & Tourisme",
+          "metric": "Hausse moy. d'occupation de 95%"
+        },
+        "7": {
+          "name": "Services Professionnels",
+          "metric": "200+ entreprises digitalisées"
+        },
+        "8": {
+          "name": "Logistique",
+          "metric": "40% d'amélioration de l'efficacité"
         }
-      ]
+      }
     },
-
-    "portfolioCTA": {
+    "testimonials": {
+      "eyebrow": "Voix des Clients",
+      "title": "Ce que Disent Nos",
+      "titleAccent": "Clients"
+    },
+    "metrics": {
+      "eyebrow": "En Chiffres",
+      "title": "Impact Mesurable",
+      "titleAccent": "que Nous Avons Livré",
+      "items": {
+        "1": { "label": "Revenus Générés pour les Clients" },
+        "2": { "label": "Utilisateurs Servis sur les Plateformes" },
+        "3": { "label": "Transactions Traitées" },
+        "4": { "label": "Projets Livrés" },
+        "5": { "label": "Taux de Satisfaction Client" },
+        "6": { "label": "ROI Moyen Client" }
+      }
+    },
+    "cta": {
       "eyebrow": "Démarrez Votre Projet",
-      "headline": "Prêt à Devenir Notre Prochaine Success Story ?",
-      "subheadline": "Rejoignez les entreprises africaines qui ont transformé leurs opérations grâce à AlphaWaves.",
-      "trustPoints": [
-        "Consultation gratuite et analyse du projet",
-        "Tarification transparente sans coûts cachés",
-        "Expérience prouvée dans plus de 8 secteurs",
-        "Équipe dédiée engagée pour votre réussite"
-      ],
+      "title": "Prêt à Devenir Notre Prochaine",
+      "titleAccent": "Histoire de Succès ?",
+      "subtitle": "Rejoignez les entreprises leaders d'Afrique qui ont transformé leurs opérations avec AlphaWaves.",
       "primaryBtn": "Démarrer Votre Projet",
       "secondaryBtn": "Planifier une Consultation",
-      "primaryLink": "/contact",
-      "secondaryLink": "/contact"
+      "trustPoints": [
+        "Consultation gratuite et évaluation du projet",
+        "Tarification transparente sans frais cachés",
+        "Bilan éprouvé dans 8+ secteurs",
+        "Équipe dédiée à votre succès"
+      ]
+    },
+    "projects": {
+      "ecommerce-fashion-retailer": {
+        "project_name": "Plateforme E-Commerce",
+        "client_name": "Grande Enseigne de Mode, Douala",
+        "short_description": "Plateforme e-commerce complète avec intégration mobile money fluide, gestion des stocks et analytique client.",
+        "challenge_description": "Un détaillant de mode en pleine croissance n'avait aucune présence en ligne et perdait des ventes face à la concurrence. N'accepter que les paiements en espèces limitait sa clientèle.",
+        "solution_description": "Construction d'une plateforme e-commerce complète avec intégration MTN MoMo et Orange Money, gestion des stocks en temps réel et tableau de bord analytique.",
+        "technologies": [
+          "React.js",
+          "Node.js",
+          "MongoDB",
+          "MTN MoMo",
+          "Orange Money"
+        ],
+        "results": [
+          { "label": "Augmentation du CA", "value": "250%" },
+          { "label": "Transactions Traitées", "value": "15 000+" },
+          { "label": "Réduction Coûts Stocks", "value": "40%" }
+        ],
+        "testimonial": {
+          "quote": "AlphaWaves a complètement transformé notre commerce de détail. L'intégration mobile money seule a augmenté nos ventes en ligne de 250% en seulement trois mois.",
+          "author": "Jean-Paul Kamga",
+          "title": "PDG",
+          "company": "Fashion Boutique Douala",
+          "rating": 5
+        }
+      },
+      "agricultural-marketplace": {
+        "project_name": "Marché Agricole",
+        "client_name": "Coopérative Agricole Régionale",
+        "short_description": "Marché mobile-first connectant directement les agriculteurs aux acheteurs, éliminant les intermédiaires et augmentant les revenus.",
+        "challenge_description": "Les agriculteurs perdaient 60% de leurs bénéfices potentiels à cause des intermédiaires, sans accès direct aux acheteurs ni aux prix du marché.",
+        "solution_description": "Construction d'une application React Native avec tarification en temps réel, mise en relation géolocalisée acheteur/vendeur et paiements mobile money.",
+        "technologies": [
+          "React Native",
+          "Python",
+          "PostgreSQL",
+          "Google Maps API"
+        ],
+        "results": [
+          { "label": "Agriculteurs Inscrits", "value": "500+" },
+          { "label": "Acheteurs Enregistrés", "value": "2 000+" },
+          { "label": "Hausse Revenus", "value": "35%" }
+        ],
+        "testimonial": {
+          "quote": "Travailler avec AlphaWaves a été fluide. La plateforme connecte maintenant plus de 500 agriculteurs aux acheteurs, augmentant leurs revenus de 35%.",
+          "author": "Marie Nkolo",
+          "title": "Directrice",
+          "company": "Coopérative Agricole",
+          "rating": 5
+        }
+      },
+      "healthcare-appointment-system": {
+        "project_name": "Système de Rendez-vous Médicaux",
+        "client_name": "Réseau de Cliniques Privées",
+        "short_description": "Système de gestion des patients et de prise de rendez-vous avec rappels SMS, réduisant les absences et améliorant l'efficacité.",
+        "challenge_description": "Un réseau de cliniques avait 40% de taux d'absence et gérait les rendez-vous manuellement par téléphone, perdant des heures en travail administratif.",
+        "solution_description": "Construction d'un système web de gestion des patients avec rappels SMS automatisés, réservation en ligne et gestion des plannings des médecins.",
+        "technologies": ["Vue.js", "Node.js", "MySQL", "SMS Integration"],
+        "results": [
+          { "label": "Réduction des Absences", "value": "60%" },
+          { "label": "Rendez-vous Quotidiens", "value": "200+" },
+          { "label": "Satisfaction Patients", "value": "4.8/5" }
+        ],
+        "testimonial": null
+      },
+      "fintech-lending-platform": {
+        "project_name": "Plateforme de Crédit IA",
+        "client_name": "Institution de Microfinance",
+        "short_description": "Plateforme de scoring crédit et de gestion des prêts propulsée par l'IA, permettant des approbations plus rapides et moins de défauts.",
+        "challenge_description": "Le traitement manuel des prêts prenait 2 semaines et affichait un taux de défaut de 30% en raison de méthodes d'évaluation du crédit insuffisantes.",
+        "solution_description": "Construction d'un moteur de scoring crédit IA utilisant des données alternatives, réduisant drastiquement les délais d'approbation et les taux de défaut.",
+        "technologies": [
+          "React.js",
+          "Python",
+          "FastAPI",
+          "IA/ML",
+          "PostgreSQL"
+        ],
+        "results": [
+          { "label": "Approbation Plus Rapide", "value": "70%" },
+          { "label": "Réduction Défauts", "value": "25%" },
+          { "label": "Prêts Traités", "value": "10 000+" }
+        ],
+        "testimonial": {
+          "quote": "Le système de scoring crédit IA a réduit notre temps d'approbation de 70% tout en diminuant les défauts. AlphaWaves n'a pas seulement créé un logiciel ils ont transformé toute notre activité de prêt.",
+          "author": "Dr. Emmanuel Fon",
+          "title": "Directeur Général",
+          "company": "Institution de Microfinance",
+          "rating": 5
+        }
+      },
+      "hotel-booking-system": {
+        "project_name": "Réservation & Gestion Hôtelière",
+        "client_name": "Chaîne d'Hôtels Boutique",
+        "short_description": "Système de gestion hôtelière complet avec réservation en ligne, traitement des paiements et tableau de bord analytique opérationnel.",
+        "challenge_description": "Une chaîne hôtelière perdait des réservations au profit des plateformes OTA et payait 20% de commissions. Aucune capacité de réservation directe n'existait.",
+        "solution_description": "Construction d'un moteur de réservation directe avec intégration Stripe, tableau de bord de gestion des chambres et analytique des revenus.",
+        "technologies": ["Next.js", "Node.js", "Stripe", "Booking Engine API"],
+        "results": [
+          { "label": "Hausse Réservations en Ligne", "value": "180%" },
+          { "label": "Réduction Coûts Opérationnels", "value": "45%" },
+          { "label": "Disponibilité Maintenue", "value": "99,9%" }
+        ],
+        "testimonial": null
+      },
+      "education-lms-platform": {
+        "project_name": "Plateforme LMS Universitaire",
+        "client_name": "Université Privée",
+        "short_description": "Système de gestion de l'apprentissage permettant des cours en ligne, des portails étudiants et le suivi des progrès pour 5 000+ étudiants.",
+        "challenge_description": "Une université devait passer à l'apprentissage hybride post-pandémie sans infrastructure numérique en place.",
+        "solution_description": "Construction d'un LMS complet avec gestion des cours, streaming vidéo, suivi des progrès des étudiants et design responsive mobile.",
+        "technologies": ["React.js", "Node.js", "MongoDB", "Streaming Vidéo"],
+        "results": [
+          { "label": "Étudiants Inscrits", "value": "5 000+" },
+          { "label": "Taux de Complétion Cours", "value": "95%" },
+          { "label": "Réduction des Coûts", "value": "40%" }
+        ],
+        "testimonial": null
+      }
+    }
+  },
+  "postPage": {
+    "home": "Accueil",
+    "portfolio": "Portfolio",
+    "confidential": "Client Confidentiel",
+    "client": "Client",
+    "type": "Type",
+    "industry": "Secteur",
+    "status": "Statut",
+    "delivered": "Livré",
+    "caseStudy": "Étude de Cas",
+    "projectOverview": "Aperçu du Projet",
+    "aboutProject": "À Propos de Ce Projet",
+    "keyHighlights": "Points Clés",
+    "highlights": [
+      "Conçu pour les conditions du marché africain",
+      "Mobile-first, optimisé faible bande passante",
+      "Paiements mobile money intégrés",
+      "Tableau de bord analytique en temps réel",
+      "En production"
+    ],
+    "impactSummary": "Résumé d'Impact",
+    "theProblem": "Le Problème",
+    "challengeTitle": "Le Défi que Nous Avons Relevé",
+    "painPoints": "Points de Douleur",
+    "pains": [
+      "Aucune infrastructure numérique existante",
+      "Processus manuels causant des erreurs coûteuses",
+      "Limité aux transactions en espèces",
+      "Incapable de grandir sans automatisation"
+    ],
+    "ourApproach": "Notre Approche",
+    "whatWeBuilt": "Ce que Nous Avons Construit",
+    "keyDeliverables": "Livrables Clés",
+    "deliverables": [
+      "Conçu sur mesure pour les conditions du marché africain",
+      "Architecture mobile-first, capable hors-ligne",
+      "Intégration complète des paiements mobile money",
+      "Tableau de bord analytique et de reporting en temps réel",
+      "Panneau d'administration complet"
+    ],
+    "impactResults": "Impact & Résultats",
+    "numbersTitle": "Les Chiffres Ne Mentent Pas",
+    "stack": "Stack",
+    "techUsed": "Technologies Utilisées",
+    "moreWork": "Plus de Réalisations",
+    "relatedProjects": "Projets Connexes",
+    "viewAll": "Tout Voir",
+    "viewCaseStudy": "Voir l'Étude de Cas",
+    "readyBuild": "Prêt à Construire ?",
+    "ctaTitle": "Construisons Votre",
+    "ctaTitleAccent": "Histoire de Succès",
+    "ctaSubtitle": "Ce projet est un exemple de ce que nous accomplissons ensemble. Parlez-nous de votre défi créons quelque chose d'extraordinaire pour votre marché.",
+    "startProject": "Démarrer Votre Projet",
+    "viewAllProjects": "Voir Tous les Projets",
+    "notFound": "Projet Introuvable",
+    "notFoundDesc": "Ce projet n'existe pas ou a été supprimé.",
+    "backPortfolio": "Retour au Portfolio",
+    "typeLabels": {
+      "web": "Application Web",
+      "mobile": "Application Mobile",
+      "ai": "Plateforme IA"
+    },
+    "featured": "★ En Vedette",
+    "backBtn": "Retour au Portfolio",
+    "descPara1Suffix": "est une",
+    "descPara1Built": "complète développée pour",
+    "descPara1Operating": "opérant dans le secteur",
+    "descPara1Sector": ".",
+    "descPara2Intro": "Le projet a été conçu pour répondre à un manque réel et mesurable sur le marché.",
+    "descPara2Suffix": "Cela a créé un besoin urgent d'une solution numérique robuste et évolutive, capable de fonctionner de manière fiable dans les conditions uniques du paysage technologique africain notamment la connectivité variable, la diversité des préférences de paiement et les comportements mobile-first.",
+    "descPara3Prefix": "Le résultat est une plateforme qui sert véritablement les personnes qui l'utilisent au quotidien des opérateurs métier gérant leur flux de travail aux utilisateurs finaux interagissant avec le produit sur leurs téléphones.",
+    "descPara4Prefix": "Chaque décision prise tout au long du développement du choix des technologies aux parcours UX a été guidée par des contraintes réelles et l'objectif de maximiser l'impact. Les technologies choisies",
+    "descPara4Suffix": "ont été sélectionnées spécifiquement pour leurs performances dans l'environnement de déploiement cible.",
+    "industryLabels": {
+      "ecommerce": "e-commerce et commerce de détail",
+      "agriculture": "technologie agricole",
+      "healthcare": "gestion de la santé",
+      "finance": "technologie financière",
+      "hospitality": "gestion de l'hôtellerie",
+      "education": "technologie éducative"
+    }
+  },
+  "projectDescriptions": {
+    "ecommerce-fashion-retailer": {
+      "short_description": "Une plateforme e-commerce complète pour la mode construite pour le marché d'Afrique centrale, avec paiements mobile money et gestion des stocks en temps réel.",
+      "challenge_description": "StyleHub fonctionnait entièrement via WhatsApp et livraison contre remboursement, perdant des clients en raison de l'absence de présence en ligne, d'absence d'automatisation des paiements et de zéro visibilité des stocks.",
+      "solution_description": "Nous avons construit une plateforme e-commerce complète avec catalogue de produits, panier, paiement, intégration MTN MoMo et Orange Money, un tableau de bord administrateur et des notifications de commandes automatisées par SMS."
+    },
+
+    "agricultural-marketplace": {
+      "short_description": "Un marché mobile connectant directement les agriculteurs aux acheteurs à travers le Cameroun, éliminant les intermédiaires et augmentant les revenus des agriculteurs.",
+      "challenge_description": "Les petits agriculteurs n'avaient aucun moyen d'atteindre les acheteurs directement, étaient forcés de vendre par l'intermédiaire d'intermédiaires exploitants, et n'avaient aucune visibilité sur les prix du marché.",
+      "solution_description": "Nous avons développé une application mobile React Native avec des listes de prix en temps réel, des messages directs agriculteur-acheteur, des paiements mobile money et une coordination des livraisons basée sur le GPS."
+    },
+
+    "healthcare-appointment-system": {
+      "short_description": "Un système numérique de gestion des rendez-vous et des patients pour un réseau de cliniques privées, remplaçant les dossiers papier et les réservations par téléphone.",
+      "challenge_description": "MediCare gérait tous les rendez-vous par téléphone et papier, ce qui entraînait des surréservations, des dossiers patients perdus et des temps d'attente longs qui faisaient fuir les patients.",
+      "solution_description": "Nous avons construit une plateforme web permettant aux patients de réserver en ligne, aux médecins de gérer les horaires et aux administrateurs de suivre l'historique des patients, la facturation et les performances de la clinique en temps réel."
+    },
+
+    "fintech-lending-platform": {
+      "short_description": "Une plateforme de micro-crédit alimentée par l'IA qui évalue la solvabilité sans antécédents de crédit, utilisant des données alternatives pour servir la population non bancarisée.",
+      "challenge_description": "Des millions de Camerounais sont exclus du crédit formel car ils n'ont pas d'antécédents de crédit, aucune garantie et aucun compte bancaire rendant les modèles de prêt traditionnels complètement inutilisables.",
+      "solution_description": "Nous avons construit un moteur de scoring IA qui analyse l'historique des transactions mobile money, l'utilisation du temps d'antenne et les modèles comportementaux pour évaluer le risque de crédit, approuver les prêts en minutes et débourser directement via mobile money."
+    },
+
+    "hotel-booking-system": {
+      "short_description": "Un système complet de gestion hôtelière et de réservation en ligne pour un groupe d'hôtels boutique, avec gestion des chambres, profils des clients et paiements intégrés.",
+      "challenge_description": "L'hôtel prenait toutes les réservations par téléphone et WhatsApp, n'avait aucun moyen de gérer la disponibilité des chambres en temps réel et perdait des réservations face aux hôtels ayant une présence en ligne.",
+      "solution_description": "Nous avons livré un moteur de réservation complet avec disponibilité en temps réel, confirmations automatiques par email et SMS, un tableau de bord de gestion à la réception et support des paiements mobile money et par carte."
+    },
+
+    "education-lms-platform": {
+      "short_description": "Un système complet de gestion de l'apprentissage pour une startup edtech camerounaise, permettant aux instructeurs de vendre des cours et aux étudiants d'apprendre sur n'importe quel appareil.",
+      "challenge_description": "AcademiaPro avait du contenu de cours mais aucune plateforme pour le livrer ils partageaient des PDF sur WhatsApp et collectaient les paiements manuellement via mobile money sans reçus ni suivi.",
+      "solution_description": "Nous avons construit un LMS complet avec outils de création de cours, streaming vidéo, suivi de la progression des étudiants, génération de certificats, intégration des paiements mobile money et un tableau de bord des revenus des instructeurs."
+    }
+  },
+
+  "featuredCaseStudy": {
+    "sectionLabel": "Projet en vedette",
+    "heading": "Histoire de",
+    "headingHighlight": "succès en vedette",
+    "badges": {
+      "featured": "En vedette",
+      "confidentialClient": "Client confidentiel"
+    },
+    "keyResults": {
+      "label": "Résultats clés"
+    },
+    "projectDetails": {
+      "challenge": "Défi",
+      "solution": "Solution"
+    },
+    "testimonial": {
+      "authorFormat": "— {{author}}, {{title}}"
+    },
+    "cta": "Lire l'étude de cas complète"
+  },
+  "industriesServed": {
+    "sectorLabel": "Secteurs",
+    "heading": "Secteurs que nous avons ",
+    "headingHighlight": "Transformés",
+    "projectsCount": "{{count}} Projets",
+    "industries": {
+      "1": {
+        "name": "E-Commerce",
+        "metric": "Croissance moyenne des revenus ×3 après lancement"
+      },
+      "2": {
+        "name": "Finance",
+        "metric": "Plateformes sécurisées et conformes à grande échelle"
+      },
+      "3": {
+        "name": "Développement durable",
+        "metric": "Outils numériques au service de l'impact vert"
+      },
+      "4": {
+        "name": "Santé",
+        "metric": "Expériences numériques centrées sur le patient"
+      },
+      "5": {
+        "name": "Éducation",
+        "metric": "Plateformes engageantes pour les apprenants modernes"
+      },
+      "6": {
+        "name": "Hôtellerie",
+        "metric": "Réservation fluide et expériences clients soignées"
+      },
+      "7": {
+        "name": "Entreprise",
+        "metric": "Opérations optimisées et outils internes efficaces"
+      },
+      "8": {
+        "name": "Logistique",
+        "metric": "Suivi en temps réel et solutions de flotte"
+      }
+    }
+  },
+  "testimonials": {
+    "sectorLabel": "Voix de nos clients",
+    "heading": "Ce que disent nos ",
+    "headingHighlight": "Clients",
+    "prev": "Témoignage précédent",
+    "next": "Témoignage suivant",
+    "goTo": "Aller au témoignage {{index}}"
+  },
+  "portfolioMetrics": {
+    "sectorLabel": "En Chiffres",
+    "heading": "Impact Mesurable ",
+    "headingHighlight": "que nous avons Livré",
+    "metrics": {
+      "1": { "label": "Revenus totaux générés pour les clients" },
+      "2": { "label": "Utilisateurs servis sur toutes les plateformes" },
+      "3": { "label": "Transactions traitées" },
+      "4": { "label": "Projets livrés" },
+      "5": { "label": "Taux de satisfaction client" },
+      "6": { "label": "Croissance moyenne des revenus des clients" }
+    }
+  },
+  "cta": {
+    "eyebrow": "Démarrer votre projet",
+    "title": "Prêt à devenir notre prochaine",
+    "titleAccent": "Success Story ?",
+    "subtitle": "Rejoignez des entreprises leaders en Afrique qui ont transformé leurs opérations avec AlphaWaves.",
+    "primaryBtn": "Démarrer votre projet",
+    "secondaryBtn": "Planifier une consultation",
+    "trustPoints": [
+      "Consultation gratuite et évaluation du projet",
+      "Tarification transparente sans coûts cachés",
+      "Expérience prouvée dans plus de 8 secteurs",
+      "Une équipe dédiée engagée dans votre réussite"
+    ]
+  },
+
+  "contactPage": {
+    "hero": {
+      "eyebrow": "Contact",
+      "headline": {
+        "main": "Construisons Quelque Chose",
+        "accent": "Ensemble"
+      },
+      "subheadline": "Nous serions ravis de vous entendre. Nous répondons sous 24 heures."
+    },
+    "contactInfo": {
+      "sectionLabel": "Informations de Contact",
+      "location": {
+        "label": "Localisation",
+        "value": "Yaoundé, Cameroun",
+        "note": "Équipe locale avec une portée mondiale"
+      },
+      "email": {
+        "label": "E-mail",
+        "value": "contact@alphawaves.com",
+        "note": "Réponse rapide garantie"
+      },
+      "phone": {
+        "label": "Téléphone",
+        "value": "+237 6XX XXX XXX",
+        "note": "Appels et WhatsApp disponibles"
+      },
+      "responseTime": {
+        "label": "Délai de réponse",
+        "value": "Sous 24 heures",
+        "note": "Jours ouvrables seulement"
+      },
+      "languages": {
+        "label": "Langues",
+        "value": "Anglais & Français",
+        "note": "Support bilingue"
+      }
+    },
+    "socialSection": {
+      "eyebrow": "Suivez Notre Parcours",
+      "subtitle": "Restez connecté nous partageons des idées, des projets et des mises à jour."
+    },
+    "bottomCta": {
+      "eyebrow": "Découvrez Notre Travail",
+      "headline": "Pas encore prêt à nous",
+      "headlineAccent": "contacter ?",
+      "subtitle": "Voyez d'abord nos réalisations explorez de vrais projets que nous avons livrés à travers l'Afrique.",
+      "cta": "Voir Notre Portfolio"
+    },
+    "faqMini": {
+      "eyebrow": "Réponses Rapides",
+      "subtitle": "Des questions avant de nous contacter ? Voici les plus fréquentes.",
+      "seeAll": "Voir Toutes les FAQ"
+    },
+    "services": {
+      "customSoftware": "Logiciel Sur Mesure",
+      "mobileApp": "Application Mobile",
+      "aiBusinessIntelligence": "IA & Business Intelligence",
+      "digitalMarketingSeo": "Marketing Digital & SEO",
+      "cloudDevops": "Cloud & DevOps",
+      "ecommerce": "E-commerce",
+      "paymentIntegration": "Intégration de Paiement",
+      "digitalTransformation": "Transformation Digitale",
+      "notSure": "Pas encore sûr"
+    },
+    "budgets": {
+      "under500": "Moins de 500 $",
+      "range500to2000": "500 $ - 2 000 $",
+      "range2000to10000": "2 000 $ - 10 000 $",
+      "range10000to50000": "10 000 $ - 50 000 $",
+      "over50000": "Plus de 50 000 $",
+      "letsDiscuss": "Discutons-en"
+    },
+    "sources": {
+      "googleSearch": "Recherche Google",
+      "socialMedia": "Réseaux Sociaux",
+      "referral": "Parrainage",
+      "linkedin": "LinkedIn",
+      "whatsapp": "WhatsApp",
+      "other": "Autre"
+    },
+    "trust": {
+      "responseGuarantee": "Communication rapide et réactive pour chaque demande.",
+      "confidential": "Les détails de votre projet restent sécurisés et confidentiels.",
+      "bilingual": "Support anglais et français pour les marchés africains.",
+      "freeConsultation": "Consultation gratuite pour clarifier le périmètre et le budget."
+    },
+    "faqs": {
+      "cost": {
+        "question": "Combien coûte un projet ?",
+        "answer": "Les coûts varient selon la portée et la complexité. Nous fournissons des propositions transparentes adaptées à votre budget et vos objectifs."
+      },
+      "timeline": {
+        "question": "Combien de temps cela prend-il ?",
+        "answer": "Le calendrier dépend de la solution choisie et de la portée. La plupart des projets commencent par une phase de découverte rapide et un planning de livraison."
+      },
+      "international": {
+        "question": "Travaillez-vous avec des clients non locaux ?",
+        "answer": "Oui. Nous servons des clients à travers l'Afrique et à l'international avec un support bilingue et une collaboration à distance."
+      }
+    },
+    "socials": {
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "twitter": "Twitter",
+      "whatsapp": "WhatsApp",
+      "facebook": "Facebook"
+    },
+    "form": {
+      "eyebrow": "Commençons La Conversation",
+      "headline": {
+        "main": "Parlez-nous De Votre",
+        "accent": "Projet"
+      },
+      "subheadline": "Nous vous répondrons avec un plan personnalisé dans les 24 heures.",
+      "labels": {
+        "fullName": "Nom Complet",
+        "email": "Adresse E-mail",
+        "phone": "Numéro De Téléphone",
+        "company": "Nom De L'Entreprise",
+        "service": "Service Intéressé",
+        "budget": "Gamme De Budget",
+        "description": "Description Du Projet",
+        "source": "Comment Nous Avez-vous Trouvé?"
+      },
+      "placeholders": {
+        "selectService": "Sélectionnez un service...",
+        "selectBudget": "Sélectionnez une gamme de budget...",
+        "description": "Parlez-nous de votre projet, vos objectifs, vos défis, et ce que le succès signifie pour vous...",
+        "selectSource": "Sélectionnez une source..."
+      },
+      "examples": {
+        "fullName": "Jean Dupont",
+        "email": "you@company.com",
+        "phone": "+237 XXX XXX XXX",
+        "company": "Votre Entreprise"
+      },
+      "errors": {
+        "fullNameRequired": "Le nom complet est obligatoire",
+        "emailRequired": "L'e-mail est obligatoire",
+        "emailInvalid": "Veuillez entrer un e-mail valide",
+        "serviceRequired": "Veuillez sélectionner un service",
+        "descriptionRequired": "Veuillez décrire votre projet",
+        "descriptionTooShort": "Veuillez fournir plus de détails (au moins quelques phrases)"
+      },
+      "success": {
+        "title": "Message Reçu !",
+        "message": "Notre équipe vous contactera dans les 24 heures. En attendant, explorez nos réalisations.",
+        "cta": "Voir Notre Portfolio"
+      },
+      "error": {
+        "message": "Quelque chose s'est mal passé. Veuillez réessayer ou nous envoyer un e-mail à"
+      },
+      "privacy": "🔒 Vos informations sont 100% confidentielles. Pas de spam, jamais.",
+      "sendBtn": "Envoyer Le Message",
+      "sending": "Envoi en cours..."
+    }
+  },
+
+  "FAQPage": {
+    "hero": {
+      "eyebrow": "FAQ",
+      "headline": "Des questions ? Nous avons les réponses.",
+      "subheadline": "Tout ce que vous devez savoir sur votre collaboration avec AlphaWaves des tarifs et du processus jusqu'à la livraison et l'assistance.",
+      "searchPlaceholder": "Rechercher ex. tarifs, mobile money..."
+    },
+    "content": {
+      "categories": {
+        "all": "Toutes les questions",
+        "services": "Services & Solutions",
+        "pricing": "Tarifs & Budgets",
+        "process": "Processus & Délais",
+        "tech": "Technologie & Technique",
+        "africa": "Marché africain & Paiements",
+        "support": "Support & Après-lancement"
+      },
+      "questionCount": "{{count}} question",
+      "questionCount_other": "{{count}} questions",
+      "emptyState": {
+        "title": "Aucun résultat pour « {{query}} »",
+        "subtitle": "Essayez d'autres mots-clés ou parcourez les catégories."
+      }
+    },
+    "cta": {
+      "eyebrow": "Nous sommes là pour vous aider",
+      "headlinePre": "Vous n'avez pas trouvé votre",
+      "headlineHighlight": "réponse ?",
+      "subtext": "Notre équipe est prête à répondre à toutes vos questions aussi techniques ou spécifiques soient-elles.",
+      "primaryButton": "Nous contacter directement",
+      "secondaryButton": "Réserver une consultation gratuite"
+    },
+    "faqs": {
+      "services": {
+        "q1": {
+          "question": "Quels services AlphaWaves propose-t-il ?",
+          "answer": "Nous proposons cinq domaines de services principaux : le développement de logiciels sur mesure, l'IA & Business Intelligence, le marketing digital & SEO, l'infrastructure Cloud & DevOps, et les solutions Mobile-First. Chaque service est conçu pour résoudre des défis métier spécifiques de bout en bout de la stratégie au déploiement."
+        },
+        "q2": {
+          "question": "Pouvez-vous gérer l'intégralité de notre projet, de A à Z ?",
+          "answer": "Oui. AlphaWaves est une société technologique full-service. Notre équipe multidisciplinaire prend en charge la stratégie, le design, le développement, l'intégration de l'IA, le déploiement et l'optimisation post-lancement sous un même toit sans coordination chaotique entre prestataires."
+        },
+        "q3": {
+          "question": "Développez-vous des applications mobiles ?",
+          "answer": "Absolument. Nous sommes spécialisés dans le développement mobile-first pour iOS et Android. Nos solutions sont optimisées pour des conditions de connectivité variables et les capacités des appareils sur les marchés africains."
+        },
+        "q4": {
+          "question": "Pouvez-vous intégrer les paiements mobile money (MTN MoMo, Orange Money, Airtel Money) ?",
+          "answer": "Oui c'est l'une de nos forces majeures. Nous concevons des infrastructures de paiement unifiées qui gèrent de manière transparente MTN MoMo, Orange Money, Airtel Money et des passerelles internationales comme Stripe dans une solution unique."
+        },
+        "q5": {
+          "question": "Proposez-vous des solutions IA pour les petites entreprises ?",
+          "answer": "Oui. Nous n'adaptons pas l'IA à des systèmes existants nous intégrons l'intelligence dès la conception. Nos solutions IA vont des tableaux de bord analytiques pour dirigeants et des modèles prédictifs aux workflows d'automatisation intelligente, le tout adapté à votre budget et votre stade de croissance."
+        }
+      },
+      "pricing": {
+        "q6": {
+          "question": "Combien coûte un projet ?",
+          "answer": "Chaque projet est unique. Nos solutions démarrent à partir de 500 $ pour des projets web simples jusqu'aux développements de niveau entreprise. Nous suivons une approche modulaire vous pouvez commencer par les fonctionnalités essentielles et évoluer au rythme de votre croissance. Partagez vos besoins et nous vous fournirons un devis transparent, sans mauvaises surprises."
+        },
+        "q7": {
+          "question": "Y a-t-il des coûts cachés ?",
+          "answer": "Non. Nous croyons en la transparence tarifaire. Tous les coûts sont clairement documentés avant le début de toute prestation. Si le périmètre évolue en cours de projet, nous en discutons ouvertement et obtenons votre accord avant de poursuivre."
+        },
+        "q8": {
+          "question": "Proposez-vous des échéanciers de paiement ?",
+          "answer": "Oui. Nous structurons des jalons de paiement liés aux phases de livraison du projet généralement un acompte au démarrage, puis des paiements aux étapes clés. Nous conviendrons de la structure lors de votre consultation gratuite."
+        },
+        "q9": {
+          "question": "La consultation initiale est-elle vraiment gratuite ?",
+          "answer": "Oui, entièrement gratuite et sans engagement. Nous discuterons de votre projet, évaluerons vos besoins et vous ferons une recommandation honnête même si la réponse est que vous n'avez pas encore besoin de nous."
+        }
+      },
+      "process": {
+        "q10": {
+          "question": "Comment fonctionne votre processus ?",
+          "answer": "Nous suivons un processus de livraison en 5 étapes : Découverte → Stratégie & Design → Développement Agile → Lancement & Déploiement → Optimisation & Mise à l'échelle. Chaque projet commence par la compréhension de vos objectifs métier et se termine par des résultats mesurables."
+        },
+        "q11": {
+          "question": "Combien de temps dure un projet ?",
+          "answer": "Les délais dépendent de la complexité. Un site web simple prend 2 à 4 semaines. Une application mobile ou une plateforme e-commerce prend généralement 6 à 12 semaines. Les systèmes de niveau entreprise peuvent nécessiter 3 à 6 mois. Nous vous communiquerons un calendrier précis lors de votre consultation gratuite."
+        },
+        "q12": {
+          "question": "Serai-je impliqué pendant le développement ?",
+          "answer": "Absolument. Nous utilisons une livraison agile par sprints avec des points réguliers et des sessions de feedback avec les clients. Vous saurez toujours exactement où en est votre projet."
+        },
+        "q13": {
+          "question": "Que se passe-t-il après le lancement de mon projet ?",
+          "answer": "Nous assurons le support post-lancement, la surveillance des performances et l'amélioration continue. Nous sommes votre partenaire technologique stratégique à long terme pas un prestataire ponctuel."
+        }
+      },
+      "tech": {
+        "q14": {
+          "question": "Quelles technologies utilisez-vous ?",
+          "answer": "Notre stack comprend React, Vue, Next.js (Frontend), Node.js, Python, PHP (Backend), React Native & Flutter (Mobile), PostgreSQL, MongoDB, MySQL (Bases de données), AWS, Azure, Google Cloud (Infrastructure), et TensorFlow, PyTorch, scikit-learn (IA/ML)."
+        },
+        "q15": {
+          "question": "Pouvez-vous travailler avec nos systèmes existants ?",
+          "answer": "Oui. Nous intégrons régulièrement des plateformes existantes, des systèmes hérités et des API tierces. Nous évaluerons votre infrastructure actuelle lors de la phase de découverte."
+        },
+        "q16": {
+          "question": "Ma solution fonctionnera-t-elle dans des zones à connexion lente ?",
+          "answer": "Oui. Nous sommes spécialisés dans l'architecture offline-first et l'optimisation à faible bande passante essentielles sur les marchés africains. Nos solutions sont conçues pour fonctionner dans les conditions réelles des infrastructures africaines."
+        }
+      },
+      "africa": {
+        "q17": {
+          "question": "Pourquoi choisir une entreprise tech africaine pour un marché africain ?",
+          "answer": "Les agences internationales importent des solutions qui échouent face aux conditions d'infrastructure africaines, aux écosystèmes de paiement et aux habitudes de connectivité. Nous concevons des systèmes pensés pour prospérer dans ces environnements dès le premier jour. Notre expertise approfondie au Cameroun le hub bilingue de l'Afrique nous confère une compréhension incomparable des marchés francophones et anglophones."
+        },
+        "q18": {
+          "question": "Travaillez-vous avec des entreprises hors du Cameroun ?",
+          "answer": "Oui. Nous accompagnons des entreprises camerounaises, des organisations panafricaines et des sociétés internationales entrant sur les marchés africains. Nous avons développé des solutions déployées à l'échelle de l'Afrique francophone et anglophone."
+        },
+        "q19": {
+          "question": "Pouvez-vous créer des solutions bilingues (français/anglais) ?",
+          "answer": "Absolument. En tant que société basée au Cameroun le hub bilingue de l'Afrique développer des solutions numériques bilingues est dans notre ADN."
+        }
+      },
+      "support": {
+        "q20": {
+          "question": "Proposez-vous un support continu après le lancement ?",
+          "answer": "Oui. Nous proposons des forfaits de support post-lancement couvrant la correction de bugs, la surveillance des performances, les mises à jour de fonctionnalités et l'accompagnement stratégique au fil de votre croissance."
+        },
+        "q21": {
+          "question": "Que se passe-t-il si quelque chose ne fonctionne pas après le lancement ?",
+          "answer": "Nous assumons notre travail. Les problèmes critiques sont traités en priorité. Tous les projets incluent une période de garantie post-lancement pendant laquelle les bugs sont corrigés sans frais supplémentaires."
+        },
+        "q22": {
+          "question": "Peut-on ajouter de nouvelles fonctionnalités plus tard ?",
+          "answer": "Oui et nous le concevons dès le départ. Notre approche modulaire signifie que votre solution peut évoluer avec votre entreprise. L'ajout de fonctionnalités ultérieures est toujours fluide."
+        }
+      }
     }
   }
 }
