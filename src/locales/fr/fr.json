@@ -687,5 +687,221 @@
         }
       }
     }
+  },
+
+  "portfolioPage": {
+    "hero": {
+      "eyebrow": "Nos Réalisations",
+      "headline": "Des Résultats Prouvés à Travers les Marchés Africains",
+      "subheadline": "De vrais projets. De vrais clients. Un impact réel.",
+      "primaryBtn": "Démarrer Votre Projet",
+      "secondaryBtn": "Voir Toutes les Études de Cas"
+    },
+
+    "statsBar": {
+      "stats": [
+        {
+          "id": 1,
+          "value": 50,
+          "suffix": "+",
+          "label": "Projets Livrés"
+        },
+        {
+          "id": 2,
+          "value": 8,
+          "suffix": "+",
+          "label": "Secteurs Desservis"
+        },
+        {
+          "id": 3,
+          "value": 10,
+          "suffix": "+",
+          "label": "Pays"
+        },
+        {
+          "id": 4,
+          "value": 98,
+          "suffix": "%",
+          "label": "Satisfaction Client"
+        }
+      ]
+    },
+
+    "portfolioGrid": {
+      "eyebrow": "Nos Réalisations",
+      "headline": "Découvrez Nos Projets",
+      "subheadline": "De vrais résultats pour de vrais clients",
+      "filterLabel": {
+        "industry": "Secteur",
+        "service": "Service"
+      },
+      "filters": {
+        "all": "Tous les Projets",
+        "ecommerce": "E-commerce & Commerce",
+        "finance": "Services Financiers",
+        "agriculture": "Agriculture",
+        "healthcare": "Santé",
+        "education": "Éducation",
+        "hospitality": "Hôtellerie & Tourisme",
+        "web": "Applications Web",
+        "mobile": "Applications Mobiles",
+        "ai": "IA & Analyse de Données"
+      },
+      "noResults": "Aucun projet trouvé. Essayez une autre catégorie ou un autre filtre de service.",
+      "viewCaseStudy": "Voir l'Étude de Cas",
+
+      "projects": [
+        {
+          "id": 1,
+          "slug": "ecommerce-fashion-retailer",
+          "name": "Plateforme E-commerce",
+          "client": "Grand Détaillant de Mode, Douala",
+          "clientConfidential": false,
+          "industry": "ecommerce",
+          "serviceType": "web",
+          "description": "Plateforme e-commerce complète avec intégration fluide du mobile money, gestion des stocks et analyses clients.",
+          "challenge": "Un détaillant de mode en pleine croissance n'avait aucune présence en ligne et perdait des ventes face à la concurrence. Les paiements uniquement en espèces limitaient sa clientèle.",
+          "solution": "Création d'une plateforme e-commerce complète avec intégration MTN MoMo et Orange Money, gestion des stocks en temps réel et tableau de bord analytique.",
+          "technologies": [
+            "React.js",
+            "Node.js",
+            "MongoDB",
+            "MTN MoMo",
+            "Orange Money"
+          ],
+          "results": [
+            { "label": "Augmentation des Revenus", "value": "250%" },
+            { "label": "Transactions Traitées", "value": "15,000+" },
+            { "label": "Réduction des Coûts de Stock", "value": "40%" }
+          ],
+          "featured": true,
+          "testimonial": {
+            "quote": "AlphaWaves a complètement transformé notre activité de vente au détail. L'intégration du mobile money à elle seule a augmenté nos ventes en ligne de 250% en seulement trois mois.",
+            "author": "Jean-Paul Kamga",
+            "title": "PDG",
+            "company": "Fashion Boutique Douala",
+            "rating": 5
+          }
+        },
+
+        {
+          "id": 2,
+          "slug": "agricultural-marketplace",
+          "name": "Marketplace Agricole",
+          "client": "Coopérative Agricole Régionale",
+          "clientConfidential": false,
+          "industry": "agriculture",
+          "serviceType": "mobile",
+          "description": "Marketplace mobile-first connectant directement les agriculteurs aux acheteurs, éliminant les intermédiaires et augmentant les profits.",
+          "challenge": "Les agriculteurs perdaient 60% de leurs profits potentiels à cause des intermédiaires et n'avaient aucun accès direct aux acheteurs ni aux prix du marché.",
+          "solution": "Développement d'une application marketplace React Native avec prix en temps réel, mise en relation géolocalisée et paiements mobile money.",
+          "technologies": [
+            "React Native",
+            "Python",
+            "PostgreSQL",
+            "Google Maps API"
+          ],
+          "results": [
+            { "label": "Agriculteurs Inscrits", "value": "500+" },
+            { "label": "Acheteurs Enregistrés", "value": "2,000+" },
+            { "label": "Augmentation des Revenus Agricoles", "value": "35%" }
+          ],
+          "featured": false,
+          "testimonial": {
+            "quote": "Travailler avec AlphaWaves a été fluide. La plateforme connecte maintenant plus de 500 agriculteurs aux acheteurs, augmentant leurs revenus de 35%.",
+            "author": "Marie Nkolo",
+            "title": "Directrice",
+            "company": "Coopérative Agricole",
+            "rating": 5
+          }
+        },
+
+        {
+          "id": 3,
+          "slug": "healthcare-appointment-system",
+          "name": "Système de Gestion Médicale",
+          "client": "Réseau de Cliniques Privées",
+          "clientConfidential": false,
+          "industry": "healthcare",
+          "serviceType": "web",
+          "description": "Système de gestion des patients et de prise de rendez-vous avec rappels SMS pour réduire les absences.",
+          "challenge": "Un réseau de cliniques avait un taux d'absence de 40% et gérait les rendez-vous manuellement par téléphone.",
+          "solution": "Création d'un système web avec rappels SMS automatiques, réservation en ligne et gestion des plannings médicaux.",
+          "technologies": ["Vue.js", "Node.js", "MySQL", "Intégration SMS"],
+          "results": [
+            { "label": "Réduction des Absences", "value": "60%" },
+            { "label": "Rendez-vous Quotidiens", "value": "200+" },
+            { "label": "Satisfaction des Patients", "value": "4.8/5" }
+          ],
+          "featured": false,
+          "testimonial": null
+        }
+      ]
+    },
+
+    "featuredCaseStudy": {
+      "eyebrow": "Projet Vedette",
+      "headline": "Histoire de Réussite Mise en Avant",
+      "keyResults": "Résultats Clés",
+      "challenge": "Défi",
+      "solution": "Solution",
+      "readFullCaseStudy": "Lire l'Étude de Cas Complète"
+    },
+
+    "industriesServed": {
+      "eyebrow": "Secteurs",
+      "headline": "Les Industries Que Nous Transformons"
+    },
+
+    "portfolioTestimonials": {
+      "eyebrow": "Témoignages Clients",
+      "headline": "Ce Que Disent Nos Clients",
+      "navigationPrev": "Témoignage précédent",
+      "navigationNext": "Témoignage suivant"
+    },
+
+    "portfolioMetrics": {
+      "eyebrow": "En Chiffres",
+      "headline": "Un Impact Mesurable",
+      "metrics": [
+        {
+          "id": 1,
+          "value": 10,
+          "suffix": "M+",
+          "prefix": "$",
+          "label": "Revenus Générés Pour Nos Clients"
+        },
+        {
+          "id": 2,
+          "value": 200,
+          "suffix": "K+",
+          "prefix": "",
+          "label": "Utilisateurs Desservis"
+        },
+        {
+          "id": 3,
+          "value": 500,
+          "suffix": "K+",
+          "prefix": "",
+          "label": "Transactions Traitées"
+        }
+      ]
+    },
+
+    "portfolioCTA": {
+      "eyebrow": "Démarrez Votre Projet",
+      "headline": "Prêt à Devenir Notre Prochaine Success Story ?",
+      "subheadline": "Rejoignez les entreprises africaines qui ont transformé leurs opérations grâce à AlphaWaves.",
+      "trustPoints": [
+        "Consultation gratuite et analyse du projet",
+        "Tarification transparente sans coûts cachés",
+        "Expérience prouvée dans plus de 8 secteurs",
+        "Équipe dédiée engagée pour votre réussite"
+      ],
+      "primaryBtn": "Démarrer Votre Projet",
+      "secondaryBtn": "Planifier une Consultation",
+      "primaryLink": "/contact",
+      "secondaryLink": "/contact"
+    }
   }
 }
